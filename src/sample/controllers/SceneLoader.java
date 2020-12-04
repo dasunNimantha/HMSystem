@@ -1,0 +1,62 @@
+package sample.controllers;
+
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.IOException;
+import java.util.concurrent.atomic.AtomicReference;
+
+public class SceneLoader {
+
+    public void signUpLoader(){
+        Stage signUpStage = new Stage();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../views/SignUp.fxml"));
+            Scene scene = new Scene(root,1049,594);
+            signUpStage.setScene(scene);
+            signUpStage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    public void loginLoader(){
+        Stage loginStage = new Stage();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../views/Login.fxml"));
+            Scene scene = new Scene(root,1049,594);
+            loginStage.setScene(scene);
+
+            final double[] xOffset = new double[1];
+            final double[] yOffset = new double[1];
+            loginStage.setTitle("Login");
+            loginStage.initStyle(StageStyle.TRANSPARENT);
+            scene.setFill(Color.TRANSPARENT);
+            root.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    xOffset[0] = event.getSceneX();
+                    yOffset[0] = event.getSceneY();
+                }
+            });
+            root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    loginStage.setX(event.getScreenX() - xOffset[0]);
+                    loginStage.setY(event.getScreenY() - yOffset[0]);
+                }
+            });
+
+
+            loginStage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+}

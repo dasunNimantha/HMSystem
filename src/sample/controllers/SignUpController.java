@@ -1,5 +1,4 @@
 package sample.controllers;
-import javafx.scene.control.Hyperlink;
 import sample.models.Crypto;
 
 import com.jfoenix.controls.JFXButton;
@@ -15,29 +14,39 @@ import java.util.List;
 public class SignUpController {
 
     @FXML
-    private JFXButton fileChooserBtn;
+    private JFXButton exitBtn;
 
     @FXML
-    private Hyperlink signUpLink;
+    private JFXButton backToLogin;
 
     @FXML
-    void loadSignUp(ActionEvent event) {
-
+    void ExitsignUp(ActionEvent event) {
+            exitBtn.getScene().getWindow().hide();
+            System.exit(0);
     }
 
+    @FXML
+    void backToLogin(ActionEvent event) {
+        SceneLoader sl = new SceneLoader();
+        sl.loginLoader();
+        backToLogin.getScene().getWindow().hide();
+    }
     public void initialize(){
-        fileChooserBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-//                FileChooser fc = new FileChooser();
-//                fc.getExtensionFilters().add(
-//                        new FileChooser.ExtensionFilter("Image Files", "*.jpg","*.jpeg"));
-//                File f = fc.showOpenDialog(null);
-                String test = Crypto.encrypt("Dasun");
-                System.out.println(test);
 
-            }
-        });
+
+
+//        fileChooserBtn.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+////                FileChooser fc = new FileChooser();
+////                fc.getExtensionFilters().add(
+////                        new FileChooser.ExtensionFilter("Image Files", "*.jpg","*.jpeg"));
+////                File f = fc.showOpenDialog(null);
+//                String test = Crypto.encrypt("Dasun");
+//                System.out.println(test);
+//
+//            }
+//        });
     }
 
 }
