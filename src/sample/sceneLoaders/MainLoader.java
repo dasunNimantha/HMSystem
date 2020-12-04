@@ -1,4 +1,4 @@
-package sample.controllers;
+package sample.sceneLoaders;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,14 +9,14 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class Main extends Application {
+public class MainLoader extends Application {
 
     private double xOffset = 0;
     private double yOffset = 0;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../views/SignUp.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/Login.fxml"));
 
         Scene scene = new Scene(root,1049, 594);
         primaryStage.setScene(scene);

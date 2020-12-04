@@ -1,4 +1,5 @@
 package sample.controllers;
+import javafx.scene.control.Hyperlink;
 import sample.models.Crypto;
 
 import com.jfoenix.controls.JFXButton;
@@ -15,6 +16,14 @@ public class SignUpController {
 
     @FXML
     private JFXButton fileChooserBtn;
+
+    @FXML
+    private Hyperlink signUpLink;
+
+    @FXML
+    void loadSignUp(ActionEvent event) {
+
+    }
 
     public void initialize(){
         fileChooserBtn.setOnAction(new EventHandler<ActionEvent>() {

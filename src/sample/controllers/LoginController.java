@@ -1,10 +1,12 @@
 
 package sample.controllers;
-
+import javafx.scene.control.Hyperlink;
+import sample.sceneLoaders.SignUpLoader;
 import java.net.URL;
 
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -24,6 +26,8 @@ public class LoginController implements Initializable {
     @FXML
     private VBox vTaskItems;
 
+    @FXML
+    private Hyperlink signUpLink;
 
     @FXML
     private Button btnEX;
@@ -49,6 +53,12 @@ public class LoginController implements Initializable {
         btnEX.setStyle("-fx-background-color: grey");
     }
 
+    @FXML
+    void loadSignUp(ActionEvent event) throws Exception {
+        signUpLink.getScene().getWindow().hide();
+        SignUpLoader sup = new SignUpLoader();
+        sup.start();
 
+    }
 
 }
