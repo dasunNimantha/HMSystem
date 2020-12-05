@@ -13,6 +13,7 @@ import java.util.List;
 
 public class SignUpController {
 
+    public JFXButton btnPrevious1;
     @FXML
     private JFXButton exitBtn;
 

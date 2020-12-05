@@ -53,7 +53,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(from 250px 100px to 80px 500px, #f5f5f5, #FFFFFF); -fx-background-radius: 25; -fx-border-radius: 25;" BorderPane.alignment="CENTER">
                <children>
-                  <JFXTextField fx:id="usrNameField" labelFloat="true" layoutX="154.0" layoutY="293.0" prefHeight="34.0" prefWidth="303.0" promptText="Username">
+                  <JFXTextField fx:id="usrNameField" labelFloat="true" layoutX="154.0" layoutY="293.0" onKeyPressed="#hideInvalidLabelUsername" prefHeight="34.0" prefWidth="281.0" promptText="Username">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -61,12 +61,12 @@
                   <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="217.0" layoutY="30.0">
 
                   </ImageView>
-                  <JFXPasswordField fx:id="passwdField" labelFloat="true" layoutX="152.0" layoutY="367.0" prefHeight="31.0" prefWidth="308.0" promptText="Password">
+                  <JFXPasswordField fx:id="passwdField" labelFloat="true" layoutX="152.0" layoutY="367.0" onKeyPressed="#hideInvalidLabelPaswd" prefHeight="31.0" prefWidth="290.0" promptText="Password">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </JFXPasswordField>
-                  <JFXComboBox fx:id="userRole" layoutX="309.0" layoutY="233.0" prefHeight="26.0" prefWidth="152.0" promptText="Patient" />
+                  <JFXComboBox fx:id="userRole" layoutX="314.0" layoutY="233.0" prefHeight="26.0" prefWidth="121.0" promptText="Patient" unFocusColor="BLACK" visibleRowCount="3" />
                   <Label layoutX="156.0" layoutY="233.0" prefHeight="26.0" prefWidth="125.0" text="User Role">
                      <font>
                         <Font size="14.0" />
@@ -84,11 +84,16 @@
                      </font>
                   </Hyperlink>
                   <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="227.0" layoutY="40.0">
-                     <Image url="@../assets/images/imgbin_computer-icons-avatar-user-login-png_LGzVdNb1.png"/>
+                     <Image url="@../assets/images/imgbin_computer-icons-avatar-user-login-png_LGzVdNb1.png" />
                   </ImageView>
                   <FontAwesomeIcon layoutX="97.0" layoutY="254.0" size="2em" />
                   <FontAwesomeIcon glyphName="USER" layoutX="100.0" layoutY="320.0" size="2em" text="" />
                   <FontAwesomeIcon glyphName="LOCK" layoutX="101.0" layoutY="391.0" size="2em" />
+                  <Label fx:id="invalidLabel" layoutX="152.0" layoutY="416.0" prefHeight="28.0" prefWidth="211.0" text="Invalid Username or Password" textFill="#ff1744" visible="false">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
                 
                </children>
             </AnchorPane>

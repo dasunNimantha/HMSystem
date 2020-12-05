@@ -1,7 +1,6 @@
 package sample.controllers;
 
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,9 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class SceneLoader {
 
@@ -87,7 +84,7 @@ public class SceneLoader {
     public void pDashboardLoader() throws IOException {
         Stage patientDashboardStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("../views/PatientDashboard.fxml"));
-        Scene scene = new Scene(root,1200,600);
+        Scene scene = new Scene(root,1271,623);
         patientDashboardStage.setScene(scene);
         patientDashboardStage.show();
 

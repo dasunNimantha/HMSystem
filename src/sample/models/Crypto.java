@@ -12,23 +12,19 @@ import javax.crypto.spec.SecretKeySpec;
 public class Crypto {
 
     private static SecretKeySpec secretKey;
-    private static byte[] key;
-    private static String mySecretKey="On#NaB$ab@oBill%AaPiall@aGani^muH(olla*LA" ;
+    private static final String mySecretKey="On#NaB$ab@oBill%AaPiall@aGani^muH(olla*LA" ;
 
     public static void setKey(String myKey)
     {
         MessageDigest sha = null;
         try {
-            key = myKey.getBytes("UTF-8");
+            byte[] key = myKey.getBytes("UTF-8");
             sha = MessageDigest.getInstance("SHA-1");
             key = sha.digest(key);
             key = Arrays.copyOf(key, 16);
             secretKey = new SecretKeySpec(key, "AES");
         }
-        catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        catch (UnsupportedEncodingException e) {
+        catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
