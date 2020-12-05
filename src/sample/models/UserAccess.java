@@ -14,7 +14,7 @@ public class UserAccess {
     public int authCheck(String username, String password) throws IOException {
         String currentLine;
         int statusCode = 0;
-        FileReader fr = new FileReader("C:\\Users\\Dasun Nimantha\\Desktop\\HMSystem\\src\\sample\\fileDatabase\\userDB.txt");
+        FileReader fr = new FileReader("src/sample/fileDatabase/userDB.txt");
         BufferedReader br = new BufferedReader(fr);
         while((currentLine= br.readLine()) != null){
             String [] credentials = currentLine.split(",");
