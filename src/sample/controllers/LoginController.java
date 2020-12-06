@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -33,6 +34,10 @@ public class LoginController implements Initializable {
 
     @FXML
     private VBox vTaskItems;
+
+
+    @FXML
+    private ToggleGroup gender;
 
     @FXML
     private JFXTextField usrNameField;
@@ -75,6 +80,7 @@ public class LoginController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 SceneLoader sl = new SceneLoader();
                 sl.signUpLoader();
+
                 loadSignUp.getScene().getWindow().hide();
             }
 

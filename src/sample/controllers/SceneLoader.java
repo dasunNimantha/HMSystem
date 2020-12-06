@@ -1,22 +1,28 @@
 package sample.controllers;
 
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
 
+
+
 public class SceneLoader {
+
 
     /************************* SignUp Window Loader Function *****************************/
     public void signUpLoader(){
         Stage signUpStage = new Stage();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../views/SignUp.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../views/SignUp/SignUp.fxml"));
+            Parent step1 = FXMLLoader.load(getClass().getResource("../views/SignUp/Step_1.fxml"));
             Scene scene = new Scene(root,1049,594);
             signUpStage.setScene(scene);
 
@@ -39,7 +45,6 @@ public class SceneLoader {
                 }
             });
 
-            signUpStage.show();
         } catch (IOException exception) {
             exception.printStackTrace();
         }
