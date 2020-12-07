@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="623.0" prefWidth="1271.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.PatientDashboardController">
+   <children>
+      <JFXButton fx:id="btn1" layoutX="352.0" layoutY="109.0" onMouseClicked="#mouseClicked" prefHeight="144.0" prefWidth="291.0" style="-fx-background-color: pink; -fx-background-radius: 25;" text="Button">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </JFXButton>
+      <JFXTabPane layoutX="242.0" layoutY="330.0" prefHeight="222.0" prefWidth="510.0">
+         <tabs>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="135.0" layoutY="35.0" prefHeight="114.0" prefWidth="196.0" text="Page 1" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="169.0" layoutY="62.0" prefHeight="79.0" prefWidth="172.0" text="Page 2" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>
