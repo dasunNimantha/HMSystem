@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -11,21 +15,37 @@
          <center>
             <AnchorPane fx:id="anchor2" prefHeight="579.4" prefWidth="1100.0">
                <children>
-                  <JFXButton fx:id="backToLogin" layoutX="180.0" layoutY="538.0" prefHeight="30.0" prefWidth="198.0" style="-fx-background-color: pink;" text="Back to Login">
+                  <AnchorPane layoutX="174.0" layoutY="517.0" AnchorPane.bottomAnchor="29.399999999999977" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="173.20000000000005" AnchorPane.topAnchor="517.0">
+                     <children>
+                        <JFXButton fx:id="backToLogin" layoutY="3.0" prefHeight="30.0" prefWidth="198.0" style="-fx-background-color: pink;" text="Back to Login">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnFinish" layoutX="538.0" layoutY="3.0" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: green;" text="Finish">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnPrev2" layoutX="263.0" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: orange;" text="Previous">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="258.0" layoutY="391.0" prefHeight="38.0" prefWidth="166.0" text="Username" />
+                  <JFXTextField fx:id="userNameText" layoutX="456.0" layoutY="375.0" prefHeight="35.0" prefWidth="188.0" />
+                  <JFXButton fx:id="browseButton" layoutX="439.0" layoutY="328.0" prefHeight="26.0" prefWidth="222.0" style="-fx-background-color: blue;" text="Add a profile picture (Optional)" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="10.0" />
+                        <Font name="System Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btnFinish" layoutX="718.0" layoutY="538.0" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: green;" text="Finish">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton fx:id="btnPrev2" layoutX="443.0" layoutY="535.0" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: orange;" text="Previous">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </JFXButton>
+                  <ImageView fx:id="imageIcon" fitHeight="200.0" fitWidth="200.0" layoutX="450.0" layoutY="90.0" AnchorPane.bottomAnchor="290.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="90.0">
+                     <image>
+                        <Image url="@../../assets/images/416-4161690_empty-profile-picture-blank-avatar-image-circle.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </center>

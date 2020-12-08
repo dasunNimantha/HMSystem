@@ -78,7 +78,6 @@ public class Step2Controller extends Step1Controller {
                 newUser.setGender("Unmarried");
             }
             newUser.setPhoneNumber(Integer.parseInt(phoneNoText.getText()));
-            System.out.println(newUser.toString());
             Main.changeToScene("3");
 
 

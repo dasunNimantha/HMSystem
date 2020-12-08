@@ -56,6 +56,7 @@ public class Step1Controller {
         btnNext1.setOnAction(e -> {
             newUser.setName(firstNameText.getText() +" "+ lastNameText.getText());
             newUser.setIdNumber(Integer.parseInt(idNoText.getText()));
+            newUser.setPassword(Integer.parseInt(idNoText.getText()));
             newUser.setDob(dob.getValue());
             if (radioMale.isSelected()) {
                 newUser.setGender("Male");

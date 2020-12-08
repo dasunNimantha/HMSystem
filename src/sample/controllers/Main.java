@@ -48,6 +48,9 @@ public class Main extends Application {
     public static void changeToScene(String sceneName) {
         screenController.activate(sceneName);
     }
+    public static void removeScreen(String name) {
+        screenController.removeScreen(name);
+    }
     public static void main(String[] args) {
         launch(args);
     }
