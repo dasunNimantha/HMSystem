@@ -8,24 +8,24 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 import java.io.IOException;
 
 
 
 public class SceneLoader {
 
-
+    private static ScreenController screenController;
     /************************* SignUp Window Loader Function *****************************/
     public void signUpLoader(){
         Stage signUpStage = new Stage();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../views/SignUp/SignUp.fxml"));
-            Parent step1 = FXMLLoader.load(getClass().getResource("../views/SignUp/Step_1.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../views/SignUp/Step_1.fxml"));
             Scene scene = new Scene(root,1049,594);
             signUpStage.setScene(scene);
-
             final double[] xOffset = new double[1];
             final double[] yOffset = new double[1];
+            signUpStage.setTitle("Sign Up");
             signUpStage.initStyle(StageStyle.TRANSPARENT);
             scene.setFill(Color.TRANSPARENT);
             root.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -43,6 +43,14 @@ public class SceneLoader {
                 }
             });
 
+
+            signUpStage.show();
+            screenController = new ScreenController(scene);
+            screenController.addScreen("1", root);
+            screenController.addScreen("2", FXMLLoader.load(getClass().getResource("../views/SignUp/Step_2.fxml")));
+            screenController.addScreen("3", FXMLLoader.load(getClass().getResource("../views/SignUp/Step_3.fxml")));
+            screenController.addScreen("login",FXMLLoader.load(getClass().getResource("../views/Login.fxml")));
+
         } catch (IOException exception) {
             exception.printStackTrace();
         }
@@ -55,25 +63,6 @@ public class SceneLoader {
             Scene scene = new Scene(root,1049,594);
             loginStage.setScene(scene);
 
-            final double[] xOffset = new double[1];
-            final double[] yOffset = new double[1];
-            loginStage.setTitle("Login");
-            loginStage.initStyle(StageStyle.TRANSPARENT);
-            scene.setFill(Color.TRANSPARENT);
-            root.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    xOffset[0] = event.getSceneX();
-                    yOffset[0] = event.getSceneY();
-                }
-            });
-            root.setOnMouseDragged(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    loginStage.setX(event.getScreenX() - xOffset[0]);
-                    loginStage.setY(event.getScreenY() - yOffset[0]);
-                }
-            });
 
 
             loginStage.show();
@@ -94,5 +83,7 @@ public class SceneLoader {
 
     }
 
-
+    public static void changeToScene(String sceneName) {
+        screenController.activate(sceneName);
+    }
 }

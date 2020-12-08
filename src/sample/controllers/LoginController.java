@@ -80,7 +80,6 @@ public class LoginController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 SceneLoader sl = new SceneLoader();
                 sl.signUpLoader();
-
                 loadSignUp.getScene().getWindow().hide();
             }
 

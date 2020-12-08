@@ -82,7 +82,7 @@
                         <Font size="13.0" />
                      </font>
                   </Hyperlink>
-                  <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="227.0" layoutY="40.0">
+                  <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="227.0" layoutY="38.0">
                      <Image url="@../assets/images/imgbin_computer-icons-avatar-user-login-png_LGzVdNb1.png" />
                   </ImageView>
                   <Label fx:id="invalidLabel" layoutX="152.0" layoutY="416.0" prefHeight="28.0" prefWidth="211.0" text="Invalid Username or Password" textFill="#ff1744" visible="false">

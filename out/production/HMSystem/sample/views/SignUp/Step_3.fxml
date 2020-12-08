@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXProgressBar?>
-<?import com.jfoenix.controls.JFXRadioButton?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ToggleGroup?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="464.0" prefWidth="1060.0" style="-fx-border-radius: 25; -fx-border-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.SignUpController">
+<AnchorPane style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.SignUpController.Step3Controller">
    <children>
-      <AnchorPane fx:id="step1Anchor" layoutX="10.0" layoutY="10.0" prefHeight="65.0" prefWidth="1050.0">
-         <children>
-            <JFXProgressBar layoutX="79.0" layoutY="31.0" prefHeight="4.0" prefWidth="268.0" />
-            <JFXProgressBar layoutX="726.0" layoutY="29.0" prefHeight="4.0" prefWidth="268.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="10.0" layoutY="159.0" prefHeight="354.0" prefWidth="1050.0" style="-fx-background-color: white;">
-         <children>
-            <JFXTextField fx:id="fullName" labelFloat="true" layoutX="113.0" layoutY="60.0" onKeyPressed="#toUppercase" prefHeight="30.0" prefWidth="256.0" promptText="Name with Initials" />
-            <JFXTextField labelFloat="true" layoutX="113.0" layoutY="133.0" prefHeight="30.0" prefWidth="256.0" promptText="ID No" />
-            <Label layoutX="540.0" layoutY="67.0" prefHeight="30.0" prefWidth="100.0" text="Gender" />
-            <JFXRadioButton layoutX="565.0" layoutY="104.0" text="Male">
-               <toggleGroup>
-                  <ToggleGroup fx:id="gender" />
-               </toggleGroup>
-            </JFXRadioButton>
-            <JFXRadioButton layoutX="676.0" layoutY="104.0" text="Female" />
-         </children>
-      </AnchorPane>
+      <BorderPane>
+         <center>
+            <AnchorPane fx:id="anchor2" prefHeight="579.4" prefWidth="1100.0">
+               <children>
+                  <JFXButton fx:id="backToLogin" layoutX="180.0" layoutY="538.0" prefHeight="30.0" prefWidth="198.0" style="-fx-background-color: pink;" text="Back to Login">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnFinish" layoutX="718.0" layoutY="538.0" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: green;" text="Finish">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnPrev2" layoutX="443.0" layoutY="535.0" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: orange;" text="Previous">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>
