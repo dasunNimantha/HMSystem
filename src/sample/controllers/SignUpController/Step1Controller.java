@@ -9,7 +9,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import sample.controllers.Main;
 import sample.controllers.SceneLoader;
+import sample.models.User;
+
+import java.util.ArrayList;
 
 public class Step1Controller {
 
@@ -18,9 +22,6 @@ public class Step1Controller {
 
     @FXML
     private JFXButton btnNext1;
-
-    @FXML
-    private BorderPane signUpBorderPane;
 
     @FXML
     private JFXTextField firstNameText;
@@ -48,19 +49,26 @@ public class Step1Controller {
 
     }
 
+    static User newUser = new User();
+
     @FXML
     public void initialize() {
         btnNext1.setOnAction(e -> {
-            SceneLoader.changeToScene("2");
-
-
-
+            newUser.setName(firstNameText.getText() +" "+ lastNameText.getText());
+            newUser.setIdNumber(Integer.parseInt(idNoText.getText()));
+            newUser.setDob(dob.getValue());
+            if (radioMale.isSelected()) {
+                newUser.setGender("Male");
+            } else if (radioFemale.isSelected()) {
+                newUser.setGender("Female");
+            }
+            Main.changeToScene("2");
         });
 
         backToLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                SceneLoader.changeToScene("login");
+                Main.changeToScene("login");
             }
         });
 

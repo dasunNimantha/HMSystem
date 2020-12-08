@@ -35,7 +35,6 @@ public class LoginController implements Initializable {
     @FXML
     private VBox vTaskItems;
 
-
     @FXML
     private ToggleGroup gender;
 
@@ -78,9 +77,7 @@ public class LoginController implements Initializable {
         loadSignUp.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                SceneLoader sl = new SceneLoader();
-                sl.signUpLoader();
-                loadSignUp.getScene().getWindow().hide();
+                Main.changeToScene("SignUp");
             }
 
         });

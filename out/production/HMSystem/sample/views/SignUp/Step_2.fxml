@@ -30,8 +30,8 @@
                      </toggleGroup>
                   </JFXRadioButton>
                   <JFXRadioButton fx:id="unmrriedRadioBtn" layoutX="699.0" layoutY="144.0" text="Unmarried" toggleGroup="$maritalStatus" />
-                  <Label fx:id="phoneNoLbl" layoutX="54.0" layoutY="322.0" prefHeight="34.0" prefWidth="128.0" text="Phone No" />
-                  <JFXTextField layoutX="200.0" layoutY="326.0" prefHeight="26.0" prefWidth="188.0" />
+                  <Label layoutX="54.0" layoutY="322.0" prefHeight="34.0" prefWidth="128.0" text="Phone No" />
+                  <JFXTextField fx:id="phoneNoText" layoutX="200.0" layoutY="326.0" prefHeight="26.0" prefWidth="188.0" />
                   <JFXButton fx:id="backToLogin" layoutX="180.0" layoutY="538.0" onAction="#backToLogin" prefHeight="30.0" prefWidth="198.0" style="-fx-background-color: pink;" text="Back to Login">
                      <font>
                         <Font name="System Bold" size="10.0" />

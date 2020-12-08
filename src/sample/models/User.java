@@ -93,4 +93,11 @@ public class User {
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
     }
+
+    // functions
+
+    @Override
+    public String toString(){
+        return name+"\n"+idNumber+"\n"+dob+"\n"+gender+"\n"+address+"\n"+phoneNumber+"\n"+maritalStatus;
+    }
 }

@@ -5,7 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
-import sample.controllers.SceneLoader;
+import sample.controllers.Main;
+
 
 public class Step3Controller extends Step1Controller{
 
@@ -23,13 +24,13 @@ public class Step3Controller extends Step1Controller{
 
     public void initialize(){
         btnPrev2.setOnAction(e ->{
-            SceneLoader.changeToScene("2");
+            Main.changeToScene("2");
         });
 
         backToLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                SceneLoader.changeToScene("login");
+                Main.changeToScene("login");
             }
         });
     }

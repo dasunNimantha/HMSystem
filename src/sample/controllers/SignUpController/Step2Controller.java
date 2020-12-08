@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import sample.controllers.Main;
 import sample.controllers.SceneLoader;
 
 public class Step2Controller extends Step1Controller {
@@ -38,6 +39,9 @@ public class Step2Controller extends Step1Controller {
     private Label phoneNoLbl;
 
     @FXML
+    private JFXTextField phoneNoText;
+
+    @FXML
     private JFXButton backToLogin;
 
     @FXML
@@ -64,17 +68,30 @@ public class Step2Controller extends Step1Controller {
     @FXML
     public void initialize() {
         btnNext2.setOnAction(e -> {
-            SceneLoader.changeToScene("3");
+            newUser.setAddress(addrFirstText.getText() +
+                    "\n" + addrSecondText.getText() +
+                    "\n" + addrCityText.getText());
+
+            if (marriedRadioBtn.isSelected()) {
+                newUser.setGender("Married");
+            } else if (unmrriedRadioBtn.isSelected()) {
+                newUser.setGender("Unmarried");
+            }
+            newUser.setPhoneNumber(Integer.parseInt(phoneNoText.getText()));
+            System.out.println(newUser.toString());
+            Main.changeToScene("3");
+
+
         });
 
         btnPrev1.setOnAction(e ->{
-          SceneLoader.changeToScene("1");
+            Main.changeToScene("SignUp");
         });
 
         backToLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                SceneLoader.changeToScene("login");
+                Main.changeToScene("login");
             }
         });
 
