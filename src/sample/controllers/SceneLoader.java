@@ -19,7 +19,7 @@ public class SceneLoader {
 
     void pDashboardLoader() throws IOException {
         Stage patientDashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../views/Dashboard/PatientDashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/Dashboard/Dashboard_Skeleton.fxml"));
         Scene scene = new Scene(root,1271,623);
         patientDashboardStage.setScene(scene);
         patientDashboardStage.show();

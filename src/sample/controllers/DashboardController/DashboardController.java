@@ -1,10 +1,10 @@
-package sample.controllers;
+package sample.controllers.DashboardController;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 
-public class PatientDashboardController {
+public class DashboardController {
 
     @FXML
     private JFXButton btn1;

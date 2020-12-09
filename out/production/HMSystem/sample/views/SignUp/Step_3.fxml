@@ -43,7 +43,7 @@
                   </JFXButton>
                   <ImageView fx:id="imageIcon" fitHeight="200.0" fitWidth="200.0" layoutX="450.0" layoutY="90.0" AnchorPane.bottomAnchor="290.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="90.0">
                      <image>
-                        <Image url="@../../assets/images/416-4161690_empty-profile-picture-blank-avatar-image-circle.png" />
+                        <Image url="@../../assets/images/LoginImages/416-4161690_empty-profile-picture-blank-avatar-image-circle.png" />
                      </image>
                   </ImageView>
                </children>
