@@ -127,8 +127,9 @@ public class LoginController implements Initializable {
                         if(statusCode==1){
                             System.out.println("Logged In");
                             SceneLoader sl = new SceneLoader();
-                            sl.pDashboardLoader();
                             loginBtn.getScene().getWindow().hide();
+                            sl.pDashboardLoader();
+
                         } else {
                             System.out.println("Invalid Username or Password");
                             invalidLabel.setVisible(true);
