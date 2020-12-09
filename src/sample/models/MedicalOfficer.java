@@ -2,7 +2,7 @@ package sample.models;
 
 import java.time.LocalDate;
 
-public class Medicalofficer {
+public class MedicalOfficer {
 
     private int staffId;
     private String staffEmailAddress;

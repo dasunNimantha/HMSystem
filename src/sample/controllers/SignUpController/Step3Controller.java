@@ -2,15 +2,16 @@ package sample.controllers.SignUpController;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import sample.controllers.Main;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 
 public class Step3Controller extends Step1Controller{
@@ -42,36 +43,31 @@ public class Step3Controller extends Step1Controller{
             Main.changeToScene("2");
         });
 
-        backToLogin.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
+        backToLogin.setOnAction(e ->{
                 Main.changeToScene("login");
-            }
         });
 
-        browseButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
+        browseButton.setOnAction(e ->  {
                 FileChooser fc = new FileChooser();
-                    fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG Files","*.png"),
-                            new FileChooser.ExtensionFilter("JPG Files","*.jpg"),
-                            new FileChooser.ExtensionFilter("JPEG Files","*.jpeg"));
-                File f = fc.showOpenDialog(null);
+                    fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPG Files","*.jpg"),
+                            new FileChooser.ExtensionFilter("JPEG Files","*.jpeg"),
+                            new FileChooser.ExtensionFilter("PNG Files","*.png"));
+                File proPicFile = fc.showOpenDialog(null);
+                try {
+                    FileInputStream fis = new FileInputStream(proPicFile);
 
-            }
+                } catch (FileNotFoundException exception) {
+                    System.out.println("File Not Found");
+                }
         });
 
-        btnFinish.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
+        btnFinish.setOnAction(e -> {
                 Main.removeScreen("2");
                 Main.removeScreen("3");
                 anchor2.setDisable(true);
                 userNameText.setDisable(true);
                 browseButton.setDisable(true);
                 imageIcon.setDisable(true);
-
-            }
         });
     }
 

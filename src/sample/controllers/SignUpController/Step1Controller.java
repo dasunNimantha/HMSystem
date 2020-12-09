@@ -39,9 +39,6 @@ public class Step1Controller {
     private JFXRadioButton radioMale;
 
     @FXML
-    private ToggleGroup genderGrp;
-
-    @FXML
     private JFXRadioButton radioFemale;
 
     @FXML
@@ -66,11 +63,8 @@ public class Step1Controller {
             Main.changeToScene("2");
         });
 
-        backToLogin.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
+        backToLogin.setOnAction(event -> {
                 Main.changeToScene("login");
-            }
         });
 
 
