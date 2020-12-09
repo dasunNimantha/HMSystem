@@ -224,7 +224,7 @@
                   <Image url="@../../assets/images/Dashboard/icons8_notification_48px_1.png" />
                </image>
             </ImageView>
-            <ImageView layoutX="96.0" layoutY="-10.0" scaleX="0.5" scaleY="0.5">
+            <ImageView layoutX="96.0" layoutY="-10.0" scaleX="0.45" scaleY="0.45">
                <image>
                   <Image url="@../../assets/images/Dashboard/icons8_new_message_60px.png" />
                </image>
