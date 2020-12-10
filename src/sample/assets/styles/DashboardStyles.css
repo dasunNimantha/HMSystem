@@ -2,3 +2,21 @@
 {
     -fx-background-color: linear-gradient(to left,#795AF3 ,#3929E0);
 }
+.tab{
+    -fx-background-color: #c1c1c1;
+    -fx-text-fill: #171717;
+    -fx-border-color: white;
+    -fx-background-radius: 10;
+}
+.tab:hover{
+    -fx-background-color: #448AFF ;
+    -fx-text-fill: white;
+}
+.tab:pressed{
+    -fx-background-color: #795AF3;
+    -fx-text-fill: #a1a1a1;
+}
+.tab:focused{
+    -fx-background-color: #795AF3;
+    -fx-text-fill: white;
+}
