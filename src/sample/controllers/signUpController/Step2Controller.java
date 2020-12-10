@@ -4,10 +4,15 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.BorderPane;
+import sample.models.User;
 import sample.controllers.Main;
 
-
 public class Step2Controller extends Step1Controller {
+
+    @FXML
+    private BorderPane signUpBorderPane;
 
     @FXML
     private JFXTextField addrFirstText;
@@ -19,13 +24,10 @@ public class Step2Controller extends Step1Controller {
     private JFXTextField addrCityText;
 
     @FXML
-    private JFXRadioButton radioMale;
-
-    @FXML
-    private JFXRadioButton radioFemale;
-
-    @FXML
     private JFXRadioButton marriedRadioBtn;
+
+    @FXML
+    private ToggleGroup maritalStatus;
 
     @FXML
     private JFXRadioButton unmarriedRadioBtn;
@@ -34,13 +36,22 @@ public class Step2Controller extends Step1Controller {
     private JFXTextField phoneNoText;
 
     @FXML
+    private JFXRadioButton radioMale;
+
+    @FXML
+    private ToggleGroup genderGrp;
+
+    @FXML
+    private JFXRadioButton radioFemale;
+
+    @FXML
     private JFXButton backToLogin;
 
     @FXML
     private JFXButton btnNext2;
 
     @FXML
-    private JFXButton btnPrev1;
+    private JFXButton btnPrevFirst;
 
     @FXML
     public void initialize() {
@@ -66,7 +77,7 @@ public class Step2Controller extends Step1Controller {
 
         });
 
-        btnPrev1.setOnAction(e ->{
+        btnPrevFirst.setOnAction(e ->{
             Main.changeToScene("SignUp");
         });
 

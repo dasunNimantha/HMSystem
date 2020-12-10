@@ -183,9 +183,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <BorderPane fx:id="recepBorderPane" layoutX="228.0" layoutY="149.0" prefHeight="484.0" prefWidth="944.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="149.0">
+      <BorderPane fx:id="recepBorderPane" layoutX="245.0" layoutY="150.0" prefHeight="484.0" prefWidth="944.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="150.0">
          <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #0000ff;" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-border-color: #0000ff;" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>

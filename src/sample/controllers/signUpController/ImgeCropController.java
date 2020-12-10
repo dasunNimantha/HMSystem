@@ -1,6 +1,5 @@
 package sample.controllers.signUpController;
 
-
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -31,7 +30,8 @@ import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 
-public class ImageCropController extends Application {
+public class ImgeCropController extends Application {
+
     RubberBandSelection rubberBandSelection;
     ImageView imageView;
 
@@ -41,8 +41,8 @@ public class ImageCropController extends Application {
         launch(args);
     }
 
-
-    public void start(Stage primaryStage,String imagePath) {
+    @Override
+    public void start(Stage primaryStage) {
 
         this.primaryStage = primaryStage;
 
@@ -57,7 +57,8 @@ public class ImageCropController extends Application {
         Group imageLayer = new Group();
 
         // load the image
-       Image image = new Image( getClass().getResource(imagePath).toExternalForm());
+//      Image image = new Image( getClass().getResource( "cat.jpg").toExternalForm());
+        Image image = new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/1024px-Gatto_europeo4.jpg");
 
         // the container for the image as a javafx node
         imageView = new ImageView( image);
@@ -156,11 +157,6 @@ public class ImageCropController extends Application {
         }
 
         graphics.dispose();
-
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
 
     }
 
@@ -270,4 +266,5 @@ public class ImageCropController extends Application {
 
         }
     }
+
 }
