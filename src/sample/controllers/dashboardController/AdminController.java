@@ -1,15 +1,11 @@
-package sample.controllers.DashboardController;
+package sample.controllers.dashboardController;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
-import java.io.IOException;
-
-public class ReceptionistController {
+public class AdminController {
 
     @FXML
     private JFXButton recepBtn1;
@@ -33,15 +29,13 @@ public class ReceptionistController {
     private BorderPane recepBorderPane;
 
     @FXML
-    void step1(ActionEvent event) throws IOException {
-        Parent step1 = FXMLLoader.load(getClass().getResource("../../views/Dashboard/Step1.fxml"));
-        recepBorderPane.setCenter(step1);
+    void step1(ActionEvent event) {
+
     }
 
     @FXML
-    void step2(ActionEvent event) throws IOException {
-        Parent step2 = FXMLLoader.load(getClass().getResource("../../views/Dashboard/Step2.fxml"));
-        recepBorderPane.setCenter(step2);
+    void step2(ActionEvent event) {
+
     }
 
     @FXML
@@ -68,6 +62,5 @@ public class ReceptionistController {
     void step7(ActionEvent event) {
 
     }
-
 
 }

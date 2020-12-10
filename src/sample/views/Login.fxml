@@ -40,7 +40,7 @@
                   </Label>
                   <ImageView fitHeight="209.0" fitWidth="257.0" layoutX="116.0" layoutY="246.0">
                      <image>
-                        <Image url="@../assets/images/LoginImages/b01483f04e120f3949d00dc75f135b52.png" />
+                        <Image url="@../assets/images/loginImages/b01483f04e120f3949d00dc75f135b52.png" />
                      </image>
                   </ImageView>
                </children>
@@ -60,13 +60,13 @@
                   <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="217.0" layoutY="30.0">
 
                   </ImageView>
-                  <JFXPasswordField fx:id="passwdField" labelFloat="true" layoutX="152.0" layoutY="367.0" onKeyPressed="#hideInvalidLabelPaswd" prefHeight="31.0" prefWidth="290.0" promptText="Password">
+                  <JFXPasswordField fx:id="passwdField" labelFloat="true" layoutX="154.0" layoutY="367.0" onKeyPressed="#hideInvalidLabelPaswd" prefHeight="31.0" prefWidth="290.0" promptText="Password">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </JFXPasswordField>
-                  <JFXComboBox fx:id="userRole" layoutX="314.0" layoutY="233.0" prefHeight="26.0" prefWidth="121.0" promptText="Patient" unFocusColor="BLACK" visibleRowCount="3" />
-                  <Label layoutX="156.0" layoutY="233.0" prefHeight="26.0" prefWidth="125.0" text="User Role">
+                  <JFXComboBox fx:id="userRole" focusTraversable="false" layoutX="277.0" layoutY="233.0" prefHeight="25.0" prefWidth="159.0" promptText="Patient" style="-fx-border-radius: 0; -fx-border-color: transparent;" stylesheets="@../assets/styles/LoginStyles.css" unFocusColor="BLACK" visibleRowCount="3" AnchorPane.leftAnchor="277.0" AnchorPane.rightAnchor="106.19999999999999" />
+                  <Label layoutX="156.0" layoutY="233.0" prefHeight="26.0" prefWidth="78.0" text="User Role">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -83,7 +83,7 @@
                      </font>
                   </Hyperlink>
                   <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="227.0" layoutY="38.0">
-                     <Image url="@../assets/images/LoginImages/imgbin_computer-icons-avatar-user-login-png_LGzVdNb1.png" />
+                     <Image url="@../assets/images/loginImages/imgbin_computer-icons-avatar-user-login-png_LGzVdNb1.png" />
                   </ImageView>
                   <Label fx:id="invalidLabel" layoutX="152.0" layoutY="416.0" prefHeight="28.0" prefWidth="211.0" text="Invalid Username or Password" textFill="#ff1744" visible="false">
                      <font>

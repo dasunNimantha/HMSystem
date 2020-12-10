@@ -1,4 +1,4 @@
-package sample.controllers.SignUpController;
+package sample.controllers.signUpController;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -17,6 +17,12 @@ public class Step2Controller extends Step1Controller {
 
     @FXML
     private JFXTextField addrCityText;
+
+    @FXML
+    private JFXRadioButton radioMale;
+
+    @FXML
+    private JFXRadioButton radioFemale;
 
     @FXML
     private JFXRadioButton marriedRadioBtn;
@@ -48,6 +54,12 @@ public class Step2Controller extends Step1Controller {
             } else if (unmarriedRadioBtn.isSelected()) {
                 newUser.setGender("Unmarried");
             }
+            if (radioMale.isSelected()) {
+                newUser.setGender("Male");
+            } else if (radioFemale.isSelected()) {
+                newUser.setGender("Female");
+            }
+
             newUser.setPhoneNumber(Integer.parseInt(phoneNoText.getText()));
             Main.changeToScene("3");
 

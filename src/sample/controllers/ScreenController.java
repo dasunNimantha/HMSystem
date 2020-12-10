@@ -3,11 +3,12 @@ package sample.controllers;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import sample.controllers.SceneLoader;
+import sample.controllers.SceneLoader;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.util.HashMap;
 
 // This function is used to change multiple scenes in one stage

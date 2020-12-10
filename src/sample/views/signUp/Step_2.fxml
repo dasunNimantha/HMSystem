@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.SignUpController.Step2Controller">
+<AnchorPane style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.signUpController.Step2Controller">
    <children>
       <BorderPane>
          <center>
@@ -24,12 +24,12 @@
                   <JFXTextField fx:id="addrSecondText" layoutX="198.0" layoutY="118.0" prefHeight="26.0" prefWidth="318.0" promptText="Street Address Line 2" />
                   <JFXTextField fx:id="addrCityText" layoutX="198.0" layoutY="170.0" prefHeight="26.0" prefWidth="139.0" promptText="City" />
                   <Label layoutX="687.0" layoutY="74.0" prefHeight="26.0" prefWidth="170.0" text="Marital Status" />
-                  <JFXRadioButton fx:id="marriedRadioBtn" layoutX="699.0" layoutY="110.0" text="Married">
+                  <JFXRadioButton fx:id="marriedRadioBtn" layoutX="698.0" layoutY="110.0" text="Married">
                      <toggleGroup>
                         <ToggleGroup fx:id="maritalStatus" />
                      </toggleGroup>
                   </JFXRadioButton>
-                  <JFXRadioButton fx:id="unmarriedRadioBtn" layoutX="699.0" layoutY="144.0" text="Unmarried" toggleGroup="$maritalStatus" />
+                  <JFXRadioButton fx:id="unmarriedRadioBtn" layoutX="698.0" layoutY="144.0" text="Unmarried" toggleGroup="$maritalStatus" />
                   <Label layoutX="54.0" layoutY="322.0" prefHeight="34.0" prefWidth="128.0" text="Phone No" />
                   <JFXTextField fx:id="phoneNoText" layoutX="200.0" layoutY="326.0" prefHeight="26.0" prefWidth="188.0" />
                   <JFXButton fx:id="backToLogin" layoutX="180.0" layoutY="538.0" prefHeight="30.0" prefWidth="198.0" style="-fx-background-color: pink;" text="Back to Login">
@@ -47,6 +47,17 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
+                  <Label layoutX="687.0" layoutY="275.0" prefHeight="30.0" prefWidth="138.0" text="Gender" />
+                  <JFXRadioButton fx:id="radioMale" layoutX="698.0" layoutY="347.0" text="Male">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="genderGrp" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton fx:id="radioFemale" layoutX="698.0" layoutY="313.0" text="Female">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="genderGrp" />
+                     </toggleGroup>
+                  </JFXRadioButton>
                </children>
             </AnchorPane>
          </center>

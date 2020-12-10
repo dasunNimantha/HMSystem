@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="683.0" prefWidth="1271.0" style="-fx-background-color: #fff; -fx-border-radius: 25; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.DashboardController.ReceptionistController">
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="683.0" prefWidth="1271.0" style="-fx-background-color: #fff; -fx-border-radius: 25; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
    <children>
-      <Pane layoutX="27.0" layoutY="14.0" prefHeight="118.0" prefWidth="151.0" style="-fx-border-radius: 25;" stylesheets="@../../assets/styles/DashboardStyles.css" AnchorPane.bottomAnchor="491.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="1093.0" AnchorPane.topAnchor="14.0">
+      <Pane layoutX="27.0" layoutY="14.0" prefHeight="118.0" prefWidth="151.0" style="-fx-border-radius: 25;" stylesheets="@../../../assets/styles/DashboardStyles.css" AnchorPane.bottomAnchor="491.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="1093.0" AnchorPane.topAnchor="14.0">
          <children>
             <VBox layoutY="75.0" prefHeight="543.0" prefWidth="202.0" style="-fx-background-color: #fff;">
                <children>
@@ -42,7 +42,7 @@
                      <graphic>
                         <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/images/Dashboard/projects.png" />
+                              <Image url="@../../../assets/images/dashboard/projects.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -60,7 +60,7 @@
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/images/Dashboard/icons8_Handshake_64px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_Handshake_64px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -78,7 +78,7 @@
                               <Rectangle2D />
                            </viewport>
                            <image>
-                              <Image url="@../../assets/images/Dashboard/icons8_Share_64px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_Share_64px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -101,7 +101,7 @@
                      <graphic>
                         <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/images/Dashboard/icons8_US_Dollar_64px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_US_Dollar_64px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -116,7 +116,7 @@
                      <graphic>
                         <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/images/Dashboard/icons8_Workflow_64px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_Workflow_64px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -131,7 +131,7 @@
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/images/Dashboard/projections.png" />
+                              <Image url="@../../../assets/images/dashboard/projections.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -149,7 +149,7 @@
                               <Rectangle2D />
                            </viewport>
                            <image>
-                              <Image url="@../../assets/images/Dashboard/agencies.png" />
+                              <Image url="@../../../assets/images/dashboard/agencies.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -161,7 +161,7 @@
             </VBox>
             <ImageView fitHeight="118.0" fitWidth="132.0" layoutX="5.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../assets/images/LoginImages/b01483f04e120f3949d00dc75f135b52.png" />
+                  <Image url="@../../../assets/images/loginImages/b01483f04e120f3949d00dc75f135b52.png" />
                </image>
             </ImageView>
             <AnchorPane layoutX="167.0" layoutY="14.0" prefHeight="93.0" prefWidth="742.0">
@@ -186,7 +186,7 @@
       </Pane>
       <AnchorPane layoutX="885.0" layoutY="40.0" prefHeight="39.0" prefWidth="306.0" AnchorPane.rightAnchor="34.0">
          <children>
-            <Label layoutX="257.0" prefHeight="39.0" prefWidth="94.0" text="DasunN99">
+            <Label layoutX="257.0" prefHeight="39.0" prefWidth="94.0" text="Receptionist">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -194,17 +194,17 @@
             <Button layoutX="218.0" layoutY="8.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Button" visible="false" />
             <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="201.0" layoutY="-2.0" scaleX="0.7" scaleY="0.7">
                <image>
-                  <Image url="@../../assets/images/Dashboard/icons8_female_profile_80px.png" />
+                  <Image url="@../../../assets/images/dashboard/icons8_female_profile_80px.png" />
                </image>
             </ImageView>
             <ImageView layoutX="155.0" layoutY="-4.0" scaleX="0.6" scaleY="0.6">
                <image>
-                  <Image url="@../../assets/images/Dashboard/icons8_notification_48px_1.png" />
+                  <Image url="@../../../assets/images/dashboard/icons8_notification_48px_1.png" />
                </image>
             </ImageView>
             <ImageView layoutX="96.0" layoutY="-10.0" scaleX="0.45" scaleY="0.45">
                <image>
-                  <Image url="@../../assets/images/Dashboard/icons8_new_message_60px.png" />
+                  <Image url="@../../../assets/images/dashboard/icons8_new_message_60px.png" />
                </image>
             </ImageView>
          </children>

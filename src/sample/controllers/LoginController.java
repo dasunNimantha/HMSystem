@@ -91,6 +91,7 @@ public class LoginController implements Initializable {
 
         userRole.getItems().add("Patient");
         userRole.getItems().add("Receptionist");
+        userRole.getItems().add("Medical Officer");
         userRole.getItems().add("Admin");
         userRole.getSelectionModel().selectFirst();
 
@@ -117,8 +118,8 @@ public class LoginController implements Initializable {
 
                 String username = usrNameField.getText();
                 String password = passwdField.getText();
-                if ((   username.equals("")
-                        &&(password.equals("")))){
+                if ((   username.length()==0
+                        &&(password.length()==0))){
                     System.out.println("Invalid Input");
                 } else {
                     UserAccess ua = new UserAccess();
@@ -126,11 +127,11 @@ public class LoginController implements Initializable {
                         int statusCode = ua.authCheck(role,username, password);
                         if(statusCode==1){
                             System.out.println("Logged In");
-                            SceneLoader sl = new SceneLoader();
                             loginBtn.getScene().getWindow().hide();
-                            sl.pDashboardLoader();
+                            SceneLoader sl = new SceneLoader();
+                            sl.DashboardLoader(role);
 
-                        } else {
+                        } else if (statusCode==0) {
                             System.out.println("Invalid Username or Password");
                             invalidLabel.setVisible(true);
                         }

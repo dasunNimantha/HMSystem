@@ -1,6 +1,7 @@
 package sample.models;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -18,13 +19,13 @@ public class Crypto {
     {
         MessageDigest sha = null;
         try {
-            byte[] key = myKey.getBytes("UTF-8");
+            byte[] key = myKey.getBytes(StandardCharsets.UTF_8);
             sha = MessageDigest.getInstance("SHA-1");
             key = sha.digest(key);
             key = Arrays.copyOf(key, 16);
             secretKey = new SecretKeySpec(key, "AES");
         }
-        catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+        catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
     }

@@ -39,9 +39,9 @@ public class Main extends Application {
         primaryStage.show();
         screenController = new ScreenController(scene);
         screenController.addScreen("login",root);
-        screenController.addScreen("SignUp",FXMLLoader.load(getClass().getResource("../views/SignUp/Step_1.fxml")));
-        screenController.addScreen("2", FXMLLoader.load(getClass().getResource("../views/SignUp/Step_2.fxml")));
-        screenController.addScreen("3", FXMLLoader.load(getClass().getResource("../views/SignUp/Step_3.fxml")));
+        screenController.addScreen("SignUp",FXMLLoader.load(getClass().getResource("../views/signUp/Step_1.fxml")));
+        screenController.addScreen("2", FXMLLoader.load(getClass().getResource("../views/signUp/Step_2.fxml")));
+        screenController.addScreen("3", FXMLLoader.load(getClass().getResource("../views/signUp/Step_3.fxml")));
     }
 
 

@@ -19,27 +19,53 @@ public class SceneLoader {
 
    //************************* Patient Dashboard Window Loader Function *****************************//
 
-    void pDashboardLoader() throws IOException {
-        Stage patientDashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../views/Dashboard/ReceptionistMain.fxml"));
-        Scene scene = new Scene(root,1271,693);
-        patientDashboardStage.setScene(scene);
-        patientDashboardStage.setTitle("Dashboard");
-        patientDashboardStage.initStyle(StageStyle.TRANSPARENT);
+    void DashboardLoader(String role) throws IOException {
+
+        switch (role) {
+            case "Admin" -> {
+                Parent root1 = FXMLLoader.load(getClass().getResource("../views/dashboard/adminDash/AdminMain.fxml"));
+                Stage AdminStage = new Stage();
+                Loader(AdminStage, root1);
+            }
+            case "Receptionist" -> {
+                Parent root2 = FXMLLoader.load(getClass().getResource("../views/dashboard/recepDash/ReceptionistMain.fxml"));
+                Stage RecepStage = new Stage();
+                Loader(RecepStage, root2);
+            }
+            case "Medical Officer" -> {
+                Parent root3 = FXMLLoader.load(getClass().getResource("../views/dashboard/mODash/MedicalOfficerMain.fxml"));
+                Stage MOStage = new Stage();
+                Loader(MOStage, root3);
+            }
+            case "Patient" -> {
+                Parent root4 = FXMLLoader.load(getClass().getResource("../views/dashboard/patientDash/PatientMain.fxml"));
+                Stage PatientStage = new Stage();
+                Loader(PatientStage, root4);
+            }
+        }
+    }
+
+    // Loader and mouse drag function
+
+    public void Loader(Stage DashboardStage,Parent ParentName) {
+        Scene scene = new Scene(ParentName,1271,693);
+        DashboardStage.setScene(scene);
+        DashboardStage.setTitle("Dashboard");
+        DashboardStage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-        root.setOnMousePressed((MouseEvent event) -> {
+        ParentName.setOnMousePressed((MouseEvent event) -> {
             xOffset = event.getSceneX();
             yOffset = event.getSceneY();
         });
 
         // Move around here
-        root.setOnMouseDragged((MouseEvent event) -> {
-            patientDashboardStage.setX(event.getScreenX() - xOffset);
-            patientDashboardStage.setY(event.getScreenY() - yOffset);
+        ParentName.setOnMouseDragged((MouseEvent event) -> {
+            DashboardStage.setX(event.getScreenX() - xOffset);
+            DashboardStage.setY(event.getScreenY() - yOffset);
         });
-        patientDashboardStage.show();
-
+        DashboardStage.show();
     }
+
     public static void changeToScene(String sceneName) {
         screenController.activate(sceneName);
     }
