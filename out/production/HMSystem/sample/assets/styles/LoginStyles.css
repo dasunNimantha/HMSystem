@@ -8,3 +8,9 @@
     -fx-text-fill: black ;
     -fx-background-color: dodgerblue ;
 }
+
+.topBar {
+      -fx-background-radius: 0 0 18 18;  
+      -fx-border-color:red;  
+  }
+

@@ -30,7 +30,8 @@ public class Step2Controller extends Step1Controller {
     private ToggleGroup maritalStatus;
 
     @FXML
-    private JFXRadioButton unmarriedRadioBtn;
+    private JFXRadioButton unmrriedRadioBtn;
+
 
     @FXML
     private JFXTextField phoneNoText;
@@ -62,7 +63,7 @@ public class Step2Controller extends Step1Controller {
 
             if (marriedRadioBtn.isSelected()) {
                 newUser.setGender("Married");
-            } else if (unmarriedRadioBtn.isSelected()) {
+            } else if (unmrriedRadioBtn.isSelected()) {
                 newUser.setGender("Unmarried");
             }
             if (radioMale.isSelected()) {

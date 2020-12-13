@@ -60,32 +60,23 @@ public class Step3Controller extends Step1Controller{
         });
 
         browseButton.setOnAction(e ->  {
-                FileChooser fc = new FileChooser();
-                    fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPG Files","*.jpg"),
-                            new FileChooser.ExtensionFilter("JPEG Files","*.jpeg"),
-                            new FileChooser.ExtensionFilter("PNG Files","*.png"));
-                    File proPicFile = fc.showOpenDialog(null);
+            FileChooser fc = new FileChooser();
+
+            FileChooser.ExtensionFilter fileExtensions =
+                    new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg");
+            fc.getExtensionFilters().add(fileExtensions);
+            File proPicFile = fc.showOpenDialog(null);
             String imageDest = "src/sample/database/profileImages/"+newUser.getIdNumber()+".jpg";
             try {
-
                 //calling file copy function
-
                 copyFile(proPicFile,imageDest);
-                Image image = new Image("/sample/database/profileImages/"+newUser.getIdNumber()+".jpg",false);
-
                 browseButton.setText("Change profile picture");
-
 
             } catch (IOException ioException) {
                 ioException.printStackTrace();
              }
 
    });
-
-
-
-
-
 
         btnFinish.setOnAction(e -> {
                 Main.removeScreen("2");

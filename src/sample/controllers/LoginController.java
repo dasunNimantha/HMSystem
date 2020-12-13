@@ -27,15 +27,18 @@ import sample.models.UserAccess;
 public class LoginController implements Initializable {
 
     @FXML
+
     private Label lblToday;
 
     @FXML
     private Label lblUpcoming;
 
     @FXML
+
     private VBox vTaskItems;
 
     @FXML
+
     private ToggleGroup gender;
 
     @FXML
