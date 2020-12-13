@@ -32,7 +32,7 @@
                         <Insets top="60.0" />
                      </VBox.margin>
                   </Label>
-                  <JFXButton fx:id="recepBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Appointments">
+                  <JFXButton fx:id="recepBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Home">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
