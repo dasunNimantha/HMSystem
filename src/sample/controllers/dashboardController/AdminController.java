@@ -45,28 +45,34 @@ public class AdminController {
     }
 
     @FXML
-    void step3(ActionEvent event) {
+    void step3(ActionEvent event) throws IOException {
+        Parent step3 = FXMLLoader.load(getClass().getResource("../../views/dashboard/adminDash/Step3.fxml"));
+        recepBorderPane.setCenter(step3);
 
     }
 
     @FXML
-    void step4(ActionEvent event) {
-
+    void step4(ActionEvent event) throws IOException {
+        Parent step4 = FXMLLoader.  load(getClass().getResource("../../views/dashboard/adminDash/Step4.fxml"));
+        recepBorderPane.setCenter(step4);
     }
 
     @FXML
-    void step5(ActionEvent event) {
-
+    void step5(ActionEvent event) throws IOException {
+        Parent step5 = FXMLLoader.load(getClass().getResource("../../views/dashboard/adminDash/Step5.fxml"));
+        recepBorderPane.setCenter(step5);
     }
 
     @FXML
-    void step6(ActionEvent event) {
-
+    void step6(ActionEvent event) throws IOException {
+        Parent step6 = FXMLLoader.load(getClass().getResource("../../views/dashboard/adminDash/Step6.fxml"));
+        recepBorderPane.setCenter(step6);
     }
 
     @FXML
-    void step7(ActionEvent event) {
-
+    void step7(ActionEvent event) throws IOException {
+        Parent step7 = FXMLLoader.load(getClass().getResource("../../views/dashboard/adminDash/Step7.fxml"));
+        recepBorderPane.setCenter(step7);
     }
 
 }
