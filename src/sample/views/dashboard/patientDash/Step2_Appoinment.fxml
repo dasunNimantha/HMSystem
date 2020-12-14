@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientController">
+   <children>
+      <JFXComboBox layoutX="50.0" layoutY="42.0" prefHeight="25.0" prefWidth="225.0" promptText="Select Speciality" />
+      <JFXTextField layoutX="50.0" layoutY="183.0" prefHeight="25.0" prefWidth="225.0" />
+      <Label layoutX="50.0" layoutY="132.0" prefHeight="39.0" prefWidth="225.0" text="Enter the Doctor Name">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="272.0" prefHeight="39.0" prefWidth="242.0" text="Date">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXDatePicker defaultColor="BLACK" layoutX="43.0" layoutY="333.0" prefHeight="25.0" prefWidth="275.0" />
+      <JFXButton layoutX="779.0" layoutY="421.0" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #448AFF; -fx-background-radius: 15;" text="View Appoinment" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
