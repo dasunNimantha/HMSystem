@@ -56,7 +56,7 @@ public class ReceptionistController {
     }
 
     @FXML
-    void step5(ActionEvent event) {
+    void step5(ActionEvent event)  {
 
     }
 
