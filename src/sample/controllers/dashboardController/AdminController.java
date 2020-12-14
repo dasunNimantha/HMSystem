@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -31,6 +32,9 @@ public class AdminController {
 
     @FXML
     private BorderPane recepBorderPane;
+
+    @FXML
+    private Label welcomeUserName;
 
     @FXML
     void step1(ActionEvent event) throws IOException {
@@ -73,6 +77,10 @@ public class AdminController {
     void step7(ActionEvent event) throws IOException {
         Parent step7 = FXMLLoader.load(getClass().getResource("../../views/dashboard/adminDash/Step7.fxml"));
         recepBorderPane.setCenter(step7);
+    }
+
+    public void initialize(){
+        welcomeUserName.setText();
     }
 
 }

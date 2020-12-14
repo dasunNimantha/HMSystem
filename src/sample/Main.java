@@ -1,4 +1,4 @@
-package sample.controllers;
+package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.controllers.ScreenController;
 
 public class Main extends Application {
 
@@ -18,7 +19,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../views/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/Login.fxml"));
 
         Scene scene = new Scene(root,1049, 594);
         primaryStage.setScene(scene);
@@ -39,9 +40,7 @@ public class Main extends Application {
         primaryStage.show();
         screenController = new ScreenController(scene);
         screenController.addScreen("login",root);
-        screenController.addScreen("SignUp",FXMLLoader.load(getClass().getResource("../views/signUp/Step_1.fxml")));
-        screenController.addScreen("2", FXMLLoader.load(getClass().getResource("../views/signUp/Step_2.fxml")));
-        screenController.addScreen("3", FXMLLoader.load(getClass().getResource("../views/signUp/Step_3.fxml")));
+
     }
 
 

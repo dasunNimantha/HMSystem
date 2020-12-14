@@ -20,7 +20,7 @@ public class UserAccess {
         int statusCode = 0;
         FileReader fr = null;
         try {
-            fr = new FileReader("src/sample/database/userDB.txt");
+            fr = new FileReader("src/sample/database/userAuthDB.txt");
             BufferedReader br = new BufferedReader(fr);
             while((currentLine= br.readLine()) != null){
                 String [] credentials = currentLine.split(",");
