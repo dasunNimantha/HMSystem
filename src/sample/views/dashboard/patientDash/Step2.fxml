@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientController">
+   <children>
+      <TableView layoutX="31.0" layoutY="28.0" prefHeight="388.0" prefWidth="885.0">
+        <columns>
+          <TableColumn prefWidth="139.19997787475586" text="Appointment Number" />
+          <TableColumn prefWidth="241.6000518798828" text="Doctor Name" />
+            <TableColumn prefWidth="171.20001220703125" text="Date" />
+            <TableColumn prefWidth="333.5999755859375" text="Description" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="TestBtn" layoutX="786.0" layoutY="435.0" onAction="#test" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #448AFF; -fx-background-radius: 15;" text="Add an Appointment" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
