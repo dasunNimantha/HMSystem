@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="484.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminController">
+    <children>
+        <TextField alignment="CENTER" layoutX="187.0" layoutY="142.0" prefHeight="205.0" prefWidth="562.0" text="Home Page" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="step2Anchor" prefHeight="583.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.AdminController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutX="48.0" layoutY="177.0" onMouseClicked="#changeToPatientMenu" prefHeight="229.0" prefWidth="182.0" style="-fx-background-radius: 22; -fx-background-color: #EEEEEE; -fx-border-radius: 22;" textFill="TRANSPARENT">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="21.0" layoutY="65.0" prefHeight="63.0" prefWidth="414.0" text="Select the use type ">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="292.0" layoutY="177.0" prefHeight="229.0" prefWidth="182.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;" text="Recep" textFill="TRANSPARENT">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="543.0" layoutY="177.0" prefHeight="229.0" prefWidth="182.0" style="-fx-background-color: #EEEEEE; -fx-border-radius: 22; -fx-background-radius: 22;" text="Medical" textFill="TRANSPARENT">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="783.0" layoutY="177.0" prefHeight="229.0" prefWidth="182.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;" text="Admin" textFill="TRANSPARENT">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="64.0" layoutY="321.0" onMouseClicked="#changeToPatientMenu" prefHeight="50.0" prefWidth="150.0" text="Patient" textFill="#6c6868">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="302.0" layoutY="321.0" prefHeight="50.0" prefWidth="150.0" text="Receptionist" textFill="#6c6868">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="543.0" layoutY="321.0" prefHeight="50.0" prefWidth="150.0" text="Medical Officer" textFill="#6c6868">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="783.0" layoutY="321.0" prefHeight="50.0" prefWidth="150.0" text="Administrator" textFill="#6c6868">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="826.0" layoutY="211.0">
+         <image>
+            <Image url="@../../../../assets/images/dashboard/icons8_businessman_96px.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="586.0" layoutY="211.0">
+         <image>
+            <Image url="@../../../../assets/images/dashboard/icons8_doctor_male_96px_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="122.0" fitWidth="122.0" layoutX="78.0" layoutY="211.0" onMouseClicked="#changeToPatientMenu">
+         <image>
+            <Image url="@../../../../assets/images/dashboard/icons8_fever_100px_3.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="335.0" layoutY="211.0">
+         <image>
+            <Image url="@../../../../assets/images/dashboard/icons8_technical_support_96px.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

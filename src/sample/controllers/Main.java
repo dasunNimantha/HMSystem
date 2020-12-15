@@ -37,21 +37,11 @@ public class Main extends Application {
         });
 
         primaryStage.show();
-        screenController = new ScreenController(scene);
-        screenController.addScreen("login",root);
-        screenController.addScreen("SignUp",FXMLLoader.load(getClass().getResource("../views/signUp/Step_1.fxml")));
-        screenController.addScreen("2", FXMLLoader.load(getClass().getResource("../views/signUp/Step_2.fxml")));
-        screenController.addScreen("3", FXMLLoader.load(getClass().getResource("../views/signUp/Step_3.fxml")));
+
     }
 
 
-    public static void changeToScene(String sceneName) {
-        screenController.activate(sceneName);
-    }
-    public static void removeScreen(String name) {
-        screenController.removeScreen(name);
-    }
-    public static void main(String[] args) {
+      public static void main(String[] args) {
         launch(args);
     }
 }

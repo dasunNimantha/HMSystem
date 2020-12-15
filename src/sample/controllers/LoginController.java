@@ -5,8 +5,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,25 +19,13 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import sample.Main;
 import sample.models.UserAccess;
 
 
 public class LoginController implements Initializable {
 
-    @FXML
-
-    private Label lblToday;
-
-    @FXML
-    private Label lblUpcoming;
-
-    @FXML
-
-    private VBox vTaskItems;
-
-    @FXML
-
-    private ToggleGroup gender;
 
     @FXML
     private JFXTextField usrNameField;
@@ -77,14 +63,6 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadSignUp.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-
-                Main.changeToScene("SignUp");
-            }
-
-        });
 
         loginBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override

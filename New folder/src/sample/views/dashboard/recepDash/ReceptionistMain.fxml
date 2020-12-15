@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="693.0" prefWidth="1281.0" style="-fx-background-color: #FAFAFA; -fx-border-radius: 25; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
+   <children>
+      <Pane layoutX="33.0" layoutY="26.0" prefHeight="67.0" prefWidth="113.0" style="-fx-border-radius: 25;" stylesheets="@../../../assets/styles/DashboardStyles.css" AnchorPane.bottomAnchor="590.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="1125.0" AnchorPane.topAnchor="26.0">
+         <children>
+            <VBox layoutX="-28.0" layoutY="57.0" prefHeight="608.0" prefWidth="235.0" style="-fx-background-color: #fff; -fx-background-radius: 0 15 0 25; -fx-border-radius: 0 15 0 25;" stylesheets="@../../../assets/styles/DashboardStyles.css">
+               <children>
+                  <Label prefHeight="34.0" prefWidth="202.0" text="DASHBOARD" textFill="#171717">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="60.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXButton fx:id="recepBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Home">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_calendar_plus_32px_3.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton fx:id="recepBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Patients" textFill="#5b5858">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_wheelchair_16px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton fx:id="recepBtn3" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step3" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Postal mail" textFill="#5b5858">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_create_new_child_post_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton fx:id="recepBtn4" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step4" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Visitors" textFill="#5b5858">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_person_at_home_32px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton fx:id="recepBtn5" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step5" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Complaints" textFill="#5b5858">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_complaint_24px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton fx:id="recepBtn6" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step6" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Settings" textFill="#5b5858">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_settings_32px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <BorderPane fx:id="recepBorderPane" layoutX="256.0" layoutY="96.0" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: white; -fx-border-radius: 3;">
+         <center>
+            <AnchorPane prefHeight="583.0" prefWidth="946.0" style="-fx-border-radius: 8;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="26.0" layoutY="27.0" prefHeight="203.0" prefWidth="584.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #FAFAFA;">
+                     <children>
+                        <Label layoutX="24.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Good Morning,">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="92.0" prefHeight="34.0" prefWidth="202.0" text="Have a nice day at work" textFill="#716060">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="199.0" fitWidth="230.0" layoutX="360.0" layoutY="4.0">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/rsz_girl-work-on-laptop.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="45.0" layoutY="251.0" prefHeight="51.0" prefWidth="276.0" text="Weekly Reports">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="774.0" layoutY="326.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Lorem Ipsum">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="31">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <ImageView layoutX="62.0" layoutY="49.0" scaleX="1.2" scaleY="1.2">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_stopwatch_64px_1.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="530.0" layoutY="326.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Unread Mails">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="12">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <ImageView layoutX="58.0" layoutY="50.0">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_secured_letter_64px_1.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="280.0" layoutY="325.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="New Appointments">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="23">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <ImageView layoutX="58.0" layoutY="50.0">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_date_to_64px_2.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="31.0" layoutY="326.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Total Patients">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="350">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <ImageView layoutX="58.0" layoutY="50.0">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_headache_64px_1.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="630.0" layoutY="29.0" prefHeight="200.0" prefWidth="324.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #FAFAFA;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="32.0" prefWidth="286.0" text="Notifications">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="79.0" prefWidth="1269.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 25 25 0 0; -fx-background-radius: 25 25 0 0;" styleClass="topBar" stylesheets="@../../../assets/styles/DashboardStyles.css">
+         <children>
+            <AnchorPane layoutX="223.0" layoutY="4.0" prefHeight="67.0" prefWidth="742.0">
+               <children>
+                  <TextField layoutX="38.0" layoutY="14.0" prefHeight="39.0" prefWidth="474.0" promptText="Search..." style="-fx-background-radius: 8; -fx-background-color: #F5F5F5; -fx-border-color: transparent;" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="14.0">
+                     <padding>
+                        <Insets bottom="-3.0" left="33.0" />
+                     </padding>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <FontAwesomeIcon glyphName="SEARCH" layoutX="48.0" layoutY="37.0" />
+                  <JFXButton layoutX="524.0" layoutY="14.0" prefHeight="39.0" prefWidth="93.0" style="-fx-background-color: #448AFF; -fx-background-radius: 5;" text="Search" textFill="WHITE" AnchorPane.leftAnchor="524.0" AnchorPane.rightAnchor="125.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="67.0" fitWidth="113.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/images/loginImages/b01483f04e120f3949d00dc75f135b52.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="917.0" layoutY="14.0" prefHeight="51.0" prefWidth="323.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="279.0" prefHeight="39.0" prefWidth="54.0" text="Patient">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="218.0" layoutY="8.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Button" visible="false" />
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="225.0" layoutY="-2.0" scaleX="0.7" scaleY="0.7">
+                     <image>
+                        <Image url="@../../../assets/images/dashboard/icons8_female_profile_80px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView layoutX="172.0" layoutY="-3.0" scaleX="0.6" scaleY="0.6">
+                     <image>
+                        <Image url="@../../../assets/images/dashboard/icons8_notification_48px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView layoutX="113.0" layoutY="-10.0" scaleX="0.45" scaleY="0.45">
+                     <image>
+                        <Image url="@../../../assets/images/dashboard/icons8_new_message_60px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
