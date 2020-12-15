@@ -1,8 +1,12 @@
 package sample.models;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 
-public class User {
+public abstract class User {
     private String userName;
     private String name;
     private String gender;
@@ -14,11 +18,25 @@ public class User {
     private int password;
     private String profilePicture;
 
+    public User(String userName, String name, String gender, int phoneNumber, int idNumber, LocalDate dob, String address, String maritalStatus, int password, String profilePicture) {
+        this.userName = userName;
+        this.name = name;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
+        this.idNumber = idNumber;
+        this.dob = dob;
+        this.address = address;
+        this.maritalStatus = maritalStatus;
+        this.password = idNumber;
+        this.profilePicture = profilePicture;
+    }
+
     public String getUserName() {
         return userName;
     }
 
     public void setUserName(String userName) {
+
         this.userName = userName;
     }
 
@@ -82,6 +100,7 @@ public class User {
         return password;
     }
 
+
     public void setPassword(int password) {
         this.password = password;
     }
@@ -96,8 +115,27 @@ public class User {
 
     // functions
 
+    public void newSignUpWrite(String userData,String roleFileName){
+        try {
+            File userDBFile = new File("src/sample/database/"+roleFileName+".txt");
+            FileWriter fw = new FileWriter(userDBFile,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            if (userDBFile.length()==0){   // check the file is empty
+                bw.write(userData);
+            } else {
+                bw.write("\n"+userData);
+            }
+
+            bw.close();
+            fw.close();
+
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
     @Override
     public String toString(){
-        return name+"\n"+idNumber+"\n"+dob+"\n"+gender+"\n"+address+"\n"+phoneNumber+"\n"+maritalStatus;
+        return name+"|"+userName+"|"+idNumber+"|"+dob+"|"+gender+"|"+maritalStatus+"|"+address+"|"+phoneNumber+"|"+profilePicture;
     }
 }

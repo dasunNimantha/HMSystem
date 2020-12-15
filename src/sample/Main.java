@@ -1,0 +1,53 @@
+package sample;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import sample.controllers.ScreenController;
+
+public class Main extends Application {
+
+    private static ScreenController screenController;
+
+    private double xOffset = 0;
+    private double yOffset = 0;
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("views/Login.fxml"));
+
+        Scene scene = new Scene(root,1049, 594);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Login");
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
+        root.setOnMousePressed((MouseEvent event) -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        // Move around here
+        root.setOnMouseDragged((MouseEvent event) -> {
+            primaryStage.setX(event.getScreenX() - xOffset);
+            primaryStage.setY(event.getScreenY() - yOffset);
+        });
+
+        primaryStage.show();
+
+    }
+
+
+//    public static void removeScreen(String name) {
+//        screenController.removeScreen(name);
+//    }
+//    public static Parent getScreen(String getName){return(screenController.getScreen(getName));}
+//    public static void addScreen(String name,Parent pane){screenController.addScreen(name,pane);}
+    public static void main(String[] args) {
+        launch(args);
+    }
+}

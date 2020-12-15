@@ -2,7 +2,16 @@ package sample.models;
 
 import java.time.LocalDate;
 
-public class Staff extends User {
+public abstract class Staff extends User {
+
+    public Staff(String userName, String name, String gender, int phoneNumber, int idNumber, LocalDate dob, String address, String maritalStatus, int password, String profilePicture, int staffId, String email, LocalDate dateOfJoin, String staffPhoto) {
+        super(userName, name, gender, phoneNumber, idNumber, dob, address, maritalStatus, password, profilePicture);
+        this.staffId = staffId;
+        this.email = email;
+        this.dateOfJoin = dateOfJoin;
+        this.staffPhoto = staffPhoto;
+    }
+
     private int staffId;
     private String email;
     private LocalDate dateOfJoin;

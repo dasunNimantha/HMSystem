@@ -5,7 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import sample.controllers.SceneLoader;
 
 import java.io.IOException;
 
@@ -30,7 +32,14 @@ public class ReceptionistController {
     private JFXButton recepBtn6;
 
     @FXML
+    private AnchorPane step2Anchor;
+
+    @FXML
+    private AnchorPane step3Anchor;
+
+    @FXML
     private BorderPane recepBorderPane;
+
 
     @FXML
     void step1(ActionEvent event) throws IOException {
@@ -56,7 +65,7 @@ public class ReceptionistController {
     }
 
     @FXML
-    void step5(ActionEvent event) {
+    void step5(ActionEvent event)  {
 
     }
 
@@ -69,6 +78,17 @@ public class ReceptionistController {
     void step7(ActionEvent event) {
 
     }
+
+    @FXML
+    void test(ActionEvent event) throws IOException {
+
+
+    }
+
+
+
+
+
 
 
 }

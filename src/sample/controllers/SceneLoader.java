@@ -66,7 +66,5 @@ public class SceneLoader {
         DashboardStage.show();
     }
 
-    public static void changeToScene(String sceneName) {
-        screenController.activate(sceneName);
-    }
+
 }
