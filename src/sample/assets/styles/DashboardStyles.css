@@ -17,15 +17,3 @@
     -fx-background-color: #448AFF;
     -fx-text-fill: white;
 }
-.addBtn{
-
-    -fx-background-color: #448AFF;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-border-radius: 55;
-    -fx-font-size: 15;
-}
-.lbl{
-    -fx-font-weight: bold;
-    -fx-font-size: 15;
-}

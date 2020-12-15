@@ -38,18 +38,15 @@ public class Main extends Application {
         });
 
         primaryStage.show();
-        screenController = new ScreenController(scene);
-        screenController.addScreen("login",root);
 
     }
 
 
-    public static void changeToScene(String sceneName) {
-        screenController.activate(sceneName);
-    }
-    public static void removeScreen(String name) {
-        screenController.removeScreen(name);
-    }
+//    public static void removeScreen(String name) {
+//        screenController.removeScreen(name);
+//    }
+//    public static Parent getScreen(String getName){return(screenController.getScreen(getName));}
+//    public static void addScreen(String name,Parent pane){screenController.addScreen(name,pane);}
     public static void main(String[] args) {
         launch(args);
     }

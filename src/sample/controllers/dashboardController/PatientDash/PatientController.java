@@ -1,20 +1,19 @@
-package sample.controllers.dashboardController;
+package sample.controllers.dashboardController.PatientDash;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import sample.controllers.SceneLoader;
 
 import java.io.IOException;
 
-public class ReceptionistController {
+public class PatientController {
 
     @FXML
     private JFXButton recepBtn1;
+
 
     @FXML
     private JFXButton recepBtn2;
@@ -32,63 +31,51 @@ public class ReceptionistController {
     private JFXButton recepBtn6;
 
     @FXML
-    private AnchorPane step2Anchor;
-
-    @FXML
-    private AnchorPane step3Anchor;
+    private JFXButton AppointmentBtn;
 
     @FXML
     private BorderPane recepBorderPane;
 
 
+
     @FXML
     void step1(ActionEvent event) throws IOException {
-        Parent step1 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Step1.fxml"));
+        Parent step1 = FXMLLoader.load(getClass().getResource("../../views/dashboard/patientDash/Step1.fxml"));
         recepBorderPane.setCenter(step1);
     }
 
     @FXML
     void step2(ActionEvent event) throws IOException {
-        Parent step2 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Step2.fxml"));
+        Parent step2 = FXMLLoader.load(getClass().getResource("../../views/dashboard/patientDash/Step2.fxml"));
         recepBorderPane.setCenter(step2);
     }
 
     @FXML
     void step3(ActionEvent event) throws IOException {
-        Parent step3 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Step3.fxml"));
+        Parent step3 = FXMLLoader.load(getClass().getResource("../../views/dashboard/patientDash/Step3.fxml"));
         recepBorderPane.setCenter(step3);
     }
 
     @FXML
-    void step4(ActionEvent event) {
-
+    void step4(ActionEvent event) throws IOException {
+        Parent step4 = FXMLLoader.load(getClass().getResource("../../views/dashboard/patientDash/Step4.fxml"));
+        recepBorderPane.setCenter(step4);
     }
 
     @FXML
-    void step5(ActionEvent event)  {
-
+    void step5(ActionEvent event) throws IOException {
+        Parent step5 = FXMLLoader.load(getClass().getResource("../../views/dashboard/patientDash/Step5.fxml"));
+        recepBorderPane.setCenter(step5);
     }
-
     @FXML
     void step6(ActionEvent event) {
 
     }
 
-    @FXML
-    void step7(ActionEvent event) {
-
-    }
-
-    @FXML
-    void test(ActionEvent event) throws IOException {
 
 
-    }
+   }
 
 
 
 
-
-
-
-}

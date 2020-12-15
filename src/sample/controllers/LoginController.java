@@ -26,20 +26,6 @@ import sample.models.UserAccess;
 
 public class LoginController implements Initializable {
 
-    @FXML
-
-    private Label lblToday;
-
-    @FXML
-    private Label lblUpcoming;
-
-    @FXML
-
-    private VBox vTaskItems;
-
-    @FXML
-
-    private ToggleGroup gender;
 
     @FXML
     private JFXTextField usrNameField;
@@ -77,14 +63,6 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadSignUp.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-
-                Main.changeToScene("SignUp");
-            }
-
-        });
 
         loginBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override

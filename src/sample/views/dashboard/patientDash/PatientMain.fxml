@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="693.0" prefWidth="1281.0" style="-fx-background-color: #FAFAFA; -fx-border-radius: 25; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientController">
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="693.0" prefWidth="1281.0" style="-fx-background-color: #FAFAFA; -fx-border-radius: 25; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.PatientController">
    <children>
       <Pane layoutX="33.0" layoutY="26.0" prefHeight="67.0" prefWidth="113.0" style="-fx-border-radius: 25;" stylesheets="@../../../assets/styles/DashboardStyles.css" AnchorPane.bottomAnchor="590.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="1125.0" AnchorPane.topAnchor="26.0">
          <children>

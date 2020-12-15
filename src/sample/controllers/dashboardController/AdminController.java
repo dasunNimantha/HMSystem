@@ -2,6 +2,7 @@ package sample.controllers.dashboardController;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,7 +37,7 @@ public class AdminController {
     void step1(ActionEvent event) throws IOException {
         Parent step1 = FXMLLoader.load(getClass().getResource("../../views/dashboard/adminDash/Step1.fxml"));
         recepBorderPane.setCenter(step1);
-    }
+    }   
 
     @FXML
     void step2(ActionEvent event) throws IOException {
@@ -73,6 +74,13 @@ public class AdminController {
     void step7(ActionEvent event) throws IOException {
         Parent step7 = FXMLLoader.load(getClass().getResource("../../views/dashboard/adminDash/Step7.fxml"));
         recepBorderPane.setCenter(step7);
+
     }
 
+
 }
+
+
+
+
+
