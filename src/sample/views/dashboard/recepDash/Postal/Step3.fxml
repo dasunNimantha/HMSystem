@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.ReceptionistController" />
+<AnchorPane fx:id="step3Anchor" prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
+    <children>
+        <JFXButton fx:id="recMail" layoutX="155.0" layoutY="143.0" onMouseClicked="#recList" prefHeight="178.0" prefWidth="224.0" style="-fx-font-size: 20; -fx-font-style: bold; -fx-background-color: #f0f0f0;" text="Received Mail" />
+        <JFXButton fx:id="disMail" layoutX="472.0" layoutY="143.0" onMouseClicked="#disList" prefHeight="178.0" prefWidth="224.0" style="-fx-font-size: 20; -fx-background-color: #f0f0f0;" text="Dispatched Mail" />
+    </children>
+</AnchorPane>

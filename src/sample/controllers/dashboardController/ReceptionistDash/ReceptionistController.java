@@ -35,6 +35,9 @@ public class ReceptionistController {
     private AnchorPane step2Anchor;
 
     @FXML
+    private AnchorPane step6Anchor;
+
+    @FXML
     private AnchorPane step3Anchor;
 
     @FXML
@@ -43,19 +46,19 @@ public class ReceptionistController {
 
     @FXML
     void step1(ActionEvent event) throws IOException {
-        Parent step1 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Step1.fxml"));
+        Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step1.fxml"));
         recepBorderPane.setCenter(step1);
     }
 
     @FXML
     void step2(ActionEvent event) throws IOException {
-        Parent step2 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Step2.fxml"));
+        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step2.fxml"));
         recepBorderPane.setCenter(step2);
     }
 
     @FXML
     void step3(ActionEvent event) throws IOException {
-        Parent step3 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Step3.fxml"));
+        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step3.fxml"));
         recepBorderPane.setCenter(step3);
     }
 
@@ -69,9 +72,11 @@ public class ReceptionistController {
 
     }
 
-    @FXML
-    void step6(ActionEvent event) {
 
+    @FXML
+    void step6(ActionEvent event) throws IOException {
+        Parent step6 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step6.fxml"));
+        recepBorderPane.setCenter(step6);
     }
 
     @FXML
