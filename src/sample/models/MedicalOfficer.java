@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class MedicalOfficer extends Staff{
 
+
     public MedicalOfficer(String userName, String name, String gender, int phoneNumber, int idNumber, LocalDate dob, String address, String maritalStatus, String profilePicture, int staffId, String email, LocalDate dateOfJoin, String staffPhoto) {
         super(userName, name, gender, phoneNumber, idNumber, dob, address, maritalStatus, idNumber, profilePicture, staffId, email, dateOfJoin, staffPhoto);
     }

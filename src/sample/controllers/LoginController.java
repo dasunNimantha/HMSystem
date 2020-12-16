@@ -12,16 +12,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import sample.Main;
-import sample.models.UserAccess;
+import sample.models.UserValidation;
 
 
 public class LoginController implements Initializable {
@@ -104,7 +102,7 @@ public class LoginController implements Initializable {
                         &&(password.length()==0))){
                     System.out.println("Invalid Input");
                 } else {
-                    UserAccess ua = new UserAccess();
+                    UserValidation ua = new UserValidation();
                     try {
                         int statusCode = ua.authCheck(role,username, password);
                         if(statusCode==1){

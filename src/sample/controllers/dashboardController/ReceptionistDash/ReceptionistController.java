@@ -46,7 +46,7 @@ public class ReceptionistController {
 
     @FXML
     void step1(ActionEvent event) throws IOException {
-        Parent step1 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Step1.fxml"));
+        Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step1.fxml"));
         recepBorderPane.setCenter(step1);
     }
 
@@ -72,11 +72,11 @@ public class ReceptionistController {
 
     }
 
+
     @FXML
     void step6(ActionEvent event) throws IOException {
         Parent step6 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step6.fxml"));
         recepBorderPane.setCenter(step6);
-
     }
 
     @FXML

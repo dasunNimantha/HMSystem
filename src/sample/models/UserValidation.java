@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 
-public class UserAccess {
+public class UserValidation {
 
     // *************************** User Authentication Function  ************************** //
 
