@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="signUp3Anchor" prefHeight="583.0" prefWidth="986.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.PatientSignUp">
+<AnchorPane fx:id="signUp3Anchor" prefHeight="583.0" prefWidth="986.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.PatientSignUpStep3">
     <children>
         <BorderPane fx:id="signUpBorderPane" layoutY="-1.0" prefHeight="462.0" prefWidth="986.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <top>
@@ -27,13 +27,13 @@
                                 </Label>
                                 <JFXProgressBar layoutX="293.9600067138672" layoutY="13.959999084472656" prefHeight="3.0" prefWidth="277.0" progress="0.0" />
                                 <ProgressIndicator layoutX="277.00001525878906" layoutY="3.0" progress="1.0" scaleX="1.3" scaleY="1.3" style="-fx-accent: green;" stylesheets="@../../../../../assets/styles/SignUpStyles.css" />
-                                <ProgressIndicator layoutX="545.9999847412109" layoutY="3.0" progress="1.0" scaleX="1.3" scaleY="1.3" style="-fx-accent: white;" stylesheets="@../../../../../assets/styles/SignUpStyles.css" />
+                                <ProgressIndicator fx:id="progressInd3" layoutX="545.9999847412109" layoutY="3.0" progress="1.0" scaleX="1.3" scaleY="1.3" style="-fx-accent: white;" stylesheets="@../../../../../assets/styles/SignUpStyles.css" />
                                 <Label alignment="CENTER" layoutX="276.9600067138672" layoutY="0.9599990844726562" prefHeight="30.0" prefWidth="28.0" text="2" visible="false">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" layoutX="545.0" layoutY="1.0" prefHeight="30.0" prefWidth="28.0" text="3">
+                                <Label fx:id="step3Label" alignment="CENTER" layoutX="545.0" layoutY="1.0" prefHeight="30.0" prefWidth="28.0" text="3">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
@@ -46,7 +46,7 @@
          <bottom>
                 <AnchorPane prefHeight="306.0" prefWidth="986.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXComboBox layoutX="132.0" layoutY="77.0" prefHeight="26.0" prefWidth="200.0" promptText="Blood Group" />
+                  <JFXComboBox fx:id="bloodGrp" layoutX="132.0" layoutY="77.0" onAction="#clickTest" prefHeight="26.0" prefWidth="200.0" promptText="Blood Group" />
                   <JFXTextArea layoutX="575.0" layoutY="77.0" prefHeight="146.0" prefWidth="331.0" promptText="Allergies" style="-fx-border-color: grey;" unFocusColor="WHITE" />
                </children>
                 </AnchorPane>

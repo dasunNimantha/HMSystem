@@ -13,6 +13,10 @@ public class Patient extends User {
     private String bloodGroup;
     private String allergies;
 
+    public Patient() {
+        super();
+    }
+
     public String getBloodGroup() {
         return bloodGroup;
     }
