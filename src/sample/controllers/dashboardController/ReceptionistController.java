@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import sample.controllers.SceneLoader;
 
 import java.io.IOException;
 
@@ -55,22 +54,27 @@ public class ReceptionistController {
 
     @FXML
     void step3(ActionEvent event) throws IOException {
-        Parent step3 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Step3.fxml"));
+        Parent step3 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Postal/Step3.fxml"));
         recepBorderPane.setCenter(step3);
     }
 
     @FXML
-    void step4(ActionEvent event) {
+    void step4(ActionEvent event) throws IOException {
+        Parent step4 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Visitor/Step4.fxml"));
+        recepBorderPane.setCenter(step4);
 
     }
 
     @FXML
-    void step5(ActionEvent event)  {
-
+    void step5(ActionEvent event) throws IOException {
+        Parent step5 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Step5.fxml"));
+        recepBorderPane.setCenter(step5);
     }
 
     @FXML
-    void step6(ActionEvent event) {
+    void step6(ActionEvent event) throws IOException {
+        Parent step6 = FXMLLoader.load(getClass().getResource("../../views/dashboard/recepDash/Step6.fxml"));
+        recepBorderPane.setCenter(step6);
 
     }
 

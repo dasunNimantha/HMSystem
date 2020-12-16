@@ -17,3 +17,9 @@
     -fx-background-color: #448AFF;
     -fx-text-fill: white;
 }
+.btn{
+    -fx-background-color: #448AFF;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}

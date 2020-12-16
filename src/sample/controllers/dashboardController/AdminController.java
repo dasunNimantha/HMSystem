@@ -74,21 +74,13 @@ public class AdminController {
     void step7(ActionEvent event) throws IOException {
         Parent step7 = FXMLLoader.load(getClass().getResource("../../views/dashboard/adminDash/Step7.fxml"));
         recepBorderPane.setCenter(step7);
-<<<<<<< HEAD
+
 
     }
 
 
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> pahan
-    }
 
 
-
->>>>>>> 5f2d436fa42a64ce5ebedb00b8ac3840f2bf9815
 }
 
 
