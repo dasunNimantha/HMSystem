@@ -32,15 +32,7 @@
                                 <Insets top="60.0" />
                             </VBox.margin>
                         </Label>
-<<<<<<< HEAD
                         <JFXButton fx:id="recepBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Home">
-=======
-<<<<<<< HEAD
-                        <JFXButton fx:id="recepBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" text="Home" textFill="#5b5858">
-=======
-                        <JFXButton fx:id="recepBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Home">
->>>>>>> pahan
->>>>>>> 5f2d436fa42a64ce5ebedb00b8ac3840f2bf9815
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
@@ -58,15 +50,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </JFXButton>
-<<<<<<< HEAD
                         <JFXButton fx:id="recepBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Users" textFill="#5b5858">
-=======
-<<<<<<< HEAD
-                        <JFXButton fx:id="recepBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" text="Users" textFill="#5b5858">
-=======
-                        <JFXButton fx:id="recepBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Users" textFill="#5b5858">
->>>>>>> pahan
->>>>>>> 5f2d436fa42a64ce5ebedb00b8ac3840f2bf9815
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
@@ -84,15 +68,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </JFXButton>
-<<<<<<< HEAD
                         <JFXButton fx:id="recepBtn3" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step3" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Appointments" textFill="#5b5858">
-=======
-<<<<<<< HEAD
-                        <JFXButton fx:id="recepBtn3" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step3" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" text="Appoinment" textFill="#5b5858">
-=======
-                        <JFXButton fx:id="recepBtn3" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step3" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Appointments" textFill="#5b5858">
->>>>>>> pahan
->>>>>>> 5f2d436fa42a64ce5ebedb00b8ac3840f2bf9815
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -110,23 +86,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </JFXButton>
-<<<<<<< HEAD
                         <JFXButton fx:id="recepBtn4" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step4" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Reports" textFill="#5b5858">
-=======
-<<<<<<< HEAD
-                        <Label prefHeight="30.0" prefWidth="252.0" text="ENTERPRISE" textFill="#171717">
-                            <font>
-                                <Font size="13.0" />
-                            </font>
-                            <padding>
-                                <Insets left="40.0" />
-                            </padding>
-                        </Label>
-                        <JFXButton fx:id="recepBtn4" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step4" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" text="Report" textFill="#5b5858">
-=======
-                        <JFXButton fx:id="recepBtn4" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step4" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Reports" textFill="#5b5858">
->>>>>>> pahan
->>>>>>> 5f2d436fa42a64ce5ebedb00b8ac3840f2bf9815
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -141,15 +101,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </JFXButton>
-<<<<<<< HEAD
                         <JFXButton fx:id="recepBtn5" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step5" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Feedbacks" textFill="#5b5858">
-=======
-<<<<<<< HEAD
-                        <JFXButton fx:id="recepBtn5" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step5" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" text="Feedback" textFill="#5b5858">
-=======
-                        <JFXButton fx:id="recepBtn5" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step5" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Feedbacks" textFill="#5b5858">
->>>>>>> pahan
->>>>>>> 5f2d436fa42a64ce5ebedb00b8ac3840f2bf9815
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -164,15 +116,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </JFXButton>
-<<<<<<< HEAD
                         <JFXButton fx:id="recepBtn6" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step6" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Settings" textFill="#5b5858">
-=======
-<<<<<<< HEAD
-                        <JFXButton fx:id="recepBtn6" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step6" prefHeight="57.0" prefWidth="252.0" ripplerFill="#bfadf8" text="Settings" textFill="#5b5858">
-=======
-                        <JFXButton fx:id="recepBtn6" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step6" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Settings" textFill="#5b5858">
->>>>>>> pahan
->>>>>>> 5f2d436fa42a64ce5ebedb00b8ac3840f2bf9815
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -187,12 +131,6 @@
                                 <Insets left="50.0" />
                             </padding>
                         </JFXButton>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step7" prefHeight="57.0" prefWidth="252.0" ripplerFill="#bfadf8" text="None" textFill="#5b5858">
-=======
->>>>>>> 5f2d436fa42a64ce5ebedb00b8ac3840f2bf9815
                     </children>
                 </VBox>
             </children>
@@ -226,10 +164,6 @@
                             </children>
                         </AnchorPane>
                         <Label layoutX="45.0" layoutY="251.0" prefHeight="51.0" prefWidth="276.0" text="Weekly Reports">
-<<<<<<< HEAD
-=======
->>>>>>> pahan
->>>>>>> 5f2d436fa42a64ce5ebedb00b8ac3840f2bf9815
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>

@@ -1,4 +1,4 @@
-package sample.controllers.dashboardController;
+package sample.controllers.dashboardController.ReceptionistDash;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;

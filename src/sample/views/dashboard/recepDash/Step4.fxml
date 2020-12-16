@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
+<AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.ReceptionistController">
    <children>
       <JFXButton layoutX="757.0" layoutY="386.0" prefHeight="68.0" prefWidth="155.0" styleClass="addBtn" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Add Visitor">
          <font>
