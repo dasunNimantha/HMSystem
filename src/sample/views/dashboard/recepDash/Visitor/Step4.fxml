@@ -9,20 +9,23 @@
 
 <AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
    <children>
-      <JFXButton fx:id="addVisitor" layoutX="757.0" layoutY="386.0" onMouseClicked="#addVisLoad" prefHeight="68.0" prefWidth="155.0" styleClass="addBtn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Visitor">
+      <JFXButton fx:id="addVisitor" layoutX="757.0" layoutY="419.0" onMouseClicked="#addVisLoad" prefHeight="35.0" prefWidth="155.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Visitor">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <TableView layoutX="14.0" layoutY="58.0" prefHeight="310.0" prefWidth="919.0">
+      <TableView layoutX="14.0" layoutY="58.0" prefHeight="347.0" prefWidth="919.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="75.0" text="ID No" />
+          <TableColumn prefWidth="75.0" text="Name" />
+            <TableColumn prefWidth="88.0" text="Phone No" />
+            <TableColumn prefWidth="98.0" text="Date" />
+            <TableColumn prefWidth="83.0" text="In time" />
+            <TableColumn prefWidth="91.0" text="Out time" />
+            <TableColumn prefWidth="82.0" text="Purpose" />
+            <TableColumn prefWidth="96.0" text="Note" />
+            <TableColumn prefWidth="105.0" text="Other" />
+            <TableColumn prefWidth="125.0" text="Edit" />
         </columns>
       </TableView>
       <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="317.0" styleClass="lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Visitors List">

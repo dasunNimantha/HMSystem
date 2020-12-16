@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
    <children>
@@ -12,5 +14,18 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <JFXButton layoutX="731.0" layoutY="427.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Dispatched Mail" />
+      <TableView layoutX="14.0" layoutY="65.0" prefHeight="348.0" prefWidth="923.0">
+        <columns>
+          <TableColumn prefWidth="106.0" text="Receiver" />
+          <TableColumn prefWidth="67.0" text="Ref No" />
+            <TableColumn prefWidth="208.0" text="Address" />
+            <TableColumn prefWidth="103.0" text="Note" />
+            <TableColumn prefWidth="122.0" text="Sender" />
+            <TableColumn prefWidth="112.0" text="Date" />
+            <TableColumn prefWidth="114.0" text="Other" />
+            <TableColumn prefWidth="90.0" text="Edit" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

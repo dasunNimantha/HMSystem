@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -10,5 +12,61 @@
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Label>
+      <JFXButton layoutX="824.0" layoutY="436.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add" />
+      <Label layoutX="21.0" layoutY="70.0" text="ID No">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="97.0" text="Name">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="123.0" text="Phone No">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="150.0" text="Date">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="176.0" text="In time">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="202.0" text="Out time">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="232.0" text="Purpose">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="258.0" text="Note">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="287.0" text="Other">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField layoutX="138.0" layoutY="68.0" />
+      <JFXTextField layoutX="138.0" layoutY="95.0" />
+      <JFXTextField layoutX="138.0" layoutY="121.0" />
+      <JFXTextField layoutX="138.0" layoutY="148.0" />
+      <JFXTextField layoutX="138.0" layoutY="174.0" />
+      <JFXTextField layoutX="138.0" layoutY="200.0" />
+      <JFXTextField layoutX="138.0" layoutY="230.0" />
+      <JFXTextField layoutX="138.0" layoutY="256.0" />
+      <JFXTextField layoutX="138.0" layoutY="285.0" />
+      <JFXButton layoutX="312.0" layoutY="285.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Attach Document" />
    </children>
 </AnchorPane>
