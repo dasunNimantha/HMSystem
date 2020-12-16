@@ -7,10 +7,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 import sample.controllers.dashboardController.AdminDash.AdminController;
+import sample.models.Receptionist;
 
 import java.io.IOException;
 
@@ -59,10 +61,11 @@ public class PatientSignUp {
     }
 
     @FXML
-    void changeToNext1(ActionEvent event) {
+    void changeToNext1(MouseEvent event) {
         BorderPane tempBorderPane = (BorderPane) signUp1Anchor.getParent();
         tempBorderPane.setCenter(AdminController.screenMap.get("step2"));
     }
+
 
     @FXML
     void back1(ActionEvent event) {
@@ -82,5 +85,6 @@ public class PatientSignUp {
         BorderPane tempBorderPane = (BorderPane) signUp3Anchor.getParent();
         tempBorderPane.setCenter(AdminController.screenMap.get("step2"));
     }
+
 
 }

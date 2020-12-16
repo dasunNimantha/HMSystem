@@ -42,11 +42,7 @@ public class Main extends Application {
     }
 
 
-//    public static void removeScreen(String name) {
-//        screenController.removeScreen(name);
-//    }
-//    public static Parent getScreen(String getName){return(screenController.getScreen(getName));}
-//    public static void addScreen(String name,Parent pane){screenController.addScreen(name,pane);}
+
     public static void main(String[] args) {
         launch(args);
     }
