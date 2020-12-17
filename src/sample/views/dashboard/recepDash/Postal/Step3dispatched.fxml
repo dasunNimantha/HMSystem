@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
+<AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" stylesheets="@../../../../assets/styles/DashboardStyles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
     <children>
-        <Label layoutX="32.0" layoutY="30.0" text="Dispatched Mail">
+        <Label layoutX="32.0" layoutY="30.0" styleClass="head-label" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Dispatched Mail" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
         </Label>
-        <JFXButton layoutX="731.0" layoutY="427.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Dispatched Mail" />
-        <TableView layoutX="14.0" layoutY="65.0" prefHeight="348.0" prefWidth="923.0">
+        <JFXButton layoutX="731.0" layoutY="427.0" prefHeight="35.0" prefWidth="170.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Dispatched Mail" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="40.0" />
+        <TableView layoutX="52.0" layoutY="57.0" prefHeight="348.0" prefWidth="923.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
             <columns>
                 <TableColumn prefWidth="106.0" text="Receiver" />
                 <TableColumn prefWidth="67.0" text="Ref No" />
@@ -27,5 +27,6 @@
                 <TableColumn prefWidth="90.0" text="Edit" />
             </columns>
         </TableView>
+      <JFXButton layoutX="641.0" layoutY="427.0" prefHeight="35.0" prefWidth="170.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Back" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="250.0" />
     </children>
 </AnchorPane>
