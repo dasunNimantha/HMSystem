@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
+<AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" stylesheets="@../../../../assets/styles/DashboardStyles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.ReceptionistController">
     <children>
-        <JFXButton fx:id="addVisitor" layoutX="757.0" layoutY="419.0" onMouseClicked="#addVisLoad" prefHeight="35.0" prefWidth="155.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Visitor">
+        <JFXButton fx:id="addVisitor" layoutX="757.0" layoutY="419.0" onMouseClicked="#addVisLoad" prefHeight="35.0" prefWidth="170.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Visitor" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="40.0">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </JFXButton>
-        <TableView layoutX="14.0" layoutY="58.0" prefHeight="347.0" prefWidth="919.0">
+        <TableView layoutX="14.0" layoutY="58.0" prefHeight="347.0" prefWidth="919.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
             <columns>
                 <TableColumn prefWidth="75.0" text="ID No" />
                 <TableColumn prefWidth="75.0" text="Name" />
@@ -24,13 +24,18 @@
                 <TableColumn prefWidth="91.0" text="Out time" />
                 <TableColumn prefWidth="82.0" text="Purpose" />
                 <TableColumn prefWidth="96.0" text="Note" />
-                <TableColumn prefWidth="105.0" text="Other" />
-                <TableColumn prefWidth="125.0" text="Edit" />
+                <TableColumn prefWidth="136.0" text="Other" />
+                <TableColumn prefWidth="99.0" text="Edit" />
             </columns>
         </TableView>
-        <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="317.0" styleClass="lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Visitors List">
+        <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="317.0" styleClass="head-label" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Visitors List" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font></Label>
+      <JFXButton fx:id="addVisitor1" layoutX="577.0" layoutY="419.0" onMouseClicked="#addVisLoad" prefHeight="35.0" prefWidth="170.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Back" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="250.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
     </children>
 </AnchorPane>

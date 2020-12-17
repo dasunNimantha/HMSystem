@@ -6,7 +6,7 @@
 
 <AnchorPane fx:id="step2Anchor" prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.ReceptionistController">
    <children>
-      <JFXButton fx:id="test" layoutX="329.0" layoutY="159.0" onAction="#test" prefHeight="166.0" prefWidth="286.0" style="-fx-background-color: pink;" text="Test">
+      <JFXButton fx:id="test" layoutX="329.0" layoutY="159.0" onAction="#test" prefHeight="166.0" prefWidth="286.0" style="-fx-background-color: pink;" text="Patients">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>

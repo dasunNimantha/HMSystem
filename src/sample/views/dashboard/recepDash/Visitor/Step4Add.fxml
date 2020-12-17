@@ -68,5 +68,6 @@
         <JFXTextField layoutX="138.0" layoutY="256.0" />
         <JFXTextField layoutX="138.0" layoutY="285.0" />
         <JFXButton layoutX="312.0" layoutY="285.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Attach Document" />
+      <JFXButton layoutX="743.0" layoutY="436.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Back" />
     </children>
 </AnchorPane>
