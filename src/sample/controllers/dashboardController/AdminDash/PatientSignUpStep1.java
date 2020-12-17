@@ -1,6 +1,8 @@
 package sample.controllers.dashboardController.AdminDash;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,14 +14,32 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 import sample.controllers.dashboardController.AdminDash.AdminController;
-import sample.models.Receptionist;
+import sample.models.Enums;
+import sample.models.Patient;
+import sample.models.Enums;
+import sample.models.User;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-public class PatientSignUp {
+public class PatientSignUpStep1 {
+
+
+    static User patient = new Patient();
 
     @FXML
-    private BorderPane signUpBorderPane;
+    private JFXButton backToPatientList;
+
+    @FXML
+    private AnchorPane signUp3Anchor;
+
+    // Step 1 nodes
+
+    @FXML
+    private AnchorPane signUp1Anchor;
+
+    @FXML
+    private AnchorPane signUp2Anchor;
 
     @FXML
     private JFXTextField firstNameText;
@@ -34,22 +54,28 @@ public class PatientSignUp {
     private JFXTextField userNameText;
 
     @FXML
-    private JFXButton backToPatientList;
+    private JFXTextField telephoneNo;
 
     @FXML
-    private JFXButton next;
+    private JFXDatePicker dobPicker;
 
 
-    @FXML
-    private AnchorPane signUp1Anchor;
-
+    // Step 2 nodes
 
     @FXML
-    private AnchorPane signUp2Anchor;
+    private JFXTextField addrFirstText;
 
     @FXML
-    private AnchorPane signUp3Anchor;
+    private JFXTextField addrSecondText;
 
+    @FXML
+    private JFXTextField addrCityText;
+
+    @FXML
+    private JFXComboBox<Enums.enumGender> genderDropDown;
+
+    @FXML
+    private JFXComboBox<Enums.enumMaritalStatus> maritalDropDown;
 
 
     @FXML
@@ -62,8 +88,15 @@ public class PatientSignUp {
 
     @FXML
     void changeToNext1(MouseEvent event) {
+        patient.setName(firstNameText.getText()+lastNameText.getText());
+        patient.setUserName(userNameText.getText());
+        patient.setIdNumber(Integer.parseInt(idNoText.getText()));
+        patient.setDob(dobPicker.getValue());
+        patient.setPhoneNumber(Integer.parseInt(telephoneNo.getText()));
+
         BorderPane tempBorderPane = (BorderPane) signUp1Anchor.getParent();
         tempBorderPane.setCenter(AdminController.screenMap.get("step2"));
+
     }
 
 
@@ -74,16 +107,15 @@ public class PatientSignUp {
     }
 
 
-    @FXML
-    void changeToNext2(ActionEvent event) {
-        BorderPane tempBorderPane = (BorderPane) signUp2Anchor.getParent();
-        tempBorderPane.setCenter(AdminController.screenMap.get("step3"));
-    }
 
     @FXML
     void back2(ActionEvent event) {
         BorderPane tempBorderPane = (BorderPane) signUp3Anchor.getParent();
         tempBorderPane.setCenter(AdminController.screenMap.get("step2"));
+    }
+
+    public void initialize(){
+
     }
 
 

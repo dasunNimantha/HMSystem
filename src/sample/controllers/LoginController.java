@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import sample.models.Enums;
 import sample.models.UserValidation;
 
 
@@ -69,10 +70,10 @@ public class LoginController implements Initializable {
             }
         });
 
-        userRole.getItems().add("Patient");
-        userRole.getItems().add("Receptionist");
-        userRole.getItems().add("Medical Officer");
-        userRole.getItems().add("Admin");
+        userRole.getItems().add(Enums.enumUsers.PATIENT.getRole());
+        userRole.getItems().add(Enums.enumUsers.RECEPTIONIST.getRole());
+        userRole.getItems().add(Enums.enumUsers.MEDICALOFFICER.getRole());
+        userRole.getItems().add(Enums.enumUsers.ADMIN.getRole());
         userRole.getSelectionModel().selectFirst();
 
     }
@@ -94,7 +95,7 @@ public class LoginController implements Initializable {
 
 
     private void userAuth(){
-                String role = userRole.getValue();
+                String role = userRole.getValue().toString();
 
                 String username = usrNameField.getText();
                 String password = passwdField.getText();

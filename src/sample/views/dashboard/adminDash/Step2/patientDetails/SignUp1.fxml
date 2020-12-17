@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXProgressBar?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="signUp1Anchor" prefHeight="583.0" prefWidth="986.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.PatientSignUp">
+<AnchorPane fx:id="signUp1Anchor" prefHeight="583.0" prefWidth="986.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.PatientSignUpStep1">
    <children>
       <BorderPane fx:id="signUpBorderPane" layoutY="-1.0" prefHeight="462.0" prefWidth="986.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <top>
@@ -59,15 +60,16 @@
                   <JFXTextField fx:id="lastNameText" labelFloat="true" layoutX="37.0" layoutY="140.0" prefHeight="28.0" prefWidth="198.0" promptText="Last Name" />
                   <JFXTextField fx:id="idNoText" labelFloat="true" layoutX="592.0" layoutY="63.0" prefHeight="28.0" prefWidth="198.0" promptText="ID No" />
                   <JFXTextField fx:id="userNameText" layoutX="37.0" layoutY="213.0" prefHeight="28.0" prefWidth="198.0" promptText="Username" />
-                  <JFXTextField labelFloat="true" layoutX="592.0" layoutY="213.0" prefHeight="28.0" prefWidth="198.0" promptText="Telephone No" />
-                  <JFXTextField labelFloat="true" layoutX="592.0" layoutY="142.0" prefHeight="26.0" prefWidth="203.0" promptText="DD/MM/YYYY" />
+                  <JFXTextField fx:id="telephoneNo" labelFloat="true" layoutX="592.0" layoutY="213.0" prefHeight="28.0" prefWidth="198.0" promptText="Telephone No" />
+                  <JFXDatePicker fx:id="dobPicker" layoutX="592.0" layoutY="139.0" prefHeight="28.0" prefWidth="200.0" promptText="DOB" />
                </children>
             </AnchorPane>
          </bottom></BorderPane>
       <JFXButton layoutX="531.0" layoutY="526.0" onMouseClicked="#changeToNext1" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #1DE9B6;" text="Next Step">
          <font>
             <Font name="System Bold" size="13.0" />
-         </font></JFXButton>
+         </font>
+      </JFXButton>
       <JFXButton fx:id="backToPatientList" layoutX="267.0" layoutY="526.0" onAction="#backToPatientList" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: pink;" text="Back to List">
          <font>
             <Font name="System Bold" size="13.0" />
