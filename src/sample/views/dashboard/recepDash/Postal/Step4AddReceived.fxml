@@ -8,7 +8,8 @@
 
 <AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
     <children>
-        <Label layoutX="30.0" layoutY="24.0" text="Add Received Mail" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="anc-main" stylesheets="@../../../../assets/styles/DashboardStyles.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+        <Label layoutX="30.0" layoutY="24.0" styleClass="head-label" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Received Mail" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
