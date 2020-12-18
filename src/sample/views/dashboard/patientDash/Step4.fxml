@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
 
 <AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.PatientController">
    <children>
-      <Label layoutX="31.0" layoutY="30.0" prefHeight="40.0" prefWidth="264.0" text="Feedback" />
+      <Label layoutX="62.0" layoutY="35.0" prefHeight="35.0" prefWidth="201.0" text="RATE US">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="189.0" prefHeight="42.0" prefWidth="260.0" text="Leave a Feedback Here">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <JFXTextArea layoutX="55.0" layoutY="250.0" prefHeight="139.0" prefWidth="326.0" promptText="FEEDBACK">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </JFXTextArea>
+      <Rating layoutX="55.0" layoutY="94.0" prefHeight="32.0" prefWidth="230.0" rating="0.0" />
+      <JFXButton buttonType="RAISED" layoutX="694.0" layoutY="348.0" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: #448AFF;" text="Make a Complaint" textFill="WHITE" />
    </children>
 </AnchorPane>
