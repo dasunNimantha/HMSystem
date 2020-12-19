@@ -3,6 +3,8 @@ package sample.models;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class UserTasks {
 
@@ -16,7 +18,11 @@ public class UserTasks {
                 // write patient data to DB files
                 File userDBFile = new File("src/sample/fileDatabase/"+userType+"DB.txt");
                 FileWriter fw1 = new FileWriter(userDBFile,true);
-
+                if(!userDBFile.exists()){
+                    if(userDBFile.createNewFile()){
+                        System.out.println("Created new "+userType+" database file");
+                    }
+                }
                 BufferedWriter bw1 = new BufferedWriter(fw1);
                 if (userDBFile.length()==0){   // check if the file is empty
                     bw1.write(patientObj.toString());
@@ -92,48 +98,99 @@ public class UserTasks {
     // user delete function
 
     public static void deleteUser(String editorRole,String userRole,String idNo,String username) throws IOException {
-        FileReader fr;
-        FileWriter fw;
-        BufferedReader br;
-        BufferedWriter bw;
 
+        // user deletion from main database
         if(editorRole.equals("Admin") || (editorRole.equals("Receptionist"))){
             if (userRole.equals("Patient")){
                 String currentLine;
 
-                File patientDB = new File("src/sample/fileDatabase/PatientDB.txt");
-                fr = new FileReader(patientDB);
-                br = new BufferedReader(fr);
+                File oldFile = new File("src/sample/fileDatabase/PatientDB.txt");;
+                File tempFile = new File("src/sample/fileDatabase/tempFile.txt");
 
-                File tempFile = new File("src/sample/fileDatabase/userTemp.txt");
-                if(tempFile.exists()){
-                    tempFile.delete();
-                }
+                FileWriter fw = new FileWriter(tempFile,true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter pw = new PrintWriter(bw);
 
-                fw = new FileWriter(tempFile,true);
-                bw = new BufferedWriter(fw);
+                FileReader fr = new FileReader(oldFile);
+                BufferedReader br = new BufferedReader(fr);
 
                 while((currentLine = br.readLine()) != null){
                     String decryptedText = Crypto.decrypt(currentLine);
                     assert decryptedText != null;
                     String [] userData = decryptedText.split("~");
-                    if(((userData[0].equals(username) && (userData[3]).equals(idNo)))) {
-                        System.out.println("User "+username+" deleted successfully");
+                    if(((userData[0].equals(username)))) {
+                        System.out.println("\nUser found : "+username);
                     } else{
-                        bw.write(currentLine+"\n");
+                        pw.println(currentLine);
 
                     }
 
                 }
 
-                patientDB.delete();
-                tempFile.renameTo(patientDB);
-
-                bw.close();
-                br.close();
+                pw.flush();
+                pw.close();
                 fr.close();
+                br.close();
+                bw.close();
                 fw.close();
+
+                if(oldFile.delete()){
+                    System.out.println("User "+username+" deleted successfully");
+                } else {
+                    System.out.println("Error on user deletion");
+                }
+
+                File dump = new File("src/sample/fileDatabase/PatientDB.txt");
+                if(tempFile.renameTo(dump)){
+                    System.out.println("Successfully renamed file");
+                } else {
+                    System.out.println("Error on renaming");
+                }
             }
+
+            // userAuth deletion function
+            String currentLine;
+
+            File oldAuthFile = new File("src/sample/fileDatabase/userAuthDB.txt");
+            File tempAuthFile = new File("src/sample/fileDatabase/tempAuthFile.txt");
+
+            FileWriter fw = new FileWriter(tempAuthFile,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+
+            FileReader fr = new FileReader(oldAuthFile);
+            BufferedReader br = new BufferedReader(fr);
+
+            while((currentLine = br.readLine()) != null){
+                String[] credentials = currentLine.split(",");
+                if (Objects.equals(Crypto.decrypt(credentials[1]), username)) {
+                    System.out.println("User found : "+username);
+                } else {
+                    pw.println(currentLine);
+                }
+
+            }
+
+            pw.flush();
+            pw.close();
+            fr.close();
+            br.close();
+            bw.close();
+            fw.close();
+
+            if(oldAuthFile.delete()){
+                System.out.println("Auth line deleted on user "+username);
+            } else {
+                System.out.println("Error on auth line deletion");
+            }
+
+            File dump = new File("src/sample/fileDatabase/userAuthDB.txt");
+            if(tempAuthFile.renameTo(dump)){
+                System.out.println("Successfully renamed the file");
+            } else {
+                System.out.println("Error on renaming");
+            }
+
         }
 
     }
