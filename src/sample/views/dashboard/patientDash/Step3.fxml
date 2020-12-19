@@ -6,8 +6,7 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.PatientController">
+<AnchorPane prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.PatientController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;">
          <children>
@@ -19,7 +18,7 @@
             <JFXRadioButton layoutX="210.0" layoutY="40.0" text="EYE" toggleGroup="$Speciality" />
             <JFXRadioButton layoutX="369.0" layoutY="40.0" text="ENT" toggleGroup="$Speciality" />
             <JFXRadioButton layoutX="526.0" layoutY="40.0" text="Other" toggleGroup="$Speciality" />
-            <TableView layoutX="16.0" layoutY="76.0" prefHeight="385.0" prefWidth="911.0" style="-fx-background-radius: 25;">
+            <TableView layoutX="16.0" layoutY="76.0" prefHeight="478.0" prefWidth="924.0" style="-fx-background-radius: 25;">
                <columns>
                   <TableColumn prefWidth="91.99999618530273" style="background-color: transparent;" text="Index" />
                   <TableColumn prefWidth="432.80003356933594" text="Doctor Name" />
