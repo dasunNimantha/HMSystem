@@ -3,7 +3,11 @@ package sample.controllers.dashboardController.MODash;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+
+import java.io.IOException;
 
 public class MOController {
 
@@ -29,17 +33,22 @@ public class MOController {
     private BorderPane recepBorderPane;
 
     @FXML
-    void step1(ActionEvent event) {
+    void step1(ActionEvent event) throws IOException {
+        Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Step1.fxml"));
+        recepBorderPane.setCenter(step1);
+    }
+
+    @FXML
+    void step2(ActionEvent event) throws IOException {
+        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Step2.fxml"));
+        recepBorderPane.setCenter(step2);
 
     }
 
     @FXML
-    void step2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void step3(ActionEvent event) {
+    void step3(ActionEvent event) throws IOException {
+        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Step3.fxml"));
+        recepBorderPane.setCenter(step3);
 
     }
 
