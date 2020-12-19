@@ -1,21 +1,23 @@
 package sample.models;
 
+import com.jfoenix.controls.JFXButton;
+
 import java.time.LocalDate;
 
-public abstract class Staff extends User {
-
-    public Staff(String userName, String name, String gender, int phoneNumber, int idNumber, LocalDate dob, String address, String maritalStatus, int password, String profilePicture, int staffId, String email, LocalDate dateOfJoin, String staffPhoto) {
-        super(userName, name, gender, phoneNumber, idNumber, dob, address, maritalStatus, password, profilePicture);
-        this.staffId = staffId;
-        this.email = email;
-        this.dateOfJoin = dateOfJoin;
-        this.staffPhoto = staffPhoto;
-    }
+public class Staff extends User {
 
     private int staffId;
     private String email;
     private LocalDate dateOfJoin;
     private String staffPhoto;
+
+    public Staff(String userName, int password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber, JFXButton viewUserBtn, JFXButton editUserBtn, JFXButton deleteUserBtn, int staffId, String email, LocalDate dateOfJoin, String staffPhoto) {
+        super(userName, password, idNumber, name, dob, gender, maritalStatus, address, phoneNumber, viewUserBtn, editUserBtn, deleteUserBtn);
+        this.staffId = staffId;
+        this.email = email;
+        this.dateOfJoin = dateOfJoin;
+        this.staffPhoto = staffPhoto;
+    }
 
     public int getStaffId() {
         return staffId;

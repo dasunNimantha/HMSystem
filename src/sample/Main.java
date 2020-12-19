@@ -10,8 +10,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.controllers.ScreenController;
 
+import java.util.HashMap;
+
+
 public class Main extends Application {
 
+    public static HashMap<String,Parent> loginMap = new HashMap<>();
     private static ScreenController screenController;
 
     private double xOffset = 0;
@@ -19,7 +23,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("views/Login.fxml"));
+
+        Parent root = FXMLLoader.load(getClass().getResource("views/LoginRoleSelect.fxml"));
 
         Scene scene = new Scene(root,1049, 594);
         primaryStage.setScene(scene);
@@ -38,7 +43,7 @@ public class Main extends Application {
         });
 
         primaryStage.show();
-
+        loginMap.put("roleSelect",root);
     }
 
 

@@ -32,7 +32,7 @@
                                 <Insets top="60.0" />
                             </VBox.margin>
                         </Label>
-                        <JFXButton fx:id="MOBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" style="-fx-background-radius: 5;" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Appointments" textFill="#5b5858">
+                        <JFXButton fx:id="recepBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" text="Button 1" textFill="#5b5858">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
@@ -50,7 +50,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </JFXButton>
-                        <JFXButton fx:id="MOBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" style="-fx-background-radius: 5;" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Doctor Details" textFill="#5b5858">
+                        <JFXButton fx:id="recepBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" text="Button 2" textFill="#5b5858">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
@@ -68,7 +68,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </JFXButton>
-                        <JFXButton fx:id="MOBtn3" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step3" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" style="-fx-background-radius: 5;" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Settings" textFill="#5b5858">
+                        <JFXButton fx:id="recepBtn3" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step3" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" text="Button 3" textFill="#5b5858">
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -78,7 +78,78 @@
                                         <Rectangle2D />
                                     </viewport>
                                     <image>
-                                        <Image url="@../../../assets/images/dashboard/icons8_settings_32px.png" />
+                                        <Image url="@../../../assets/images/dashboard/icons8_Share_64px.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <padding>
+                                <Insets left="50.0" />
+                            </padding>
+                        </JFXButton>
+                        <Label prefHeight="30.0" prefWidth="252.0" text="ENTERPRISE" textFill="#171717">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <padding>
+                                <Insets left="40.0" />
+                            </padding>
+                        </Label>
+                        <JFXButton fx:id="recepBtn4" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step4" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" text="Button 4" textFill="#5b5858">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <graphic>
+                                <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../assets/images/dashboard/icons8_US_Dollar_64px.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <padding>
+                                <Insets left="50.0" />
+                            </padding>
+                        </JFXButton>
+                        <JFXButton fx:id="recepBtn5" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step5" prefHeight="57.0" prefWidth="202.0" ripplerFill="#bfadf8" text="Button 5" textFill="#5b5858">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <graphic>
+                                <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../assets/images/dashboard/icons8_Workflow_64px.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <padding>
+                                <Insets left="50.0" />
+                            </padding>
+                        </JFXButton>
+                        <JFXButton fx:id="recepBtn6" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step6" prefHeight="57.0" prefWidth="252.0" ripplerFill="#bfadf8" text="Button 6" textFill="#5b5858">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../assets/images/dashboard/projections.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <padding>
+                                <Insets left="50.0" />
+                            </padding>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step7" prefHeight="57.0" prefWidth="252.0" ripplerFill="#bfadf8" text="Button 7" textFill="#5b5858">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                    <viewport>
+                                        <Rectangle2D />
+                                    </viewport>
+                                    <image>
+                                        <Image url="@../../../assets/images/dashboard/agencies.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -138,6 +209,10 @@
                 </ImageView>
             </children>
         </AnchorPane>
-        <BorderPane fx:id="recepBorderPane" layoutX="228.0" layoutY="149.0" prefHeight="484.0" prefWidth="944.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="149.0" />
+        <BorderPane fx:id="recepBorderPane" layoutX="228.0" layoutY="149.0" prefHeight="484.0" prefWidth="944.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="149.0">
+            <center>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: blue;" BorderPane.alignment="CENTER" />
+            </center>
+        </BorderPane>
     </children>
 </AnchorPane>

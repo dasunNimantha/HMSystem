@@ -22,10 +22,10 @@ import sample.models.User;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class PatientSignUpStep1 {
+public class PatientSignUpStep1  {
 
 
-    static User patient = new Patient();
+    static Patient patient = new Patient();
 
     @FXML
     private JFXButton backToPatientList;
@@ -88,14 +88,15 @@ public class PatientSignUpStep1 {
 
     @FXML
     void changeToNext1(MouseEvent event) {
-        patient.setName(firstNameText.getText()+lastNameText.getText());
+        patient.setName(firstNameText.getText()+" "+lastNameText.getText());
         patient.setUserName(userNameText.getText());
         patient.setIdNumber(Integer.parseInt(idNoText.getText()));
+        patient.setPassword(Integer.parseInt(idNoText.getText()));
         patient.setDob(dobPicker.getValue());
         patient.setPhoneNumber(Integer.parseInt(telephoneNo.getText()));
 
         BorderPane tempBorderPane = (BorderPane) signUp1Anchor.getParent();
-        tempBorderPane.setCenter(AdminController.screenMap.get("step2"));
+        tempBorderPane.setCenter(PatientDetails.signUpscreenMap.get("step2"));
 
     }
 
@@ -103,7 +104,7 @@ public class PatientSignUpStep1 {
     @FXML
     void back1(ActionEvent event) {
         BorderPane tempBorderPane = (BorderPane) signUp2Anchor.getParent();
-        tempBorderPane.setCenter(AdminController.screenMap.get("step1"));
+        tempBorderPane.setCenter(PatientDetails.signUpscreenMap.get("step1"));
     }
 
 
@@ -111,7 +112,7 @@ public class PatientSignUpStep1 {
     @FXML
     void back2(ActionEvent event) {
         BorderPane tempBorderPane = (BorderPane) signUp3Anchor.getParent();
-        tempBorderPane.setCenter(AdminController.screenMap.get("step2"));
+        tempBorderPane.setCenter(PatientDetails.signUpscreenMap.get("step2"));
     }
 
     public void initialize(){
