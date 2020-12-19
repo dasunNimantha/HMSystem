@@ -20,16 +20,16 @@ public class UserValidation {
         int statusCode = 0;
         FileReader fr = null;
         try {
-            fr = new FileReader("src/sample/database/userAuthDB.txt");
+            fr = new FileReader("src/sample/fileDatabase/userAuthDB.txt");
             BufferedReader br = new BufferedReader(fr);
-            while((currentLine= br.readLine()) != null){
-                String [] credentials = currentLine.split(",");
-                if (    (Objects.equals(Crypto.decrypt(credentials[0]),role)
+            while((currentLine= br.readLine()) != null) {
+                String[] credentials = currentLine.split(",");
+                if ((Objects.equals(Crypto.decrypt(credentials[0]), role)
                         && Objects.equals(Crypto.decrypt(credentials[1]), username)
-                        && Objects.equals(Crypto.decrypt(credentials[2]), password))){
+                        && Objects.equals(Crypto.decrypt(credentials[2]), password))) {
                     statusCode = 1;
                 }
-    }
+            }
             br.close();
             fr.close();
         } catch (IOException e) {

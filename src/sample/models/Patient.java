@@ -1,20 +1,23 @@
 package sample.models;
 
+import com.jfoenix.controls.JFXButton;
+
 import java.time.LocalDate;
 
 public class Patient extends User {
 
-    public Patient(String userName, String name, String gender, int phoneNumber, int idNumber, LocalDate dob, String address, String maritalStatus, String profilePicture, String bloodGroup, String allergies) {
-        super(userName, name, gender, phoneNumber, idNumber, dob, address, maritalStatus, idNumber, profilePicture);
-        this.bloodGroup = bloodGroup;
-        this.allergies = allergies;
-    }
 
     private String bloodGroup;
     private String allergies;
 
-    public Patient() {
-        super();
+    public Patient(){
+        
+    }
+
+    public Patient(String userName, int password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber, JFXButton viewUserBtn, JFXButton editUserBtn, JFXButton deleteUserBtn, String bloodGroup, String allergies) {
+        super(userName, password, idNumber, name, dob, gender, maritalStatus, address, phoneNumber, viewUserBtn, editUserBtn, deleteUserBtn);
+        this.bloodGroup = bloodGroup;
+        this.allergies = allergies;
     }
 
     public String getBloodGroup() {
@@ -32,4 +35,14 @@ public class Patient extends User {
     public void setAllergies(String allergies) {
         this.allergies = allergies;
     }
+
+    @Override
+    public String toString(){
+        return Crypto.encrypt(super.getUserName()+"~"+super.getPassword()+"~"
+                +super.getName()+"~"+super.getIdNumber()+"~"+super.getDob()+"~"
+                +super.getGender()+"~"+super.getMaritalStatus()+"~"+super.getAddress()+
+                "~"+super.getPhoneNumber()+"~"+bloodGroup+"~"+allergies+"~");
+    }
+
+
 }
