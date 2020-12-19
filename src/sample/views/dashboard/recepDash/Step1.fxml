@@ -6,9 +6,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-radius: 8; -fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.ReceptionistController">
    <children>
-      <AnchorPane layoutY="5.0" prefHeight="583.0" prefWidth="946.0" style="-fx-border-radius: 8;">
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="583.0" prefWidth="946.0" style="-fx-border-radius: 8;">
          <children>
             <AnchorPane layoutX="26.0" layoutY="27.0" prefHeight="203.0" prefWidth="584.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #FAFAFA;">
                <children>
@@ -22,7 +23,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="173.0" fitWidth="230.0" layoutX="346.0" layoutY="15.0">
+                  <ImageView fitHeight="199.0" fitWidth="230.0" layoutX="360.0" layoutY="4.0">
                      <image>
                         <Image url="@../../../assets/images/dashboard/rsz_girl-work-on-laptop.png" />
                      </image>

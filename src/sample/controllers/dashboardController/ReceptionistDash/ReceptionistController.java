@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import sample.controllers.SceneLoader;
@@ -43,6 +44,20 @@ public class ReceptionistController {
     @FXML
     private BorderPane recepBorderPane;
 
+    @FXML
+    void disList(MouseEvent event) {
+
+    }
+
+    @FXML
+    void recList(MouseEvent event) {
+
+    }
+
+    @FXML
+    void addVisLoad(MouseEvent event) {
+
+    }
 
     @FXML
     void step1(ActionEvent event) throws IOException {
