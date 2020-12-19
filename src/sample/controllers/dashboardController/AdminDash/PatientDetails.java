@@ -58,6 +58,7 @@ public class PatientDetails  {
         signUpscreenMap.put("step2",step2);
         signUpscreenMap.put("step3",step3);
 
+        
 
         BorderPane parentBorderPane = (BorderPane) (patientDetailAnchor.getParent());
         parentBorderPane.setCenter(signUpscreenMap.get("step1"));

@@ -95,6 +95,8 @@ public class UserTasks {
     }
 
 
+
+
     // user delete function
 
     public static void deleteUser(String editorRole,String userRole,String idNo,String username) throws IOException {
@@ -193,6 +195,58 @@ public class UserTasks {
 
         }
 
+    }
+
+    public static void userEditFunction(String editorRole,String userType,User userObj) throws IOException {
+        if((editorRole.equals("Admin") || (editorRole.equals("Receptionist")))){
+            if(userType.equals("Patient")){
+                String currentLine;
+
+                File oldFile = new File("src/sample/fileDatabase/PatientDB.txt");;
+                File tempFile = new File("src/sample/fileDatabase/tempFile.txt");
+
+                FileWriter fw = new FileWriter(tempFile,true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter pw = new PrintWriter(bw);
+
+                FileReader fr = new FileReader(oldFile);
+                BufferedReader br = new BufferedReader(fr);
+
+                while((currentLine = br.readLine()) != null){
+                    String decryptedText = Crypto.decrypt(currentLine);
+                    assert decryptedText != null;
+                    String [] userData = decryptedText.split("~");
+
+                    if(((userData[0].equals(userObj.getUserName())))) {
+                       pw.println(userObj.toString());
+                    } else{
+                        pw.println(currentLine);
+
+                    }
+
+                }
+
+                pw.flush();
+                pw.close();
+                fr.close();
+                br.close();
+                bw.close();
+                fw.close();
+
+                if(oldFile.delete()){
+                    System.out.println("User "+userObj.getUserName()+" edited successfully");
+                } else {
+                    System.out.println("Error on user edit");
+                }
+
+                File dump = new File("src/sample/fileDatabase/PatientDB.txt");
+                if(tempFile.renameTo(dump)){
+                    System.out.println("Successfully renamed file");
+                } else {
+                    System.out.println("Error on renaming");
+                }
+            }
+        }
     }
 
 

@@ -3,12 +3,16 @@ package sample.controllers.dashboardController.AdminDash;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import sample.controllers.dashboardController.MODash.MOController;
+import sample.models.Enums;
+import sample.models.Patient;
 import sample.models.User;
 import sample.models.UserTasks;
 
@@ -70,31 +74,7 @@ public class viewPatientDetails {
     @FXML
     private Button deleteUserBtn;
 
-    @FXML
-    void cancelEdit(ActionEvent event) {
-
-        nameText.setEditable(false);
-        usernameText.setEditable(false);
-        idNoText.setEditable(false);
-        phoneNoText.setEditable(false);
-        genderText.setEditable(false);
-        maritalStatusText.setEditable(false);
-        addressText.setEditable(false);
-
-        backBtn.setVisible(true);
-        editBtn.setVisible(true);
-        deleteUserBtn.setVisible(true);
-        saveEditBtn.setVisible(false);
-        cancelEdit.setVisible(false);
-
-    }
-
-    @FXML
-    void saveEdit(ActionEvent event) {
-
-    }
-
-        public void initialize(){
+    public void getUsrData(){
         nameLabel.setText(selectedPatient.getName());
         usernameLbl.setText("#"+selectedPatient.getUserName());
         nameText.setText(selectedPatient.getName());
@@ -108,8 +88,68 @@ public class viewPatientDetails {
 
         Image proPic = new Image("sample/assets/images/dashboard/Maithripala-_Russia_(portrait).jpg");
         profileCircle.setFill(new ImagePattern(proPic));
-        // edit button action
+    }
 
+    @FXML
+    void cancelEdit(ActionEvent event) {
+
+        cancelSave();
+        getUsrData();
+    }
+
+    @FXML
+    void saveEdit(ActionEvent event) throws IOException {
+
+        Patient editedPatient = new Patient();
+        editedPatient.setName(nameText.getText());
+        editedPatient.setUserName(selectedPatient.getUserName());
+        editedPatient.setPassword(selectedPatient.getPassword());
+        editedPatient.setIdNumber(selectedPatient.getIdNumber());
+        editedPatient.setDob(selectedPatient.getDob());
+        editedPatient.setAddress(selectedPatient.getAddress());
+        editedPatient.setGender(selectedPatient.getGender());
+        editedPatient.setMaritalStatus(selectedPatient.getMaritalStatus());
+        editedPatient.setPhoneNumber(selectedPatient.getPhoneNumber());
+        editedPatient.setBloodGroup(Enums.enumBloodGroup.A_NEGATIVE.getBloodGroup());
+        editedPatient.setAllergies("No allergies for this time");
+
+        // call edit user function
+        UserTasks.userEditFunction("Admin","Patient",editedPatient);
+        usernameLbl.setText("#"+usernameText.getText());
+        nameLabel.setText(nameText.getText());
+
+        cancelSave();
+
+
+    }
+
+    private void cancelSave() {
+        nameText.setEditable(false);
+        usernameText.setEditable(false);
+        idNoText.setEditable(false);
+        phoneNoText.setEditable(false);
+        genderText.setEditable(false);
+        maritalStatusText.setEditable(false);
+        addressText.setEditable(false);
+
+        backBtn.setVisible(true);
+        editBtn.setVisible(true);
+        deleteUserBtn.setVisible(true);
+        saveEditBtn.setVisible(false);
+        cancelEdit.setVisible(false);
+    }
+
+
+
+    @FXML
+    void backToPatientDetails(ActionEvent event) {
+
+    }
+
+    public void initialize(){
+            getUsrData();
+
+        // edit button action
         editBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -129,6 +169,7 @@ public class viewPatientDetails {
 
             }
         });
+
 
         deleteUserBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
