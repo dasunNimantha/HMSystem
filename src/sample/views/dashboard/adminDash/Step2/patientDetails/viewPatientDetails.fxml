@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="583.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.viewPatientDetails">
+   <children>
+      <Label fx:id="nameLabel" layoutX="324.0" layoutY="68.0" prefHeight="68.0" prefWidth="548.0" text="Dasun Nimantha ">
+         <font>
+            <Font name="System Bold" size="43.0" />
+         </font>
+      </Label>
+      <Circle fx:id="profileCircle" fill="WHITE" layoutX="164.0" layoutY="136.0" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Label fx:id="usernameLbl" layoutX="324.0" layoutY="132.0" prefHeight="34.0" prefWidth="215.0" text="#dasun99" textFill="#646262">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="292.0" prefHeight="34.0" prefWidth="134.0" text="Name">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="342.0" prefHeight="34.0" prefWidth="134.0" text="User Name">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="392.0" prefHeight="34.0" prefWidth="134.0" text="ID No">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameText" editable="false" layoutX="175.0" layoutY="297.0" prefHeight="26.0" prefWidth="184.0" />
+      <TextField fx:id="usernameText" editable="false" layoutX="174.0" layoutY="349.0" prefHeight="26.0" prefWidth="184.0" />
+      <TextField fx:id="idNoText" editable="false" layoutX="174.0" layoutY="396.0" prefHeight="26.0" prefWidth="184.0" />
+      <Label layoutX="64.0" layoutY="442.0" prefHeight="34.0" prefWidth="92.0" text="Pone Number">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phoneNoText" editable="false" layoutX="175.0" layoutY="446.0" prefHeight="26.0" prefWidth="184.0" />
+      <Label layoutX="487.0" layoutY="293.0" prefHeight="34.0" prefWidth="92.0" text="Gender">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="genderText" editable="false" layoutX="598.0" layoutY="297.0" prefHeight="26.0" prefWidth="184.0" />
+      <Label layoutX="487.0" layoutY="345.0" prefHeight="34.0" prefWidth="92.0" text="Marital Status">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="maritalStatusText" editable="false" layoutX="598.0" layoutY="349.0" prefHeight="26.0" prefWidth="184.0" />
+      <Label layoutX="487.0" layoutY="409.0" prefHeight="34.0" prefWidth="92.0" text="Address">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="addressText" editable="false" layoutX="598.0" layoutY="413.0" prefHeight="68.0" prefWidth="184.0" />
+      <Button fx:id="editBtn" layoutX="782.0" layoutY="527.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Edit" />
+      <Button fx:id="backBtn" layoutX="859.0" layoutY="528.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Back" />
+      <Button fx:id="saveEditBtn" layoutX="782.0" layoutY="527.0" mnemonicParsing="false" onAction="#saveEdit" prefHeight="26.0" prefWidth="54.0" text="Save" visible="false" />
+      <Button fx:id="cancelEdit" layoutX="860.0" layoutY="528.0" mnemonicParsing="false" onAction="#cancelEdit" text="Cancel" visible="false" />
+      <Button fx:id="deleteUserBtn" layoutX="706.0" layoutY="527.0" mnemonicParsing="false" text="Delete" />
+   </children>
+</AnchorPane>

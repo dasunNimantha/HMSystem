@@ -21,8 +21,6 @@ public  class User extends RecursiveTreeObject<User> {
     private  String address;
     private int phoneNumber;
     private JFXButton viewUserBtn;
-    private JFXButton editUserBtn;
-    private JFXButton deleteUserBtn;
     public User() {
     }
 
@@ -37,8 +35,6 @@ public  class User extends RecursiveTreeObject<User> {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.viewUserBtn = viewUserBtn;
-        this.editUserBtn = editUserBtn;
-        this.deleteUserBtn = deleteUserBtn;
     }
 
     public String getUserName() {
@@ -121,21 +117,6 @@ public  class User extends RecursiveTreeObject<User> {
         this.viewUserBtn = viewUserBtn;
     }
 
-    public JFXButton getEditUserBtn() {
-        return editUserBtn;
-    }
-
-    public void setEditUserBtn(JFXButton editUserBtn) {
-        this.editUserBtn = editUserBtn;
-    }
-
-    public JFXButton getDeleteUserBtn() {
-        return deleteUserBtn;
-    }
-
-    public void setDeleteUserBtn(JFXButton deleteUserBtn) {
-        this.deleteUserBtn = deleteUserBtn;
-    }
 
     public static void ViewUserDetails(ActionEvent actionEvent){
         System.out.println("Clicked");

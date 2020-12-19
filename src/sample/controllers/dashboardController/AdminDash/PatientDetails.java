@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
+import sample.models.Patient;
 import sample.models.User;
 import sample.models.UserTasks;
 
@@ -72,9 +73,9 @@ public class PatientDetails  {
             int userCount = userArrayList.size();
 
             ObservableList<User> obsUsers = FXCollections.observableArrayList();
-            for(int i = 0; i< userCount; i++) {
-                obsUsers.add(userArrayList.get(i));
-            }
+            obsUsers.addAll(userArrayList);
+
+
             tableNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             tableIdCol.setCellValueFactory(new PropertyValueFactory<>("idNumber"));
             tablePhoneNoCol.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
@@ -86,17 +87,25 @@ public class PatientDetails  {
                         super.updateItem(item,empty);
                         if(empty){
                             setGraphic(null);
-                            setText(null);
                         } else {
                             final Button viewButton = new Button("View");
                             viewButton.setOnAction(event ->{
                                 User tableUser = getTableView().getItems().get(getIndex());
-                                System.out.println(tableUser.getAddress());
+                                viewPatientDetails.selectedPatient=tableUser;
+                                BorderPane parentBorderPane = (BorderPane) (patientDetailAnchor.getParent());
+                                try {
+                                    Parent viewPatientDetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/viewPatientDetails.fxml"));
+                                    parentBorderPane.setCenter(viewPatientDetails);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                System.out.println(tableUser.getName());
                             });
 
                             setGraphic(viewButton);
-                            setText(null);
                         }
+                        setText(null);
                     };
                 };
                 return cell;

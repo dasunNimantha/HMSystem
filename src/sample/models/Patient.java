@@ -11,7 +11,6 @@ public class Patient extends User {
     private String allergies;
 
     public Patient(){
-        
     }
 
     public Patient(String userName, int password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber, JFXButton viewUserBtn, JFXButton editUserBtn, JFXButton deleteUserBtn, String bloodGroup, String allergies) {
