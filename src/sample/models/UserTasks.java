@@ -1,14 +1,8 @@
 package sample.models;
 
-import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
-
 import java.io.*;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.SortedMap;
 
 public class UserTasks {
 
@@ -45,7 +39,7 @@ public class UserTasks {
 
                 bw1.close();
                 fw1.close();
-                bw2.close();;
+                bw2.close();
                 fw1.close();
 
             } else if (userType.equals("Receptionist")) {
@@ -56,7 +50,7 @@ public class UserTasks {
 
     // view user details function
     public static ArrayList<User> viewUser(String viewerRole, String userType) throws IOException {
-        ArrayList<User> userArraylist = new ArrayList<User>();
+        ArrayList<User> userArraylist = new ArrayList<>();
         if (viewerRole.equals("Admin") || viewerRole.equals("Receptionist")) {
             if (userType.equals("Patient")) {
                 String currentLine;
@@ -70,6 +64,7 @@ public class UserTasks {
 
                         Patient readPatient = new Patient();
                         String decryptedText = Crypto.decrypt(currentLine);
+                        assert decryptedText != null;
                         String [] userData = decryptedText.split("~");
                         readPatient.setUserName(userData[0]);
                         readPatient.setPassword(Integer.parseInt(userData[1]));
@@ -93,6 +88,55 @@ public class UserTasks {
        return userArraylist;
     }
 
+
+    // user delete function
+
+    public static void deleteUser(String editorRole,String userRole,String idNo,String username) throws IOException {
+        FileReader fr;
+        FileWriter fw;
+        BufferedReader br;
+        BufferedWriter bw;
+
+        if(editorRole.equals("Admin") || (editorRole.equals("Receptionist"))){
+            if (userRole.equals("Patient")){
+                String currentLine;
+
+                File patientDB = new File("src/sample/fileDatabase/PatientDB.txt");
+                fr = new FileReader(patientDB);
+                br = new BufferedReader(fr);
+
+                File tempFile = new File("src/sample/fileDatabase/userTemp.txt");
+                if(tempFile.exists()){
+                    tempFile.delete();
+                }
+
+                fw = new FileWriter(tempFile,true);
+                bw = new BufferedWriter(fw);
+
+                while((currentLine = br.readLine()) != null){
+                    String decryptedText = Crypto.decrypt(currentLine);
+                    assert decryptedText != null;
+                    String [] userData = decryptedText.split("~");
+                    if(((userData[0].equals(username) && (userData[3]).equals(idNo)))) {
+                        System.out.println("User "+username+" deleted successfully");
+                    } else{
+                        bw.write(currentLine+"\n");
+
+                    }
+
+                }
+
+                patientDB.delete();
+                tempFile.renameTo(patientDB);
+
+                bw.close();
+                br.close();
+                fr.close();
+                fw.close();
+            }
+        }
+
+    }
 
 
 

@@ -59,9 +59,9 @@ public class PatientSignUpStep2 extends PatientSignUpStep1 {
     void changeToNext2(ActionEvent event) {   // next button on step 1
 
         patient.setAddress(
-                addrFirstText.getText()+
-                ","+addrSecondText.getText()+
-                ","+addrSecondText.getText());
+                addrFirstText.getText().trim()+
+                ","+addrSecondText.getText().trim()+
+                ","+addrSecondText.getText().trim());
 
         patient.setGender(genderDropDown.getValue());
         patient.setMaritalStatus(maritalDropDown.getValue());
@@ -73,7 +73,9 @@ public class PatientSignUpStep2 extends PatientSignUpStep1 {
 
 
 
+
     public void initialize(){
+
             genderDropDown.getItems().add(Enums.enumGender.MALE.getGender());
             genderDropDown.getItems().add(Enums.enumGender.FEMALE.getGender());
             genderDropDown.getSelectionModel().selectFirst(); //In here,this method is not working for some weird reason

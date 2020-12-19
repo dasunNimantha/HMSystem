@@ -10,6 +10,11 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import sample.models.User;
+import sample.models.UserTasks;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 
 public class viewPatientDetails {
@@ -130,7 +135,13 @@ public class viewPatientDetails {
             public void handle(ActionEvent actionEvent) {
                 // pop up box for confirming deletion
 
-
+            String idNo = idNoText.getText();
+            String userName = usernameText.getText();
+                try {
+                    UserTasks.deleteUser("Admin","Patient",idNo,userName);
+                } catch (IOException exception) {
+                    exception.printStackTrace();
+                }
 
             }
         });
