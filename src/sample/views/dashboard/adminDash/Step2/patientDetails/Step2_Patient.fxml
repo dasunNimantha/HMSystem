@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="patientDetailAnchor" prefHeight="583.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.AdminController">
+<AnchorPane fx:id="patientDetailAnchor" prefHeight="583.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.PatientDetails">
    <children>
-      <JFXTreeTableView fx:id="patientTable" layoutX="27.0" layoutY="68.0" prefHeight="388.0" prefWidth="931.0" AnchorPane.bottomAnchor="127.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.799999999999955" AnchorPane.topAnchor="68.0">
-         <columns>
-            <TreeTableColumn fx:id="name" prefWidth="349.60001850128174" text="Name" />
-            <TreeTableColumn fx:id="idNo" prefWidth="222.4000244140625" text="ID No" />
-            <TreeTableColumn fx:id="phoneNo" prefWidth="219.20001220703125" text="Phone  No" />
-            <TreeTableColumn prefWidth="138.4000122070313" text="Tasks" />
-         </columns>
-      </JFXTreeTableView>
       <Label layoutX="27.0" layoutY="25.0" prefHeight="30.0" prefWidth="324.0" text="Patient List" textFill="#6c6868">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -27,5 +19,13 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </JFXButton>
+      <TableView fx:id="userTable" layoutX="27.0" layoutY="79.0" prefHeight="388.0" prefWidth="931.0" stylesheets="@../../../../../assets/styles/TableView.css">
+        <columns>
+          <TableColumn fx:id="tableNameCol" editable="false" prefWidth="310.40008544921875" text="Name" />
+          <TableColumn fx:id="tableIdCol" editable="false" minWidth="0.0" prefWidth="235.99993896484375" text="Id Number" />
+            <TableColumn fx:id="tablePhoneNoCol" prefWidth="254.39996337890625" text="Phone No" />
+            <TableColumn fx:id="tableTasks" editable="false" prefWidth="133.5999755859375" text="Tasks" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

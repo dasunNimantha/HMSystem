@@ -1,17 +1,30 @@
 package sample.controllers.dashboardController.AdminDash;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTreeTableView;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-
+import javafx.util.Callback;
+import sample.models.Patient;
+import sample.models.User;
+import sample.models.UserTasks;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
@@ -42,8 +55,10 @@ public class AdminController implements Initializable {
     @FXML
     private JFXButton next;
 
+    @FXML
+    private Label nameLabel;
 
-    static final HashMap<String, Parent> screenMap = new HashMap<>();
+
 
     @FXML
     void step1(ActionEvent event) throws IOException {
@@ -88,36 +103,16 @@ public class AdminController implements Initializable {
     }
 
 
-//    @FXML
-//    void changeToPatientMenu(ActionEvent event) throws IOException {
-//        BorderPane parentBorderPane = (BorderPane) (step2Anchor.getParent());
-//        Parent patient = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/Step2_Patient.fxml"));
-//        parentBorderPane.setCenter(patient);
-//    }
 
     @FXML
     void changeToPatientMenu(MouseEvent event) throws IOException {
+
         BorderPane parentBorderPane = (BorderPane) (step2Anchor.getParent());
         Parent patient = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/Step2_Patient.fxml"));
         parentBorderPane.setCenter(patient);
-    }
-
-    @FXML
-    void addNewPatientBtn(ActionEvent event) throws IOException {
-        Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/SignUp1.fxml"));
-        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/SignUp2.fxml"));
-        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/SignUp3.fxml"));
-
-         screenMap.put("step1",step1);
-         screenMap.put("step2",step2);
-         screenMap.put("step3",step3);
-
-
-        BorderPane parentBorderPane = (BorderPane) (patientDetailAnchor.getParent());
-        parentBorderPane.setCenter(screenMap.get("step1"));
-
 
     }
+
 
 
     @Override
@@ -128,3 +123,4 @@ public class AdminController implements Initializable {
 
 
 }
+

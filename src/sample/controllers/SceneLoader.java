@@ -32,7 +32,7 @@ public class SceneLoader {
                 Stage RecepStage = new Stage();
                 Loader(RecepStage, root2);
             }
-            case "Medical Officer" -> {
+            case "Medical_Officer" -> {
                 Parent root3 = FXMLLoader.load(getClass().getResource("../views/dashboard/mODash/MedicalOfficerMain.fxml"));
                 Stage MOStage = new Stage();
                 Loader(MOStage, root3);
@@ -45,13 +45,19 @@ public class SceneLoader {
         }
     }
 
+
+    public static void LoginLoader (){
+
+    }
+
+
     // Loader and mouse drag function
 
-    public void Loader(Stage DashboardStage,Parent ParentName) {
+    public void Loader(Stage stage,Parent ParentName) {
         Scene scene = new Scene(ParentName,1271,693);
-        DashboardStage.setScene(scene);
-        DashboardStage.setTitle("Dashboard");
-        DashboardStage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        stage.setTitle("Dashboard");
+        stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
         ParentName.setOnMousePressed((MouseEvent event) -> {
             xOffset = event.getSceneX();
@@ -60,10 +66,10 @@ public class SceneLoader {
 
         // Move around here
         ParentName.setOnMouseDragged((MouseEvent event) -> {
-            DashboardStage.setX(event.getScreenX() - xOffset);
-            DashboardStage.setY(event.getScreenY() - yOffset);
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
         });
-        DashboardStage.show();
+        stage.show();
     }
 
 

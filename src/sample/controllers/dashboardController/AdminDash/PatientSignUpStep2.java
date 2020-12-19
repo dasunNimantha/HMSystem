@@ -51,7 +51,7 @@ public class PatientSignUpStep2 extends PatientSignUpStep1 {
     @FXML
     void back1(ActionEvent event) {
         BorderPane tempBorderPane = (BorderPane) signUp2Anchor.getParent();
-        tempBorderPane.setCenter(AdminController.screenMap.get("step1"));
+        tempBorderPane.setCenter(PatientDetails.signUpscreenMap.get("step1"));
     }
 
 
@@ -63,8 +63,12 @@ public class PatientSignUpStep2 extends PatientSignUpStep1 {
                 ","+addrSecondText.getText()+
                 ","+addrSecondText.getText());
 
+        patient.setGender(genderDropDown.getValue());
+        patient.setMaritalStatus(maritalDropDown.getValue());
+
+
         BorderPane tempBorderPane = (BorderPane) signUp2Anchor.getParent();
-        tempBorderPane.setCenter(AdminController.screenMap.get("step3"));
+        tempBorderPane.setCenter(PatientDetails.signUpscreenMap.get("step3"));
     }
 
 
@@ -72,11 +76,11 @@ public class PatientSignUpStep2 extends PatientSignUpStep1 {
     public void initialize(){
             genderDropDown.getItems().add(Enums.enumGender.MALE.getGender());
             genderDropDown.getItems().add(Enums.enumGender.FEMALE.getGender());
-
+            genderDropDown.getSelectionModel().selectFirst(); //In here,this method is not working for some weird reason
 
             maritalDropDown.getItems().add(Enums.enumMaritalStatus.MARRIED.getMaritalStatus());
             maritalDropDown.getItems().add(Enums.enumMaritalStatus.UNMARRIED.getMaritalStatus());
-
+            maritalDropDown.getSelectionModel().selectFirst();
     }
 
 
