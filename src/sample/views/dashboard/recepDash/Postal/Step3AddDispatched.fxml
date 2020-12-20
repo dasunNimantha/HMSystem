@@ -37,8 +37,8 @@
                 <Font name="System Bold" size="24.0" />
             </font>
         </Label>
-        <JFXButton layoutX="845.0" layoutY="432.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add" />
-        <JFXButton layoutX="734.0" layoutY="432.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Back" />
+        <JFXButton layoutX="845.0" layoutY="432.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="40.0" />
+        <JFXButton layoutX="734.0" layoutY="432.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Back" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="200.0" />
         <Label layoutX="38.0" layoutY="86.0" styleClass="normal-lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Receiver" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="80.0">
             <font>
                 <Font name="System Bold" size="14.0" />
