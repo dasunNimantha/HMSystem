@@ -58,7 +58,7 @@
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <JFXButton layoutX="640.0" layoutY="123.0" styleClass="btn" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Change Password" AnchorPane.leftAnchor="640.0" />
+        <JFXButton fx:id="changePW" layoutX="640.0" layoutY="123.0" onMouseClicked="#loadChangepw" styleClass="btn" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Change Password" AnchorPane.leftAnchor="640.0" />
         <Label layoutX="500.0" layoutY="160.0" text="Name" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="160.0">
             <font>
                 <Font name="System Bold" size="15.0" />

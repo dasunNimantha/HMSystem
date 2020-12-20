@@ -27,6 +27,6 @@
                 <TableColumn prefWidth="127.0" text="Edit" />
             </columns>
         </TableView>
-      <JFXButton layoutX="697.0" layoutY="433.0" prefHeight="35.0" prefWidth="170.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Back" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="250.0" />
+        <JFXButton layoutX="697.0" layoutY="433.0" prefHeight="35.0" prefWidth="170.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Back" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="250.0" />
     </children>
 </AnchorPane>

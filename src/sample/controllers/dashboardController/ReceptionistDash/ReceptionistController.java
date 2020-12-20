@@ -84,6 +84,9 @@ public class ReceptionistController {
     @FXML
     private JFXTextField textName;
 
+    @FXML
+    private JFXButton changePW;
+
 
     @FXML
     void disList(MouseEvent event) {
@@ -159,12 +162,19 @@ public class ReceptionistController {
 
     }
 
-    @Override
+    @FXML
+    void loadChangepw(MouseEvent event) throws IOException {
+        Parent changePW = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step6Password.fxml"));
+        recepBorderPane.setCenter(changePW);
+
+    }
+
+    /*@Override
     public void initialize(URL location, ResourceBundle resources) {
         //dropMaritial.getItems().removeAll(dropMaritial.getItems());
         dropMaritial.getItems().add("Married");
         dropMaritial.getItems().add("UnMarried");
-    }
+    }*/
 
 
 

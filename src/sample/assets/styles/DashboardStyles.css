@@ -44,14 +44,7 @@
     -fx-text-fill: grey;
     -fx-font-weight: bold;
 }
-.select-btn{
-    -fx-font-size: 20;
-    -fx-text-fill: black;
-    -fx-font-weight: bold;
-    -fx-background-radius: 20;
-    -fx-background-color: grey;
-    -fx-effect: dropshadow( gaussian , rgba(10,0,0,0.7) , 10,0,5,5 );
-}
+
 .select-btn:hover{
     -fx-background-color: #448AFF;
 }

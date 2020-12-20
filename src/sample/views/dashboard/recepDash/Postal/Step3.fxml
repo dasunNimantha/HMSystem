@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="step3Anchor" prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" stylesheets="@../../../../assets/styles/DashboardStyles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.ReceptionistController">
     <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 15; -fx-background-radius: 15; -fx-background-color: #eeeeee;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
         <JFXButton fx:id="recMail" layoutX="155.0" layoutY="143.0" onMouseClicked="#recList" prefHeight="178.0" prefWidth="224.0" styleClass="select-btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Received Mail" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="150.0" />
         <JFXButton fx:id="disMail" layoutX="472.0" layoutY="143.0" onMouseClicked="#disList" prefHeight="178.0" prefWidth="224.0" styleClass="select-btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Dispatched Mail" AnchorPane.bottomAnchor="150.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="150.0" />
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="282.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../assets/images/dashboard/icons8_calendar_plus_32px_3.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="602.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../assets/images/dashboard/icons8_calendar_plus_32px_3.png" />
-         </image>
-      </ImageView>
     </children>
 </AnchorPane>
