@@ -1,10 +1,13 @@
 package sample.controllers.dashboardController.PatientDash;
 
 import com.jfoenix.controls.JFXButton;
+import de.jensd.fx.glyphs.testapps.App;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -35,6 +38,9 @@ public class PatientController {
 
     @FXML
     private BorderPane recepBorderPane;
+
+    @FXML
+    private AnchorPane appointmentAnchor;
 
 
 
@@ -69,6 +75,17 @@ public class PatientController {
     }
     @FXML
     void step6(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addAppointment(ActionEvent event) throws IOException {
+        Parent addAppointment = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step2_Appoinment.fxml"));
+        BorderPane tempBorderPane = (BorderPane) (appointmentAnchor.getParent());
+        tempBorderPane.setCenter(addAppointment);
+    }
+
+    public void initialize(){
 
     }
 

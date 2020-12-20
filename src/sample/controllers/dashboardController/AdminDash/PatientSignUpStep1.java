@@ -88,12 +88,12 @@ public class PatientSignUpStep1  {
 
     @FXML
     void changeToNext1(MouseEvent event) {
-        patient.setName(firstNameText.getText()+" "+lastNameText.getText());
-        patient.setUserName(userNameText.getText());
-        patient.setIdNumber(Integer.parseInt(idNoText.getText()));
-        patient.setPassword(Integer.parseInt(idNoText.getText()));
+        patient.setName(firstNameText.getText().trim()+" "+lastNameText.getText().trim());
+        patient.setUserName(userNameText.getText().trim());
+        patient.setIdNumber(Integer.parseInt(idNoText.getText().trim()));
+        patient.setPassword(Integer.parseInt(idNoText.getText().trim()));
         patient.setDob(dobPicker.getValue());
-        patient.setPhoneNumber(Integer.parseInt(telephoneNo.getText()));
+        patient.setPhoneNumber(Integer.parseInt(telephoneNo.getText().trim()));
 
         BorderPane tempBorderPane = (BorderPane) signUp1Anchor.getParent();
         tempBorderPane.setCenter(PatientDetails.signUpscreenMap.get("step2"));

@@ -63,7 +63,7 @@
       </Label>
       <TextField fx:id="addressText" editable="false" layoutX="598.0" layoutY="413.0" prefHeight="68.0" prefWidth="184.0" />
       <Button fx:id="editBtn" layoutX="782.0" layoutY="527.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Edit" />
-      <Button fx:id="backBtn" layoutX="859.0" layoutY="528.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Back" />
+      <Button fx:id="backBtn" layoutX="859.0" layoutY="528.0" mnemonicParsing="false" onAction="#backToPatientDetails" prefHeight="26.0" prefWidth="54.0" text="Back" />
       <Button fx:id="saveEditBtn" layoutX="782.0" layoutY="527.0" mnemonicParsing="false" onAction="#saveEdit" prefHeight="26.0" prefWidth="54.0" text="Save" visible="false" />
       <Button fx:id="cancelEdit" layoutX="860.0" layoutY="528.0" mnemonicParsing="false" onAction="#cancelEdit" text="Cancel" visible="false" />
       <Button fx:id="deleteUserBtn" layoutX="706.0" layoutY="527.0" mnemonicParsing="false" text="Delete" />

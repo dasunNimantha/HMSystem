@@ -32,7 +32,7 @@ import java.util.ResourceBundle;
 public class AdminController implements Initializable {
 
     @FXML
-    private  BorderPane adminBorderPane;
+    private BorderPane adminBorderPane;
 
     @FXML
     private JFXButton patientView;
@@ -106,11 +106,9 @@ public class AdminController implements Initializable {
 
     @FXML
     void changeToPatientMenu(MouseEvent event) throws IOException {
-
         BorderPane parentBorderPane = (BorderPane) (step2Anchor.getParent());
         Parent patient = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/Step2_Patient.fxml"));
         parentBorderPane.setCenter(patient);
-
     }
 
 

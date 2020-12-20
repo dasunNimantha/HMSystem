@@ -58,6 +58,7 @@ public class PatientDetails  {
         signUpscreenMap.put("step2",step2);
         signUpscreenMap.put("step3",step3);
 
+        
 
         BorderPane parentBorderPane = (BorderPane) (patientDetailAnchor.getParent());
         parentBorderPane.setCenter(signUpscreenMap.get("step1"));
@@ -81,7 +82,7 @@ public class PatientDetails  {
             tablePhoneNoCol.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
 
             Callback<TableColumn<User,String>, TableCell<User,String>> cellFactory=(param) ->{
-                final TableCell<User,String> cell=new TableCell<User,String>(){
+                return new TableCell<User,String>(){
                     @Override
                     public void updateItem(String item,boolean empty){
                         super.updateItem(item,empty);
@@ -90,8 +91,7 @@ public class PatientDetails  {
                         } else {
                             final Button viewButton = new Button("View");
                             viewButton.setOnAction(event ->{
-                                User tableUser = getTableView().getItems().get(getIndex());
-                                viewPatientDetails.selectedPatient=tableUser;
+                                viewPatientDetails.selectedPatient= getTableView().getItems().get(getIndex());
                                 BorderPane parentBorderPane = (BorderPane) (patientDetailAnchor.getParent());
                                 try {
                                     Parent viewPatientDetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/viewPatientDetails.fxml"));
@@ -99,8 +99,6 @@ public class PatientDetails  {
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
-
-                                System.out.println(tableUser.getName());
                             });
 
                             setGraphic(viewButton);
@@ -108,7 +106,6 @@ public class PatientDetails  {
                         setText(null);
                     };
                 };
-                return cell;
             };
             tableTasks.setCellFactory(cellFactory);
             userTable.setItems(obsUsers);
