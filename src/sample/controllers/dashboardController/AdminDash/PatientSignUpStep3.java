@@ -65,12 +65,15 @@ public class PatientSignUpStep3 extends PatientSignUpStep1 {
     @FXML
     void FinishSignUp(ActionEvent event) throws IOException {
         patient.setBloodGroup(bloodGrp.getValue());
-        if(allergies.getText()== null){
+
+        if(allergies.getText()!= null){
             patient.setAllergies(allergies.getText());
+            System.out.println("all null");
         } else {
             patient.setAllergies("No Allergies");
         }
 
+        patient.setProfilePath("sample/assets/images/loginImages/416-4161690_empty-profile-picture-blank-avatar-image-circle.png");
         // pass object to write to the patientDB.txt file
         UserTasks.createPatient("Admin","Patient",patient);
 
