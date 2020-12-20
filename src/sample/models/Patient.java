@@ -13,8 +13,8 @@ public class Patient extends User {
     public Patient(){
     }
 
-    public Patient(String userName, int password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber, JFXButton viewUserBtn, JFXButton editUserBtn, JFXButton deleteUserBtn, String bloodGroup, String allergies) {
-        super(userName, password, idNumber, name, dob, gender, maritalStatus, address, phoneNumber, viewUserBtn, editUserBtn, deleteUserBtn);
+    public Patient(String userName, String password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber, String profilePath, JFXButton viewUserBtn, String bloodGroup, String allergies) {
+        super(userName, password, idNumber, name, dob, gender, maritalStatus, address, phoneNumber, profilePath, viewUserBtn);
         this.bloodGroup = bloodGroup;
         this.allergies = allergies;
     }
@@ -40,7 +40,7 @@ public class Patient extends User {
         return Crypto.encrypt(super.getUserName()+"~"+super.getPassword()+"~"
                 +super.getName()+"~"+super.getIdNumber()+"~"+super.getDob()+"~"
                 +super.getGender()+"~"+super.getMaritalStatus()+"~"+super.getAddress()+
-                "~"+super.getPhoneNumber()+"~"+bloodGroup+"~"+allergies+"~");
+                "~"+super.getPhoneNumber()+"~"+super.getProfilePath()+"~"+bloodGroup+"~"+allergies+"~");
     }
 
 

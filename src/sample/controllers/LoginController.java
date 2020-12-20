@@ -2,29 +2,26 @@
 package sample.controllers;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import sample.Main;
 import sample.models.UserValidation;
 
 
@@ -63,7 +60,11 @@ public class LoginController implements Initializable {
     private Button btnEX;
 
     @FXML
-    private BorderPane borderPaneLogin;
+    private  BorderPane borderPaneLogin;
+
+
+    @FXML
+    private static AnchorPane mainAnchor;
 
     @FXML
     private JFXButton userBtnRole;
@@ -85,10 +86,10 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    void backToRoleSelect(MouseEvent event) {
-     //  BorderPane tempBorderPane = (BorderPane) credAnchor.getParent().getParent();
-     //  tempBorderPane.setCenter(Main.loginMap.get("roleSelect"));
+    void backToRoleSelect(MouseEvent event) throws IOException {
+        Parent root3 = FXMLLoader.load(getClass().getResource("../views/LoginRoleSelect.fxml"));
         System.out.println(credAnchor.getParent());
+
     }
 
 

@@ -1,39 +1,38 @@
 package sample.controllers.dashboardController.AdminDash;
 
+import com.jfoenix.controls.JFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
 import sample.controllers.dashboardController.MODash.MOController;
 import sample.models.Enums;
 import sample.models.Patient;
 import sample.models.User;
 import sample.models.UserTasks;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Locale;
 
 
 public class viewPatientDetails {
 
-    static User selectedPatient;
+    static Patient selectedPatient;
 
     @FXML
     private Label nameLabel;
 
     @FXML
     private Button editBtn;
-
-    @FXML
-    private TextField textField;
-
 
     @FXML
     private Label usernameLbl;
@@ -51,13 +50,32 @@ public class viewPatientDetails {
     private TextField phoneNoText;
 
     @FXML
-    private TextField genderText;
+    private TextField passwordText;
 
     @FXML
-    private TextField maritalStatusText;
+    private ComboBox<String> genderCombo;
 
     @FXML
-    private TextField addressText;
+    private ComboBox<String> maritalStatusCombo;
+
+    @FXML
+    private ComboBox<String> bloodGroupCombo;
+
+    @FXML
+    private JFXDatePicker datePicker;
+
+    @FXML
+    private TextField addrLine1;
+
+    @FXML
+    private TextField addrLine2;
+
+    @FXML
+    private TextField addrLine3;
+
+    @FXML
+    private TextArea allergiesField;
+
 
     @FXML
     private Circle profileCircle;
@@ -74,19 +92,38 @@ public class viewPatientDetails {
     @FXML
     private Button deleteUserBtn;
 
+    @FXML
+    private TextField genderText;
+
+    @FXML
+    private TextField maritalText;
+
+    @FXML
+    private TextField bloodText;
+
+
+    final  String oldUsername = selectedPatient.getUserName();
+
     public void getUsrData(){
+
         nameLabel.setText(selectedPatient.getName());
         usernameLbl.setText("#"+selectedPatient.getUserName());
+        passwordText.setText(selectedPatient.getPassword());
         nameText.setText(selectedPatient.getName());
         usernameText.setText(selectedPatient.getUserName());
         idNoText.setText(String.valueOf(selectedPatient.getIdNumber()));
         phoneNoText.setText(String.valueOf(selectedPatient.getPhoneNumber()));
+        String [] addr = selectedPatient.getAddress().split(",");
+        addrLine1.setText(addr[0]);
+        addrLine2.setText(addr[1]);
+        addrLine3.setText(addr[2]);
         genderText.setText(selectedPatient.getGender());
-        maritalStatusText.setText(selectedPatient.getMaritalStatus());
-        addressText.setText(selectedPatient.getAddress());
-
-
-        Image proPic = new Image("sample/assets/images/dashboard/Maithripala-_Russia_(portrait).jpg");
+        bloodText.setText(selectedPatient.getBloodGroup());
+        maritalText.setText(selectedPatient.getMaritalStatus());
+        allergiesField.setText(selectedPatient.getAllergies());
+        datePicker.setPromptText(selectedPatient.getDob().toString());
+        String imagePath = selectedPatient.getProfilePath();
+        Image proPic = new Image(imagePath);
         profileCircle.setFill(new ImagePattern(proPic));
     }
 
@@ -97,24 +134,44 @@ public class viewPatientDetails {
         getUsrData();
     }
 
+
     @FXML
     void saveEdit(ActionEvent event) throws IOException {
 
         Patient editedPatient = new Patient();
-        editedPatient.setName(nameText.getText());
-        editedPatient.setUserName(selectedPatient.getUserName());
-        editedPatient.setPassword(selectedPatient.getPassword());
-        editedPatient.setIdNumber(selectedPatient.getIdNumber());
-        editedPatient.setDob(selectedPatient.getDob());
-        editedPatient.setAddress(selectedPatient.getAddress());
-        editedPatient.setGender(selectedPatient.getGender());
-        editedPatient.setMaritalStatus(selectedPatient.getMaritalStatus());
-        editedPatient.setPhoneNumber(selectedPatient.getPhoneNumber());
-        editedPatient.setBloodGroup(Enums.enumBloodGroup.A_NEGATIVE.getBloodGroup());
-        editedPatient.setAllergies("No allergies for this time");
+        editedPatient.setName(nameText.getText().trim());
+        editedPatient.setUserName(usernameText.getText().trim());
+        editedPatient.setPassword(passwordText.getText().trim());
+        editedPatient.setIdNumber(Integer.parseInt(idNoText.getText().trim()));
+        editedPatient.setAddress(addrLine1.getText().trim()+","+addrLine2.getText().trim()+","+addrLine3.getText().trim());
+        editedPatient.setPhoneNumber(Integer.parseInt(phoneNoText.getText()));
+        editedPatient.setProfilePath(selectedPatient.getProfilePath());
 
+        if(datePicker.getValue()== null){
+            editedPatient.setDob(selectedPatient.getDob());
+        } else {
+            editedPatient.setDob(datePicker.getValue());
+        }
+        if(genderCombo.getValue()==null){
+            editedPatient.setGender(selectedPatient.getGender());
+        } else {
+            editedPatient.setGender(genderCombo.getValue());
+        }
+
+        if(bloodGroupCombo.getValue()==null){
+            editedPatient.setBloodGroup(selectedPatient.getBloodGroup());
+        } else {
+            editedPatient.setBloodGroup(bloodGroupCombo.getValue());
+        }
+
+        if(maritalStatusCombo.getValue()==null){
+            editedPatient.setMaritalStatus(selectedPatient.getMaritalStatus());
+        } else {
+            editedPatient.setMaritalStatus(maritalStatusCombo.getValue());
+        }
+        editedPatient.setAllergies(allergiesField.getText());
         // call edit user function
-        UserTasks.userEditFunction("Admin","Patient",editedPatient);
+        UserTasks.userEditFunction("Admin","Patient",editedPatient,oldUsername);
         usernameLbl.setText("#"+usernameText.getText());
         nameLabel.setText(nameText.getText());
 
@@ -123,15 +180,24 @@ public class viewPatientDetails {
 
     }
 
+
     private void cancelSave() {
         nameText.setEditable(false);
         usernameText.setEditable(false);
+        passwordText.setEditable(false);
         idNoText.setEditable(false);
         phoneNoText.setEditable(false);
-        genderText.setEditable(false);
-        maritalStatusText.setEditable(false);
-        addressText.setEditable(false);
+        addrLine1.setEditable(false);
+        addrLine2.setEditable(false);
+        addrLine3.setEditable(false);
+        allergiesField.setEditable(false);
+        addrLine1.setEditable(false);
+        addrLine2.setEditable(false);
+        addrLine3.setEditable(false);
 
+        genderText.setVisible(true);
+        maritalText.setVisible(true);
+        bloodText.setVisible(true);
         backBtn.setVisible(true);
         editBtn.setVisible(true);
         deleteUserBtn.setVisible(true);
@@ -140,27 +206,62 @@ public class viewPatientDetails {
     }
 
 
-
     @FXML
     void backToPatientDetails(ActionEvent event) {
 
     }
 
+
+
     public void initialize(){
             getUsrData();
 
+
+         // constant oldUsername for newUsername
         // edit button action
         editBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+
+                bloodGroupCombo.getItems().addAll(
+                        Enums.enumBloodGroup.A_NEGATIVE.getBloodGroup(),
+                        Enums.enumBloodGroup.A_POSITIVE.getBloodGroup(),
+                        Enums.enumBloodGroup.B_POSITIVE.getBloodGroup(),
+                        Enums.enumBloodGroup.B_NEGATIVE.getBloodGroup(),
+                        Enums.enumBloodGroup.O_POSITIVE.getBloodGroup(),
+                        Enums.enumBloodGroup.O_NEGATIVE.getBloodGroup(),
+                        Enums.enumBloodGroup.AB_POSITIVE.getBloodGroup(),
+                        Enums.enumBloodGroup.AB_NEGATIVE.getBloodGroup()
+                );
+
+                genderCombo.getItems().addAll(
+                        Enums.enumGender.MALE.getGender(),
+                        Enums.enumGender.FEMALE.getGender()
+                );
+
+                maritalStatusCombo.getItems().addAll(
+                        Enums.enumMaritalStatus.MARRIED.getMaritalStatus(),
+                        Enums.enumMaritalStatus.UNMARRIED.getMaritalStatus()
+                );
+
                 nameText.setEditable(true);
                 usernameText.setEditable(true);
+                passwordText.setEditable(true);
                 idNoText.setEditable(true);
                 phoneNoText.setEditable(true);
-                genderText.setEditable(true);
-                maritalStatusText.setEditable(true);
-                addressText.setEditable(true);
-
+                addrLine1.setEditable(true);
+                addrLine2.setEditable(true);
+                addrLine3.setEditable(true);
+                genderText.setVisible(false);
+                maritalText.setVisible(false);
+                bloodText.setVisible(false);
+                genderCombo.setVisible(true);
+                genderCombo.setPromptText(selectedPatient.getGender());
+                maritalStatusCombo.setVisible(true);
+                maritalStatusCombo.setPromptText(selectedPatient.getMaritalStatus());
+                bloodGroupCombo.setVisible(true);
+                bloodGroupCombo.setPromptText(selectedPatient.getBloodGroup());
+                allergiesField.setEditable(true);
                 backBtn.setVisible(false);
                 editBtn.setVisible(false);
                 deleteUserBtn.setVisible(false);

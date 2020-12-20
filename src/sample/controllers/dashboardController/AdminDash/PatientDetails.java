@@ -70,9 +70,6 @@ public class PatientDetails  {
 
         try {
             ArrayList<User> userArrayList = UserTasks.viewUser("Admin","Patient");
-
-            int userCount = userArrayList.size();
-
             ObservableList<User> obsUsers = FXCollections.observableArrayList();
             obsUsers.addAll(userArrayList);
 
@@ -91,7 +88,7 @@ public class PatientDetails  {
                         } else {
                             final Button viewButton = new Button("View");
                             viewButton.setOnAction(event ->{
-                                viewPatientDetails.selectedPatient= getTableView().getItems().get(getIndex());
+                                viewPatientDetails.selectedPatient= (Patient) getTableView().getItems().get(getIndex());
                                 BorderPane parentBorderPane = (BorderPane) (patientDetailAnchor.getParent());
                                 try {
                                     Parent viewPatientDetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/viewPatientDetails.fxml"));

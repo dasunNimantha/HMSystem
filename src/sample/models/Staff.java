@@ -11,8 +11,8 @@ public class Staff extends User {
     private LocalDate dateOfJoin;
     private String staffPhoto;
 
-    public Staff(String userName, int password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber, JFXButton viewUserBtn, JFXButton editUserBtn, JFXButton deleteUserBtn, int staffId, String email, LocalDate dateOfJoin, String staffPhoto) {
-        super(userName, password, idNumber, name, dob, gender, maritalStatus, address, phoneNumber, viewUserBtn, editUserBtn, deleteUserBtn);
+    public Staff(String userName, String password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber, String profilePath, JFXButton viewUserBtn, int staffId, String email, LocalDate dateOfJoin, String staffPhoto) {
+        super(userName, password, idNumber, name, dob, gender, maritalStatus, address, phoneNumber, profilePath, viewUserBtn);
         this.staffId = staffId;
         this.email = email;
         this.dateOfJoin = dateOfJoin;

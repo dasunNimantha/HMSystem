@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 public  class User extends RecursiveTreeObject<User> {
     private String userName;
-    private int password;
+    private String password;
     private int idNumber;
     private String name;
     private LocalDate dob;
@@ -20,11 +20,12 @@ public  class User extends RecursiveTreeObject<User> {
     private String maritalStatus;
     private  String address;
     private int phoneNumber;
+    private String profilePath;
     private JFXButton viewUserBtn;
     public User() {
     }
 
-    public User(String userName, int password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber, JFXButton viewUserBtn, JFXButton editUserBtn, JFXButton deleteUserBtn) {
+    public User(String userName, String password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber,String profilePath, JFXButton viewUserBtn) {
         this.userName = userName;
         this.password = password;
         this.idNumber = idNumber;
@@ -34,6 +35,7 @@ public  class User extends RecursiveTreeObject<User> {
         this.maritalStatus = maritalStatus;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.profilePath = profilePath;
         this.viewUserBtn = viewUserBtn;
     }
 
@@ -45,11 +47,11 @@ public  class User extends RecursiveTreeObject<User> {
         this.userName = userName;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -108,6 +110,10 @@ public  class User extends RecursiveTreeObject<User> {
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public  void setProfilePath(String profilePath){this.profilePath = profilePath;}
+
+    public String getProfilePath(){return profilePath;}
 
     public JFXButton getViewUserBtn() {
         return viewUserBtn;
