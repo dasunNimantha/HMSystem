@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -77,6 +78,16 @@ public class PatientController {
     void step6(ActionEvent event) {
 
     }
+    @FXML
+    private AnchorPane addComplaintAnchor;{
+
+    }
+
+    @FXML
+    private ComboBox<String> complaintCombo;{
+
+    }
+
 
     @FXML
     void addAppointment(ActionEvent event) throws IOException {
@@ -85,13 +96,29 @@ public class PatientController {
         tempBorderPane.setCenter(addAppointment);
     }
 
+    @FXML
+    void makeComplaint(ActionEvent event) throws IOException {
+        Parent addAppointment = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step4_Complaint.fxml"));
+        BorderPane tempBorderPane = (BorderPane) (addComplaintAnchor.getParent());
+        tempBorderPane.setCenter(addAppointment);
+
+    }
+
     public void initialize(){
+
 
     }
 
 
+    public void backToPatientDetails(ActionEvent actionEvent) {
+    }
 
-   }
+    public void saveEdit(ActionEvent actionEvent) {
+    }
+
+    public void cancelEdit(ActionEvent actionEvent) {
+    }
+}
 
 
 
