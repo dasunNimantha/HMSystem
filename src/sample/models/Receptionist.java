@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class Receptionist extends Staff {
 
-    public Receptionist(String userName, int password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber, JFXButton viewUserBtn, JFXButton editUserBtn, JFXButton deleteUserBtn, int staffId, String email, LocalDate dateOfJoin, String staffPhoto) {
-        super(userName, password, idNumber, name, dob, gender, maritalStatus, address, phoneNumber, viewUserBtn, editUserBtn, deleteUserBtn, staffId, email, dateOfJoin, staffPhoto);
+    public Receptionist(String userName, String password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber, String profilePath, JFXButton viewUserBtn, int staffId, String email, LocalDate dateOfJoin, String staffPhoto) {
+        super(userName, password, idNumber, name, dob, gender, maritalStatus, address, phoneNumber, profilePath, viewUserBtn, staffId, email, dateOfJoin, staffPhoto);
     }
 }

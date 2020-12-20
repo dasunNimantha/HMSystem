@@ -33,8 +33,8 @@ public class UserTasks {
 
                 File userValidationFile = new File("src/sample/fileDatabase/userAuthDB.txt");
                 FileWriter fw2 = new FileWriter(userValidationFile,true);
-                int passwd = patientObj.getPassword();
-                String authString = (Crypto.encrypt(userType)+","+Crypto.encrypt(patientObj.getUserName())+","+Crypto.encrypt(Integer.toString(passwd)));
+                String passwd = patientObj.getPassword();
+                String authString = (Crypto.encrypt(userType)+","+Crypto.encrypt(patientObj.getUserName())+","+Crypto.encrypt(passwd));
 
                 BufferedWriter bw2 = new BufferedWriter(fw2);
                 if(userValidationFile.length()==0){
@@ -56,7 +56,8 @@ public class UserTasks {
 
     // view user details function
     public static ArrayList<User> viewUser(String viewerRole, String userType) throws IOException {
-        ArrayList<User> userArraylist = new ArrayList<>();
+        ArrayList <User> userArraylist = new ArrayList<>();
+
         if (viewerRole.equals("Admin") || viewerRole.equals("Receptionist")) {
             if (userType.equals("Patient")) {
                 String currentLine;
@@ -73,7 +74,7 @@ public class UserTasks {
                         assert decryptedText != null;
                         String [] userData = decryptedText.split("~");
                         readPatient.setUserName(userData[0]);
-                        readPatient.setPassword(Integer.parseInt(userData[1]));
+                        readPatient.setPassword((userData[1]));
                         readPatient.setName(userData[2]);
                         readPatient.setIdNumber(Integer.parseInt(userData[3]));
                         readPatient.setDob(LocalDate.parse(userData[4]));
@@ -81,8 +82,9 @@ public class UserTasks {
                         readPatient.setMaritalStatus(userData[6]);
                         readPatient.setAddress(userData[7]);
                         readPatient.setPhoneNumber(Integer.parseInt(userData[8]));
-                        readPatient.setBloodGroup(userData[9]);
-                        readPatient.setAllergies(userData[10]);
+                        readPatient.setProfilePath(userData[9]);
+                        readPatient.setBloodGroup(userData[10]);
+                        readPatient.setAllergies(userData[11]);
                         userArraylist.add(readPatient);
                     }
                 br.close();
@@ -197,7 +199,7 @@ public class UserTasks {
 
     }
 
-    public static void userEditFunction(String editorRole,String userType,User userObj) throws IOException {
+    public static void userEditFunction(String editorRole,String userType,User userObj,String oldUsername) throws IOException {
         if((editorRole.equals("Admin") || (editorRole.equals("Receptionist")))){
             if(userType.equals("Patient")){
                 String currentLine;
@@ -217,7 +219,7 @@ public class UserTasks {
                     assert decryptedText != null;
                     String [] userData = decryptedText.split("~");
 
-                    if(((userData[0].equals(userObj.getUserName())))) {
+                    if((userData[0].equals(oldUsername))) {
                        pw.println(userObj.toString());
                     } else{
                         pw.println(currentLine);
@@ -246,7 +248,51 @@ public class UserTasks {
                     System.out.println("Error on renaming");
                 }
             }
+
+            // userAuth edit function
+            String currentLine;
+
+            File oldAuthFile = new File("src/sample/fileDatabase/userAuthDB.txt");
+            File tempAuthFile = new File("src/sample/fileDatabase/tempAuthFile.txt");
+
+            FileWriter fw = new FileWriter(tempAuthFile,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+
+            FileReader fr = new FileReader(oldAuthFile);
+            BufferedReader br = new BufferedReader(fr);
+
+            while((currentLine = br.readLine()) != null){
+                String[] credentials = currentLine.split(",");
+                if (Objects.equals(Crypto.decrypt(credentials[1]), oldUsername)) {
+                    String authString = (Crypto.encrypt(userType)+","+Crypto.encrypt(userObj.getUserName())+","+Crypto.encrypt(userObj.getPassword()));
+                    pw.println(authString);
+                } else {
+                    pw.println(currentLine);
+                }
+
+            }
+
+            pw.flush();
+            pw.close();
+            fr.close();
+            br.close();
+            bw.close();
+            fw.close();
+
+            if(oldAuthFile.delete()){
+                System.out.println("Auth line edited on user "+userObj.getUserName());
+            } else {
+                System.out.println("Error on auth line edit");
+            }
+            File dump = new File("src/sample/fileDatabase/userAuthDB.txt");
+            if(tempAuthFile.renameTo(dump)){
+                System.out.println("Successfully renamed auth file");
+            } else {
+                System.out.println("Error on renaming auth file");
+            }
         }
+
     }
 
 

@@ -91,7 +91,7 @@ public class PatientSignUpStep1  {
         patient.setName(firstNameText.getText().trim()+" "+lastNameText.getText().trim());
         patient.setUserName(userNameText.getText().trim());
         patient.setIdNumber(Integer.parseInt(idNoText.getText().trim()));
-        patient.setPassword(Integer.parseInt(idNoText.getText().trim()));
+        patient.setPassword(idNoText.getText().trim());
         patient.setDob(dobPicker.getValue());
         patient.setPhoneNumber(Integer.parseInt(telephoneNo.getText().trim()));
 
