@@ -19,7 +19,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="292.0" layoutY="177.0" prefHeight="229.0" prefWidth="182.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;" text="Recep" textFill="TRANSPARENT">
+      <JFXButton fx:id="changeToReceptionist" buttonType="RAISED" layoutX="292.0" layoutY="177.0" onMousePressed="#changeToReceptionist" prefHeight="229.0" prefWidth="182.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;" text="Recep" textFill="TRANSPARENT">
          <font>
             <Font size="36.0" />
          </font>
@@ -39,7 +39,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="302.0" layoutY="321.0" prefHeight="50.0" prefWidth="150.0" text="Receptionist" textFill="#6c6868">
+      <Label alignment="CENTER" layoutX="308.0" layoutY="321.0" prefHeight="50.0" prefWidth="150.0" text="Receptionist" textFill="#6c6868">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -69,7 +69,7 @@
             <Image url="@../../../../assets/images/dashboard/icons8_fever_100px_3.png" />
          </image>
       </ImageView>
-      <ImageView layoutX="335.0" layoutY="211.0">
+      <ImageView fitWidth="106.0" layoutX="330.0" layoutY="224.0" onMousePressed="#changeToReceptionist">
          <image>
             <Image url="@../../../../assets/images/dashboard/icons8_technical_support_96px.png" />
          </image>

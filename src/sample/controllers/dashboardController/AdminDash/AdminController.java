@@ -109,6 +109,14 @@ public class AdminController implements Initializable {
         BorderPane parentBorderPane = (BorderPane) (step2Anchor.getParent());
         Parent patient = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/Step2_Patient.fxml"));
         parentBorderPane.setCenter(patient);
+
+    }
+
+    @FXML
+    void changeToReceptionist(MouseEvent event) throws IOException {
+        BorderPane parentBorderPane = (BorderPane) (step2Anchor.getParent());
+        Parent patient = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/recepDetails/Step2_Receptionist.fxml"));
+        parentBorderPane.setCenter(patient);
     }
 
 

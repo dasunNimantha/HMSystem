@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="signUp1Anchor" prefHeight="583.0" prefWidth="986.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.PatientSignUpStep1">
+<AnchorPane fx:id="signUp1Anchor" prefHeight="583.0" prefWidth="986.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.RecepSignUpStep1">
    <children>
       <BorderPane fx:id="signUpBorderPane" layoutY="-1.0" prefHeight="462.0" prefWidth="986.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <top>
@@ -65,12 +65,12 @@
                </children>
             </AnchorPane>
          </bottom></BorderPane>
-      <JFXButton layoutX="531.0" layoutY="526.0" onMouseClicked="#changeToNext1" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #2979FF;" text="Next Step">
+      <JFXButton layoutX="531.0" layoutY="526.0" onAction="#changeToNext11" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #2979FF;" text="Next Step">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="backToPatientListBtn" layoutX="267.0" layoutY="526.0" onAction="#backToPatientList" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #FF4081;" text="Back to List">
+      <JFXButton fx:id="backToUserList" layoutX="267.0" layoutY="526.0" onAction="#backToUserList" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #FF4081;" text="Back to List">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>

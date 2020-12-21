@@ -4,10 +4,12 @@ import com.jfoenix.controls.JFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
@@ -207,8 +209,10 @@ public class viewPatientDetails {
 
 
     @FXML
-    void backToPatientDetails(ActionEvent event) {
-
+    void backToPatientDetails(ActionEvent event) throws IOException {
+        BorderPane parentBorderPane = (BorderPane) backBtn.getParent().getParent();
+        Parent patient = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/Step2_Patient.fxml"));
+        parentBorderPane.setCenter(patient);
     }
 
 

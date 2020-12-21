@@ -11,9 +11,9 @@ public class UserTasks {
 
     // create new user function
 
-    public static void createPatient(String creatorRole,String userType,Patient patientObj) throws IOException {
+    public static void createPatient(String creatorRole,String userType,User userObj) throws IOException {
         if (creatorRole.equals("Admin") || creatorRole.equals("Receptionist")) {
-            if (userType.equals("Patient")) {
+
 
                 // write patient data to DB files
                 File userDBFile = new File("src/sample/fileDatabase/"+userType+"DB.txt");
@@ -25,16 +25,16 @@ public class UserTasks {
                 }
                 BufferedWriter bw1 = new BufferedWriter(fw1);
                 if (userDBFile.length()==0){   // check if the file is empty
-                    bw1.write(patientObj.toString());
-                    System.out.println("New Patient created Successfully");
+                    bw1.write(userObj.toString());
+                    System.out.println("New "+userType+"created Successfully");
                 } else {
-                    bw1.write("\n"+patientObj.toString());
+                    bw1.write("\n"+userObj.toString());
                 }
 
                 File userValidationFile = new File("src/sample/fileDatabase/userAuthDB.txt");
                 FileWriter fw2 = new FileWriter(userValidationFile,true);
-                String passwd = patientObj.getPassword();
-                String authString = (Crypto.encrypt(userType)+","+Crypto.encrypt(patientObj.getUserName())+","+Crypto.encrypt(passwd));
+                String passwd = userObj.getPassword();
+                String authString = (Crypto.encrypt(userType)+","+Crypto.encrypt(userObj.getUserName())+","+Crypto.encrypt(passwd));
 
                 BufferedWriter bw2 = new BufferedWriter(fw2);
                 if(userValidationFile.length()==0){
@@ -47,10 +47,6 @@ public class UserTasks {
                 fw1.close();
                 bw2.close();
                 fw1.close();
-
-            } else if (userType.equals("Receptionist")) {
-                System.out.println("A receptionist");
-            }
         }
     }
 
@@ -59,15 +55,15 @@ public class UserTasks {
         ArrayList <User> userArraylist = new ArrayList<>();
 
         if (viewerRole.equals("Admin") || viewerRole.equals("Receptionist")) {
-            if (userType.equals("Patient")) {
+
                 String currentLine;
 
                 File userDBFile = new File("src/sample/fileDatabase/"+userType+"DB.txt");
                 FileReader fr = new FileReader(userDBFile);
                 BufferedReader br = new BufferedReader(fr);
 
-
-                while ((currentLine = br.readLine()) != null){
+                if(userType.equals("Patient")){
+                    while ((currentLine = br.readLine()) != null){
 
                         Patient readPatient = new Patient();
                         String decryptedText = Crypto.decrypt(currentLine);
@@ -87,11 +83,34 @@ public class UserTasks {
                         readPatient.setAllergies(userData[11]);
                         userArraylist.add(readPatient);
                     }
+                } else if (userType.equals("Receptionist")){
+                    while ((currentLine = br.readLine()) != null){
+
+                        Receptionist readReceptionist = new Receptionist();
+                        String decryptedText = Crypto.decrypt(currentLine);
+                        assert decryptedText != null;
+                        String [] userData = decryptedText.split("~");
+                        readReceptionist.setUserName(userData[0]);
+                        readReceptionist.setPassword((userData[1]));
+                        readReceptionist.setStaffId(Integer.parseInt(userData[2]));
+                        readReceptionist.setStaffPhoto(userData[3]);
+                        readReceptionist.setEmail(userData[4]);
+                        readReceptionist.setName(userData[5]);
+                        readReceptionist.setIdNumber(Integer.parseInt(userData[6]));
+                        readReceptionist.setDob(LocalDate.parse(userData[7]));
+                        readReceptionist.setGender(userData[8]);
+                        readReceptionist.setMaritalStatus(userData[9]);
+                        readReceptionist.setAddress(userData[10]);
+                        readReceptionist.setPhoneNumber(Integer.parseInt(userData[11]));
+                        readReceptionist.setProfilePath(userData[12]);
+                        userArraylist.add(readReceptionist);
+                    }
+                }
+
                 br.close();
                 fr.close();
                 }
 
-            }
 
        return userArraylist;
     }

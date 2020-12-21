@@ -47,14 +47,7 @@ public class PatientSignUpStep3 extends PatientSignUpStep1 {
         step3Label.setVisible(false);
         progressInd3.setStyle("-fx-accent:#00C853");
     }
-    @FXML
-    void backToPatientList(ActionEvent event) throws IOException {
-        AnchorPane acp = (AnchorPane) backToPatientList.getParent();
-        BorderPane parentBorderPane = (BorderPane) (acp.getParent());
-        Parent patient = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/Step2_Patient.fxml"));
-        parentBorderPane.setCenter(patient);
 
-    }
 
     @FXML
     void back2(ActionEvent event) {
