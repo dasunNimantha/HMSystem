@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="583.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.viewReceptionistDetails">
+<AnchorPane prefHeight="583.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.viewMODetails">
    <children>
       <Label fx:id="nameLabel" layoutX="275.0" layoutY="74.0" prefHeight="68.0" prefWidth="548.0" text="Dasun Nimantha ">
          <font>

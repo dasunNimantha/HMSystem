@@ -26,7 +26,7 @@ public class UserTasks {
                 BufferedWriter bw1 = new BufferedWriter(fw1);
                 if (userDBFile.length()==0){   // check if the file is empty
                     bw1.write(userObj.toString());
-                    System.out.println("New "+userType+"created Successfully");
+                    System.out.println("New "+userType+" created Successfully");
                 } else {
                     bw1.write("\n"+userObj.toString());
                 }
@@ -105,6 +105,27 @@ public class UserTasks {
                         readReceptionist.setProfilePath(userData[12]);
                         userArraylist.add(readReceptionist);
                     }
+                }else if(userType.equals("Medical_Officer")){
+                    while ((currentLine = br.readLine()) != null) {
+                        MedicalOfficer readMO = new MedicalOfficer();
+                        String decryptedText = Crypto.decrypt(currentLine);
+                        assert decryptedText != null;
+                        String[] userData = decryptedText.split("~");
+                        readMO.setUserName(userData[0]);
+                        readMO.setPassword((userData[1]));
+                        readMO.setStaffId(Integer.parseInt(userData[2]));
+                        readMO.setStaffPhoto(userData[3]);
+                        readMO.setEmail(userData[4]);
+                        readMO.setName(userData[5]);
+                        readMO.setIdNumber(Integer.parseInt(userData[6]));
+                        readMO.setDob(LocalDate.parse(userData[7]));
+                        readMO.setGender(userData[8]);
+                        readMO.setMaritalStatus(userData[9]);
+                        readMO.setAddress(userData[10]);
+                        readMO.setPhoneNumber(Integer.parseInt(userData[11]));
+                        readMO.setProfilePath(userData[12]);
+                        userArraylist.add(readMO);
+                    }
                 }
 
                 br.close();
@@ -124,11 +145,10 @@ public class UserTasks {
 
         // user deletion from main database
         if(editorRole.equals("Admin") || (editorRole.equals("Receptionist"))){
-            if (userRole.equals("Patient")){
                 String currentLine;
 
-                File oldFile = new File("src/sample/fileDatabase/PatientDB.txt");;
-                File tempFile = new File("src/sample/fileDatabase/tempFile.txt");
+                File oldFile = new File("src/sample/fileDatabase/"+userRole+"DB.txt");;
+                File tempFile = new File("src/sample/fileDatabase/"+userRole+"tempFile.txt");
 
                 FileWriter fw = new FileWriter(tempFile,true);
                 BufferedWriter bw = new BufferedWriter(fw);
@@ -163,7 +183,7 @@ public class UserTasks {
                     System.out.println("Error on user deletion");
                 }
 
-                File dump = new File("src/sample/fileDatabase/PatientDB.txt");
+                File dump = new File("src/sample/fileDatabase/"+userRole+"DB.txt");
                 if(tempFile.renameTo(dump)){
                     System.out.println("Successfully renamed file");
                 } else {
@@ -214,17 +234,18 @@ public class UserTasks {
                 System.out.println("Error on renaming");
             }
 
-        }
+
 
     }
 
+    // edit user function
+
     public static void userEditFunction(String editorRole,String userType,User userObj,String oldUsername) throws IOException {
         if((editorRole.equals("Admin") || (editorRole.equals("Receptionist")))){
-            if(userType.equals("Patient")){
                 String currentLine;
-
-                File oldFile = new File("src/sample/fileDatabase/PatientDB.txt");;
-                File tempFile = new File("src/sample/fileDatabase/tempFile.txt");
+            System.out.println("edit function called");
+                File oldFile = new File("src/sample/fileDatabase/"+userType+"DB.txt");;
+                File tempFile = new File("src/sample/fileDatabase/"+userType+"tempFile.txt");
 
                 FileWriter fw = new FileWriter(tempFile,true);
                 BufferedWriter bw = new BufferedWriter(fw);
@@ -260,7 +281,7 @@ public class UserTasks {
                     System.out.println("Error on user edit");
                 }
 
-                File dump = new File("src/sample/fileDatabase/PatientDB.txt");
+                File dump = new File("src/sample/fileDatabase/"+userType+"DB.txt");
                 if(tempFile.renameTo(dump)){
                     System.out.println("Successfully renamed file");
                 } else {
@@ -315,5 +336,3 @@ public class UserTasks {
     }
 
 
-
-}

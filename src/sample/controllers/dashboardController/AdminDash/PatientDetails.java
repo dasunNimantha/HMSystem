@@ -88,7 +88,7 @@ public class PatientDetails  {
                         } else {
                             final Button viewButton = new Button("View");
                             viewButton.setOnAction(event ->{
-                                viewPatientDetails.selectedPatient= (Patient) getTableView().getItems().get(getIndex());
+                                viewPatientDetails.selectedUser= (Patient) getTableView().getItems().get(getIndex());
                                 BorderPane parentBorderPane = (BorderPane) (patientDetailAnchor.getParent());
                                 try {
                                     Parent viewPatientDetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/viewPatientDetails.fxml"));

@@ -61,7 +61,6 @@ public class PatientSignUpStep3 extends PatientSignUpStep1 {
 
         if(allergies.getText()!= null){
             patient.setAllergies(allergies.getText());
-            System.out.println("all null");
         } else {
             patient.setAllergies("No Allergies");
         }

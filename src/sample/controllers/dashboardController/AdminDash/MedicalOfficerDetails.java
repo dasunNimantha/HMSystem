@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
+import sample.models.MedicalOfficer;
 import sample.models.Receptionist;
 import sample.models.User;
 import sample.models.UserTasks;
@@ -22,12 +23,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ReceptionistDetails {
+public class MedicalOfficerDetails {
 
-    static final HashMap<String, Parent> signUpRecepMap = new HashMap<>();
 
     @FXML
-    private AnchorPane recepDetailAnchor;
+    private AnchorPane moDetailAnchor;
+
+    static final HashMap<String, Parent> signUpMOScreenMap = new HashMap<>();
+
+    @FXML
+    private AnchorPane patientDetailAnchor;
 
     @FXML
     private TableView<User> userTable;
@@ -44,28 +49,25 @@ public class ReceptionistDetails {
     @FXML
     private TableColumn<User, String > tableTasks;
 
+    static final HashMap<String, Parent> signUpmoMap = new HashMap<>();
+
     @FXML
-    void addNewReceptionistBtn(ActionEvent event) throws IOException {
-        Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/recepDetails/SignUp1.fxml"));
-        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/recepDetails/SignUp2.fxml"));
-        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/recepDetails/Step3.fxml"));
+    void addNewMOBtn(ActionEvent event) throws IOException {
 
-        signUpRecepMap.put("step1",step1);
-        signUpRecepMap.put("step2",step2);
-        signUpRecepMap.put("step3",step3);
+        Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/moDetails/SignUp1.fxml"));
+        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/moDetails/SignUp2.fxml"));
+        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/moDetails/Step3.fxml"));
+        signUpmoMap.put("step1",step1);
+        signUpmoMap.put("step2",step2);
+        signUpmoMap.put("step3",step3);
 
-
-
-        BorderPane parentBorderPane = (BorderPane) (recepDetailAnchor.getParent());
-        parentBorderPane.setCenter(signUpRecepMap.get("step1"));
-
-
+        BorderPane parentBorderPane = (BorderPane) (moDetailAnchor.getParent());
+        parentBorderPane.setCenter(signUpmoMap.get("step1"));
     }
 
     public void initialize(){
-
         try {
-            ArrayList<User> userArrayList = UserTasks.viewUser("Admin","Receptionist");
+            ArrayList<User> userArrayList = UserTasks.viewUser("Admin","Medical_Officer");
             ObservableList<User> obsUsers = FXCollections.observableArrayList();
             obsUsers.addAll(userArrayList);
 
@@ -84,11 +86,11 @@ public class ReceptionistDetails {
                         } else {
                             final Button viewButton = new Button("View");
                             viewButton.setOnAction(event ->{
-                                viewReceptionistDetails.selectedUser= (Receptionist) getTableView().getItems().get(getIndex());
-                                BorderPane parentBorderPane = (BorderPane) (recepDetailAnchor.getParent());
+                                viewMODetails.selectedUser= (MedicalOfficer) getTableView().getItems().get(getIndex());
+                                BorderPane parentBorderPane = (BorderPane) (moDetailAnchor.getParent());
                                 try {
-                                    Parent viewReceptionistDetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/recepDetails/viewReceptionistDetails.fxml"));
-                                    parentBorderPane.setCenter(viewReceptionistDetails);
+                                    Parent viewMODetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/moDetails/viewMODetails.fxml"));
+                                    parentBorderPane.setCenter(viewMODetails);
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -108,8 +110,6 @@ public class ReceptionistDetails {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
 }

@@ -1,6 +1,5 @@
 package sample.controllers.dashboardController.AdminDash;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,20 +11,19 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import sample.models.Enums;
-import sample.models.Patient;
+import sample.models.MedicalOfficer;
 import sample.models.Receptionist;
 import sample.models.UserTasks;
 
 import java.io.IOException;
 
-public class viewReceptionistDetails {
+public class viewMODetails {
 
-    static Receptionist selectedUser;
+    static MedicalOfficer selectedUser;
 
     @FXML
     private TextField staffIdText;
@@ -103,7 +101,7 @@ public class viewReceptionistDetails {
 
     public void backToRecepDetails(ActionEvent actionEvent) throws IOException {
         BorderPane parentBorderPane = (BorderPane) editBtn.getParent().getParent();
-        Parent recep = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/recepDetails/Step2_Receptionist.fxml"));
+        Parent recep = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/moDetails/Step2_Doctor.fxml"));
         parentBorderPane.setCenter(recep);
 
     }
@@ -137,68 +135,68 @@ public class viewReceptionistDetails {
     @FXML
     void saveEdit(ActionEvent event) throws IOException {
 
-        Receptionist editedRecep = new Receptionist();
+        Receptionist editedMO = new Receptionist();
 
-        editedRecep.setName(nameText.getText().trim());
-        editedRecep.setUserName(usernameText.getText().trim());
-        editedRecep.setPassword(passwordText.getText().trim());
-        editedRecep.setIdNumber(Integer.parseInt(idNoText.getText().trim()));
-        editedRecep.setAddress(addrLine1.getText().trim() + "," + addrLine2.getText().trim() + "," + addrLine3.getText().trim());
-        editedRecep.setPhoneNumber(Integer.parseInt(phoneNoText.getText()));
-        editedRecep.setProfilePath(selectedUser.getProfilePath());
+        editedMO.setName(nameText.getText().trim());
+        editedMO.setUserName(usernameText.getText().trim());
+        editedMO.setPassword(passwordText.getText().trim());
+        editedMO.setIdNumber(Integer.parseInt(idNoText.getText().trim()));
+        editedMO.setAddress(addrLine1.getText().trim() + "," + addrLine2.getText().trim() + "," + addrLine3.getText().trim());
+        editedMO.setPhoneNumber(Integer.parseInt(phoneNoText.getText()));
+        editedMO.setProfilePath(selectedUser.getProfilePath());
 
         if (datePicker.getValue() == null) {
-            editedRecep.setDob(selectedUser.getDob());
+            editedMO.setDob(selectedUser.getDob());
         } else {
-            editedRecep.setDob(datePicker.getValue());
+            editedMO.setDob(datePicker.getValue());
         }
         if (genderCombo.getValue() == null) {
-            editedRecep.setGender(selectedUser.getGender());
+            editedMO.setGender(selectedUser.getGender());
         } else {
-            editedRecep.setGender(genderCombo.getValue());
+            editedMO.setGender(genderCombo.getValue());
         }
         if (maritalStatusCombo.getValue() == null) {
-                editedRecep.setMaritalStatus(selectedUser.getMaritalStatus());
+            editedMO.setMaritalStatus(selectedUser.getMaritalStatus());
         } else {
-                editedRecep.setMaritalStatus(maritalStatusCombo.getValue());
+            editedMO.setMaritalStatus(maritalStatusCombo.getValue());
         }
 
 
         // call edit user function
-        UserTasks.userEditFunction("Admin", "Receptionist", editedRecep, oldUsername);
+        UserTasks.userEditFunction("Admin", "Medical_Officer", editedMO, oldUsername);
         usernameLbl.setText("#" + usernameText.getText());
         nameLabel.setText(nameText.getText());
         cancelSave();
 
 
-        }
+    }
 
 
 
 
     private void cancelSave () {
-            nameText.setEditable(false);
-            usernameText.setEditable(false);
-            passwordText.setEditable(false);
-            idNoText.setEditable(false);
-            phoneNoText.setEditable(false);
-            addrLine1.setEditable(false);
-            addrLine2.setEditable(false);
-            addrLine3.setEditable(false);
-            addrLine1.setEditable(false);
-            addrLine2.setEditable(false);
-            addrLine3.setEditable(false);
-            staffEmailText.setEditable(false);
-            staffIdText.setEditable(false);
-            dateOfJoinText.setEditable(false);
-            genderText.setVisible(true);
-            maritalText.setVisible(true);
-            backBtn.setVisible(true);
-            editBtn.setVisible(true);
-            deleteUserBtn.setVisible(true);
-            saveEditBtn.setVisible(false);
-            cancelEdit.setVisible(false);
-        }
+        nameText.setEditable(false);
+        usernameText.setEditable(false);
+        passwordText.setEditable(false);
+        idNoText.setEditable(false);
+        phoneNoText.setEditable(false);
+        addrLine1.setEditable(false);
+        addrLine2.setEditable(false);
+        addrLine3.setEditable(false);
+        addrLine1.setEditable(false);
+        addrLine2.setEditable(false);
+        addrLine3.setEditable(false);
+        staffEmailText.setEditable(false);
+        staffIdText.setEditable(false);
+        dateOfJoinText.setEditable(false);
+        genderText.setVisible(true);
+        maritalText.setVisible(true);
+        backBtn.setVisible(true);
+        editBtn.setVisible(true);
+        deleteUserBtn.setVisible(true);
+        saveEditBtn.setVisible(false);
+        cancelEdit.setVisible(false);
+    }
 
 
 
@@ -253,7 +251,7 @@ public class viewReceptionistDetails {
                 String idNo = idNoText.getText();
                 String userName = usernameText.getText();
                 try {
-                    UserTasks.deleteUser("Admin", "Receptionist", idNo, userName);
+                    UserTasks.deleteUser("Admin", "Medical_Officer", idNo, userName);
                 } catch (IOException exception) {
                     exception.printStackTrace();
                 }
@@ -266,6 +264,4 @@ public class viewReceptionistDetails {
         cancelSave();
         getUsrData();
     }
-
 }
-
