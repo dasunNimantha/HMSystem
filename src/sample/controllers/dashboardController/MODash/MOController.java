@@ -11,6 +11,9 @@ import java.io.IOException;
 
 public class MOController {
 
+    public static String objEncString;
+    private final String [] decryptedData = objEncString.split("~");
+
     @FXML
     private JFXButton recepBtn1;
 

@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.controllers.ScreenController;
+import sample.models.Admin;
 import sample.models.Crypto;
 
 import java.util.HashMap;
@@ -17,13 +18,13 @@ import java.util.HashMap;
 public class Main extends Application {
 
     public static HashMap<String,Parent> loginMap = new HashMap<>();
-    private static ScreenController screenController;
 
     private double xOffset = 0;
     private double yOffset = 0;
 
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public  void start(Stage primaryStage) throws Exception{
 
         Parent root = FXMLLoader.load(getClass().getResource("views/LoginRoleSelect.fxml"));
 
@@ -50,6 +51,9 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
         launch(args);
     }
+
+
 }

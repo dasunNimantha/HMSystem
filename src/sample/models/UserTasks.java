@@ -31,22 +31,9 @@ public class UserTasks {
                     bw1.write("\n"+userObj.toString());
                 }
 
-                File userValidationFile = new File("src/sample/fileDatabase/userAuthDB.txt");
-                FileWriter fw2 = new FileWriter(userValidationFile,true);
-                String passwd = userObj.getPassword();
-                String authString = (Crypto.encrypt(userType)+","+Crypto.encrypt(userObj.getUserName())+","+Crypto.encrypt(passwd));
-
-                BufferedWriter bw2 = new BufferedWriter(fw2);
-                if(userValidationFile.length()==0){
-                    bw2.write(authString);
-                } else {
-                    bw2.write("\n"+authString);
-                }
-
                 bw1.close();
                 fw1.close();
-                bw2.close();
-                fw1.close();
+
         }
     }
 
@@ -124,6 +111,7 @@ public class UserTasks {
                         readMO.setAddress(userData[10]);
                         readMO.setPhoneNumber(Integer.parseInt(userData[11]));
                         readMO.setProfilePath(userData[12]);
+                        readMO.setSpeciality(userData[13]);
                         userArraylist.add(readMO);
                     }
                 }
@@ -191,51 +179,6 @@ public class UserTasks {
                 }
             }
 
-            // userAuth deletion function
-            String currentLine;
-
-            File oldAuthFile = new File("src/sample/fileDatabase/userAuthDB.txt");
-            File tempAuthFile = new File("src/sample/fileDatabase/tempAuthFile.txt");
-
-            FileWriter fw = new FileWriter(tempAuthFile,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter pw = new PrintWriter(bw);
-
-            FileReader fr = new FileReader(oldAuthFile);
-            BufferedReader br = new BufferedReader(fr);
-
-            while((currentLine = br.readLine()) != null){
-                String[] credentials = currentLine.split(",");
-                if (Objects.equals(Crypto.decrypt(credentials[1]), username)) {
-                    System.out.println("User found : "+username);
-                } else {
-                    pw.println(currentLine);
-                }
-
-            }
-
-            pw.flush();
-            pw.close();
-            fr.close();
-            br.close();
-            bw.close();
-            fw.close();
-
-            if(oldAuthFile.delete()){
-                System.out.println("Auth line deleted on user "+username);
-            } else {
-                System.out.println("Error on auth line deletion");
-            }
-
-            File dump = new File("src/sample/fileDatabase/userAuthDB.txt");
-            if(tempAuthFile.renameTo(dump)){
-                System.out.println("Successfully renamed the file");
-            } else {
-                System.out.println("Error on renaming");
-            }
-
-
-
     }
 
     // edit user function
@@ -289,49 +232,32 @@ public class UserTasks {
                 }
             }
 
-            // userAuth edit function
-            String currentLine;
 
-            File oldAuthFile = new File("src/sample/fileDatabase/userAuthDB.txt");
-            File tempAuthFile = new File("src/sample/fileDatabase/tempAuthFile.txt");
-
-            FileWriter fw = new FileWriter(tempAuthFile,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter pw = new PrintWriter(bw);
-
-            FileReader fr = new FileReader(oldAuthFile);
-            BufferedReader br = new BufferedReader(fr);
-
-            while((currentLine = br.readLine()) != null){
-                String[] credentials = currentLine.split(",");
-                if (Objects.equals(Crypto.decrypt(credentials[1]), oldUsername)) {
-                    String authString = (Crypto.encrypt(userType)+","+Crypto.encrypt(userObj.getUserName())+","+Crypto.encrypt(userObj.getPassword()));
-                    pw.println(authString);
-                } else {
-                    pw.println(currentLine);
-                }
-
-            }
-
-            pw.flush();
-            pw.close();
-            fr.close();
-            br.close();
-            bw.close();
-            fw.close();
-
-            if(oldAuthFile.delete()){
-                System.out.println("Auth line edited on user "+userObj.getUserName());
-            } else {
-                System.out.println("Error on auth line edit");
-            }
-            File dump = new File("src/sample/fileDatabase/userAuthDB.txt");
-            if(tempAuthFile.renameTo(dump)){
-                System.out.println("Successfully renamed auth file");
-            } else {
-                System.out.println("Error on renaming auth file");
-            }
         }
+
+    public static ArrayList<String> returnReference(String referenceModuleFile) throws IOException {
+        File MOSpeciality = new File("src/sample/fileDatabase/reference/"+referenceModuleFile+".txt");
+        FileReader fr = new FileReader(MOSpeciality);
+        BufferedReader br = new BufferedReader(fr);
+        ArrayList <String> speciality  = new ArrayList<>();
+
+        String currentLine;
+        while ((currentLine = br.readLine()) != null) {
+            String decryptedLine = Crypto.decrypt(currentLine);
+            assert decryptedLine != null;
+            speciality.add(decryptedLine);
+
+        }
+        br.close();
+        fr.close();
+        return speciality;
+    }
+
+    // return doctors names with speciality
+
+    public static ArrayList<String> returnMOWithSpeciality(String speciality){
+        return null;
+    }
 
     }
 

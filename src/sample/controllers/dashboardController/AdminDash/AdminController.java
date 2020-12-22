@@ -1,35 +1,33 @@
 package sample.controllers.dashboardController.AdminDash;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTreeTableView;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.util.Callback;
-import sample.models.Patient;
-import sample.models.User;
-import sample.models.UserTasks;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 public class AdminController implements Initializable {
+
+    public static String objEncString;
+    private final String [] decryptedData = objEncString.split("~");
 
     @FXML
     private BorderPane adminBorderPane;
@@ -58,7 +56,8 @@ public class AdminController implements Initializable {
     @FXML
     private Label nameLabel;
 
-
+    @FXML
+    private JFXButton logOutBtn;
 
     @FXML
     void step1(ActionEvent event) throws IOException {
@@ -134,6 +133,41 @@ public class AdminController implements Initializable {
         parentBorderPane.setCenter(admin);
     }
 
+    @FXML
+    void logOut(ActionEvent event) throws IOException, InterruptedException {
+        Arrays.fill(decryptedData,null); // clear received object when login
+
+        Stage stage = (Stage) logOutBtn.getScene().getWindow(); // close dashboard
+        stage.close();
+
+        HashMap<String,Parent> loginMap = new HashMap<>();
+        AtomicReference<Double> xOffset = new AtomicReference<>((double) 0);
+        AtomicReference<Double> yOffset = new AtomicReference<>((double) 0);
+
+        // open login window
+        Parent root = FXMLLoader.load(getClass().getResource("../../../views/LoginRoleSelect.fxml"));
+
+            Scene scene = new Scene(root,1049, 594);
+            Stage backToLogin = new Stage();
+            backToLogin.setScene(scene);
+            backToLogin.setTitle("Login");
+            backToLogin.initStyle(StageStyle.TRANSPARENT);
+            scene.setFill(Color.TRANSPARENT);
+            root.setOnMousePressed((MouseEvent mevent) -> {
+                xOffset.set(mevent.getSceneX());
+                yOffset.set(mevent.getSceneY());
+            });
+
+            // Move around here
+            root.setOnMouseDragged((MouseEvent mevent) -> {
+                backToLogin.setX(mevent.getScreenX() - xOffset.get());
+                backToLogin.setY(mevent.getScreenY() - yOffset.get());
+            });
+
+            TimeUnit.MILLISECONDS.sleep(150);
+            backToLogin.show();
+            loginMap.put("roleSelect",root);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

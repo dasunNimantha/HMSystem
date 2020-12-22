@@ -101,7 +101,7 @@ public class MOSignUpStep1 extends MedicalOfficerDetails {
     }
 
 
-    public void initialize(){
+    public void initialize() throws IOException {
 
     }
 

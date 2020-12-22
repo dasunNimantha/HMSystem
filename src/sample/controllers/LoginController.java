@@ -18,14 +18,22 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import sample.controllers.dashboardController.AdminDash.AdminController;
+import sample.controllers.dashboardController.MODash.MOController;
+import sample.controllers.dashboardController.PatientDash.PatientController;
+import sample.controllers.dashboardController.ReceptionistDash.ReceptionistController;
+import sample.models.Admin;
+import sample.models.MedicalOfficer;
 import sample.models.UserValidation;
 
 
-public class LoginController implements Initializable {
+public class LoginController  extends Thread {
 
 
     static String userRole;
@@ -60,7 +68,7 @@ public class LoginController implements Initializable {
     private Button btnEX;
 
     @FXML
-    private  BorderPane borderPaneLogin;
+    private BorderPane borderPaneLogin;
 
 
     @FXML
@@ -74,7 +82,6 @@ public class LoginController implements Initializable {
         btnEX.getScene().getWindow().hide();
         System.exit(0);
     }
-
 
 
     @FXML
@@ -93,7 +100,6 @@ public class LoginController implements Initializable {
     }
 
 
-    @Override
     public void initialize(URL url, ResourceBundle rb) {
 
     }
@@ -109,40 +115,51 @@ public class LoginController implements Initializable {
     }
 
 
-
     @FXML
     void resetExBtn(MouseEvent event) {
         btnEX.setStyle("-fx-background-color: grey");
     }
 
 
-    private void userAuth(){
-                String username = usrNameField.getText();
-                String password = passwdField.getText();
-                if ((   username.length()==0
-                        &&(password.length()==0))){
-                    System.out.println("Invalid Input");
-                } else {
-                    UserValidation ua = new UserValidation();
-                    try {
-                        int statusCode = ua.authCheck(userRole,username, password);
-                        if(statusCode==1){
-                            System.out.println("Logged In");
-                            loginBtn.getScene().getWindow().hide();
-                            SceneLoader sl = new SceneLoader();
-                            sl.DashboardLoader(userRole);
+        private void userAuth()  {
 
-                        } else if (statusCode==0) {
-                            System.out.println("Invalid Username or Password");
-                            invalidLabel.setVisible(true);
+            String username = usrNameField.getText().trim();
+            String password = passwdField.getText().trim();
+            if ((username.length() == 0
+                    && (password.length() == 0))) {
+                System.out.println("Invalid Input");
+            } else {
+                try {
+                    String[] returnData = UserValidation.authCheck(userRole, username, password);
+                    if (returnData[0].equals("1")) {
+
+                        Stage stage = (Stage) loginBtn.getScene().getWindow();
+                        stage.close();
+                        SceneLoader sl = new SceneLoader();
+
+                        switch (userRole) {
+                            case "Patient" -> PatientController.objEncString = returnData[1];
+                            case "Receptionist" -> ReceptionistController.objEncString = returnData[1];
+                            case "Medical_Officer" -> MOController.objEncString = returnData[1];
+                            case "Admin" -> AdminController.objEncString = returnData[1];
                         }
-                    } catch (IOException exception) {
-                        exception.printStackTrace();
+
+                        sl.DashboardLoader(userRole);
+
+                    } else {
+                        System.out.println("Invalid Username or Password");
+                        invalidLabel.setVisible(true);
                     }
+                } catch (IOException exception) {
+                    exception.printStackTrace();
                 }
 
-        };
+            }
+        }
+
     }
+
+
 
 
 

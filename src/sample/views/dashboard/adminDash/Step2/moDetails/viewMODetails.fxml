@@ -30,7 +30,7 @@
       <Button fx:id="saveEditBtn" layoutX="795.0" layoutY="551.0" mnemonicParsing="false" onAction="#saveEdit" prefHeight="26.0" prefWidth="54.0" text="Save" visible="false" />
       <Button fx:id="cancelEdit" layoutX="873.0" layoutY="552.0" mnemonicParsing="false" onAction="#cancelEdit" text="Cancel" visible="false" />
       <Button fx:id="deleteUserBtn" layoutX="719.0" layoutY="551.0" mnemonicParsing="false" text="Delete" />
-      <ScrollPane layoutX="75.0" layoutY="259.0" prefHeight="270.0" prefWidth="856.0" style="-fx-background-color: white;">
+      <ScrollPane layoutX="75.0" layoutY="260.0" prefHeight="250.0" prefWidth="856.0" style="-fx-background-color: white;">
          <content>
             <AnchorPane prefHeight="470.0" prefWidth="833.0" style="-fx-background-color: white;">
                <children>
@@ -113,6 +113,12 @@
                   <TextField fx:id="dateOfJoinText" layoutX="538.0" layoutY="258.0" prefHeight="26.0" prefWidth="185.0" />
                   <ComboBox fx:id="genderCombo" layoutX="538.0" layoutY="5.0" prefHeight="26.0" prefWidth="184.0" visible="false" />
                   <ComboBox fx:id="maritalStatusCombo" layoutX="538.0" layoutY="59.0" prefHeight="26.0" prefWidth="184.0" visible="false" />
+                  <Label layoutX="417.0" layoutY="312.0" prefHeight="34.0" prefWidth="92.0" text="Speciality">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="specialityText" editable="false" layoutX="537.0" layoutY="316.0" prefHeight="26.0" prefWidth="185.0" />
                </children>
             </AnchorPane>
          </content>

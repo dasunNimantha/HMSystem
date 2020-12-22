@@ -32,7 +32,7 @@
                         <Insets top="60.0" />
                      </VBox.margin>
                   </Label>
-                  <JFXButton fx:id="recepBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Home">
+                  <JFXButton fx:id="patientBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Home">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -50,7 +50,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="recepBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Appoinments" textFill="#5b5858">
+                  <JFXButton fx:id="patientBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text="Appoinments" textFill="#5b5858">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -68,7 +68,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="recepBtn3" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step3" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Doctor Details" textFill="#5b5858">
+                  <JFXButton fx:id="patientBtn3" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step3" prefHeight="57.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text="Doctor Details" textFill="#5b5858">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -86,7 +86,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="recepBtn4" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step4" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Feedback" textFill="#5b5858">
+                  <JFXButton fx:id="patientBtn4" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step4" prefHeight="58.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text="Feedback" textFill="#5b5858">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -101,14 +101,14 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="recepBtn6" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step5" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Profile" textFill="#5b5858">
+                  <JFXButton fx:id="patientBtn6" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step5" prefHeight="58.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text="Settings" textFill="#5b5858">
                      <font>
                         <Font size="13.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/images/loginImages/416-4161690_empty-profile-picture-blank-avatar-image-circle.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_settings_32px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -120,7 +120,7 @@
             </VBox>
          </children>
       </Pane>
-      <BorderPane fx:id="recepBorderPane" layoutX="256.0" layoutY="96.0" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: white; -fx-border-radius: 3;">
+      <BorderPane fx:id="subBorderPane" layoutX="256.0" layoutY="96.0" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: white; -fx-border-radius: 3;">
          <center>
             <AnchorPane prefHeight="583.0" prefWidth="946.0" style="-fx-border-radius: 8;" BorderPane.alignment="CENTER">
                <children>
@@ -141,7 +141,7 @@
                               <Image url="@../../../assets/images/dashboard/rsz_girl-work-on-laptop.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
+                        <Label fx:id="welcomeName" layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>

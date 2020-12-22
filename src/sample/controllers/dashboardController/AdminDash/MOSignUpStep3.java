@@ -16,6 +16,7 @@ import javafx.scene.layout.BorderPane;
 import sample.models.UserTasks;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MOSignUpStep3 extends MOSignUpStep1{
 
@@ -44,7 +45,7 @@ public class MOSignUpStep3 extends MOSignUpStep1{
     private TextField staffEmailText;
 
     @FXML
-    private JFXComboBox<?> specialityDropDown;
+    private JFXComboBox<String> specialityDropDown;
 
     @FXML
     private Button attachDocBtn;
@@ -80,7 +81,7 @@ public class MOSignUpStep3 extends MOSignUpStep1{
         medicalOfficer.setEmail(staffEmailText.getText());
         medicalOfficer.setDateOfJoin(dateOfJoin.getValue());
         medicalOfficer.setStaffPhoto("Not Submitted");
-
+        medicalOfficer.setSpeciality(specialityDropDown.getValue());
         medicalOfficer.setProfilePath("sample/assets/images/loginImages/416-4161690_empty-profile-picture-blank-avatar-image-circle.png");
         // pass object to write to the patientDB.txt file
         UserTasks.createPatient("Admin","Medical_Officer",medicalOfficer);
@@ -92,6 +93,15 @@ public class MOSignUpStep3 extends MOSignUpStep1{
         Parent recep = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/moDetails/Step2_Doctor.fxml"));
         parentBorderPane.setCenter(recep);
 
+    }
+
+    public void initialize() throws IOException {
+        ArrayList<String> speciality = UserTasks.returnReference("SpecialityRef");
+
+        int count = speciality.size();
+        for(int i=0;i<count;i++){
+            specialityDropDown.getItems().add(speciality.get(i));
+        }
     }
 
 }

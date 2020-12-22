@@ -93,6 +93,10 @@ public class viewMODetails {
     private JFXDatePicker datePicker;
 
     @FXML
+    private TextField specialityText;
+
+
+    @FXML
     private TextField genderText;
 
     @FXML
@@ -108,6 +112,8 @@ public class viewMODetails {
 
     final String oldUsername = selectedUser.getUserName();
 
+
+    // get user profile data function
     public void getUsrData() {
 
         nameLabel.setText(selectedUser.getName());
@@ -124,18 +130,22 @@ public class viewMODetails {
         genderText.setText(selectedUser.getGender());
         maritalText.setText(selectedUser.getMaritalStatus());
         datePicker.setPromptText(selectedUser.getDob().toString());
+
         String imagePath = selectedUser.getProfilePath();
         Image proPic = new Image(imagePath);
+        profileCircle.setFill(new ImagePattern(proPic));
+
         staffIdText.setText(String.valueOf(selectedUser.getStaffId()));
         staffEmailText.setText(selectedUser.getEmail());
         dateOfJoinText.setText(toString());
-        profileCircle.setFill(new ImagePattern(proPic));
+        specialityText.setText(selectedUser.getSpeciality());
+
     }
 
     @FXML
     void saveEdit(ActionEvent event) throws IOException {
 
-        Receptionist editedMO = new Receptionist();
+        MedicalOfficer editedMO = new MedicalOfficer();
 
         editedMO.setName(nameText.getText().trim());
         editedMO.setUserName(usernameText.getText().trim());

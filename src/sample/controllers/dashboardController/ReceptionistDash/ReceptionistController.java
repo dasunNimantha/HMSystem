@@ -18,6 +18,8 @@ import java.io.IOException;
 
 public class ReceptionistController {
 
+    public static String objEncString;
+
     @FXML
     private JFXButton recepBtn1;
 

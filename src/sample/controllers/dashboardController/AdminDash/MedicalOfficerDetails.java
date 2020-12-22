@@ -65,7 +65,7 @@ public class MedicalOfficerDetails {
         parentBorderPane.setCenter(signUpmoMap.get("step1"));
     }
 
-    public void initialize(){
+    public void initialize() throws IOException {
         try {
             ArrayList<User> userArrayList = UserTasks.viewUser("Admin","Medical_Officer");
             ObservableList<User> obsUsers = FXCollections.observableArrayList();

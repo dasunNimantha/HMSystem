@@ -131,6 +131,30 @@
                                 <Insets left="50.0" />
                             </padding>
                         </JFXButton>
+                  <JFXButton fx:id="recepBtn61" alignment="BASELINE_LEFT" disable="true" graphicTextGap="10.0" onAction="#step6" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Log Out" textFill="#59575700">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton fx:id="recepBtn611" alignment="BASELINE_LEFT" disable="true" graphicTextGap="10.0" onAction="#step6" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" textFill="#ffffff00">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton fx:id="logOutBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#logOut" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Log Out" textFill="#5b5858">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
                     </children>
                 </VBox>
             </children>
