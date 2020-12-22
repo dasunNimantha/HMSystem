@@ -2,72 +2,81 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="484.0" prefWidth="944.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistController">
     <children>
-        <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="317.0" styleClass="lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Visitor">
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="anc-main" stylesheets="@../../../../assets/styles/DashboardStyles.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <Label layoutX="423.0" layoutY="74.0" styleClass="normal-lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Purpose" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="80.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="425.0" layoutY="100.0" styleClass="normal-lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Note" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="120.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="423.0" layoutY="129.0" styleClass="normal-lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Other" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="160.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <JFXTextField layoutX="543.0" layoutY="72.0" prefWidth="300.0" AnchorPane.leftAnchor="580.0" AnchorPane.topAnchor="80.0" />
+                <JFXTextField layoutX="543.0" layoutY="98.0" prefWidth="300.0" AnchorPane.leftAnchor="580.0" AnchorPane.topAnchor="120.0" />
+                <JFXTextField layoutX="543.0" layoutY="127.0" prefWidth="300.0" AnchorPane.leftAnchor="580.0" AnchorPane.topAnchor="160.0" />
+                <JFXButton layoutX="518.0" layoutY="160.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Attach Document" AnchorPane.leftAnchor="580.0" AnchorPane.topAnchor="200.0" />
+            </children>
+        </AnchorPane>
+        <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="317.0" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Visitor" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="30.0">
             <font>
                 <Font name="System Bold" size="24.0" />
-            </font></Label>
-        <JFXButton layoutX="824.0" layoutY="436.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add" />
-        <Label layoutX="21.0" layoutY="70.0" text="ID No">
+            </font>
+            <styleClass>
+                <String fx:value="lbl" />
+                <String fx:value="head-label" />
+            </styleClass></Label>
+        <JFXButton layoutX="824.0" layoutY="436.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Add Visitor" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+        <Label layoutX="21.0" layoutY="70.0" styleClass="normal-lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="ID No" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="80.0">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="21.0" layoutY="97.0" text="Name">
+        <Label layoutX="21.0" layoutY="97.0" styleClass="normal-lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Name" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="120.0">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="21.0" layoutY="123.0" text="Phone No">
+        <Label layoutX="21.0" layoutY="123.0" styleClass="normal-lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Phone No" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="160.0">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="21.0" layoutY="150.0" text="Date">
+        <Label layoutX="21.0" layoutY="150.0" styleClass="normal-lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Date" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="200.0">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="21.0" layoutY="176.0" text="In time">
+        <Label layoutX="21.0" layoutY="176.0" styleClass="normal-lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="In time" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="240.0">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="15.0" layoutY="202.0" text="Out time">
+        <Label layoutX="15.0" layoutY="202.0" styleClass="normal-lbl" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Out time" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="280.0">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="18.0" layoutY="232.0" text="Purpose">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="20.0" layoutY="258.0" text="Note">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="18.0" layoutY="287.0" text="Other">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <JFXTextField layoutX="138.0" layoutY="68.0" />
-        <JFXTextField layoutX="138.0" layoutY="95.0" />
-        <JFXTextField layoutX="138.0" layoutY="121.0" />
-        <JFXTextField layoutX="138.0" layoutY="148.0" />
-        <JFXTextField layoutX="138.0" layoutY="174.0" />
-        <JFXTextField layoutX="138.0" layoutY="200.0" />
-        <JFXTextField layoutX="138.0" layoutY="230.0" />
-        <JFXTextField layoutX="138.0" layoutY="256.0" />
-        <JFXTextField layoutX="138.0" layoutY="285.0" />
-        <JFXButton layoutX="312.0" layoutY="285.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Attach Document" />
-      <JFXButton layoutX="743.0" layoutY="436.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Back" />
+        <JFXTextField layoutX="138.0" layoutY="68.0" prefWidth="300.0" AnchorPane.topAnchor="80.0" />
+        <JFXTextField layoutX="138.0" layoutY="95.0" prefWidth="300.0" AnchorPane.topAnchor="120.0" />
+        <JFXTextField layoutX="138.0" layoutY="121.0" prefWidth="300.0" AnchorPane.topAnchor="160.0" />
+        <JFXTextField layoutX="138.0" layoutY="148.0" prefWidth="300.0" AnchorPane.topAnchor="200.0" />
+        <JFXTextField layoutX="138.0" layoutY="174.0" prefWidth="300.0" AnchorPane.topAnchor="240.0" />
+        <JFXTextField layoutX="138.0" layoutY="200.0" prefWidth="300.0" AnchorPane.topAnchor="280.0" />
+        <JFXButton layoutX="743.0" layoutY="436.0" styleClass="btn" stylesheets="@../../../../assets/styles/DashboardStyles.css" text="Back" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="200.0" />
     </children>
 </AnchorPane>

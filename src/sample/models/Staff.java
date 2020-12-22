@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 public class Staff extends User {
 
+    public Staff(){}
+
     private int staffId;
     private String email;
     private LocalDate dateOfJoin;

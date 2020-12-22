@@ -22,6 +22,7 @@ public  class User extends RecursiveTreeObject<User> {
     private int phoneNumber;
     private String profilePath;
     private JFXButton viewUserBtn;
+
     public User() {
     }
 

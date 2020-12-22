@@ -1,6 +1,5 @@
 package sample.controllers.dashboardController.AdminDash;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,21 +14,20 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
-import sample.models.Patient;
+import sample.models.Receptionist;
 import sample.models.User;
 import sample.models.UserTasks;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PatientDetails  {
+public class ReceptionistDetails {
 
-    static final HashMap<String, Parent> signUpscreenMap = new HashMap<>();
+    static final HashMap<String, Parent> signUpRecepMap = new HashMap<>();
 
     @FXML
-    private AnchorPane patientDetailAnchor;
+    private AnchorPane recepDetailAnchor;
 
     @FXML
     private TableView<User> userTable;
@@ -46,30 +44,28 @@ public class PatientDetails  {
     @FXML
     private TableColumn<User, String > tableTasks;
 
-
-
     @FXML
-    void addNewPatientBtn(ActionEvent event) throws IOException {
-        Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/SignUp1.fxml"));
-        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/SignUp2.fxml"));
-        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/SignUp3.fxml"));
+    void addNewReceptionistBtn(ActionEvent event) throws IOException {
+        Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/recepDetails/SignUp1.fxml"));
+        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/recepDetails/SignUp2.fxml"));
+        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/recepDetails/Step3.fxml"));
 
-        signUpscreenMap.put("step1",step1);
-        signUpscreenMap.put("step2",step2);
-        signUpscreenMap.put("step3",step3);
+        signUpRecepMap.put("step1",step1);
+        signUpRecepMap.put("step2",step2);
+        signUpRecepMap.put("step3",step3);
 
-        
 
-        BorderPane parentBorderPane = (BorderPane) (patientDetailAnchor.getParent());
-        parentBorderPane.setCenter(signUpscreenMap.get("step1"));
+
+        BorderPane parentBorderPane = (BorderPane) (recepDetailAnchor.getParent());
+        parentBorderPane.setCenter(signUpRecepMap.get("step1"));
 
 
     }
 
-     public void initialize(){
+    public void initialize(){
 
         try {
-            ArrayList<User> userArrayList = UserTasks.viewUser("Admin","Patient");
+            ArrayList<User> userArrayList = UserTasks.viewUser("Admin","Receptionist");
             ObservableList<User> obsUsers = FXCollections.observableArrayList();
             obsUsers.addAll(userArrayList);
 
@@ -88,11 +84,11 @@ public class PatientDetails  {
                         } else {
                             final Button viewButton = new Button("View");
                             viewButton.setOnAction(event ->{
-                                viewPatientDetails.selectedUser= (Patient) getTableView().getItems().get(getIndex());
-                                BorderPane parentBorderPane = (BorderPane) (patientDetailAnchor.getParent());
+                                viewReceptionistDetails.selectedUser= (Receptionist) getTableView().getItems().get(getIndex());
+                                BorderPane parentBorderPane = (BorderPane) (recepDetailAnchor.getParent());
                                 try {
-                                    Parent viewPatientDetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/patientDetails/viewPatientDetails.fxml"));
-                                    parentBorderPane.setCenter(viewPatientDetails);
+                                    Parent viewReceptionistDetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/recepDetails/viewReceptionistDetails.fxml"));
+                                    parentBorderPane.setCenter(viewReceptionistDetails);
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -112,6 +108,7 @@ public class PatientDetails  {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
     }
 
