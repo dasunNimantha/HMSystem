@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.Rating?>
 
-<AnchorPane focusTraversable="true" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F8F8F8; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.PatientController">
+<AnchorPane fx:id="addComplaintAnchor" focusTraversable="true" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F8F8F8; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.PatientController">
    <children>
       <Label layoutX="62.0" layoutY="35.0" prefHeight="35.0" prefWidth="201.0" text="RATE US">
          <font>
@@ -36,7 +36,7 @@
          </children>
       </AnchorPane>
       <Button layoutX="350.0" layoutY="514.0" mnemonicParsing="false" text="Save" />
-      <JFXButton buttonType="RAISED" layoutX="787.0" layoutY="514.0" prefHeight="42.0" prefWidth="134.0" style="-fx-background-color: #448AFF;" text="Make a Complaint" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="787.0" layoutY="514.0" onAction="#makeComplaint" prefHeight="42.0" prefWidth="134.0" style="-fx-background-color: #448AFF;" text="Make a Complaint" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

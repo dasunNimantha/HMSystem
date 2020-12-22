@@ -1,24 +1,17 @@
 package sample.controllers.dashboardController.PatientDash;
 
 import com.jfoenix.controls.JFXButton;
-import com.sun.scenario.effect.impl.sw.java.JSWBlend_SOFT_LIGHTPeer;
-import de.jensd.fx.glyphs.testapps.App;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import org.w3c.dom.ls.LSOutput;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.Arrays;
 
 public class PatientController {
 
@@ -100,6 +93,16 @@ public class PatientController {
     void step6(ActionEvent event) {
 
     }
+    @FXML
+    private AnchorPane addComplaintAnchor;{
+
+    }
+
+    @FXML
+    private ComboBox<String> complaintCombo;{
+
+    }
+
 
     @FXML
     void addAppointment(ActionEvent event) throws IOException {
@@ -125,12 +128,12 @@ public class PatientController {
             }
 
     }
+        
+
+
 
     }
-
-
-
-   }
+}
 
 
 
