@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="484.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.AdminController">
+    <children>
+        <TableView layoutX="14.0" layoutY="14.0" prefHeight="464.0" prefWidth="925.0">
+            <columns>
+                <TableColumn prefWidth="84.7999849319458" text="NO" />
+                <TableColumn prefWidth="129.60000610351562" text="Appoinment Date" />
+                <TableColumn prefWidth="127.20002746582031" text="Customer Name" />
+                <TableColumn prefWidth="109.5999755859375" text="Phone Number" />
+                <TableColumn minWidth="0.0" prefWidth="98.39996337890625" text="Service" />
+                <TableColumn prefWidth="111.20001220703125" text="Customer Email" />
+                <TableColumn prefWidth="99.20001220703125" text="Edit " />
+                <TableColumn prefWidth="121.599853515625" text="Options" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

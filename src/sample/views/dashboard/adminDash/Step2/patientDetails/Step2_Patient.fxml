@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="patientDetailAnchor" prefHeight="583.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.PatientDetails">
+   <children>
+      <Label layoutX="27.0" layoutY="25.0" prefHeight="30.0" prefWidth="324.0" text="Patient List" textFill="#6c6868">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="758.0" layoutY="480.0" onAction="#addNewPatientBtn" prefHeight="46.0" prefWidth="199.0" style="-fx-background-radius: 15; -fx-background-color: #03A9F4; -fx-border-radius: 15;" text="Add new Patient" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="userTable" layoutX="27.0" layoutY="79.0" prefHeight="388.0" prefWidth="931.0" stylesheets="@../../../../../assets/styles/TableView.css">
+        <columns>
+          <TableColumn fx:id="tableNameCol" editable="false" prefWidth="310.40008544921875" text="Name" />
+          <TableColumn fx:id="tableIdCol" editable="false" minWidth="0.0" prefWidth="235.99993896484375" text="Id Number" />
+            <TableColumn fx:id="tablePhoneNoCol" prefWidth="254.39996337890625" text="Phone No" />
+            <TableColumn fx:id="tableTasks" editable="false" prefWidth="133.5999755859375" text="Tasks" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="roleSelectAnchor" prefHeight="560.0" prefWidth="530.0" style="-fx-background-color: linear-gradient(from 250px 100px to 80px 500px, #f5f5f5, #FFFFFF); -fx-background-radius: 25; -fx-border-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.LoginController">
+   <children>
+      <Label alignment="CENTER" layoutX="134.0" layoutY="44.0" prefHeight="53.0" prefWidth="273.0" text="Select Your Role" textFill="#000000d6">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="166.0" fitWidth="172.0" layoutX="66.0" layoutY="111.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/loginImages/imgonline-com-ua-shape-lKhAB0dqUWA.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="Patient" alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="60.0" layoutY="109.0" onAction="#roleSelect" prefHeight="210.0" prefWidth="178.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25;" text="Patient" textFill="#0d0192">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="166.0" fitWidth="172.0" layoutX="305.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/loginImages/imgonline-com-ua-shape-VRFmqBdmo3PGq4.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="Receptionist" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="300.0" layoutY="109.0" onAction="#roleSelect" prefHeight="210.0" prefWidth="178.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25;" text="Receptionist" textFill="#0d0192">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="166.0" fitWidth="172.0" layoutX="66.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/loginImages/imgonline-com-ua-shape-fNA6BLJpav.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="Medical_Officer" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="60.0" layoutY="365.0" onAction="#roleSelect" prefHeight="210.0" prefWidth="178.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25;" text="Medical Officer" textFill="#0d0192">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="166.0" fitWidth="172.0" layoutX="305.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/loginImages/doctor.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="Admin" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="300.0" layoutY="365.0" onAction="#roleSelect" prefHeight="210.0" prefWidth="178.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25;" text="Admin" textFill="#0d0192">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+   <padding>
+      <Insets right="52.0" />
+   </padding>
+</AnchorPane>

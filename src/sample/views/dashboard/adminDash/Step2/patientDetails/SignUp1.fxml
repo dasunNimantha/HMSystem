@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="signUp1Anchor" prefHeight="583.0" prefWidth="986.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.PatientSignUpStep1">
+   <children>
+      <BorderPane fx:id="signUpBorderPane" layoutY="-1.0" prefHeight="462.0" prefWidth="986.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="125.0" prefWidth="986.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="201.0" layoutY="43.0" prefHeight="38.0" prefWidth="584.0" AnchorPane.leftAnchor="201.0" AnchorPane.rightAnchor="201.39999999999998">
+                     <children>
+                        <JFXProgressBar layoutX="16.960006713867188" layoutY="13.959999084472656" prefHeight="3.0" prefWidth="277.0" progress="0.0" />
+                        <Label alignment="CENTER" layoutX="-0.0399932861328125" layoutY="0.9599990844726562" prefHeight="30.0" prefWidth="28.0" text="1" visible="false">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXProgressBar layoutX="293.9600067138672" layoutY="13.959999084472656" prefHeight="3.0" prefWidth="277.0" progress="0.0" />
+                        <ProgressIndicator layoutX="545.9999847412109" layoutY="3.0" progress="1.0" scaleX="1.3" scaleY="1.3" style="-fx-accent: white;" stylesheets="@../../../../../assets/styles/SignUpStyles.css" />
+                        <Label alignment="CENTER" layoutX="276.9600067138672" layoutY="0.9599990844726562" prefHeight="30.0" prefWidth="28.0" text="2" visible="false">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" disable="true" layoutX="546.0" layoutY="1.0" prefHeight="30.0" prefWidth="28.0" text="3">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <ProgressIndicator layoutX="291.0" layoutY="1.0" progress="1.0" scaleX="1.3" scaleY="1.3" style="-fx-accent: white;" stylesheets="@../../../../../assets/styles/SignUpStyles.css" />
+                        <Label alignment="CENTER" disable="true" layoutX="291.0" layoutY="-1.0" prefHeight="30.0" prefWidth="28.0" text="2">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <ProgressIndicator layoutX="3.0" layoutY="3.0" progress="1.0" scaleX="1.3" scaleY="1.3" style="-fx-accent: white;" stylesheets="@../../../../../assets/styles/SignUpStyles.css" />
+                     </children>
+                  </AnchorPane>
+                  <Label alignment="CENTER" layoutX="204.0" layoutY="44.0" prefHeight="30.0" prefWidth="28.0" text="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+         <bottom>
+            <AnchorPane prefHeight="305.0" prefWidth="986.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXTextField fx:id="firstNameText" labelFloat="true" layoutX="36.0" layoutY="63.0" prefHeight="28.0" prefWidth="198.0" promptText="First Name" />
+                  <JFXTextField fx:id="lastNameText" labelFloat="true" layoutX="37.0" layoutY="140.0" prefHeight="28.0" prefWidth="198.0" promptText="Last Name" />
+                  <JFXTextField fx:id="idNoText" labelFloat="true" layoutX="592.0" layoutY="63.0" prefHeight="28.0" prefWidth="198.0" promptText="ID No" />
+                  <JFXTextField fx:id="userNameText" layoutX="37.0" layoutY="213.0" prefHeight="28.0" prefWidth="198.0" promptText="Username" />
+                  <JFXTextField fx:id="telephoneNo" labelFloat="true" layoutX="592.0" layoutY="213.0" prefHeight="28.0" prefWidth="198.0" promptText="Telephone No" />
+                  <JFXDatePicker fx:id="dobPicker" layoutX="592.0" layoutY="139.0" prefHeight="28.0" prefWidth="200.0" promptText="DOB" />
+               </children>
+            </AnchorPane>
+         </bottom></BorderPane>
+      <JFXButton layoutX="531.0" layoutY="526.0" onMouseClicked="#changeToNext1" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #2979FF;" text="Next Step">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="backToPatientListBtn" layoutX="267.0" layoutY="526.0" onAction="#backToPatientList" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #FF4081;" text="Back to List">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+   </children>
+</AnchorPane>
