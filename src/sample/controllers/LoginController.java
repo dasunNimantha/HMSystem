@@ -17,6 +17,8 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -29,11 +31,14 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.Main;
+import javafx.stage.Stage;
 import sample.controllers.dashboardController.AdminDash.AdminController;
 import sample.controllers.dashboardController.MODash.MOController;
 import sample.controllers.dashboardController.PatientDash.PatientController;
 import sample.controllers.dashboardController.ReceptionistDash.ReceptionistController;
-import sample.models.UserValidation;
+import sample.models.Admin;
+import sample.models.MedicalOfficer;
+
 
 
 public class LoginController  extends Thread {
@@ -74,6 +79,8 @@ public class LoginController  extends Thread {
     @FXML
     private Button btnEX;
 
+    @FXML
+    private BorderPane borderPaneLogin;
 
     @FXML
     private JFXTextField hidenText;
@@ -152,6 +159,13 @@ public class LoginController  extends Thread {
                         Stage stage = (Stage) loginBtn.getScene().getWindow();
                         stage.close();
                         SceneLoader sl = new SceneLoader();
+
+                        switch (userRole) {
+                            case "Patient" -> PatientController.objEncString = returnData[1];
+                            case "Receptionist" -> ReceptionistController.objEncString = returnData[1];
+                            case "Medical_Officer" -> MOController.objEncString = returnData[1];
+                            case "Admin" -> AdminController.objEncString = returnData[1];
+                        }
 
                         sl.DashboardLoader(userRole);
 

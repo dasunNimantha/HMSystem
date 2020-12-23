@@ -8,6 +8,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.controllers.ScreenController;
+import sample.models.Admin;
+import sample.models.Crypto;
 
 import java.util.HashMap;
 
