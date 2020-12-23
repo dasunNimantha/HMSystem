@@ -28,9 +28,6 @@ public class AdminController implements Initializable {
 
     public static String objEncString;
 
-    private final String [] decryptedData = objEncString.split("~");
-
-
     @FXML
     private BorderPane adminBorderPane;
 
@@ -137,10 +134,7 @@ public class AdminController implements Initializable {
 
     @FXML
     void logOut(ActionEvent event) throws IOException, InterruptedException {
-
         // clear received object when login
-
-        Arrays.fill(decryptedData,null); // clear received object when login
 
         Stage stage = (Stage) logOutBtn.getScene().getWindow(); // close dashboard
         stage.close();
@@ -151,7 +145,6 @@ public class AdminController implements Initializable {
 
         // open login window
         Parent root = FXMLLoader.load(getClass().getResource("../../../views/Login.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("../../../views/LoginRoleSelect.fxml"));
 
             Scene scene = new Scene(root,1049, 594);
             Stage backToLogin = new Stage();

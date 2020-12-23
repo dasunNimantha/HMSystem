@@ -138,7 +138,6 @@ public class viewMODetails {
         staffIdText.setText(String.valueOf(selectedUser.getStaffId()));
         staffEmailText.setText(selectedUser.getEmail());
         dateOfJoinText.setText(selectedUser.getDateOfJoin().toString());
-        dateOfJoinText.setText(toString());
         specialityText.setText(selectedUser.getSpeciality());
 
     }

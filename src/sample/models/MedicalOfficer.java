@@ -33,6 +33,5 @@ public class MedicalOfficer extends Staff{
                 +"~"+getEmail()+"~"+super.getName()+"~"+super.getIdNumber()+"~"+super.getDob()+"~"
                 +super.getGender()+"~"+super.getMaritalStatus()+"~"+super.getAddress()+
                 "~"+super.getPhoneNumber()+"~"+super.getProfilePath()+"~"+super.getDateOfJoin()+"~"+speciality+"~");
-                "~"+super.getPhoneNumber()+"~"+super.getProfilePath()+"~"+speciality+"~");
     }
 }

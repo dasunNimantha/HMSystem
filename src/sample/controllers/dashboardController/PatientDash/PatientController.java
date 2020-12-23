@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,9 +23,6 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class PatientController {
 
-    public static String objEncString;
-    private final String [] decryptedData = objEncString.split("~");
-    private static int count;
 
 
     @FXML
@@ -42,26 +40,12 @@ public class PatientController {
     @FXML
     private JFXButton patientBtn6;
 
-    @FXML
-    private  Label welcomeName;
 
     @FXML
     private  Label welcomeName;
 
 
     @FXML
-
-    private  BorderPane mainBorderPane;
-
-    @FXML
-    private BorderPane subBorderPane;
-
-    @FXML
-    private AnchorPane appointmentAnchor;
-
-    @FXML
-    private JFXButton logOutBtn;
-
     private JFXButton AppointmentBtn;
 
     @FXML
@@ -74,13 +58,15 @@ public class PatientController {
     private AnchorPane appointmentAnchor;
 
     @FXML
+    private JFXButton logOutBtn;
+
+    @FXML
     void step1(ActionEvent event) throws IOException {
 
         Parent step2 = FXMLLoader.load(this.getClass().getResource("../../../views/dashboard/patientDash/Step1.fxml"));
         subBorderPane.setCenter(step2);
         patientBtn1.setRipplerFill(Color.valueOf("blue"));
         AppointmentController.appointmentPageVisitCount=0;
-
 
 
     }
@@ -98,7 +84,6 @@ public class PatientController {
         Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step3.fxml"));
         subBorderPane.setCenter(step3);
         patientBtn3.setRipplerFill(Color.valueOf("blue"));
-
         AppointmentController.appointmentPageVisitCount=0;
     }
 
@@ -108,7 +93,6 @@ public class PatientController {
         subBorderPane.setCenter(step4);
         patientBtn4.setRipplerFill(Color.valueOf("blue"));
         AppointmentController.appointmentPageVisitCount=0;
-
     }
 
     @FXML
@@ -162,25 +146,6 @@ public class PatientController {
             xOffset.set(mevent.getSceneX());
             yOffset.set(mevent.getSceneY());
         });
-    public void initialize() {
-
-        count++;
-        if(count<2){
-            String[] name = decryptedData[2].split(" ");
-
-            if((decryptedData[5].equals("Male"))){
-                welcomeName.setText("Mr."+name[0]);
-            } else {
-                if(decryptedData[6].equals("Married")){
-                    welcomeName.setText("Mrs."+name[0]);
-                } else {
-                    welcomeName.setText("Ms."+name[0]);
-                }
-
-            }
-
-    }
-
 
         // Move around here
         root.setOnMouseDragged((MouseEvent mevent) -> {
@@ -202,7 +167,6 @@ public class PatientController {
         Parent addAppointment = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step4_Complaint.fxml"));
         BorderPane tempBorderPane = (BorderPane) (addComplaintAnchor.getParent());
         tempBorderPane.setCenter(addAppointment);
-
 
     }
 }
