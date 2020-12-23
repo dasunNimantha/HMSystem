@@ -26,8 +26,7 @@ public class Main extends Application {
     @Override
     public  void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("views/LoginRoleSelect.fxml"));
-
+        Parent root = FXMLLoader.load(getClass().getResource("views/Login.fxml"));
         Scene scene = new Scene(root,1049, 594);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Login");

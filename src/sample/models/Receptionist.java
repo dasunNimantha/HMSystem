@@ -19,6 +19,6 @@ public class Receptionist extends Staff {
         return Crypto.encrypt(super.getUserName()+"~"+super.getPassword()+"~"+super.getStaffId()+"~"+super.getStaffPhoto()
                 +"~"+getEmail()+"~"+super.getName()+"~"+super.getIdNumber()+"~"+super.getDob()+"~"
                 +super.getGender()+"~"+super.getMaritalStatus()+"~"+super.getAddress()+
-                "~"+super.getPhoneNumber()+"~"+super.getProfilePath()+"~");
+                "~"+super.getPhoneNumber()+"~"+super.getProfilePath()+"~"+super.getDateOfJoin()+"~");
     }
 }

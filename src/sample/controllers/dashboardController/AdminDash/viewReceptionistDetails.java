@@ -130,7 +130,7 @@ public class viewReceptionistDetails {
         Image proPic = new Image(imagePath);
         staffIdText.setText(String.valueOf(selectedUser.getStaffId()));
         staffEmailText.setText(selectedUser.getEmail());
-        dateOfJoinText.setText(toString());
+        dateOfJoinText.setText(selectedUser.getDateOfJoin().toString());
         profileCircle.setFill(new ImagePattern(proPic));
     }
 

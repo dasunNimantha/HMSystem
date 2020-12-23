@@ -10,25 +10,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="credAnchor" prefHeight="560.0" prefWidth="530.0" style="-fx-background-color: linear-gradient(from 250px 100px to 80px 500px, #f5f5f5, #FFFFFF); -fx-background-radius: 25; -fx-border-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.LoginController">
+<AnchorPane fx:id="credAnchor" prefHeight="540.0" prefWidth="502.0" style="-fx-background-color: linear-gradient(from 250px 100px to 80px 500px, #f5f5f5, #FFFFFF); -fx-background-radius: 25; -fx-border-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.LoginController">
    <children>
-      <JFXTextField fx:id="usrNameField" labelFloat="true" layoutX="146.0" layoutY="226.0" onKeyPressed="#hideInvalidLabelUsername" prefHeight="34.0" prefWidth="281.0" promptText="Username">
+      <JFXTextField fx:id="usrNameField" labelFloat="true" layoutX="111.0" layoutY="263.0" onKeyPressed="#hideInvalidLabelUsername" prefHeight="34.0" prefWidth="281.0" promptText="Username">
          <font>
             <Font size="14.0" />
          </font>
       </JFXTextField>
       <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="217.0" layoutY="30.0" />
-      <JFXPasswordField fx:id="passwdField" labelFloat="true" layoutX="142.0" layoutY="327.0" onKeyPressed="#hideInvalidLabelPaswd" prefHeight="31.0" prefWidth="290.0" promptText="Password">
+      <JFXPasswordField fx:id="passwdField" labelFloat="true" layoutX="106.0" layoutY="358.0" onKeyPressed="#hideInvalidLabelPaswd" prefHeight="31.0" prefWidth="290.0" promptText="Password">
          <font>
             <Font size="14.0" />
          </font>
       </JFXPasswordField>
-      <JFXButton fx:id="loginBtn" layoutX="214.0" layoutY="435.0" onAction="#sendAuth" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: orange; -fx-background-radius: 20;" text="Login">
+      <JFXButton fx:id="loginBtn" layoutX="187.0" layoutY="433.0" onAction="#sendAuth" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: orange; -fx-background-radius: 20;" text="Login">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="209.0" layoutY="37.0">
+      <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="179.0" layoutY="80.0">
          <image>
             <Image url="@../assets/images/loginImages/imgbin_computer-icons-avatar-user-login-png_LGzVdNb1.png" />
          </image>
@@ -38,6 +38,11 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="backBtn" layoutX="39.0" layoutY="501.0" mnemonicParsing="false" onMouseClicked="#backToRoleSelect" text="Back" />
+      <Button fx:id="backBtn" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#backToRoleSelect" prefHeight="41.0" prefWidth="42.0" style="-fx-background-color: transparent;" text="Back" textFill="TRANSPARENT" />
+      <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="14.0" layoutY="22.0">
+         <image>
+            <Image url="@../assets/images/loginImages/106830.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -71,7 +71,6 @@ public class MedicalOfficerDetails {
             ObservableList<User> obsUsers = FXCollections.observableArrayList();
             obsUsers.addAll(userArrayList);
 
-
             tableNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             tableIdCol.setCellValueFactory(new PropertyValueFactory<>("idNumber"));
             tablePhoneNoCol.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
@@ -85,7 +84,7 @@ public class MedicalOfficerDetails {
                             setGraphic(null);
                         } else {
                             final Button viewButton = new Button("View");
-                            viewButton.setOnAction(event ->{
+                            viewButton.setOnAction(event -> {
                                 viewMODetails.selectedUser= (MedicalOfficer) getTableView().getItems().get(getIndex());
                                 BorderPane parentBorderPane = (BorderPane) (moDetailAnchor.getParent());
                                 try {

@@ -27,7 +27,9 @@ import java.util.concurrent.atomic.AtomicReference;
 public class AdminController implements Initializable {
 
     public static String objEncString;
+
     private final String [] decryptedData = objEncString.split("~");
+
 
     @FXML
     private BorderPane adminBorderPane;
@@ -135,6 +137,9 @@ public class AdminController implements Initializable {
 
     @FXML
     void logOut(ActionEvent event) throws IOException, InterruptedException {
+
+        // clear received object when login
+
         Arrays.fill(decryptedData,null); // clear received object when login
 
         Stage stage = (Stage) logOutBtn.getScene().getWindow(); // close dashboard
@@ -145,6 +150,7 @@ public class AdminController implements Initializable {
         AtomicReference<Double> yOffset = new AtomicReference<>((double) 0);
 
         // open login window
+        Parent root = FXMLLoader.load(getClass().getResource("../../../views/Login.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("../../../views/LoginRoleSelect.fxml"));
 
             Scene scene = new Scene(root,1049, 594);

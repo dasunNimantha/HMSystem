@@ -125,10 +125,9 @@ public  class User extends RecursiveTreeObject<User> {
     }
 
 
-    public static void ViewUserDetails(ActionEvent actionEvent){
-        System.out.println("Clicked");
-    }
-
     // functions
+
+    // return home data function
+
 
 }

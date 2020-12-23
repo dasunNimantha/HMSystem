@@ -7,9 +7,9 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
@@ -20,9 +20,17 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import sample.Main;
 import javafx.stage.Stage;
 import sample.controllers.dashboardController.AdminDash.AdminController;
 import sample.controllers.dashboardController.MODash.MOController;
@@ -30,7 +38,7 @@ import sample.controllers.dashboardController.PatientDash.PatientController;
 import sample.controllers.dashboardController.ReceptionistDash.ReceptionistController;
 import sample.models.Admin;
 import sample.models.MedicalOfficer;
-import sample.models.UserValidation;
+
 
 
 public class LoginController  extends Thread {
@@ -45,7 +53,11 @@ public class LoginController  extends Thread {
     private JFXPasswordField passwdField;
 
     @FXML
-    private AnchorPane credAnchor;
+    private Button backBtn;
+
+
+    @FXML
+    private Label lblName;
 
 
     @FXML
@@ -70,6 +82,8 @@ public class LoginController  extends Thread {
     @FXML
     private BorderPane borderPaneLogin;
 
+    @FXML
+    private JFXTextField hidenText;
 
     @FXML
     private static AnchorPane mainAnchor;
@@ -86,22 +100,31 @@ public class LoginController  extends Thread {
 
     @FXML
     void roleSelect(ActionEvent event) throws IOException {
-        Parent root2 = FXMLLoader.load(getClass().getResource("../views/LoginCredEnter.fxml"));
-        borderPaneLogin.setCenter(root2);
-        final Node source = (Node) event.getSource();
-        userRole = source.getId();
+
+
+            AnchorPane root2 = FXMLLoader.load(this.getClass().getResource("../views/LoginCredEnter.fxml"));
+            BorderPane mainBorderPane = (BorderPane) hidenText.getParent().getParent();
+            mainBorderPane.setCenter(root2);
+            final Node source = (Node) event.getSource();
+            userRole = source.getId();
+
     }
 
     @FXML
     void backToRoleSelect(MouseEvent event) throws IOException {
-        Parent root3 = FXMLLoader.load(getClass().getResource("../views/LoginRoleSelect.fxml"));
-        System.out.println(credAnchor.getParent());
+        BorderPane borderPaneLogin = (BorderPane) backBtn.getParent().getParent();
+        AnchorPane root2 = FXMLLoader.load(this.getClass().getResource("../views/LoginSelect.fxml"));
+        borderPaneLogin.setCenter(root2);
+
+
 
     }
 
 
     public void initialize(URL url, ResourceBundle rb) {
 
+//        Font.loadFont(getClass().getResourceAsStream("../assets/fonts/Quicksand.ttf"),14);
+//        lblName.setFont(Font.font("Quicksand", FontWeight.BOLD, FontPosture.REGULAR,20));
     }
 
     @FXML

@@ -16,6 +16,8 @@ public class Appointment {
     private MedicalOfficer appointedMedicalOfficer;
     private String appointmentStatus;
 
+    public Appointment(){}
+
     public Appointment(int appointmentNo, Patient patient, LocalDate appointmentDate, LocalDate appointmentTime, String symptoms, MedicalOfficer appointedMedicalOfficer, String appointmentStatus) {
         this.appointmentNo = appointmentNo;
         this.patient = patient;

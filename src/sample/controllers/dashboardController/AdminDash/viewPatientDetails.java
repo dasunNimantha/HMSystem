@@ -8,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -141,6 +140,7 @@ public class viewPatientDetails {
     void saveEdit(ActionEvent event) throws IOException {
 
         Patient editedPatient = new Patient();
+
         editedPatient.setName(nameText.getText().trim());
         editedPatient.setUserName(usernameText.getText().trim());
         editedPatient.setPassword(passwordText.getText().trim());
@@ -169,17 +169,17 @@ public class viewPatientDetails {
             } else {
                 editedPatient.setMaritalStatus(maritalStatusCombo.getValue());
             }
-            editedPatient.setAllergies(allergiesField.getText());
-            // call edit user function
-            UserTasks.userEditFunction("Admin", "Patient", editedPatient, oldUsername);
-            usernameLbl.setText("#" + usernameText.getText());
-            nameLabel.setText(nameText.getText());
-
-            cancelSave();
+        }
+        editedPatient.setAllergies(allergiesField.getText());
+        // call edit user function
+        UserTasks.userEditFunction("Admin", "Patient", editedPatient, oldUsername);
+        usernameLbl.setText("#" + usernameText.getText());
+        nameLabel.setText(nameText.getText());
+        cancelSave();
 
         }
 
-        }
+
 
 
         private void cancelSave () {

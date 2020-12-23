@@ -5,9 +5,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class MOController {
 
@@ -31,6 +40,9 @@ public class MOController {
 
     @FXML
     private JFXButton recepBtn6;
+
+   @FXML
+   private JFXButton logOutBtn;
 
     @FXML
     private BorderPane recepBorderPane;
@@ -76,6 +88,43 @@ public class MOController {
 
     @FXML
     void step7(ActionEvent event) {
+
+    }
+
+    @FXML
+    void logOut(ActionEvent event) throws InterruptedException, IOException {
+        Arrays.fill(decryptedData,null); // clear received object when login
+
+        Stage stage = (Stage) logOutBtn.getScene().getWindow(); // close dashboard
+        stage.close();
+
+        HashMap<String,Parent> loginMap = new HashMap<>();
+        AtomicReference<Double> xOffset = new AtomicReference<>((double) 0);
+        AtomicReference<Double> yOffset = new AtomicReference<>((double) 0);
+
+        // open login window
+        Parent root = FXMLLoader.load(getClass().getResource("../../../views/Login.fxml"));
+
+        Scene scene = new Scene(root,1049, 594);
+        Stage backToLogin = new Stage();
+        backToLogin.setScene(scene);
+        backToLogin.setTitle("Login");
+        backToLogin.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
+        root.setOnMousePressed((MouseEvent mevent) -> {
+            xOffset.set(mevent.getSceneX());
+            yOffset.set(mevent.getSceneY());
+        });
+
+        // Move around here
+        root.setOnMouseDragged((MouseEvent mevent) -> {
+            backToLogin.setX(mevent.getScreenX() - xOffset.get());
+            backToLogin.setY(mevent.getScreenY() - yOffset.get());
+        });
+
+        TimeUnit.MILLISECONDS.sleep(100);
+        backToLogin.show();
+        loginMap.put("roleSelect",root);
 
     }
 

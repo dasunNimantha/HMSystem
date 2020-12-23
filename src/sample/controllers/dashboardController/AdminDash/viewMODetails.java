@@ -137,6 +137,7 @@ public class viewMODetails {
 
         staffIdText.setText(String.valueOf(selectedUser.getStaffId()));
         staffEmailText.setText(selectedUser.getEmail());
+        dateOfJoinText.setText(selectedUser.getDateOfJoin().toString());
         dateOfJoinText.setText(toString());
         specialityText.setText(selectedUser.getSpeciality());
 
@@ -171,6 +172,7 @@ public class viewMODetails {
             editedMO.setMaritalStatus(maritalStatusCombo.getValue());
         }
 
+        editedMO.setDateOfJoin(selectedUser.getDateOfJoin());
 
         // call edit user function
         UserTasks.userEditFunction("Admin", "Medical_Officer", editedMO, oldUsername);

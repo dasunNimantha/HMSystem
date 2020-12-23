@@ -73,7 +73,7 @@ public class MOSignUpStep1 extends MedicalOfficerDetails {
     void backToUserList(ActionEvent event) throws IOException {
         AnchorPane acp = (AnchorPane) backToUserList.getParent();
         BorderPane parentBorderPane = (BorderPane) (acp.getParent());
-        Parent user = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/moDetails/medicalOfficer.fxml"));
+        Parent user = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/moDetails/viewMODetails.fxml"));
         parentBorderPane.setCenter(user);
 
     }

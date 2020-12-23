@@ -46,9 +46,6 @@ public class SceneLoader {
     }
 
 
-    public static void LoginLoader (){
-
-    }
 
 
     // Loader and mouse drag function
