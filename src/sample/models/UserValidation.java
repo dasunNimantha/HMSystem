@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -16,8 +17,8 @@ public class UserValidation {
     // *************************** User Authentication Function  ************************** //
 
 
-    public static String[] authCheck(String role,String username, String password) throws IOException {
-        String[] returnData = new String[2];
+    public static ArrayList<String> authCheck(String role, String username, String password) throws IOException {
+        ArrayList <String> returnData = new ArrayList<>();
         try {
             FileReader fr2 = new FileReader("src/sample/fileDatabase/" + role + "DB.txt");
             BufferedReader br2 = new BufferedReader(fr2);
@@ -27,10 +28,10 @@ public class UserValidation {
                 assert decryptedText != null;
                 String[] userData = decryptedText.split("~");
                 if ((userData[0].equals(username) && (userData[1]).equals(password))) {
-                    returnData[0] = "1";
-                    returnData[1] = username;
+                    returnData.add(0,"1");
+                    returnData.add(1,decryptedText);
                 } else {
-                    returnData[0] = "0";
+                    returnData.add(0,"0");
                 }
             }
 

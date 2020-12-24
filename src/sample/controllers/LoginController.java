@@ -17,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -95,11 +96,11 @@ public class LoginController  extends Thread {
     void roleSelect(ActionEvent event) throws IOException {
 
 
-            AnchorPane root2 = FXMLLoader.load(this.getClass().getResource("../views/LoginCredEnter.fxml"));
-            BorderPane mainBorderPane = (BorderPane) hidenText.getParent().getParent();
-            mainBorderPane.setCenter(root2);
-            final Node source = (Node) event.getSource();
-            userRole = source.getId();
+        AnchorPane root2 = FXMLLoader.load(this.getClass().getResource("../views/LoginCredEnter.fxml"));
+        BorderPane mainBorderPane = (BorderPane) hidenText.getParent().getParent();
+        mainBorderPane.setCenter(root2);
+        final Node source = (Node) event.getSource();
+        userRole = source.getId();
 
     }
 
@@ -137,36 +138,37 @@ public class LoginController  extends Thread {
     }
 
 
-        private void userAuth()  {
+    private void userAuth()  {
 
-            String username = usrNameField.getText().trim();
-            String password = passwdField.getText().trim();
-            if ((username.length() == 0
-                    && (password.length() == 0))) {
-                System.out.println("Invalid Input");
-            } else {
-                try {
-                    String[] returnData = UserValidation.authCheck(userRole, username, password);
-                    if (returnData[0].equals("1")) {
-                        Stage stage = (Stage) loginBtn.getScene().getWindow();
-                        stage.close();
-                        SceneLoader sl = new SceneLoader();
-                        PatientController.loggedUserusername=returnData[1];
-                        sl.DashboardLoader(userRole);
+        String username = usrNameField.getText().trim();
+        String password = passwdField.getText().trim();
+        if ((username.length() == 0
+                && (password.length() == 0))) {
+            System.out.println("Invalid Input");
+        } else {
+            try {
+                ArrayList <String> returnData = UserValidation.authCheck(userRole, username, password);
+                if ((returnData.get(0)).equals("1")) {
+
+                    Stage stage = (Stage) loginBtn.getScene().getWindow();
+                    stage.close();
+                    SceneLoader sl = new SceneLoader();
+                    PatientController.loggedUserProfile=returnData.get(1);
+                    sl.DashboardLoader(userRole);
 
 
-                    } else {
-                        System.out.println("Invalid Username or Password");
-                        invalidLabel.setVisible(true);
-                    }
-                } catch (IOException exception) {
-                    exception.printStackTrace();
+                } else {
+                    System.out.println("Invalid Username or Password");
+                    invalidLabel.setVisible(true);
                 }
-
+            } catch (IOException exception) {
+                exception.printStackTrace();
             }
-        }
 
+        }
     }
+
+}
 
 
 

@@ -1,4 +1,4 @@
 package sample.controllers.dashboardController.PatientDash;
 
-public class ViewAppointments {
+public class ViewAppointController {
 }

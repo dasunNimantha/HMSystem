@@ -1,10 +1,12 @@
 package sample.models;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import de.jensd.fx.glyphs.testapps.App;
+
+import java.io.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Appointment {
 
@@ -14,13 +16,13 @@ public class Appointment {
     private String appointedMedicalOfficer;
     private String appointedMoUsername;
     private LocalDate appointmentDate;
-    private LocalDate appointmentTime;
+    private String appointmentTime;
     private String symptoms;
     private String appointmentStatus;
 
     public Appointment(){}
 
-    public Appointment(String appointmentNo, String patientName, String patientUserName, String appointedMedicalOfficer, String appointedMoUsername, LocalDate appointmentDate, LocalDate appointmentTime, String symptoms, String appointmentStatus) {
+    public Appointment(String appointmentNo, String patientName, String patientUserName, String appointedMedicalOfficer, String appointedMoUsername, LocalDate appointmentDate, String appointmentTime, String symptoms, String appointmentStatus) {
         this.appointmentNo = appointmentNo;
         this.patientName = patientName;
         this.patientUserName = patientUserName;
@@ -80,11 +82,11 @@ public class Appointment {
         this.appointmentDate = appointmentDate;
     }
 
-    public LocalDate getAppointmentTime() {
+    public String getAppointmentTime() {
         return appointmentTime;
     }
 
-    public void setAppointmentTime(LocalDate appointmentTime) {
+    public void setAppointmentTime(String appointmentTime) {
         this.appointmentTime = appointmentTime;
     }
 
@@ -104,6 +106,8 @@ public class Appointment {
         this.appointmentStatus = appointmentStatus;
     }
 
+    // create appointment function
+
     public static void createAppointment(Appointment appointment) throws IOException {
         try {
             File appointmentFile = new File("src/sample/fileDatabase/Appointments.txt");
@@ -121,11 +125,51 @@ public class Appointment {
             } else{
                 bw1.write("\n"+appointment.toString());
             }
-            System.out.println("New Appointment added to user "+appointment.getPatientName());
+
+            bw1.close();
+            fw.close();
         } catch (IOException exception){
             exception.printStackTrace();
         }
 
+    }
+
+    // view appointment details
+
+    public static ArrayList<Appointment> viewAppointment (String viewerRole,String viewerUsername){
+
+        String currentLine;
+        ArrayList <Appointment> appointmentArray = new ArrayList<>();
+
+        try {
+
+            File appointmentFile = new File("src/sample/fileDatabase/Appointments.txt");
+            FileReader fr = new FileReader(appointmentFile);
+            BufferedReader br = new BufferedReader(fr);
+            while ((currentLine = br.readLine()) != null) {
+                Appointment readAppointment = new Appointment();
+                String decryptedText = Crypto.decrypt(currentLine);
+                assert decryptedText != null;
+                String[] userData = decryptedText.split("~");
+                if(viewerRole.equals("Patient")){
+                    if(userData[2].equals(viewerUsername)){
+
+                        appointmentSetter(readAppointment,userData);
+                        appointmentArray.add(readAppointment);
+                    }
+                } else {
+                    appointmentSetter(readAppointment,userData);
+                    appointmentArray.add(readAppointment);
+                }
+
+            }
+            br.close();
+            fr.close();
+        } catch (IOException exception){
+            exception.printStackTrace();
+        }
+
+        return appointmentArray;
     }
 
     @Override
@@ -137,7 +181,19 @@ public class Appointment {
                 "~" + appointedMoUsername +
                 "~" + appointmentDate +
                 "~" + appointmentTime +
-                "~" + symptoms + '\'' +
+                "~" + symptoms +
                 "~" + appointmentStatus);
+    }
+
+    public static void appointmentSetter(Appointment appointment,String[] userData){
+        appointment.setAppointmentNo(userData[0]);
+        appointment.setPatientName(userData[1]);
+        appointment.setPatientUserName(userData[2]);
+        appointment.setAppointedMedicalOfficer(userData[3]);
+        // appointment.setAppointedMoUsername(userData[4]);
+        // appointment.setAppointmentDate(LocalDate.parse(userData[5]));
+        appointment.setAppointmentTime(userData[6]);
+        //  appointment.setSymptoms(userData[7]);
+        appointment.setAppointmentStatus(userData[8]);
     }
 }

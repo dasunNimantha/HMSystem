@@ -14,21 +14,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.models.Crypto;
-import sample.models.Patient;
-import sample.models.User;
-import sample.models.UserTasks;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class PatientController {
 
-    public static String loggedUserusername;
-    static ArrayList<User>PatientProfile;
+    public static String loggedUserProfile;
+    static String [] patientData;
 
     @FXML
     private JFXButton patientBtn1;
@@ -71,7 +66,7 @@ public class PatientController {
         Parent step2 = FXMLLoader.load(this.getClass().getResource("../../../views/dashboard/patientDash/Step1.fxml"));
         subBorderPane.setCenter(step2);
         patientBtn1.setRipplerFill(Color.valueOf("blue"));
-        AppointmentController.appointmentPageVisitCount=0;
+        AddAppointController.appointmentPageVisitCount=0;
 
 
     }
@@ -81,7 +76,7 @@ public class PatientController {
         Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step2.fxml"));
         subBorderPane.setCenter(step2);
         patientBtn2.setRipplerFill(Color.valueOf("blue"));
-        AppointmentController.appointmentPageVisitCount=0;
+        AddAppointController.appointmentPageVisitCount=0;
     }
 
     @FXML
@@ -89,7 +84,7 @@ public class PatientController {
         Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step3.fxml"));
         subBorderPane.setCenter(step3);
         patientBtn3.setRipplerFill(Color.valueOf("blue"));
-        AppointmentController.appointmentPageVisitCount=0;
+        AddAppointController.appointmentPageVisitCount=0;
     }
 
     @FXML
@@ -97,7 +92,7 @@ public class PatientController {
         Parent step4 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step4.fxml"));
         subBorderPane.setCenter(step4);
         patientBtn4.setRipplerFill(Color.valueOf("blue"));
-        AppointmentController.appointmentPageVisitCount=0;
+        AddAppointController.appointmentPageVisitCount=0;
     }
 
     @FXML
@@ -105,7 +100,7 @@ public class PatientController {
         Parent step5 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step5.fxml"));
         subBorderPane.setCenter(step5);
         patientBtn6.setRipplerFill(Color.valueOf("red"));
-        AppointmentController.appointmentPageVisitCount=0;
+        AddAppointController.appointmentPageVisitCount=0;
     }
 
     @FXML
@@ -119,11 +114,7 @@ public class PatientController {
     private ComboBox<String> complaintCombo;
 
 
-    @FXML
-    void addAppointment(ActionEvent event) throws IOException {
-        Parent add = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step2_Appoinment.fxml"));
-        subBorderPane.setCenter(add);
-    }
+
 
     public void makeComplaint(ActionEvent actionEvent) throws IOException {
         Parent addAppointment = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step4_Complaint.fxml"));
@@ -170,7 +161,7 @@ public class PatientController {
     }
 
     public void initialize() throws IOException {
-     PatientProfile=UserTasks.viewUser(false,"Patient","Patient", loggedUserusername);
+        patientData = loggedUserProfile.split("~");
 
     }
 
