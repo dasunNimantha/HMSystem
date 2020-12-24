@@ -42,7 +42,7 @@ public class UserTasks {
     }
 
     // view user details function
-    public static ArrayList<User> viewUser(String viewerRole, String userType) throws IOException {
+    public static ArrayList<User> viewUser(boolean allUsers, String viewerRole, String userType, String username) throws IOException {
         ArrayList<User> userArraylist = new ArrayList<>();
 
 
@@ -54,25 +54,23 @@ public class UserTasks {
 
             if (userType.equals("Patient")) {
                 while ((currentLine = br.readLine()) != null) {
-
                     Patient readPatient = new Patient();
                     String decryptedText = Crypto.decrypt(currentLine);
                     assert decryptedText != null;
                     String[] userData = decryptedText.split("~");
-                    readPatient.setUserName(userData[0]);
-                    readPatient.setPassword((userData[1]));
-                    readPatient.setName(userData[2]);
-                    readPatient.setIdNumber(Integer.parseInt(userData[3]));
-                    readPatient.setDob(LocalDate.parse(userData[4]));
-                    readPatient.setGender(userData[5]);
-                    readPatient.setMaritalStatus(userData[6]);
-                    readPatient.setAddress(userData[7]);
-                    readPatient.setPhoneNumber(Integer.parseInt(userData[8]));
-                    readPatient.setProfilePath(userData[9]);
-                    readPatient.setBloodGroup(userData[10]);
-                    readPatient.setAllergies(userData[11]);
+                    if(!allUsers){
+                        if(userData[0].equals(username)){
+                            patientSetter(readPatient,userData);
+                            userArraylist.add(readPatient);
+                            break;
+                        }
+                    } else {
+                        patientSetter(readPatient,userData);
+                    }
                     userArraylist.add(readPatient);
+
                 }
+
             } else if (userType.equals("Receptionist")) {
                 while ((currentLine = br.readLine()) != null) {
 
@@ -255,6 +253,22 @@ public class UserTasks {
         br.close();
         fr.close();
         return speciality;
+    }
+
+
+    public static void patientSetter(Patient readPatient,String [] userData){
+        readPatient.setUserName(userData[0]);
+        readPatient.setPassword((userData[1]));
+        readPatient.setName(userData[2]);
+        readPatient.setIdNumber(Integer.parseInt(userData[3]));
+        readPatient.setDob(LocalDate.parse(userData[4]));
+        readPatient.setGender(userData[5]);
+        readPatient.setMaritalStatus(userData[6]);
+        readPatient.setAddress(userData[7]);
+        readPatient.setPhoneNumber(Integer.parseInt(userData[8]));
+        readPatient.setProfilePath(userData[9]);
+        readPatient.setBloodGroup(userData[10]);
+        readPatient.setAllergies(userData[11]);
     }
 
     // return doctors names with speciality

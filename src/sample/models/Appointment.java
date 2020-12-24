@@ -8,40 +8,68 @@ import java.time.LocalDate;
 
 public class Appointment {
 
-    private int appointmentNo;
-    private Patient patient;
+    private String appointmentNo;
+    private String patientName;
+    private String patientUserName;
+    private String appointedMedicalOfficer;
+    private String appointedMoUsername;
     private LocalDate appointmentDate;
     private LocalDate appointmentTime;
     private String symptoms;
-    private MedicalOfficer appointedMedicalOfficer;
     private String appointmentStatus;
 
     public Appointment(){}
 
-    public Appointment(int appointmentNo, Patient patient, LocalDate appointmentDate, LocalDate appointmentTime, String symptoms, MedicalOfficer appointedMedicalOfficer, String appointmentStatus) {
+    public Appointment(String appointmentNo, String patientName, String patientUserName, String appointedMedicalOfficer, String appointedMoUsername, LocalDate appointmentDate, LocalDate appointmentTime, String symptoms, String appointmentStatus) {
         this.appointmentNo = appointmentNo;
-        this.patient = patient;
+        this.patientName = patientName;
+        this.patientUserName = patientUserName;
+        this.appointedMedicalOfficer = appointedMedicalOfficer;
+        this.appointedMoUsername = appointedMoUsername;
         this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;
         this.symptoms = symptoms;
-        this.appointedMedicalOfficer = appointedMedicalOfficer;
         this.appointmentStatus = appointmentStatus;
     }
 
-    public int getAppointmentNo() {
+    public String getAppointmentNo() {
         return appointmentNo;
     }
 
-    public void setAppointmentNo(int appointmentNo) {
+    public void setAppointmentNo(String appointmentNo) {
         this.appointmentNo = appointmentNo;
     }
 
-    public Patient getPatient() {
-        return patient;
+    public String getPatientName() {
+        return patientName;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public String getPatientUserName() {
+        return patientUserName;
+    }
+
+    public void setPatientUserName(String patientUserName) {
+        this.patientUserName = patientUserName;
+    }
+
+    public String getAppointedMedicalOfficer() {
+        return appointedMedicalOfficer;
+    }
+
+    public void setAppointedMedicalOfficer(String appointedMedicalOfficer) {
+        this.appointedMedicalOfficer = appointedMedicalOfficer;
+    }
+
+    public String getAppointedMoUsername() {
+        return appointedMoUsername;
+    }
+
+    public void setAppointedMoUsername(String appointedMoUsername) {
+        this.appointedMoUsername = appointedMoUsername;
     }
 
     public LocalDate getAppointmentDate() {
@@ -68,14 +96,6 @@ public class Appointment {
         this.symptoms = symptoms;
     }
 
-    public MedicalOfficer getAppointedMedicalOfficer() {
-        return appointedMedicalOfficer;
-    }
-
-    public void setAppointedMedicalOfficer(MedicalOfficer appointedMedicalOfficer) {
-        this.appointedMedicalOfficer = appointedMedicalOfficer;
-    }
-
     public String getAppointmentStatus() {
         return appointmentStatus;
     }
@@ -84,7 +104,7 @@ public class Appointment {
         this.appointmentStatus = appointmentStatus;
     }
 
-    public void createAppointment(Appointment appointment) throws IOException {
+    public static void createAppointment(Appointment appointment) throws IOException {
         try {
             File appointmentFile = new File("src/sample/fileDatabase/Appointments.txt");
             FileWriter fw = new FileWriter(appointmentFile,true);
@@ -101,7 +121,7 @@ public class Appointment {
             } else{
                 bw1.write("\n"+appointment.toString());
             }
-            System.out.println("New Appointment added to user "+appointment.getPatient().getName());
+            System.out.println("New Appointment added to user "+appointment.getPatientName());
         } catch (IOException exception){
             exception.printStackTrace();
         }
@@ -111,11 +131,13 @@ public class Appointment {
     @Override
     public String toString() {
         return Crypto.encrypt( appointmentNo +
-                "~" + patient +
+                "~" + patientName +
+                "~" + patientUserName +
+                "~" + appointedMedicalOfficer +
+                "~" + appointedMoUsername +
                 "~" + appointmentDate +
                 "~" + appointmentTime +
                 "~" + symptoms + '\'' +
-                "~" + appointedMedicalOfficer +
                 "~" + appointmentStatus);
     }
 }

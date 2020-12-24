@@ -67,7 +67,7 @@ public class MedicalOfficerDetails {
 
     public void initialize() throws IOException {
         try {
-            ArrayList<User> userArrayList = UserTasks.viewUser("Admin","Medical_Officer");
+            ArrayList<User> userArrayList = UserTasks.viewUser(true,"Admin","Medical_Officer",null);
             ObservableList<User> obsUsers = FXCollections.observableArrayList();
             obsUsers.addAll(userArrayList);
 

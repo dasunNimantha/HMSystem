@@ -14,16 +14,21 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.models.Crypto;
+import sample.models.Patient;
+import sample.models.User;
+import sample.models.UserTasks;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class PatientController {
 
-
+    public static String loggedUserusername;
+    static ArrayList<User>PatientProfile;
 
     @FXML
     private JFXButton patientBtn1;
@@ -102,6 +107,7 @@ public class PatientController {
         patientBtn6.setRipplerFill(Color.valueOf("red"));
         AppointmentController.appointmentPageVisitCount=0;
     }
+
     @FXML
     void step6(ActionEvent event) {
 
@@ -110,15 +116,20 @@ public class PatientController {
     private AnchorPane addComplaintAnchor;
 
     @FXML
-    private ComboBox<String> complaintCombo;{
-
-    }
+    private ComboBox<String> complaintCombo;
 
 
     @FXML
     void addAppointment(ActionEvent event) throws IOException {
         Parent add = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step2_Appoinment.fxml"));
         subBorderPane.setCenter(add);
+    }
+
+    public void makeComplaint(ActionEvent actionEvent) throws IOException {
+        Parent addAppointment = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step4_Complaint.fxml"));
+        BorderPane tempBorderPane = (BorderPane) (addComplaintAnchor.getParent());
+        tempBorderPane.setCenter(addAppointment);
+
     }
 
 
@@ -158,17 +169,13 @@ public class PatientController {
         loginMap.put("roleSelect",root);
     }
 
-    public void initialize() {
+    public void initialize() throws IOException {
+     PatientProfile=UserTasks.viewUser(false,"Patient","Patient", loggedUserusername);
 
     }
 
 
-    public void makeComplaint(ActionEvent actionEvent) throws IOException {
-        Parent addAppointment = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step4_Complaint.fxml"));
-        BorderPane tempBorderPane = (BorderPane) (addComplaintAnchor.getParent());
-        tempBorderPane.setCenter(addAppointment);
 
-    }
 }
 
 

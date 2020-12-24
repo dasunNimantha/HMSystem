@@ -148,12 +148,12 @@ public class LoginController  extends Thread {
                 try {
                     String[] returnData = UserValidation.authCheck(userRole, username, password);
                     if (returnData[0].equals("1")) {
-
                         Stage stage = (Stage) loginBtn.getScene().getWindow();
                         stage.close();
                         SceneLoader sl = new SceneLoader();
-
+                        PatientController.loggedUserusername=returnData[1];
                         sl.DashboardLoader(userRole);
+
 
                     } else {
                         System.out.println("Invalid Username or Password");

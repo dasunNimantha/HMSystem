@@ -9,14 +9,16 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Font;
 import sample.models.Appointment;
 import sample.models.MedicalOfficer;
 import sample.models.User;
 import sample.models.UserTasks;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class AppointmentController {
 
@@ -45,9 +47,19 @@ public class AppointmentController {
     void changeToSuccess(ActionEvent event) throws IOException {
 
         Appointment appointment = new Appointment();
-        appointment.setAppointmentNo(123);
         appointment.setAppointmentStatus("Pending");
-     //   appointment.setAppointedMedicalOfficer(doctorSelectCombo.getValue());
+       // appointment.setPatientName(PatientController.patient.getName());
+//        appointment.setPatientUserName(PatientController.patient.getUserName());
+//        appointment.setAppointedMedicalOfficer(doctorSelectCombo.getValue());
+       // appointment.setAppointedMoUsername();
+
+        // generate appointment no
+        DateFormat df = new SimpleDateFormat("MMddHHmmss");
+        Date dateObj = new Date();
+        String appointmentNo =(df.format(dateObj));
+
+//        appointment.setAppointmentNo((appointmentNo+PatientController.patient.getIdNumber()));
+//        Appointment.createAppointment(appointment);
 
         Parent root = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/AppointSuccess.fxml"));
         BorderPane subBorderPane = (BorderPane) appointmentAnchor.getParent();
@@ -79,7 +91,7 @@ public class AppointmentController {
             specialityCombo.getSelectionModel().selectFirst();
 
             // listen for speciality selection
-            ArrayList<User> returnedAllDoctorList =UserTasks.viewUser("Patient","Medical_Officer");
+            ArrayList<User> returnedAllDoctorList =UserTasks.viewUser(true,"Patient","Medical_Officer",null);
             int doctorObjCount = returnedAllDoctorList.size();
             for(int i = 0; i<doctorObjCount; i++){
                 doctorSelectCombo.getItems().add("Dr."+returnedAllDoctorList.get(i).getName());

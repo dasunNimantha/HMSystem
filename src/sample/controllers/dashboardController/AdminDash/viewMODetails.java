@@ -16,7 +16,6 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import sample.models.Enums;
 import sample.models.MedicalOfficer;
-import sample.models.Receptionist;
 import sample.models.UserTasks;
 
 import java.io.IOException;

@@ -69,7 +69,7 @@ public class PatientDetails  {
      public void initialize(){
 
         try {
-            ArrayList<User> userArrayList = UserTasks.viewUser("Admin","Patient");
+            ArrayList<User> userArrayList = UserTasks.viewUser(true,"Admin","Patient",null);
             ObservableList<User> obsUsers = FXCollections.observableArrayList();
             obsUsers.addAll(userArrayList);
 

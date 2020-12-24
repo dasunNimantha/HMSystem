@@ -65,7 +65,7 @@ public class ReceptionistDetails {
     public void initialize(){
 
         try {
-            ArrayList<User> userArrayList = UserTasks.viewUser("Admin","Receptionist");
+            ArrayList<User> userArrayList = UserTasks.viewUser(true,"Admin","Receptionist",null);
             ObservableList<User> obsUsers = FXCollections.observableArrayList();
             obsUsers.addAll(userArrayList);
 

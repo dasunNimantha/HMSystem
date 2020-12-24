@@ -28,6 +28,7 @@ public class UserValidation {
                 String[] userData = decryptedText.split("~");
                 if ((userData[0].equals(username) && (userData[1]).equals(password))) {
                     returnData[0] = "1";
+                    returnData[1] = username;
                 } else {
                     returnData[0] = "0";
                 }
