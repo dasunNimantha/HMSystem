@@ -181,7 +181,7 @@ public class Appointment {
                 "~" + appointedMoUsername +
                 "~" + appointmentDate +
                 "~" + appointmentTime +
-                "~" + symptoms +
+              //  "~" + symptoms +
                 "~" + appointmentStatus);
     }
 
@@ -190,10 +190,10 @@ public class Appointment {
         appointment.setPatientName(userData[1]);
         appointment.setPatientUserName(userData[2]);
         appointment.setAppointedMedicalOfficer(userData[3]);
-        // appointment.setAppointedMoUsername(userData[4]);
+        appointment.setAppointedMoUsername(userData[4]);
         appointment.setAppointmentDate(LocalDate.parse(userData[5]));
         appointment.setAppointmentTime(userData[6]);
-        //  appointment.setSymptoms(userData[7]);
-        appointment.setAppointmentStatus(userData[8]);
+     //   appointment.setSymptoms(userData[7]);
+        appointment.setAppointmentStatus(userData[7]);
     }
 }

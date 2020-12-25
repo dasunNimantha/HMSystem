@@ -83,7 +83,7 @@ public class AddAppointController {
         appointment.setAppointmentStatus("Pending");
         appointment.setPatientName(PatientController.patientData[2]);
         appointment.setPatientUserName(PatientController.patientData[0]);
-        appointment.setAppointedMedicalOfficer(doctorSelectCombo.getValue().getName());
+        appointment.setAppointedMedicalOfficer("Dr."+doctorSelectCombo.getValue().getName());
         appointment.setSymptoms(symptomText1.getText());
         appointment.setAppointedMoUsername(selectedDoctorUsername);
 
@@ -173,12 +173,16 @@ public class AddAppointController {
 
             // call read user function to get all doctor objects
             ArrayList<User> returnedAllDoctorList = UserTasks.viewUser(true, "Patient", "Medical_Officer", null);
-            int doctorObjCount = returnedAllDoctorList.size();
             ObservableList<User> mos = FXCollections.observableArrayList(); //put object into observable list
+
+            for (User user : returnedAllDoctorList) {
+                mos.add(new User(user.getUserName(), user.getName()));
+            }
 
             specialityCombo.getSelectionModel().selectedItemProperty().addListener((var,oldValue,newValue) ->{
               if(newValue.equals("ALL")){         // show all doctors if ALL item selected
                   doctorSelectCombo.getItems().clear();
+                  doctorSelectCombo.setPromptText("Select");
                   for (User user : returnedAllDoctorList) {
                       mos.add(new User(user.getUserName(), user.getName()));
                   }
@@ -190,17 +194,22 @@ public class AddAppointController {
                           mos.add(new User(user.getUserName()
                                   , user.getName()));
                       }
+                  } if(doctorSelectCombo.getItems().size()==0){
+                      doctorSelectCombo.setPromptText("No doctors available");
+
+                  } else {
+                      doctorSelectCombo.setPromptText("Select");
                   }
+
+
               }
 
             });
 
-
-
             doctorSelectCombo.setItems(mos);  // add newly created MO objects to combo list
             doctorSelectCombo.getSelectionModel().selectedItemProperty().addListener((var, oldValue, newValue) -> {
                     if (newValue != null) {
-
+                        selectedDoctorUsername= doctorSelectCombo.getSelectionModel().getSelectedItem().getUserName();
                         appointConBtn.setDisable(false);
                         doctorDetailsBorder.setCenter(null);
                         doctorDetailsBorder.setCenter(timeAnchor);
@@ -223,7 +232,7 @@ public class AddAppointController {
                     ToggleButton button = (ToggleButton) timeBtn.getToggles().get(i);
                     button.selectedProperty().addListener((observable, oldValue, newValue) -> {
 
-                        // If selected, color the background red
+
                         if (newValue) {
                             button.setStyle(
                                     "-fx-background-color:  #448AFF;" +
@@ -236,15 +245,9 @@ public class AddAppointController {
                     });
                 }
                 // ~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~ //
-                appointmentPageVisitCount++;
+            appointmentPageVisitCount++;
 
             }
-
         }
 
-
-    // css files
-
-    static File comboCss = new File ("src/sample/assets/styles/Combo.css");
-    static String cmcss = comboCss.toString();
 }
