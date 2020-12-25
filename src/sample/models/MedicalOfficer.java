@@ -11,7 +11,12 @@ public class MedicalOfficer extends Staff{
 
     }
 
+    // constructor for appointment observable list
+
+
     private String speciality;
+
+
 
 
     public void setSpeciality(String speciality) {
@@ -26,6 +31,8 @@ public class MedicalOfficer extends Staff{
         super(userName, password, idNumber, name, dob, gender, maritalStatus, address, phoneNumber, profilePath, viewUserBtn, staffId, email, dateOfJoin, staffPhoto);
         this.speciality = speciality;
     }
+
+
 
     @Override
     public String toString(){

@@ -191,7 +191,7 @@ public class Appointment {
         appointment.setPatientUserName(userData[2]);
         appointment.setAppointedMedicalOfficer(userData[3]);
         // appointment.setAppointedMoUsername(userData[4]);
-        // appointment.setAppointmentDate(LocalDate.parse(userData[5]));
+        appointment.setAppointmentDate(LocalDate.parse(userData[5]));
         appointment.setAppointmentTime(userData[6]);
         //  appointment.setSymptoms(userData[7]);
         appointment.setAppointmentStatus(userData[8]);

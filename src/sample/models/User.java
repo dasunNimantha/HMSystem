@@ -26,6 +26,11 @@ public  class User extends RecursiveTreeObject<User> {
     public User() {
     }
 
+    public User(String userName,String name){
+        this.userName = userName;
+        this.name = name;
+    }
+
     public User(String userName, String password, int idNumber, String name, LocalDate dob, String gender, String maritalStatus, String address, int phoneNumber,String profilePath, JFXButton viewUserBtn) {
         this.userName = userName;
         this.password = password;
@@ -38,6 +43,11 @@ public  class User extends RecursiveTreeObject<User> {
         this.phoneNumber = phoneNumber;
         this.profilePath = profilePath;
         this.viewUserBtn = viewUserBtn;
+    }
+
+    @Override
+    public String toString() {
+        return this.getName();
     }
 
     public String getUserName() {
@@ -115,14 +125,6 @@ public  class User extends RecursiveTreeObject<User> {
     public  void setProfilePath(String profilePath){this.profilePath = profilePath;}
 
     public String getProfilePath(){return profilePath;}
-
-    public JFXButton getViewUserBtn() {
-        return viewUserBtn;
-    }
-
-    public void setViewUserBtn(JFXButton viewUserBtn) {
-        this.viewUserBtn = viewUserBtn;
-    }
 
 
     // functions

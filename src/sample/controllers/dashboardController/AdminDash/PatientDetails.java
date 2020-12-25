@@ -1,20 +1,20 @@
 package sample.controllers.dashboardController.AdminDash;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
+import sample.models.Crypto;
 import sample.models.Patient;
 import sample.models.User;
 import sample.models.UserTasks;
@@ -46,6 +46,8 @@ public class PatientDetails  {
     @FXML
     private TableColumn<User, String > tableTasks;
 
+    @FXML
+    private Button viewButton;
 
 
     @FXML
@@ -68,6 +70,23 @@ public class PatientDetails  {
 
      public void initialize(){
 
+         IntegerProperty hoveredID = new SimpleIntegerProperty(-1);
+
+         userTable.setRowFactory(tableView -> {
+             final TableRow<User> row = new TableRow<>();
+             row.hoverProperty().addListener((observable,wasHovered,isNowHovered) -> {
+                 final User user = row.getItem();
+                 if (isNowHovered && user != null) {
+                     hoveredID.set(row.getItem().getIdNumber());
+                     System.out.println(hoveredID);
+                 } else {
+                     viewButton.setVisible(false);
+                 }
+             });
+
+             return row;
+         });
+
         try {
             ArrayList<User> userArrayList = UserTasks.viewUser(true,"Admin","Patient",null);
             ObservableList<User> obsUsers = FXCollections.observableArrayList();
@@ -78,6 +97,7 @@ public class PatientDetails  {
             tableIdCol.setCellValueFactory(new PropertyValueFactory<>("idNumber"));
             tablePhoneNoCol.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
 
+
             Callback<TableColumn<User,String>, TableCell<User,String>> cellFactory=(param) ->{
                 return new TableCell<User,String>(){
                     @Override
@@ -86,7 +106,9 @@ public class PatientDetails  {
                         if(empty){
                             setGraphic(null);
                         } else {
-                            final Button viewButton = new Button("View");
+                            viewButton = new Button("View");
+                            viewButton.setVisible(false);
+
                             viewButton.setOnAction(event ->{
                                 viewPatientDetails.selectedUser= (Patient) getTableView().getItems().get(getIndex());
                                 BorderPane parentBorderPane = (BorderPane) (patientDetailAnchor.getParent());
@@ -98,14 +120,19 @@ public class PatientDetails  {
                                 }
                             });
 
+
                             setGraphic(viewButton);
                         }
                         setText(null);
                     };
                 };
             };
+
+
+
             tableTasks.setCellFactory(cellFactory);
             userTable.setItems(obsUsers);
+
 
 
 

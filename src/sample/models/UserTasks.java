@@ -100,24 +100,17 @@ public class UserTasks {
                     String decryptedText = Crypto.decrypt(currentLine);
                     assert decryptedText != null;
                     String[] userData = decryptedText.split("~");
-                    if(viewerRole.equals("Admin")){
-                        readMO.setUserName(userData[0]);
-                        readMO.setPassword((userData[1]));
+                    if(!allUsers){
+                        if(userData[0].equals(username)){
+                            medicalOfficerSetter(readMO,userData,viewerRole);
+                            userArraylist.add(readMO);
+                            break;
+                        }
+                    } else{
+                        medicalOfficerSetter(readMO,userData,viewerRole);
+                        userArraylist.add(readMO);
                     }
-                    readMO.setStaffId(Integer.parseInt(userData[2]));
-                    readMO.setStaffPhoto(userData[3]);
-                    readMO.setEmail(userData[4]);
-                    readMO.setName(userData[5]);
-                    readMO.setIdNumber(Integer.parseInt(userData[6]));
-                    readMO.setDob(LocalDate.parse(userData[7]));
-                    readMO.setGender(userData[8]);
-                    readMO.setMaritalStatus(userData[9]);
-                    readMO.setAddress(userData[10]);
-                    readMO.setPhoneNumber(Integer.parseInt(userData[11]));
-                    readMO.setProfilePath(userData[12]);
-                    readMO.setDateOfJoin(LocalDate.parse(userData[13]));
-                    readMO.setSpeciality(userData[14]);
-                    userArraylist.add(readMO);
+
                 }
             }
 
@@ -271,34 +264,26 @@ public class UserTasks {
         readPatient.setAllergies(userData[11]);
     }
 
-    // return doctors names with speciality
+    public static  void medicalOfficerSetter(MedicalOfficer readMO, String[]userData, String viewerRole){
+        if(viewerRole.equals("Admin")){
+            readMO.setPassword((userData[1]));
+        }
+        readMO.setUserName(userData[0]);
+        readMO.setStaffId(Integer.parseInt(userData[2]));
+        readMO.setStaffPhoto(userData[3]);
+        readMO.setEmail(userData[4]);
+        readMO.setName(userData[5]);
+        readMO.setIdNumber(Integer.parseInt(userData[6]));
+        readMO.setDob(LocalDate.parse(userData[7]));
+        readMO.setGender(userData[8]);
+        readMO.setMaritalStatus(userData[9]);
+        readMO.setAddress(userData[10]);
+        readMO.setPhoneNumber(Integer.parseInt(userData[11]));
+        readMO.setProfilePath(userData[12]);
+        readMO.setDateOfJoin(LocalDate.parse(userData[13]));
+        readMO.setSpeciality(userData[14]);
+    }
 
-//    public static ArrayList<MedicalOfficer> returnMOWithSpeciality(String speciality) throws IOException {
-//
-//        ArrayList <MedicalOfficer> moList = new ArrayList <>();
-//        String currentLine;
-//
-//        File userDBFile = new File("src/sample/fileDatabase/Medical_OfficerDB.txt");
-//        FileReader fr = new FileReader(userDBFile);
-//        BufferedReader br = new BufferedReader(fr);
-//        while ((currentLine = br.readLine()) != null) {
-//
-//            String decryptedText = Crypto.decrypt(currentLine);
-//            assert decryptedText != null;
-//            if(speciality.equals("ALL")){
-//                String [] userData = decryptedText.split("~");
-//                moList.add(userData[5]);
-//            } else {
-//                String[] userData = decryptedText.split("~");
-//                if(speciality.equals(userData[14])){
-//                    moList.add("Dr."+userData[5]); // get doctor name
-//                }
-//            }
-//
-//        }
-//        Collections.sort(moList);
-//        return moList;
-//    }
 }
 
 
