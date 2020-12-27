@@ -19,21 +19,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
-
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import sample.Main;
-import sample.controllers.dashboardController.AdminDash.AdminController;
-import sample.controllers.dashboardController.MODash.MOController;
 import sample.controllers.dashboardController.PatientDash.PatientController;
-import sample.controllers.dashboardController.ReceptionistDash.ReceptionistController;
 import sample.models.UserValidation;
 
 
@@ -148,7 +137,11 @@ public class LoginController  extends Thread {
         } else {
             try {
                 ArrayList <String> returnData = UserValidation.authCheck(userRole, username, password);
-                if ((returnData.get(0)).equals("1")) {
+                if(returnData.size()==0){
+                    invalidLabel.setText("No users in the database");
+                    invalidLabel.setVisible(true);
+                }
+                else if ((returnData.get(0)).equals("1")) {
 
                     Stage stage = (Stage) loginBtn.getScene().getWindow();
                     stage.close();

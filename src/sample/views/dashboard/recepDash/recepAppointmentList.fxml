@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="appointmentAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.RecepAppointListController">
+    <children>
+        <TableView fx:id="appointTable" layoutX="14.0" layoutY="31.0" prefHeight="479.0" prefWidth="954.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+            <columns>
+                <TableColumn fx:id="appointNumberCol" editable="false" prefWidth="120.7999849319458" resizable="false" text="Appointment No" />
+                <TableColumn fx:id="patientNameCol" editable="false" prefWidth="172.0000457763672" resizable="false" text="Patient Name" />
+                <TableColumn fx:id="doctorNameCol" editable="false" prefWidth="180.0" resizable="false" text="Doctor Name" />
+                <TableColumn fx:id="appointDateCol" editable="false" prefWidth="130.39996337890625" resizable="false" text="Date" />
+                <TableColumn fx:id="appointTimeCol" editable="false" minWidth="0.0" prefWidth="118.4000244140625" resizable="false" text="Time" />
+                <TableColumn fx:id="appointStatusCol" editable="false" prefWidth="97.60003662109375" resizable="false" text="Status" />
+                <TableColumn fx:id="appointViewCol" editable="false" prefWidth="148.7999267578125" resizable="false" text="Tasks" />
+            </columns>
+        </TableView>
+        <JFXButton fx:id="AppointmentBtn" layoutX="800.0" layoutY="525.0" onAction="#addAppointment" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #448AFF; -fx-background-radius: 15;" text="Add an Appointment" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="11.0" />
+            </font>
+        </JFXButton>
+    </children>
+</AnchorPane>
