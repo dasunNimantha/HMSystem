@@ -6,10 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -43,6 +40,9 @@ public class ReceptionistDetails {
 
     @FXML
     private TableColumn<User, String > tableTasks;
+
+    @FXML
+    private Button viewButton;
 
     @FXML
     void addNewReceptionistBtn(ActionEvent event) throws IOException {
@@ -82,7 +82,8 @@ public class ReceptionistDetails {
                         if(empty){
                             setGraphic(null);
                         } else {
-                            final Button viewButton = new Button("View");
+                            viewButton = new Button("View");
+                            viewButton.setVisible(false);
                             viewButton.setOnAction(event ->{
                                 viewReceptionistDetails.selectedUser= (Receptionist) getTableView().getItems().get(getIndex());
                                 BorderPane parentBorderPane = (BorderPane) (recepDetailAnchor.getParent());
@@ -100,6 +101,20 @@ public class ReceptionistDetails {
                     };
                 };
             };
+
+            userTable.setRowFactory(tableView -> {
+                final TableRow<User> row = new TableRow<>();
+                row.hoverProperty().addListener((observable) -> {
+                    final User user = row.getItem();
+                    if (row.isHover() && user != null) {
+                        viewButton.setVisible(true);
+                    } else {
+                        viewButton.setVisible(false);
+                    }
+                });
+
+                return row;
+            });
             tableTasks.setCellFactory(cellFactory);
             userTable.setItems(obsUsers);
 

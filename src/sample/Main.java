@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.models.Crypto;
 
 import java.util.HashMap;
 
@@ -47,7 +48,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-
         launch(args);
     }
 

@@ -11,19 +11,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.stage.FileChooser;
-import sample.controllers.dashboardController.MODash.MOController;
 import sample.models.Enums;
 import sample.models.Patient;
-import sample.models.User;
 import sample.models.UserTasks;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Locale;
-
 
 public class viewPatientDetails {
 

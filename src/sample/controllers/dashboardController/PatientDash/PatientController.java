@@ -44,18 +44,11 @@ public class PatientController {
     @FXML
     private  Label welcomeName;
 
-
-    @FXML
-    private JFXButton AppointmentBtn;
-
     @FXML
     private  BorderPane mainBorderPane;
 
     @FXML
     private BorderPane subBorderPane;
-
-    @FXML
-    private AnchorPane appointmentAnchor;
 
     @FXML
     private JFXButton logOutBtn;
