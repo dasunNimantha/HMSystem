@@ -11,6 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import sample.controllers.dashboardController.PatientDash.AddAppointController;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -48,47 +50,7 @@ public class ReceptionistController {
     private AnchorPane step3Anchor;
 
     @FXML
-    private JFXComboBox<String> dropGender;
-
-    @FXML
-    private JFXComboBox<String> dropMaritial;
-
-    @FXML
     private BorderPane recepBorderPane;
-
-    @FXML
-    private JFXTextField textSID;
-
-    @FXML
-    private JFXButton editSettings;
-
-    @FXML
-    private JFXTextField textUserName;
-
-    @FXML
-    private JFXTextField textDj;
-
-    @FXML
-    private JFXTextField textEmail;
-
-    @FXML
-    private JFXTextField textID;
-
-    @FXML
-    private JFXTextField textPhone;
-
-    @FXML
-    private JFXTextArea textAddress;
-
-    @FXML
-    private JFXTextField textDOB;
-
-    @FXML
-    private JFXTextField textName;
-
-    @FXML
-    private JFXButton changePW;
-
 
     @FXML
     void disList(MouseEvent event) {
@@ -111,6 +73,14 @@ public class ReceptionistController {
         Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step1.fxml"));
         recepBorderPane.setCenter(step1);
     }
+
+    @FXML
+    void viewAppointment(ActionEvent event) throws IOException {
+        Parent appointment = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/recepAppointmentList.fxml"));
+        recepBorderPane.setCenter(appointment);
+        AddAppointController.appointmentPageVisitCount=0;
+    }
+
 
     @FXML
     void step2(ActionEvent event) throws IOException {
@@ -148,37 +118,5 @@ public class ReceptionistController {
 
 
     }
-    @FXML
-    void profileEditable(MouseEvent event) {
-        textID.setEditable(true);
-        textSID.setEditable(true);
-        textDOB.setEditable(true);
-        textAddress.setEditable(true);
-        textDj.setEditable(true);
-        textEmail.setEditable(true);
-        textName.setEditable(true);
-        textPhone.setEditable(true);
-        textUserName.setEditable(true);
-        editSettings.setText("Save Changes");
-
-
-    }
-
-    @FXML
-    void loadChangepw(MouseEvent event) throws IOException {
-        Parent changePW = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step6Password.fxml"));
-        recepBorderPane.setCenter(changePW);
-
-    }
-
-    /*@Override
-    public void initialize(URL location, ResourceBundle resources) {
-        //dropMaritial.getItems().removeAll(dropMaritial.getItems());
-        dropMaritial.getItems().add("Married");
-        dropMaritial.getItems().add("UnMarried");
-    }*/
-
-
-
 
 }

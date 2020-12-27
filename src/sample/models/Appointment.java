@@ -136,11 +136,10 @@ public class Appointment {
 
     // view appointment details
 
-    public static ArrayList<Appointment> viewAppointment (String viewerRole,String viewerUsername){
+    public static ArrayList<Appointment> viewAppointment (boolean allUsers,String viewerRole,String patientUserName,String appointmentId){
 
         String currentLine;
         ArrayList <Appointment> appointmentArray = new ArrayList<>();
-
         try {
 
             File appointmentFile = new File("src/sample/fileDatabase/Appointments.txt");
@@ -151,16 +150,37 @@ public class Appointment {
                 String decryptedText = Crypto.decrypt(currentLine);
                 assert decryptedText != null;
                 String[] userData = decryptedText.split("~");
-                if(viewerRole.equals("Patient")){
-                    if(userData[2].equals(viewerUsername)){
-
+                if(!allUsers){
+                    if(viewerRole.equals("Patient")){
+                        if(userData[0].equals(appointmentId) && (userData[2]).equals(patientUserName)){
+                            appointmentSetter(readAppointment,userData);
+                            appointmentArray.add(readAppointment);
+                        }
+                    } else {
                         appointmentSetter(readAppointment,userData);
                         appointmentArray.add(readAppointment);
                     }
                 } else {
-                    appointmentSetter(readAppointment,userData);
-                    appointmentArray.add(readAppointment);
+                    if(viewerRole.equals("Receptionist")){
+                        appointmentSetter(readAppointment,userData);
+                        appointmentArray.add(readAppointment);
+                    }
+
+                    else if (viewerRole.equals("Medical_Officer")){
+                        if(userData[7].equals("Approved")){
+
+                        }
+                    }
+                    else if((userData[2]).equals(patientUserName)){
+                        appointmentSetter(readAppointment,userData);
+                        appointmentArray.add(readAppointment);
+                    } else {
+                        appointmentSetter(readAppointment,userData);
+                        appointmentArray.add(readAppointment);
+                    }
                 }
+
+
 
             }
             br.close();
@@ -172,6 +192,56 @@ public class Appointment {
         return appointmentArray;
     }
 
+
+    // edit appointment function
+
+    public static void editAppointment(String editorRole,String appointmentId,Appointment appointmentObj) throws IOException {
+
+        File oldFile = new File("src/sample/fileDatabase/Appointments.txt");;
+        File tempFile = new File("src/sample/fileDatabase/appointTempFile.txt");
+
+        FileWriter fw = new FileWriter(tempFile, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter pw = new PrintWriter(bw);
+        FileReader fr = new FileReader(oldFile);
+        BufferedReader br = new BufferedReader(fr);
+
+        String currentLine;
+        while ((currentLine = br.readLine()) != null) {
+            Appointment readAppointment = new Appointment();
+            String decryptedText = Crypto.decrypt(currentLine);
+            assert decryptedText != null;
+            String[] userData = decryptedText.split("~");
+            if(editorRole.equals("Receptionist")){
+                if (userData[0].equals(appointmentId)){
+                    pw.println(appointmentObj);
+                } else {
+                    pw.println(currentLine);
+                }
+            }
+        }
+
+        pw.flush();
+        pw.close();
+        fr.close();
+        br.close();
+        bw.close();
+        fw.close();
+
+        if (oldFile.delete()) {
+            System.out.println("User " + appointmentObj.patientUserName + " edited successfully");
+        } else {
+            System.out.println("Error on appointment edit");
+        }
+
+        File dump = new File("src/sample/fileDatabase/Appointments.txt");
+        if (tempFile.renameTo(dump)) {
+            System.out.println("Successfully renamed file");
+        } else {
+            System.out.println("Error on renaming");
+        }
+    }
+
     @Override
     public String toString() {
         return Crypto.encrypt( appointmentNo +
@@ -181,7 +251,7 @@ public class Appointment {
                 "~" + appointedMoUsername +
                 "~" + appointmentDate +
                 "~" + appointmentTime +
-              //  "~" + symptoms +
+                //  "~" + symptoms +
                 "~" + appointmentStatus);
     }
 
@@ -193,7 +263,7 @@ public class Appointment {
         appointment.setAppointedMoUsername(userData[4]);
         appointment.setAppointmentDate(LocalDate.parse(userData[5]));
         appointment.setAppointmentTime(userData[6]);
-     //   appointment.setSymptoms(userData[7]);
+        //   appointment.setSymptoms(userData[7]);
         appointment.setAppointmentStatus(userData[7]);
     }
 }

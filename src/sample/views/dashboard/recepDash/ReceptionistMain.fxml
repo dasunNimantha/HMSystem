@@ -50,6 +50,14 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
+                  <JFXButton fx:id="recepAppointBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#viewAppointment" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Appointments" textFill="#5b5858">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
                   <JFXButton fx:id="recepBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Patients" textFill="#5b5858">
                      <VBox.margin>
                         <Insets />

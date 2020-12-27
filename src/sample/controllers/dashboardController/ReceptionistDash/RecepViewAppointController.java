@@ -1,9 +1,14 @@
-package sample.controllers.dashboardController.PatientDash;
+package sample.controllers.dashboardController.ReceptionistDash;
 
+import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
 import sample.models.*;
 
@@ -13,10 +18,9 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class ViewAppointController {
-
+public class RecepViewAppointController {
     static Appointment selectedAppointment;
-    private static MedicalOfficer medicalOfficer;
+    static MedicalOfficer medicalOfficer;
     private static Patient patient;
 
     @FXML
@@ -59,11 +63,35 @@ public class ViewAppointController {
     private Label ampmLbl;
 
     @FXML
+    private JFXButton approveBtn;
+
+    @FXML
     private Label dateLbl;
 
     @FXML
     private Label monthLbl;
 
+    @FXML
+    void approveAppo(ActionEvent event) throws IOException {
+        selectedAppointment.setAppointmentStatus("Approved");
+        Appointment.editAppointment("Receptionist",selectedAppointment.getAppointmentNo(),selectedAppointment);
+        statusLbl.setText("Approved");
+    }
+
+    @FXML
+    void backFromViewAppo(ActionEvent event) throws IOException {
+        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/recepAppointmentList.fxml"));
+        BorderPane subBorderPane = (BorderPane) viewAppointAnchor.getParent();
+        subBorderPane.setCenter(step2);
+    }
+
+    @FXML
+    void editAppo(ActionEvent event) throws IOException {
+        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/recepEditAppointment.fxml"));
+        BorderPane subBorderPane = (BorderPane) viewAppointAnchor.getParent();
+        subBorderPane.setCenter(step2);
+
+    }
 
     public void getAppointmentData(){
 
@@ -95,7 +123,6 @@ public class ViewAppointController {
         dateLbl.setText(splittedDate[0]+splittedDate[1]);
         monthLbl.setText(splittedDate[3]+splittedDate[4]+splittedDate[5]);
 
-
         // Age calculator
 
         LocalDate today = LocalDate.now();
@@ -104,10 +131,10 @@ public class ViewAppointController {
         Period p = Period.between(dob, today);
         ageText.setText(String.valueOf(p.getYears()));
 
-
     }
 
     public void initialize() throws IOException {
+
 
         //get corresponding patient details
         ArrayList<User> returnedPatientArray = UserTasks.viewUser(false,"Patient","Patient",selectedAppointment.getPatientUserName());
@@ -123,6 +150,8 @@ public class ViewAppointController {
         }
         medicalOfficer = (MedicalOfficer) returnedMoArray.get(0);
         getAppointmentData();
+        if (statusLbl.getText().equals("Approved")){
+            approveBtn.setDisable(true);
+        }
     }
-
 }

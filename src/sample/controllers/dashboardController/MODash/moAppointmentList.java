@@ -1,26 +1,35 @@
-package sample.controllers.dashboardController.PatientDash;
+package sample.controllers.dashboardController.MODash;
 
+import de.jensd.fx.glyphs.testapps.App;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
+import sample.controllers.dashboardController.PatientDash.ViewAppointController;
 import sample.models.Appointment;
+import sample.models.Patient;
+import sample.models.User;
+import sample.models.UserTasks;
+
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class AppointmentList {
+public class moAppointmentList {
+
+    static Appointment selectedAppointment;
+
 
     @FXML
     private AnchorPane appointmentAnchor;
-
 
     @FXML
     private TableView<Appointment> appointTable;
@@ -29,10 +38,7 @@ public class AppointmentList {
     private TableColumn<Appointment, String> appointNumberCol;
 
     @FXML
-    private TableColumn<Appointment, String> doctorNameCol;
-
-    @FXML
-    private TableColumn<Appointment, LocalDate> appointDateCol;
+    private TableColumn<Appointment, String> appointDateCol;
 
     @FXML
     private TableColumn<Appointment, String> appointTimeCol;
@@ -46,21 +52,12 @@ public class AppointmentList {
     @FXML
     private Button viewAppointment;
 
-    @FXML
-    void addAppointment(ActionEvent event) throws IOException {
-        Parent add = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step2_Appoinment.fxml"));
-        BorderPane tempBorderPane = (BorderPane) appointmentAnchor.getParent();
-        tempBorderPane.setCenter(add);
-    }
-
-    public void initialize(){
-
-        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Patient",null,null);
+    public void initialize() throws IOException {
+        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Medical_Officer",null,null);
         ObservableList<Appointment> obsAppointments = FXCollections.observableArrayList();
         obsAppointments.addAll(appointmentArrayList);
 
         appointNumberCol.setCellValueFactory(new PropertyValueFactory<>("appointmentNo"));
-        doctorNameCol.setCellValueFactory(new PropertyValueFactory<>("appointedMedicalOfficer"));
         appointStatusCol.setCellValueFactory(new PropertyValueFactory<>("appointmentStatus"));
         appointTimeCol.setCellValueFactory(new PropertyValueFactory<>("appointmentTime"));
         appointDateCol.setCellValueFactory(new PropertyValueFactory<>("appointmentDate"));
@@ -75,10 +72,10 @@ public class AppointmentList {
                     } else {
                         viewAppointment = new Button("View");
                         viewAppointment.setOnAction(event -> {
-                            ViewAppointController.selectedAppointment= getTableView().getItems().get(getIndex());
+                            moViewAppointController.selectedAppointment= getTableView().getItems().get(getIndex());
                             BorderPane parentBorderPane = (BorderPane) (appointmentAnchor.getParent());
                             try {
-                                Parent viewMODetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step2_viewAppointment.fxml"));
+                                Parent viewMODetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/moDash/moViewAppointment.fxml"));
                                 parentBorderPane.setCenter(viewMODetails);
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -97,4 +94,5 @@ public class AppointmentList {
         appointTable.setItems(obsAppointments);
 
     }
+
 }
