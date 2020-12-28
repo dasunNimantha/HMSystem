@@ -18,10 +18,10 @@
             <TableColumn fx:id="appointViewCol" editable="false" prefWidth="86.39995117187505" text="View" />
             </columns>
         </TableView>
-        <JFXButton fx:id="AppointmentBtn" layoutX="800.0" layoutY="525.0" onAction="#addAppointment" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #448AFF; -fx-background-radius: 15;" text="Add an Appointment" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="11.0" />
-            </font>
-        </JFXButton>
+      <JFXButton fx:id="AppointmentBtn" buttonType="RAISED" layoutX="762.0" layoutY="526.0" onAction="#addAppointment" prefHeight="42.0" prefWidth="155.0" style="-fx-background-color: #448AFF;" text="Make an Appoinment" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
     </children>
 </AnchorPane>

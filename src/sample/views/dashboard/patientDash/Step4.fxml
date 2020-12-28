@@ -36,7 +36,7 @@
          </children>
       </AnchorPane>
       <Button layoutX="350.0" layoutY="514.0" mnemonicParsing="false" text="Save" />
-      <JFXButton buttonType="RAISED" layoutX="787.0" layoutY="514.0" onAction="#makeComplaint" prefHeight="42.0" prefWidth="134.0" style="-fx-background-color: #448AFF;" text="Make a Complaint" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="797.0" layoutY="518.0" onAction="#makeComplaint" prefHeight="42.0" prefWidth="134.0" style="-fx-background-color: #448AFF;" text="Make a Complaint" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
