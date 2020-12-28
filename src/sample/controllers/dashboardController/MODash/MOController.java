@@ -20,8 +20,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class MOController {
 
-    public static String objEncString;
-    private final String [] decryptedData = objEncString.split("~");
+    public static String loggedUserProfile;
+    static String [] moData;
 
     @FXML
     private JFXButton recepBtn1;
@@ -41,59 +41,46 @@ public class MOController {
     @FXML
     private JFXButton recepBtn6;
 
-   @FXML
-   private JFXButton logOutBtn;
+    @FXML
+    private JFXButton logOutBtn;
 
     @FXML
-    private BorderPane recepBorderPane;
+    private BorderPane moBorderPane;
 
     @FXML
     void step1(ActionEvent event) throws IOException {
         Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Step1.fxml"));
-        recepBorderPane.setCenter(step1);
+        moBorderPane.setCenter(step1);
 
     }
 
     @FXML
     void step2(ActionEvent event) throws IOException {
         Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Step2.fxml"));
-        recepBorderPane.setCenter(step2);
-
+        moBorderPane.setCenter(step2);
     }
 
     @FXML
     void step3(ActionEvent event) throws IOException {
-        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Step3.fxml"));
-        recepBorderPane.setCenter(step3);
-
     }
 
     @FXML
     void step4(ActionEvent event) throws IOException {
         Parent step4 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Step4.fxml"));
-        recepBorderPane.setCenter(step4);
-
-
+        moBorderPane.setCenter(step4);
     }
 
     @FXML
-    void step5(ActionEvent event) {
-
+    void step5(ActionEvent event) throws IOException {
+        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Step3.fxml"));
+        moBorderPane.setCenter(step3);
     }
 
-    @FXML
-    void step6(ActionEvent event) {
-
-    }
-
-    @FXML
-    void step7(ActionEvent event) {
-
-    }
 
     @FXML
     void logOut(ActionEvent event) throws InterruptedException, IOException {
-        Arrays.fill(decryptedData,null); // clear received object when login
+        // clear received object when login
+
 
         Stage stage = (Stage) logOutBtn.getScene().getWindow(); // close dashboard
         stage.close();
@@ -122,10 +109,14 @@ public class MOController {
             backToLogin.setY(mevent.getScreenY() - yOffset.get());
         });
 
-        TimeUnit.MILLISECONDS.sleep(100);
+        TimeUnit.MILLISECONDS.sleep(150);
         backToLogin.show();
         loginMap.put("roleSelect",root);
-
     }
 
+    public void initialize(){
+        moData = loggedUserProfile.split("~");
+    }
 }
+
+
