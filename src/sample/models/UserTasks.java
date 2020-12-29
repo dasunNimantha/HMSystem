@@ -46,76 +46,77 @@ public class UserTasks {
         ArrayList<User> userArraylist = new ArrayList<>();
 
 
-            String currentLine;
+        String currentLine;
 
-            File userDBFile = new File("src/sample/fileDatabase/" + userType + "DB.txt");
-            FileReader fr = new FileReader(userDBFile);
-            BufferedReader br = new BufferedReader(fr);
+        File userDBFile = new File("src/sample/fileDatabase/" + userType + "DB.txt");
+        FileReader fr = new FileReader(userDBFile);
+        BufferedReader br = new BufferedReader(fr);
 
-            if (userType.equals("Patient")) {
-                while ((currentLine = br.readLine()) != null) {
-                    Patient readPatient = new Patient();
-                    String decryptedText = Crypto.decrypt(currentLine);
-                    assert decryptedText != null;
-                    String[] userData = decryptedText.split("~");
-                    if(!allUsers){
-                        if(userData[0].equals(username)){
-                            patientSetter(readPatient,userData);
-                            userArraylist.add(readPatient);
-                            break;
-                        }
-                    } else {
-                        patientSetter(readPatient,userData);
+        if (userType.equals("Patient")) {
+            while ((currentLine = br.readLine()) != null) {
+                Patient readPatient = new Patient();
+                String decryptedText = Crypto.decrypt(currentLine);
+                assert decryptedText != null;
+                String[] userData = decryptedText.split("~");
+                if (!allUsers) {
+                    if (userData[0].equals(username)) {
+                        patientSetter(readPatient, userData);
+                        userArraylist.add(readPatient);
+                        break;
                     }
+                } else {
+                    patientSetter(readPatient, userData);
                     userArraylist.add(readPatient);
-
                 }
 
-            } else if (userType.equals("Receptionist")) {
-                while ((currentLine = br.readLine()) != null) {
 
-                    Receptionist readReceptionist = new Receptionist();
-                    String decryptedText = Crypto.decrypt(currentLine);
-                    assert decryptedText != null;
-                    String[] userData = decryptedText.split("~");
-                    readReceptionist.setUserName(userData[0]);
-                    readReceptionist.setPassword((userData[1]));
-                    readReceptionist.setStaffId(Integer.parseInt(userData[2]));
-                    readReceptionist.setStaffPhoto(userData[3]);
-                    readReceptionist.setEmail(userData[4]);
-                    readReceptionist.setName(userData[5]);
-                    readReceptionist.setIdNumber(Integer.parseInt(userData[6]));
-                    readReceptionist.setDob(LocalDate.parse(userData[7]));
-                    readReceptionist.setGender(userData[8]);
-                    readReceptionist.setMaritalStatus(userData[9]);
-                    readReceptionist.setAddress(userData[10]);
-                    readReceptionist.setPhoneNumber(Integer.parseInt(userData[11]));
-                    readReceptionist.setProfilePath(userData[12]);
-                    readReceptionist.setDateOfJoin(LocalDate.parse(userData[13]));
-                    userArraylist.add(readReceptionist);
-                }
-            } else if (userType.equals("Medical_Officer")) {
-                while ((currentLine = br.readLine()) != null) {
-                    MedicalOfficer readMO = new MedicalOfficer();
-                    String decryptedText = Crypto.decrypt(currentLine);
-                    assert decryptedText != null;
-                    String[] userData = decryptedText.split("~");
-                    if(!allUsers){
-                        if(userData[0].equals(username)){
-                            medicalOfficerSetter(readMO,userData,viewerRole);
-                            userArraylist.add(readMO);
-                            break;
-                        }
-                    } else{
-                        medicalOfficerSetter(readMO,userData,viewerRole);
-                        userArraylist.add(readMO);
-                    }
-
-                }
             }
 
-            br.close();
-            fr.close();
+        } else if (userType.equals("Receptionist")) {
+            while ((currentLine = br.readLine()) != null) {
+
+                Receptionist readReceptionist = new Receptionist();
+                String decryptedText = Crypto.decrypt(currentLine);
+                assert decryptedText != null;
+                String[] userData = decryptedText.split("~");
+                readReceptionist.setUserName(userData[0]);
+                readReceptionist.setPassword((userData[1]));
+                readReceptionist.setStaffId(Integer.parseInt(userData[2]));
+                readReceptionist.setStaffPhoto(userData[3]);
+                readReceptionist.setEmail(userData[4]);
+                readReceptionist.setName(userData[5]);
+                readReceptionist.setIdNumber(Integer.parseInt(userData[6]));
+                readReceptionist.setDob(LocalDate.parse(userData[7]));
+                readReceptionist.setGender(userData[8]);
+                readReceptionist.setMaritalStatus(userData[9]);
+                readReceptionist.setAddress(userData[10]);
+                readReceptionist.setPhoneNumber(Integer.parseInt(userData[11]));
+                readReceptionist.setProfilePath(userData[12]);
+                readReceptionist.setDateOfJoin(LocalDate.parse(userData[13]));
+                userArraylist.add(readReceptionist);
+            }
+        } else if (userType.equals("Medical_Officer")) {
+            while ((currentLine = br.readLine()) != null) {
+                MedicalOfficer readMO = new MedicalOfficer();
+                String decryptedText = Crypto.decrypt(currentLine);
+                assert decryptedText != null;
+                String[] userData = decryptedText.split("~");
+                if (!allUsers) {
+                    if (userData[0].equals(username)) {
+                        medicalOfficerSetter(readMO, userData, viewerRole);
+                        userArraylist.add(readMO);
+                        break;
+                    }
+                } else {
+                    medicalOfficerSetter(readMO, userData, viewerRole);
+                    userArraylist.add(readMO);
+                }
+
+            }
+        }
+
+        br.close();
+        fr.close();
 
         return userArraylist;
     }
@@ -125,7 +126,7 @@ public class UserTasks {
 
     public static void deleteUser(String editorRole, String userRole, String idNo, String username) throws IOException {
 
-        // user deletion from main database
+
         if (editorRole.equals("Admin") || (editorRole.equals("Receptionist"))) {
             String currentLine;
 
@@ -230,26 +231,8 @@ public class UserTasks {
 
     }
 
-    public static ArrayList<String> returnReference(String referenceModuleFile) throws IOException {
-        File MOSpeciality = new File("src/sample/fileDatabase/reference/" + referenceModuleFile + ".txt");
-        FileReader fr = new FileReader(MOSpeciality);
-        BufferedReader br = new BufferedReader(fr);
-        ArrayList<String> speciality = new ArrayList<>();
 
-        String currentLine;
-        while ((currentLine = br.readLine()) != null) {
-            String decryptedLine = Crypto.decrypt(currentLine);
-            assert decryptedLine != null;
-            speciality.add(decryptedLine);
-
-        }
-        br.close();
-        fr.close();
-        return speciality;
-    }
-
-
-    public static void patientSetter(Patient readPatient,String [] userData){
+    public static void patientSetter(Patient readPatient, String[] userData) {
         readPatient.setUserName(userData[0]);
         readPatient.setPassword((userData[1]));
         readPatient.setName(userData[2]);
@@ -264,8 +247,8 @@ public class UserTasks {
         readPatient.setAllergies(userData[11]);
     }
 
-    public static  void medicalOfficerSetter(MedicalOfficer readMO, String[]userData, String viewerRole){
-        if(viewerRole.equals("Admin")){
+    public static void medicalOfficerSetter(MedicalOfficer readMO, String[] userData, String viewerRole) {
+        if (viewerRole.equals("Admin")) {
             readMO.setPassword((userData[1]));
         }
         readMO.setUserName(userData[0]);
@@ -284,7 +267,41 @@ public class UserTasks {
         readMO.setSpeciality(userData[14]);
     }
 
+
+    public static int[] dataCounter(String viewerRole) throws IOException {
+        int[] counter = new int[5];
+        int Patientlines = 0;
+
+        BufferedReader reader = new BufferedReader(new FileReader("src/sample/fileDatabase/PatientDB.txt"));
+        while (reader.readLine() != null) {
+            Patientlines++;
+        }
+        counter[0]=Patientlines;
+        reader.close();
+
+        File userDBFile = new File("src/sample/fileDatabase/Appointments.txt");
+
+        String currentLine;
+        int pendingAppointments=0;
+
+        FileReader fr = new FileReader(userDBFile);
+        BufferedReader br = new BufferedReader(fr);
+        while ((currentLine=br.readLine())!= null){
+            String decryptedText = Crypto.decrypt(currentLine);
+            assert decryptedText != null;
+            String[] userData = decryptedText.split("~");
+            if (((userData[7].equals("Pending")))) {
+                pendingAppointments++;
+        }
+
+    }
+        counter[1]=pendingAppointments;
+        fr.close();br.close();
+        return counter;
+    }
 }
+
+
 
 
 

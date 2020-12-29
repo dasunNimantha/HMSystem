@@ -14,7 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
-import sample.controllers.dashboardController.PatientDash.PatientController;
 import sample.models.Appointment;
 
 import java.io.IOException;
@@ -62,7 +61,7 @@ public class RecepAppointListController {
 
     public void initialize(){
 
-        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Receptionist",null,null);
+        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Receptionist",null,null,null);
         ObservableList<Appointment> obsAppointments = FXCollections.observableArrayList();
         obsAppointments.addAll(appointmentArrayList);
 
@@ -83,7 +82,7 @@ public class RecepAppointListController {
                     } else {
                         viewAppointment = new Button("View");
                         viewAppointment.setOnAction(event -> {
-                            RecepViewAppointController.selectedAppointment= getTableView().getItems().get(getIndex());
+                           RecepViewAppointController.selectedAppointment= getTableView().getItems().get(getIndex());
                             BorderPane parentBorderPane = (BorderPane) (appointmentAnchor.getParent());
                             try {
                                 Parent viewMODetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/recepViewAppointment.fxml"));

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="viewMailAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.PostalMail.ViewDispMail">
+    <children>
+        <JFXButton fx:id="backBtn" layoutX="851.0" layoutY="530.0" onAction="#backToDisp" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #448AFF;" text="Back" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <Label layoutX="43.0" layoutY="14.0" prefHeight="50.0" prefWidth="691.0" text="Dispatched Mail Record">
+            <font>
+                <Font name="System Bold" size="27.0" />
+            </font>
+        </Label>
+        <Label layoutX="714.0" layoutY="193.0" prefHeight="26.0" prefWidth="212.0" text="Reference Number :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="43.0" layoutY="95.0" prefHeight="26.0" prefWidth="212.0" text="From :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="460.0" layoutY="191.0" prefHeight="26.0" prefWidth="98.0" text="Date :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="37.0" layoutY="292.0" prefHeight="26.0" prefWidth="212.0" text="Note :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <JFXTextArea fx:id="noteText" focusColor="#405aa800" layoutX="37.0" layoutY="318.0" prefHeight="178.0" prefWidth="623.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #EEEEEE;" unFocusColor="#4d4d4d00" />
+        <TextField fx:id="dateText" layoutX="460.0" layoutY="231.0" prefHeight="34.0" prefWidth="196.0" style="-fx-background-color: #EEEEEE;" />
+        <TextField fx:id="fromText" layoutX="37.0" layoutY="139.0" prefHeight="34.0" prefWidth="256.0" style="-fx-background-color: #EEEEEE;" />
+        <Label layoutX="43.0" layoutY="193.0" prefHeight="26.0" prefWidth="212.0" text="Address :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="toAddressText" layoutX="37.0" layoutY="234.0" prefHeight="34.0" prefWidth="351.0" style="-fx-background-color: #EEEEEE;" />
+        <Label layoutX="460.0" layoutY="95.0" prefHeight="26.0" prefWidth="212.0" text="To :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="toText" layoutX="460.0" layoutY="139.0" prefHeight="34.0" prefWidth="320.0" style="-fx-background-color: #EEEEEE;" />
+        <TextField fx:id="referenceNoText" layoutX="714.0" layoutY="234.0" prefHeight="34.0" prefWidth="240.0" style="-fx-background-color: #EEEEEE;" />
+        <JFXTextArea fx:id="purposeField1" focusColor="#405aa800" layoutX="695.0" layoutY="317.0" prefHeight="178.0" prefWidth="267.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #EEEEEE;" unFocusColor="#4d4d4d00" />
+        <Label alignment="CENTER" layoutX="745.0" layoutY="329.0" prefHeight="26.0" prefWidth="212.0" text="Attached Documents">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+
+        <JFXButton fx:id="cancelEdit" layoutX="851.0" layoutY="530.0" onAction="#cancelEdit" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #448AFF;" text="Cancel" textFill="WHITE" visible="false">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <JFXButton fx:id="saveBtn" layoutX="715.0" layoutY="530.0" onAction="#saveEdit" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #448AFF;" text="Save" textFill="WHITE" visible="false">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <TextField fx:id="idNoText1" editable="false" layoutX="714.0" layoutY="370.0" prefHeight="26.0" prefWidth="176.0" promptText="DrugOrderList.txt" style="-fx-background-color: #EEEEEE;" />
+        <TextField fx:id="idNoText11" editable="false" layoutX="715.0" layoutY="408.0" prefHeight="26.0" prefWidth="176.0" promptText="prescription.pdf" style="-fx-background-color: #EEEEEE;" />
+        <Hyperlink layoutX="910.0" layoutY="371.0" text="view" />
+        <Hyperlink layoutX="910.0" layoutY="409.0" text="view" />
+        <JFXButton disable="true" layoutX="807.0" layoutY="457.0" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: #B388FF;" text="Upload a new files" />
+      <JFXButton fx:id="editBtn" layoutX="715.0" layoutY="530.0" onAction="#editMail" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #448AFF;" text="Edit" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteBtn" layoutX="575.0" layoutY="530.0" onAction="#deleteMail" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #448AFF;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXDatePicker fx:id="datePicker" layoutX="460.0" layoutY="234.0" prefHeight="34.0" prefWidth="196.0" visible="false" />
+    </children>
+</AnchorPane>

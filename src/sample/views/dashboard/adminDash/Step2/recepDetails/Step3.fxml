@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXProgressBar?>
 <?import javafx.scene.control.Button?>
@@ -12,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.RecepSignUpStep3">
+<AnchorPane fx:id="signUp3Anchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.RecepSignUpStep3">
    <children>
       <BorderPane fx:id="signUpBorderPane" layoutX="10.0" layoutY="13.800000190734863" prefHeight="462.0" prefWidth="986.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <top>
@@ -54,10 +53,8 @@
                   <Label layoutX="86.0" layoutY="224.0" prefHeight="30.0" prefWidth="126.0" text="Date of Join" />
                   <TextField fx:id="staffIdText" layoutX="240.0" layoutY="74.0" prefHeight="26.0" prefWidth="215.0" />
                   <TextField fx:id="staffEmailText" layoutX="238.0" layoutY="155.0" prefHeight="26.0" prefWidth="215.0" />
-                  <Label layoutX="532.0" layoutY="155.0" prefHeight="30.0" prefWidth="127.0" text="Speciality Area" />
-                  <JFXComboBox fx:id="specialityDropDown" layoutX="674.0" layoutY="157.0" prefHeight="26.0" prefWidth="186.0" />
-                  <Label layoutX="532.0" layoutY="230.0" prefHeight="30.0" prefWidth="171.0" text="Attach Document" />
-                  <Button fx:id="attachDocBtn" layoutX="735.0" layoutY="227.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Browse" />
+                  <Label layoutX="532.0" layoutY="153.0" prefHeight="30.0" prefWidth="171.0" text="Attach Document" />
+                  <Button fx:id="attachDocBtn" layoutX="726.0" layoutY="155.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Browse" />
                   <Label layoutX="532.0" layoutY="66.0" prefHeight="30.0" prefWidth="128.0" text="Staff Photograph" />
                   <Button fx:id="staffPhotoBtn" layoutX="726.0" layoutY="76.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Browse" />
                </children>

@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
@@ -13,7 +14,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -21,7 +23,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class MOController {
 
     public static String loggedUserProfile;
-    static String [] moData;
+    public static String [] moData;
 
     @FXML
     private JFXButton recepBtn1;
@@ -41,8 +43,8 @@ public class MOController {
     @FXML
     private JFXButton recepBtn6;
 
-    @FXML
-    private JFXButton logOutBtn;
+   @FXML
+   private JFXButton logOutBtn;
 
     @FXML
     private BorderPane moBorderPane;
@@ -66,16 +68,20 @@ public class MOController {
 
     @FXML
     void step4(ActionEvent event) throws IOException {
-        Parent step4 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Step4.fxml"));
-        moBorderPane.setCenter(step4);
+
     }
 
     @FXML
     void step5(ActionEvent event) throws IOException {
-        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Step3.fxml"));
-        moBorderPane.setCenter(step3);
+        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/Profile.fxml"));
+        moBorderPane.setCenter(step2);
     }
 
+    @FXML
+    private Label welcomeLabel;
+
+    @FXML
+    private Label nameLabel;
 
     @FXML
     void logOut(ActionEvent event) throws InterruptedException, IOException {
@@ -115,7 +121,33 @@ public class MOController {
     }
 
     public void initialize(){
+
         moData = loggedUserProfile.split("~");
+
+        Date dt = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        int hours = c.get(Calendar.HOUR_OF_DAY);
+
+        if(hours>=1 && hours<=12){
+            welcomeLabel.setText("Good Morning");
+        }else if(hours>=12 && hours<=16){
+            welcomeLabel.setText("Good Afternoon");
+        }else if(hours>=16 && hours<=21) {
+            welcomeLabel.setText("Good Evening");
+        }
+
+        String[] splitName = moData[3].split("\\s+");
+        if(moData[5].equals("Male")){
+            nameLabel.setText("Mr."+splitName[0]);
+        } else {
+            if(moData[6].equals("Married")){
+                nameLabel.setText("Mrs."+splitName[0]);
+            } else {
+                nameLabel.setText("Ms."+splitName[0]);
+            }
+        }
+
     }
 }
 

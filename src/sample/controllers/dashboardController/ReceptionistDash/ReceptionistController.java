@@ -1,24 +1,33 @@
 package sample.controllers.dashboardController.ReceptionistDash;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import sample.controllers.dashboardController.PatientDash.AddAppointController;
-
-import java.net.URL;
-import java.util.ResourceBundle;
+import sample.models.UserTasks;
 
 import java.io.IOException;
+import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ReceptionistController {
+
+    public static String loggedUserProfile;
+    static String [] receptionistData;
+
+    @FXML
+    private Label newAppo;
+
+    @FXML
+    private Label totPatient;
 
     public static String objEncString;
 
@@ -52,20 +61,6 @@ public class ReceptionistController {
     @FXML
     private BorderPane recepBorderPane;
 
-    @FXML
-    void disList(MouseEvent event) {
-
-    }
-
-    @FXML
-    void recList(MouseEvent event) {
-
-    }
-
-    @FXML
-    void addVisLoad(MouseEvent event) {
-
-    }
 
 
     @FXML
@@ -89,32 +84,83 @@ public class ReceptionistController {
     }
 
     @FXML
-    void step3(ActionEvent event) throws IOException {
-        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Postal/Step3.fxml"));
-        recepBorderPane.setCenter(step3);
+    void postalMail(ActionEvent event) throws IOException {
+        Parent mail = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/PostalMail/PostalMail.fxml"));
+        recepBorderPane.setCenter(mail);
     }
+
 
     @FXML
     void step4(ActionEvent event) throws IOException {
-        Parent step4 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Visitor/Step4.fxml"));
-        recepBorderPane.setCenter(step4);
+       Parent step4 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/recepVisitorList.fxml"));
+       recepBorderPane.setCenter(step4);
     }
+
 
     @FXML
     void step5(ActionEvent event) throws IOException {
-        Parent step5 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step5.fxml"));
-        recepBorderPane.setCenter(step5);
-    }
 
+    }
 
     @FXML
     void step6(ActionEvent event) throws IOException {
-        Parent step6 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step6.fxml"));
-        recepBorderPane.setCenter(step6);
+
     }
 
     @FXML
-    void test(ActionEvent event) throws IOException {
+    void step3(ActionEvent event) throws IOException {
+
+    }
+
+    @FXML
+    void step7(ActionEvent event) throws IOException {
+        Parent step7 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Profile.fxml"));
+        recepBorderPane.setCenter(step7);
+    }
+
+    @FXML
+    void logOut(ActionEvent event) {
+
+    }
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private Label welcomeLbl;
+
+    public void initialize() throws IOException {
+
+        receptionistData = loggedUserProfile.split("~");
+        int [] counter = UserTasks.dataCounter("Receptionist");
+        totPatient.setText(String.valueOf(counter[0]));
+        newAppo.setText(String.valueOf(counter[1]));
+
+        Date dt = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        int hours = c.get(Calendar.HOUR_OF_DAY);
+
+        if(hours>=1 && hours<=12){
+           welcomeLbl.setText("Good Morning");
+        }else if(hours>=12 && hours<=16){
+            welcomeLbl.setText("Good Afternoon");
+        }else if(hours>=16 && hours<=21) {
+            welcomeLbl.setText("Good Evening");
+        }
+
+        String[] splitName = receptionistData[5].split("\\s+");
+        if(receptionistData[8].equals("Male")){
+            nameLabel.setText("Mr."+splitName[0]);
+        } else {
+            if(receptionistData[9].equals("Married")){
+                nameLabel.setText("Mrs."+splitName[0]);
+            } else {
+                nameLabel.setText("Ms."+splitName[0]);
+            }
+        }
+
+
 
 
     }

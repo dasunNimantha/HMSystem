@@ -17,10 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
 import org.controlsfx.control.textfield.TextFields;
-import sample.models.Appointment;
-import sample.models.MedicalOfficer;
-import sample.models.User;
-import sample.models.UserTasks;
+import sample.models.*;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -192,7 +189,7 @@ public class RecepEditAppointment {
 
             // call reference function
 
-            speciality = UserTasks.returnReference("SpecialityRef");
+            speciality = Reference.returnReference("SpecialityRef");
             specialityCombo.getItems().add("ALL");
             for (String s : speciality) {
                 specialityCombo.getItems().add(s);

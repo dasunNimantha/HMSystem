@@ -125,11 +125,11 @@ public class RecepViewAppointController {
 
         // Age calculator
 
-        LocalDate today = LocalDate.now();
-        LocalDate dob = patient.getDob();
-
-        Period p = Period.between(dob, today);
-        ageText.setText(String.valueOf(p.getYears()));
+//        LocalDate today = LocalDate.now();
+//        LocalDate dob = patient.getDob();
+//
+//        Period p = Period.between(dob, today);
+//        ageText.setText(String.valueOf(p.getYears()));
 
     }
 

@@ -165,7 +165,7 @@
                <children>
                   <AnchorPane layoutX="26.0" layoutY="27.0" prefHeight="203.0" prefWidth="584.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #FAFAFA;">
                      <children>
-                        <Label layoutX="24.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Good Morning,">
+                        <Label fx:id="welcomeLabel" layoutX="24.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Good Morning,">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -180,7 +180,7 @@
                               <Image url="@../../../assets/images/dashboard/rsz_girl-work-on-laptop.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="welcomeName" layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
+                        <Label fx:id="nameLabel" layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>

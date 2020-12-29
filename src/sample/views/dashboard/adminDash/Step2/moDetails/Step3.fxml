@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.MOSignUpStep3">
+<AnchorPane fx:id="signUp3Anchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.MOSignUpStep3">
    <children>
       <BorderPane fx:id="signUpBorderPane" layoutX="10.0" layoutY="13.800000190734863" prefHeight="462.0" prefWidth="986.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <top>

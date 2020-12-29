@@ -55,9 +55,10 @@ public class AppointmentList {
 
     public void initialize(){
 
-        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Patient",null,null);
+        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Patient",null,null,null);
         ObservableList<Appointment> obsAppointments = FXCollections.observableArrayList();
         obsAppointments.addAll(appointmentArrayList);
+
 
         appointNumberCol.setCellValueFactory(new PropertyValueFactory<>("appointmentNo"));
         doctorNameCol.setCellValueFactory(new PropertyValueFactory<>("appointedMedicalOfficer"));

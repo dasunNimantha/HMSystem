@@ -1,44 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.Rating?>
 
-<AnchorPane fx:id="addComplaintAnchor" focusTraversable="true" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F8F8F8; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.PatientController">
+<AnchorPane fx:id="addComplaintAnchor" focusTraversable="true" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F8F8F8; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.FeedbackController">
    <children>
-      <Label layoutX="62.0" layoutY="35.0" prefHeight="35.0" prefWidth="201.0" text="RATE US">
+      <Label layoutX="674.0" layoutY="32.0" prefHeight="35.0" prefWidth="297.0" style="-fx-ma: 0;" text="Your Rating">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="189.0" prefHeight="42.0" prefWidth="260.0" text="Leave Your Feedback Here">
+      <Rating fx:id="ratingStar" layoutX="667.0" layoutY="78.0" prefHeight="30.0" prefWidth="193.0" rating="0.0" stylesheets="@../../../assets/styles/DashboardStyles.css" />
+      <Circle fill="WHITE" layoutX="91.0" layoutY="69.0" radius="44.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label layoutX="158.0" layoutY="50.0" prefHeight="30.0" prefWidth="334.0" text="Dasun Nimantha">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <Rating layoutX="55.0" layoutY="86.0" prefHeight="29.0" prefWidth="260.0" rating="0.0" />
-      <TextArea layoutX="55.0" layoutY="231.0" prefHeight="262.0" prefWidth="334.0" promptText="FEEDBACK">
+      <Label alignment="TOP_CENTER" layoutX="563.0" layoutY="46.0" prefHeight="65.0" prefWidth="88.0" text="4.0">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold" size="54.0" />
          </font>
-      </TextArea>
-      <AnchorPane layoutX="436.0" layoutY="24.0" prefHeight="470.0" prefWidth="496.0" style="-fx-background-color: white; -fx-background-radius: 15;">
-         <children>
-            <Label alignment="CENTER" layoutX="115.0" layoutY="27.0" prefHeight="35.0" prefWidth="231.0" style="-fx-background-color: #F8F8F8; -fx-background-radius: 15;" text="Notification">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <Button layoutX="350.0" layoutY="514.0" mnemonicParsing="false" text="Save" />
-      <JFXButton buttonType="RAISED" layoutX="797.0" layoutY="518.0" onAction="#makeComplaint" prefHeight="42.0" prefWidth="134.0" style="-fx-background-color: #448AFF;" text="Make a Complaint" textFill="WHITE">
+      </Label>
+      <AnchorPane layoutX="14.0" layoutY="187.0" prefHeight="373.0" prefWidth="562.0" style="-fx-background-color: #EEEEEE; -fx-border-radius: 20; -fx-background-radius: 20;" />
+      <Label layoutX="27.0" layoutY="142.0" prefHeight="38.0" prefWidth="310.0" text="What others think...">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="CENTER" layoutX="820.0" layoutY="471.0" onAction="#makeComplain" prefHeight="38.0" prefWidth="147.0" style="-fx-background-color: #EEEEEE;" text="Make a complain">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXTextArea focusColor="#ffffff00" layoutX="607.0" layoutY="187.0" prefHeight="126.0" prefWidth="359.0" style="-fx-background-color: white; -fx-border-radius: 20; -fx-background-radius: 20;" unFocusColor="#ffffff00" />
+      <Label layoutX="607.0" layoutY="142.0" prefHeight="38.0" prefWidth="310.0" text="Add your thoughts">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="877.0" layoutY="335.0" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: #EEEEEE;" text="Post">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="697.0" layoutY="420.0" prefHeight="38.0" prefWidth="275.0" text=" Have a complain about HMS Healthcare ?" textFill="#6f6a6a">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="CENTER" layoutX="756.0" layoutY="523.0" onAction="#viewComplain" prefHeight="38.0" prefWidth="211.0" style="-fx-background-color: #EEEEEE;" text="   View previous complains">
+         <font>
+            <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
    </children>

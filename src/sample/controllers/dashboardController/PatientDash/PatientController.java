@@ -7,15 +7,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -42,7 +42,10 @@ public class PatientController {
 
 
     @FXML
-    private  Label welcomeName;
+    private Label welcomeLabel;
+
+    @FXML
+    private Label nameLabel;
 
     @FXML
     private  BorderPane mainBorderPane;
@@ -58,62 +61,30 @@ public class PatientController {
 
         Parent step2 = FXMLLoader.load(this.getClass().getResource("../../../views/dashboard/patientDash/Step1.fxml"));
         subBorderPane.setCenter(step2);
-        patientBtn1.setRipplerFill(Color.valueOf("blue"));
-        AddAppointController.appointmentPageVisitCount=0;
-
-
     }
 
     @FXML
     void step2(ActionEvent event) throws IOException {
         Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step2.fxml"));
         subBorderPane.setCenter(step2);
-        patientBtn2.setRipplerFill(Color.valueOf("blue"));
-        AddAppointController.appointmentPageVisitCount=0;
     }
 
     @FXML
     void step3(ActionEvent event) throws IOException {
         Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step3.fxml"));
         subBorderPane.setCenter(step3);
-        patientBtn3.setRipplerFill(Color.valueOf("blue"));
-        AddAppointController.appointmentPageVisitCount=0;
     }
 
     @FXML
     void step4(ActionEvent event) throws IOException {
         Parent step4 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step4.fxml"));
         subBorderPane.setCenter(step4);
-        patientBtn4.setRipplerFill(Color.valueOf("blue"));
-        AddAppointController.appointmentPageVisitCount=0;
     }
 
     @FXML
     void step5(ActionEvent event) throws IOException {
         Parent step5 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step5.fxml"));
         subBorderPane.setCenter(step5);
-        patientBtn6.setRipplerFill(Color.valueOf("red"));
-        AddAppointController.appointmentPageVisitCount=0;
-    }
-
-    @FXML
-    void step6(ActionEvent event) {
-
-    }
-    @FXML
-    private AnchorPane addComplaintAnchor;
-
-    @FXML
-    private ComboBox<String> complaintCombo;
-
-
-
-
-    public void makeComplaint(ActionEvent actionEvent) throws IOException {
-        Parent addAppointment = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step4_Complaint.fxml"));
-        BorderPane tempBorderPane = (BorderPane) (addComplaintAnchor.getParent());
-        tempBorderPane.setCenter(addAppointment);
-
     }
 
 
@@ -151,15 +122,37 @@ public class PatientController {
         TimeUnit.MILLISECONDS.sleep(150);
         backToLogin.show();
         loginMap.put("roleSelect",root);
+
     }
 
     public void initialize() throws IOException {
         patientData = loggedUserProfile.split("~");
 
+        Date dt = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        int hours = c.get(Calendar.HOUR_OF_DAY);
+
+        if(hours>=1 && hours<=12){
+            welcomeLabel.setText("Good Morning");
+        }else if(hours>=12 && hours<=16){
+            welcomeLabel.setText("Good Afternoon");
+        }else if(hours>=16 && hours<=21) {
+            welcomeLabel.setText("Good Evening");
+        }
+
+        String[] splitName = patientData[2].split("\\s+");
+        if(patientData[5].equals("Male")){
+            nameLabel.setText("Mr."+splitName[0]);
+        } else {
+            if(patientData[6].equals("Married")){
+                nameLabel.setText("Mrs."+splitName[0]);
+            } else {
+                nameLabel.setText("Ms."+splitName[0]);
+            }
+        }
+
     }
-
-
-
 }
 
 

@@ -2,7 +2,6 @@ package sample.controllers.dashboardController.PatientDash;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
-import de.jensd.fx.glyphs.testapps.App;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,12 +12,15 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
+import javafx.util.Callback;
 import sample.models.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -79,6 +81,31 @@ public class AddAppointController {
 
     @FXML
     private AnchorPane timeAnchor;
+
+    //date picker restriction function
+    public static void restrictDatePicker(DatePicker datePicker, LocalDate minDate, LocalDate maxDate) {
+        final Callback<DatePicker, DateCell> dayCellFactory = new Callback<DatePicker, DateCell>() {
+            @Override
+            public DateCell call(final DatePicker datePicker) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item.isBefore(minDate)) {
+                            setDisable(true);
+                        }else if (item.isAfter(maxDate)) {
+                            setDisable(true);
+
+
+                        }
+                    }
+                };
+            }
+        };
+        //datePicker.setDayCellFactory(dayCellFactory);
+    }
+
+
 
 
     @FXML
@@ -147,7 +174,7 @@ public class AddAppointController {
 
     @FXML
     void viewCreatedAppointment(ActionEvent event) throws IOException {
-        ArrayList<Appointment> returnedArray= Appointment.viewAppointment(false,"Patient",PatientController.patientData[0],appointment.getAppointmentNo());
+        ArrayList<Appointment> returnedArray= Appointment.viewAppointment(false,"Patient",PatientController.patientData[0],appointment.getAppointmentNo(),null);
         ViewAppointController.selectedAppointment = returnedArray.get(0);
         Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/step2_ViewAppointment.fxml"));
         BorderPane subBorderPane = (BorderPane) successAnchor.getParent();
@@ -165,12 +192,14 @@ public class AddAppointController {
 
     public void initialize() throws IOException {
 
+        // call date picker restriction function
+        restrictDatePicker(appointDatePicker, LocalDate.now(), LocalDate.now().plusDays(31));
 
         if (appointmentPageVisitCount == 0) {
 
             // call reference function
 
-            speciality = UserTasks.returnReference("SpecialityRef");
+            speciality = Reference.returnReference("SpecialityRef");
             specialityCombo.getItems().add("ALL");
             for (String s : speciality) {
                 specialityCombo.getItems().add(s);
@@ -187,76 +216,79 @@ public class AddAppointController {
             }
 
             specialityCombo.getSelectionModel().selectedItemProperty().addListener((var,oldValue,newValue) ->{
-                if(newValue.equals("ALL")){         // show all doctors if ALL item selected
-                    doctorSelectCombo.getItems().clear();
-                    doctorSelectCombo.setPromptText("Select");
-                    for (User user : returnedAllDoctorList) {
-                        mos.add(new User(user.getUserName(), user.getName()));
-                    }
-                } else {
-                    doctorSelectCombo.getItems().clear();
-                    for (User user : returnedAllDoctorList) {
-                        MedicalOfficer mo = ((MedicalOfficer) user);
-                        if (newValue.equals(mo.getSpeciality())) {
-                            mos.add(new User(user.getUserName()
-                                    , user.getName()));
-                        }
-                    } if(doctorSelectCombo.getItems().size()==0){
-                        doctorSelectCombo.setPromptText("No doctors available");
+              if(newValue.equals("ALL")){         // show all doctors if ALL item selected
+                  doctorSelectCombo.getItems().clear();
+                  doctorSelectCombo.setPromptText("Select");
+                  for (User user : returnedAllDoctorList) {
+                      mos.add(new User(user.getUserName(), user.getName()));
+                  }
+              } else {
+                  doctorSelectCombo.getItems().clear();
+                  for (User user : returnedAllDoctorList) {
+                      MedicalOfficer mo = ((MedicalOfficer) user);
+                      if (newValue.equals(mo.getSpeciality())) {
+                          mos.add(new User(user.getUserName()
+                                  , user.getName()));
+                      }
+                  } if(doctorSelectCombo.getItems().size()==0){
+                      doctorSelectCombo.setPromptText("No doctors available");
 
-                    } else {
-                        doctorSelectCombo.setPromptText("Select");
-                    }
+                  } else {
+                      doctorSelectCombo.setPromptText("Select");
+                  }
 
 
-                }
+              }
 
             });
 
             doctorSelectCombo.setItems(mos);  // add newly created MO objects to combo list
             doctorSelectCombo.getSelectionModel().selectedItemProperty().addListener((var, oldValue, newValue) -> {
-                if (newValue != null) {
-                    selectedDoctorUsername= doctorSelectCombo.getSelectionModel().getSelectedItem().getUserName();
-                    String selectedDoctorName = doctorSelectCombo.getSelectionModel().getSelectedItem().getName();
-                    doctorProNameLbl.setText("Dr."+selectedDoctorName);
-                    appointConBtn.setDisable(false);
-                    doctorDetailsBorder.setCenter(null);
-                    doctorDetailsBorder.setCenter(timeAnchor);
-                    timeAnchor.setDisable(false);
-                    timeAnchor.setVisible(true);
+                    if (newValue != null) {
+                        appointDatePicker.getEditor().setEditable(true);
+                        selectedDoctorUsername= doctorSelectCombo.getSelectionModel().getSelectedItem().getUserName();
+                        String selectedDoctorName = doctorSelectCombo.getSelectionModel().getSelectedItem().getName();
+                        doctorProNameLbl.setText("Dr."+selectedDoctorName);
+                        appointConBtn.setDisable(false);
+                        doctorDetailsBorder.setCenter(null);
+                        doctorDetailsBorder.setCenter(timeAnchor);
+                        timeAnchor.setDisable(false);
+                        timeAnchor.setVisible(true);
 
 
-                } else {
-                    timeAnchor.setVisible(false);
-                    doctorDetailsBorder.setCenter(null);
-                    doctorDetailsBorder.setCenter(policyAnchor);
-                    appointConBtn.setDisable(true);
-                    timeAnchor.setDisable(true);
-                }
-            });
-
-            // ~~~~~~~~~~~~~~~~~~~~ Toggle time button function ~~~~~~~~~~~~~~~~~~~~~~ //
-
-            for (int i = 0; i < 6; i++) {
-                ToggleButton button = (ToggleButton) timeBtn.getToggles().get(i);
-                button.selectedProperty().addListener((observable, oldValue, newValue) -> {
-
-
-                    if (newValue) {
-                        button.setStyle(
-                                "-fx-background-color:  #448AFF;" +
-                                        "-fx-text-fill: white");
                     } else {
-                        button.setStyle(
-                                "-fx-background-color: white;" +
-                                        "-fx-text-fill: black");
+                        timeAnchor.setVisible(false);
+                        doctorDetailsBorder.setCenter(null);
+                        doctorDetailsBorder.setCenter(policyAnchor);
+                        appointConBtn.setDisable(true);
+                        timeAnchor.setDisable(true);
                     }
                 });
-            }
-            // ~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~ //
+
+
+
+                // ~~~~~~~~~~~~~~~~~~~~ Toggle time button function ~~~~~~~~~~~~~~~~~~~~~~ //
+
+                for (int i = 0; i < 6; i++) {
+                    ToggleButton button = (ToggleButton) timeBtn.getToggles().get(i);
+                    button.selectedProperty().addListener((observable, oldValue, newValue) -> {
+
+
+                        if (newValue) {
+                            button.setStyle(
+                                    "-fx-background-color:  #448AFF;" +
+                                            "-fx-text-fill: white");
+                        } else {
+                            button.setStyle(
+                                    "-fx-background-color: white;" +
+                                            "-fx-text-fill: black");
+                        }
+                    });
+                }
+                // ~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~ //
             appointmentPageVisitCount++;
 
+            }
         }
-    }
 
 }

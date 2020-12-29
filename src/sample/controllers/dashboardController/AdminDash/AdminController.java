@@ -40,6 +40,10 @@ public class AdminController implements Initializable {
     @FXML
     private AnchorPane patientDetailAnchor;
 
+
+    @FXML
+    private AnchorPane mainAnchor;
+
     @FXML
     private JFXButton Step2_patientBtn;
 
@@ -56,7 +60,7 @@ public class AdminController implements Initializable {
     private Label nameLabel;
 
     @FXML
-    private JFXButton logOutBtn;
+    private JFXButton logoutBtn;
 
     @FXML
     void step1(ActionEvent event) throws IOException {
@@ -92,8 +96,8 @@ public class AdminController implements Initializable {
 
     @FXML
     void step6(ActionEvent event) throws IOException {
-        Parent step6 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step6/step6.fxml"));
-        adminBorderPane.setCenter(step6);
+       // Parent step6 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step6/Step5.fxml"));
+       // adminBorderPane.setCenter(step6);
     }
 
     @FXML
@@ -136,7 +140,7 @@ public class AdminController implements Initializable {
     void logOut(ActionEvent event) throws IOException, InterruptedException {
         // clear received object when login
 
-        Stage stage = (Stage) logOutBtn.getScene().getWindow(); // close dashboard
+        Stage stage = (Stage) mainAnchor.getScene().getWindow(); // close dashboard
         stage.close();
 
         HashMap<String,Parent> loginMap = new HashMap<>();

@@ -1,5 +1,6 @@
 package sample.controllers.dashboardController.MODash;
 
+import de.jensd.fx.glyphs.testapps.App;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +14,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
+import sample.controllers.dashboardController.PatientDash.ViewAppointController;
 import sample.models.Appointment;
+import sample.models.Patient;
+import sample.models.User;
+import sample.models.UserTasks;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,7 +53,7 @@ public class moAppointmentList {
     private Button viewAppointment;
 
     public void initialize() throws IOException {
-        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Medical_Officer",null,null);
+        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Medical_Officer",null,null,MOController.moData[0]);
         ObservableList<Appointment> obsAppointments = FXCollections.observableArrayList();
         obsAppointments.addAll(appointmentArrayList);
 
@@ -70,7 +75,7 @@ public class moAppointmentList {
                             moViewAppointController.selectedAppointment= getTableView().getItems().get(getIndex());
                             BorderPane parentBorderPane = (BorderPane) (appointmentAnchor.getParent());
                             try {
-                                Parent viewMODetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/mODash/moViewAppointment.fxml"));
+                                Parent viewMODetails = FXMLLoader.load(getClass().getResource("../../../views/dashboard/moDash/moViewAppointment.fxml"));
                                 parentBorderPane.setCenter(viewMODetails);
                             } catch (IOException e) {
                                 e.printStackTrace();

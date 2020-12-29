@@ -13,10 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
 import org.controlsfx.control.textfield.TextFields;
-import sample.models.Appointment;
-import sample.models.MedicalOfficer;
-import sample.models.User;
-import sample.models.UserTasks;
+import sample.models.*;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -34,6 +31,7 @@ public class RecepAddAppointment {
     private static int patientCount;
     private static String selectedPatientUserName;
     private static ArrayList<User> returnedPatientList;
+
 
     @FXML
     private ComboBox<String> specialityCombo;
@@ -93,63 +91,64 @@ public class RecepAddAppointment {
     }
 
 
+
     @FXML
     void changeToSuccess(ActionEvent event) throws IOException {
 
         if(selectPatientText.getText()!= null){
             for (int i=0; i<patientCount;i++){
-                if(selectPatientText.getText().trim().equals(returnedPatientList.get(i).getUserName())){
-                    selectedPatientUserName=returnedPatientList.get(i).getUserName();
-                    appointment = new Appointment();
-                    appointment.setAppointmentStatus("Approved");
-                    appointment.setPatientName(returnedPatientList.get(i).getName());
-                    appointment.setPatientUserName(selectedPatientUserName);
-                    appointment.setAppointedMedicalOfficer("Dr."+doctorSelectCombo.getValue().getName());
-                    appointment.setSymptoms(symptomText1.getText());
-                    appointment.setAppointedMoUsername(selectedDoctorUsername);
+               if(selectPatientText.getText().trim().equals(returnedPatientList.get(i).getUserName())){
+                   selectedPatientUserName=returnedPatientList.get(i).getUserName();
+                   appointment = new Appointment();
+                   appointment.setAppointmentStatus("Approved");
+                   appointment.setPatientName(returnedPatientList.get(i).getName());
+                   appointment.setPatientUserName(selectedPatientUserName);
+                   appointment.setAppointedMedicalOfficer("Dr."+doctorSelectCombo.getValue().getName());
+                   appointment.setSymptoms(symptomText1.getText());
+                   appointment.setAppointedMoUsername(selectedDoctorUsername);
 
-                    // set local Date
-                    String formattedDate = appointDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd MMM,yyyy"));
-                    appointment.setAppointmentDate(appointDatePicker.getValue());
+                   // set local Date
+                   String formattedDate = appointDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd MMM,yyyy"));
+                   appointment.setAppointmentDate(appointDatePicker.getValue());
 
-                    // set appointment time
-                    String selectedTimeText = ((ToggleButton)timeBtn.getSelectedToggle()).getText(); // get selected time
-                    // convert of time text to local time
-                    if(selectedTimeText.length()==3){
-                        char ch1 = selectedTimeText.charAt(0);
-                        char ch2 = selectedTimeText.charAt(1);
-                        localAppointTime = ch1+".00"+" "+ch2+"M";
+                   // set appointment time
+                   String selectedTimeText = ((ToggleButton)timeBtn.getSelectedToggle()).getText(); // get selected time
+                   // convert of time text to local time
+                   if(selectedTimeText.length()==3){
+                       char ch1 = selectedTimeText.charAt(0);
+                       char ch2 = selectedTimeText.charAt(1);
+                       localAppointTime = ch1+".00"+" "+ch2+"M";
 
-                    } else if(selectedTimeText.length()==4) {
-                        char ch1 = selectedTimeText.charAt(0);
-                        char ch2 = selectedTimeText.charAt(1);
-                        char ch3 = selectedTimeText.charAt(2);
-                        localAppointTime = ch1+ch2+" "+ch3+"M";
-                    }
+                   } else if(selectedTimeText.length()==4) {
+                       char ch1 = selectedTimeText.charAt(0);
+                       char ch2 = selectedTimeText.charAt(1);
+                       char ch3 = selectedTimeText.charAt(2);
+                       localAppointTime = ch1+ch2+" "+ch3+"M";
+                   }
 
-                    appointment.setAppointmentTime(localAppointTime);
+                   appointment.setAppointmentTime(localAppointTime);
 
-                    // generate appointment no
-                    DateFormat df = new SimpleDateFormat("MMddHHmmss");
-                    Date dateObj = new Date();
-                    String appointmentNo =(df.format(dateObj));
-                    appointment.setAppointmentNo(appointmentNo);
+                   // generate appointment no
+                   DateFormat df = new SimpleDateFormat("MMddHHmmss");
+                   Date dateObj = new Date();
+                   String appointmentNo =(df.format(dateObj));
+                   appointment.setAppointmentNo(appointmentNo);
 
-                    Appointment.createAppointment(appointment); //call appointment create function
+                   Appointment.createAppointment(appointment); //call appointment create function
 
-                    Parent root = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/recepAppointSuccess.fxml"));
-                    BorderPane subBorderPane = (BorderPane) appointmentAnchor.getParent();
-                    subBorderPane.setCenter(root);
+                   Parent root = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/recepAppointSuccess.fxml"));
+                   BorderPane subBorderPane = (BorderPane) appointmentAnchor.getParent();
+                   subBorderPane.setCenter(root);
 
-                    AnchorPane successAnchor = (AnchorPane)subBorderPane.getChildren().get(0);
-                    Label timeLabel= (Label) successAnchor.getChildren().get(2);
-                    timeLabel.setText(localAppointTime);
-                    Label dateLabel = (Label) successAnchor.getChildren().get(1);
-                    dateLabel.setText(formattedDate);
+                   AnchorPane successAnchor = (AnchorPane)subBorderPane.getChildren().get(0);
+                   Label timeLabel= (Label) successAnchor.getChildren().get(2);
+                   timeLabel.setText(localAppointTime);
+                   Label dateLabel = (Label) successAnchor.getChildren().get(1);
+                   dateLabel.setText(formattedDate);
 
-                } else {
-                    System.out.println("Invalid Username");
-                }
+               } else {
+                   System.out.println("Invalid Username");
+               }
             }
 
         }
@@ -169,7 +168,7 @@ public class RecepAddAppointment {
 
     @FXML
     void viewCreatedAppointment(ActionEvent event) throws IOException {
-        ArrayList<Appointment> returnedArray= Appointment.viewAppointment(false,"Patient",selectedPatientUserName,appointment.getAppointmentNo());
+        ArrayList<Appointment> returnedArray= Appointment.viewAppointment(false,"Patient",selectedPatientUserName,appointment.getAppointmentNo(),null);
         RecepViewAppointController.selectedAppointment = returnedArray.get(0);
         Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/recepViewAppointment.fxml"));
         BorderPane subBorderPane = (BorderPane) successAnchor.getParent();
@@ -185,7 +184,8 @@ public class RecepAddAppointment {
         appointmentPageVisitCount=0;
     }
 
-    public void initialize() throws IOException {
+    public void initialize() throws IOException  {
+
 
         if (appointmentPageVisitCount == 0) {
             //get all user data
@@ -203,7 +203,7 @@ public class RecepAddAppointment {
 
             // call reference function
 
-            speciality = UserTasks.returnReference("SpecialityRef");
+            speciality = Reference.returnReference("SpecialityRef");
             specialityCombo.getItems().add("ALL");
             for (String s : speciality) {
                 specialityCombo.getItems().add(s);
@@ -267,6 +267,8 @@ public class RecepAddAppointment {
                     timeAnchor.setDisable(true);
                 }
             });
+
+
 
             // ~~~~~~~~~~~~~~~~~~~~ Toggle time button function ~~~~~~~~~~~~~~~~~~~~~~ //
 

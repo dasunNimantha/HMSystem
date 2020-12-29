@@ -83,7 +83,6 @@ public class ReceptionistDetails {
                             setGraphic(null);
                         } else {
                             viewButton = new Button("View");
-                            viewButton.setVisible(false);
                             viewButton.setOnAction(event ->{
                                 viewReceptionistDetails.selectedUser= (Receptionist) getTableView().getItems().get(getIndex());
                                 BorderPane parentBorderPane = (BorderPane) (recepDetailAnchor.getParent());
@@ -102,19 +101,6 @@ public class ReceptionistDetails {
                 };
             };
 
-            userTable.setRowFactory(tableView -> {
-                final TableRow<User> row = new TableRow<>();
-                row.hoverProperty().addListener((observable) -> {
-                    final User user = row.getItem();
-                    if (row.isHover() && user != null) {
-                        viewButton.setVisible(true);
-                    } else {
-                        viewButton.setVisible(false);
-                    }
-                });
-
-                return row;
-            });
             tableTasks.setCellFactory(cellFactory);
             userTable.setItems(obsUsers);
 

@@ -32,7 +32,7 @@
                         <Insets top="60.0" />
                      </VBox.margin>
                   </Label>
-                  <JFXButton fx:id="recepBtn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step1" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Home">
+                  <JFXButton fx:id="recepAppointBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#viewAppointment" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Home">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -83,7 +83,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="recepBtn3" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step3" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Postal mail" textFill="#5b5858">
+                  <JFXButton fx:id="mailBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#postalMail" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Postal mail" textFill="#5b5858">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -116,7 +116,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="recepBtn5" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step5" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Complaints" textFill="#5b5858">
+                  <JFXButton fx:id="recepBtn6" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step6" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Complaints" textFill="#5b5858">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -131,7 +131,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="recepBtn6" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step6" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Settings" textFill="#5b5858">
+                  <JFXButton fx:id="recepBtn7" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step7" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Profile" textFill="#5b5858">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -171,7 +171,7 @@
                <children>
                   <AnchorPane layoutX="26.0" layoutY="27.0" prefHeight="203.0" prefWidth="584.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #FAFAFA;">
                      <children>
-                        <Label layoutX="24.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Good Morning,">
+                        <Label fx:id="welcomeLbl" layoutX="24.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Good Morning,">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -186,7 +186,7 @@
                               <Image url="@../../../assets/images/dashboard/rsz_girl-work-on-laptop.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
+                        <Label fx:id="nameLabel" layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -243,7 +243,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="23">
+                        <Label fx:id="newAppo" alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="23">
                            <font>
                               <Font name="System Bold" size="28.0" />
                            </font>
@@ -262,7 +262,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="350">
+                        <Label fx:id="totPatient" alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="350">
                            <font>
                               <Font name="System Bold" size="28.0" />
                            </font>

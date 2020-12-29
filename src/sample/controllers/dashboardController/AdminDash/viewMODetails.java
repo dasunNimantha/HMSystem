@@ -171,6 +171,8 @@ public class viewMODetails {
         }
 
         editedMO.setDateOfJoin(selectedUser.getDateOfJoin());
+        editedMO.setStaffId(Integer.parseInt(staffIdText.getText().trim()));
+        editedMO.setEmail(staffEmailText.getText().trim());
 
         // call edit user function
         UserTasks.userEditFunction("Admin", "Medical_Officer", editedMO, oldUsername);
@@ -234,6 +236,7 @@ public class viewMODetails {
                 passwordText.setEditable(true);
                 idNoText.setEditable(true);
                 phoneNoText.setEditable(true);
+                staffEmailText.setEditable(true);
                 addrLine1.setEditable(true);
                 addrLine2.setEditable(true);
                 addrLine3.setEditable(true);

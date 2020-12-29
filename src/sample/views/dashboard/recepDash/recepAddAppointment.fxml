@@ -120,16 +120,16 @@
                 </AnchorPane>
             </children>
         </AnchorPane>
-        <Label layoutX="46.0" layoutY="29.0" prefHeight="39.0" prefWidth="162.0" text="Patient">
-            <font>
-                <Font name="System Bold" size="17.0" />
-            </font>
-        </Label>
-        <TextField fx:id="selectPatientText" layoutX="46.0" layoutY="78.0" prefHeight="26.0" prefWidth="252.0" promptText="Enter Username" style="-fx-background-color: #E0E0E0;" />
-        <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="272.0" layoutY="83.0">
-            <image>
-                <Image url="@../../../assets/images/dashboard/icons8_search_26px.png" />
-            </image>
-        </ImageView>
+      <Label layoutX="46.0" layoutY="29.0" prefHeight="39.0" prefWidth="162.0" text="Patient">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="selectPatientText" layoutX="46.0" layoutY="78.0" prefHeight="26.0" prefWidth="252.0" promptText="Enter Username" style="-fx-background-color: #E0E0E0;" />
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="272.0" layoutY="83.0">
+         <image>
+            <Image url="@../../../assets/images/dashboard/icons8_search_26px.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

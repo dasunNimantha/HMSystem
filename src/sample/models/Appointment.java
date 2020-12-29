@@ -4,9 +4,7 @@ import de.jensd.fx.glyphs.testapps.App;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Appointment {
 
@@ -128,6 +126,7 @@ public class Appointment {
 
             bw1.close();
             fw.close();
+            System.out.println("New complain record added");
         } catch (IOException exception){
             exception.printStackTrace();
         }
@@ -136,7 +135,7 @@ public class Appointment {
 
     // view appointment details
 
-    public static ArrayList<Appointment> viewAppointment (boolean allUsers,String viewerRole,String patientUserName,String appointmentId){
+    public static ArrayList<Appointment> viewAppointment (boolean allUsers,String viewerRole,String patientUserName,String appointmentId,String moUserName){
 
         String currentLine;
         ArrayList <Appointment> appointmentArray = new ArrayList<>();
@@ -161,23 +160,24 @@ public class Appointment {
                         appointmentArray.add(readAppointment);
                     }
                 } else {
-                    if(viewerRole.equals("Receptionist")){
+                    if(viewerRole.equals("Receptionist" )|| (viewerRole.equals("Admin"))){
                         appointmentSetter(readAppointment,userData);
                         appointmentArray.add(readAppointment);
                     }
 
                     else if (viewerRole.equals("Medical_Officer")){
-                        if(userData[7].equals("Approved")){
-
+                        if((userData[7].equals("Approved")|| userData[7].equals("Completed")) && moUserName.equals(userData[4])){
+                            appointmentSetter(readAppointment,userData);
+                            appointmentArray.add(readAppointment);
                         }
                     }
                     else if((userData[2]).equals(patientUserName)){
                         appointmentSetter(readAppointment,userData);
                         appointmentArray.add(readAppointment);
                     } else {
-                        appointmentSetter(readAppointment,userData);
-                        appointmentArray.add(readAppointment);
-                    }
+                    appointmentSetter(readAppointment,userData);
+                    appointmentArray.add(readAppointment);
+                }
                 }
 
 
@@ -208,11 +208,10 @@ public class Appointment {
 
         String currentLine;
         while ((currentLine = br.readLine()) != null) {
-            Appointment readAppointment = new Appointment();
             String decryptedText = Crypto.decrypt(currentLine);
             assert decryptedText != null;
             String[] userData = decryptedText.split("~");
-            if(editorRole.equals("Receptionist")){
+            if(editorRole.equals("Receptionist") ||(editorRole.equals("Medical_Officer"))){
                 if (userData[0].equals(appointmentId)){
                     pw.println(appointmentObj);
                 } else {
@@ -242,6 +241,74 @@ public class Appointment {
         }
     }
 
+
+
+    // delete appointment function
+
+    public static void deleteAppointment(String editorRole,String appointmentNo) throws IOException {
+        if (editorRole.equals("Admin")) {
+            String currentLine;
+
+            File oldFile = new File("src/sample/fileDatabase/Appointments.txt");
+            ;
+            File tempFile = new File("src/sample/fileDatabase/AppointTempFile.txt");
+
+            FileWriter fw = new FileWriter(tempFile, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+
+            FileReader fr = new FileReader(oldFile);
+            BufferedReader br = new BufferedReader(fr);
+
+            while ((currentLine = br.readLine()) != null) {
+                String decryptedText = Crypto.decrypt(currentLine);
+                assert decryptedText != null;
+                String[] userData = decryptedText.split("~");
+                if (userData[0].equals(appointmentNo)) {
+                    System.out.println("\nAppointment found : " + appointmentNo);
+                } else {
+                    pw.println(currentLine);
+
+                }
+
+            }
+
+            pw.flush();
+            pw.close();
+            fr.close();
+            br.close();
+            bw.close();
+            fw.close();
+
+            if (oldFile.delete()) {
+                System.out.println("Appointment " + appointmentNo + " deleted successfully");
+            } else {
+                System.out.println("Error on user deletion");
+            }
+
+            File dump = new File("src/sample/fileDatabase/Appointments.txt");
+            if (tempFile.renameTo(dump)) {
+                System.out.println("Successfully renamed file");
+            } else {
+                System.out.println("Error on renaming");
+            }
+        }
+
+    }
+
+
+    public static void appointmentSetter(Appointment appointment,String[] userData){
+        appointment.setAppointmentNo(userData[0]);
+        appointment.setPatientName(userData[1]);
+        appointment.setPatientUserName(userData[2]);
+        appointment.setAppointedMedicalOfficer(userData[3]);
+        appointment.setAppointedMoUsername(userData[4]);
+        appointment.setAppointmentDate(LocalDate.parse(userData[5]));
+        appointment.setAppointmentTime(userData[6]);
+     //   appointment.setSymptoms(userData[7]);
+        appointment.setAppointmentStatus(userData[7]);
+    }
+
     @Override
     public String toString() {
         return Crypto.encrypt( appointmentNo +
@@ -253,17 +320,5 @@ public class Appointment {
                 "~" + appointmentTime +
                 //  "~" + symptoms +
                 "~" + appointmentStatus);
-    }
-
-    public static void appointmentSetter(Appointment appointment,String[] userData){
-        appointment.setAppointmentNo(userData[0]);
-        appointment.setPatientName(userData[1]);
-        appointment.setPatientUserName(userData[2]);
-        appointment.setAppointedMedicalOfficer(userData[3]);
-        appointment.setAppointedMoUsername(userData[4]);
-        appointment.setAppointmentDate(LocalDate.parse(userData[5]));
-        appointment.setAppointmentTime(userData[6]);
-        //   appointment.setSymptoms(userData[7]);
-        appointment.setAppointmentStatus(userData[7]);
     }
 }

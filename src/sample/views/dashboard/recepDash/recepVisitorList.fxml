@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="visitorAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.RecepVisitorList">
+    <children>
+        <TableView fx:id="visitorTable" layoutX="14.0" layoutY="31.0" prefHeight="479.0" prefWidth="954.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+            <columns>
+                <TableColumn fx:id="nameCol" editable="false" prefWidth="120.7999849319458" resizable="false" text="Name" />
+                <TableColumn fx:id="idNoCol" editable="false" prefWidth="172.0000457763672" resizable="false" text="ID No" />
+                <TableColumn fx:id="dateCol" editable="false" prefWidth="180.0" resizable="false" text="Date" />
+                <TableColumn fx:id="purposeCol" editable="false" prefWidth="130.39996337890625" resizable="false" text="Purpose" />
+                <TableColumn fx:id="inTimeCol" editable="false" minWidth="0.0" prefWidth="118.4000244140625" resizable="false" text="In Time" />
+                <TableColumn fx:id="outTimeCol" editable="false" prefWidth="119.199951171875" resizable="false" text="Out Time" />
+                <TableColumn fx:id="viewCol" editable="false" prefWidth="128.0" resizable="false" text="Tasks" />
+            </columns>
+        </TableView>
+        <JFXButton fx:id="addVisitorBtn" layoutX="800.0" layoutY="525.0" onAction="#addVisitor" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #448AFF; -fx-background-radius: 15;" text="Add Visitor" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="11.0" />
+            </font>
+        </JFXButton>
+    </children>
+</AnchorPane>

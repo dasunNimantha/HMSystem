@@ -4,19 +4,18 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="484.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.AdminController">
-    <children>
-        <TableView layoutX="14.0" layoutY="14.0" prefHeight="464.0" prefWidth="925.0">
-            <columns>
-                <TableColumn prefWidth="84.7999849319458" text="NO" />
-                <TableColumn prefWidth="129.60000610351562" text="Appoinment Date" />
-                <TableColumn prefWidth="127.20002746582031" text="Customer Name" />
-                <TableColumn prefWidth="109.5999755859375" text="Phone Number" />
-                <TableColumn minWidth="0.0" prefWidth="98.39996337890625" text="Service" />
-                <TableColumn prefWidth="111.20001220703125" text="Customer Email" />
-                <TableColumn prefWidth="99.20001220703125" text="Edit " />
-                <TableColumn prefWidth="121.599853515625" text="Options" />
-            </columns>
-        </TableView>
-    </children>
+<AnchorPane fx:id="appointmentAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.ViewAppointmentList">
+   <children>
+      <TableView fx:id="appointTable" layoutX="14.0" layoutY="31.0" prefHeight="479.0" prefWidth="954.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <columns>
+            <TableColumn fx:id="appointNumberCol" editable="false" prefWidth="120.7999849319458" resizable="false" text="Appointment No" />
+            <TableColumn fx:id="patientNameCol" editable="false" prefWidth="172.0000457763672" resizable="false" text="Patient Name" />
+            <TableColumn fx:id="doctorNameCol" editable="false" prefWidth="180.0" resizable="false" text="Doctor Name" />
+            <TableColumn fx:id="appointDateCol" editable="false" prefWidth="130.39996337890625" resizable="false" text="Date" />
+            <TableColumn fx:id="appointTimeCol" editable="false" minWidth="0.0" prefWidth="118.4000244140625" resizable="false" text="Time" />
+            <TableColumn fx:id="appointStatusCol" editable="false" prefWidth="97.60003662109375" resizable="false" text="Status" />
+            <TableColumn fx:id="appointViewCol" editable="false" prefWidth="148.7999267578125" resizable="false" text="Tasks" />
+         </columns>
+      </TableView>
+   </children>
 </AnchorPane>
