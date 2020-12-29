@@ -9,12 +9,12 @@
 
 <AnchorPane fx:id="roleSelectAnchor" prefHeight="569.0" prefWidth="494.0" style="-fx-background-color: white; -fx-background-radius: 25; -fx-border-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.LoginController">
    <children>
-      <Label fx:id="roleSelectText" alignment="CENTER" layoutX="91.0" layoutY="37.0" prefHeight="53.0" prefWidth="273.0" text="Select Your Role" textFill="#0b0634d6" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="91.0">
+      <Label fx:id="roleSelectText" alignment="CENTER" layoutX="91.0" layoutY="37.0" prefHeight="53.0" prefWidth="273.0" text="You're a" textFill="#0b0634d6" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="91.0">
          <font>
-            <Font name="Times New Roman Bold" size="31.0" />
+            <Font name="System Bold" size="31.0" />
          </font>
       </Label>
-      <JFXButton fx:id="Patient" buttonType="RAISED" contentDisplay="CENTER" layoutX="75.0" layoutY="120.0" onAction="#roleSelect" prefHeight="180.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-color: #0004ff; -fx-border-radius: 25;" text="Patient" textFill="#1c0b61">
+      <JFXButton fx:id="Patient" buttonType="RAISED" contentDisplay="CENTER" layoutX="75.0" layoutY="120.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Patient" textFill="#1c0b61">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -22,7 +22,7 @@
             <DropShadow />
          </effect>
       </JFXButton>
-      <JFXButton fx:id="Receptionist" buttonType="RAISED" layoutX="275.0" layoutY="120.0" onAction="#roleSelect" prefHeight="180.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25; -fx-border-color: #0004ff;" text="Receptionist" textFill="#1c0b61">
+      <JFXButton fx:id="Receptionist" buttonType="RAISED" layoutX="275.0" layoutY="120.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Receptionist" textFill="#1c0b61">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -30,7 +30,7 @@
             <DropShadow />
          </effect>
       </JFXButton>
-      <JFXButton fx:id="Medical_Officer" buttonType="RAISED" layoutX="75.0" layoutY="330.0" onAction="#roleSelect" prefHeight="180.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-color: #0004ff; -fx-border-radius: 25;" text="Medical Officer" textFill="#1c0b61">
+      <JFXButton fx:id="Medical_Officer" buttonType="RAISED" layoutX="75.0" layoutY="330.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Medical Officer" textFill="#1c0b61">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -38,7 +38,7 @@
             <DropShadow />
          </effect>
       </JFXButton>
-      <JFXButton fx:id="Admin" buttonType="RAISED" layoutX="275.0" layoutY="330.0" onAction="#roleSelect" prefHeight="180.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-color: #0004ff; -fx-border-radius: 25;" text="Admin" textFill="#1c0b61">
+      <JFXButton fx:id="Admin" buttonType="RAISED" layoutX="275.0" layoutY="330.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Admin" textFill="#1c0b61">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

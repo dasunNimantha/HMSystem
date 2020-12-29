@@ -64,9 +64,6 @@ public class ProfileController  {
     private TextField addr3Text;
 
     @FXML
-    private ImageView editImage;
-
-    @FXML
     private ImageView editImage1;
 
     @FXML
@@ -82,7 +79,6 @@ public class ProfileController  {
 
     @FXML
     void editProfile(ActionEvent event) {
-        editImage.setVisible(true);
         editImage1.setVisible(true);
 
         nameText.setEditable(true);
