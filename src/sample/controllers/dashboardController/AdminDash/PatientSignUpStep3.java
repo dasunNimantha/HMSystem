@@ -59,7 +59,7 @@ public class PatientSignUpStep3 extends PatientSignUpStep1 {
     void FinishSignUp(ActionEvent event) throws IOException {
         patient.setBloodGroup(bloodGrp.getValue());
 
-        if(allergies.getText()!= null){
+        if(allergies.getText().length()==0){
             patient.setAllergies(allergies.getText());
         } else {
             patient.setAllergies("No Allergies");

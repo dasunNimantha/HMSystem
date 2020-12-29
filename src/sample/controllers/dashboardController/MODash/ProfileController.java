@@ -5,7 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import sample.controllers.dashboardController.ReceptionistDash.ReceptionistController;
 
@@ -76,6 +78,11 @@ public class ProfileController {
     }
 
     public void initialize(){
+
+        String imagePath = MOController.moData[12];
+        Image proPic = new Image(imagePath);
+        profileCircle.setFill(new ImagePattern(proPic));
+
         nameLabel.setText(MOController.moData[5]);
         usernameLbl.setText("#"+MOController.moData[0]);
         nameText.setText(MOController.moData[5]);

@@ -5,7 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import sample.controllers.dashboardController.PatientDash.PatientController;
 
@@ -81,6 +83,11 @@ public class ProfileController {
 
 
     public void initialize(){
+
+
+        String imagePath = ReceptionistController.receptionistData[12];
+        Image proPic = new Image(imagePath);
+        profileCircle.setFill(new ImagePattern(proPic));
 
         nameLabel.setText(ReceptionistController.receptionistData[5]);
         usernameLbl.setText("#"+ReceptionistController.receptionistData[0]);

@@ -31,7 +31,12 @@ public class UserTasks {
                 bw1.write(userObj.toString());
                 System.out.println("New " + userType + " created Successfully");
             } else {
-                bw1.write("\n" + userObj.toString());
+                int count =1;
+                for(int i=0;i<300000;i++){
+                    userObj.setPhoneNumber(count);
+                    bw1.write("\n" + userObj.toString());
+                    count++;
+                }
             }
 
             bw1.close();

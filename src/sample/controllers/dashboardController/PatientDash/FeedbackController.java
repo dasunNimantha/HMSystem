@@ -4,8 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import org.controlsfx.control.Rating;
 
 import java.io.IOException;
@@ -17,6 +20,9 @@ public class FeedbackController {
 
     @FXML
     private Rating ratingStar;
+
+    @FXML
+    private Circle proCircle;
 
     @FXML
     void makeComplain(ActionEvent event) throws IOException {
@@ -37,6 +43,9 @@ public class FeedbackController {
 
     public void initialize(){
 
+        String imagePath = PatientController.patientData[9];
+        Image proPic = new Image(imagePath);
+        proCircle.setFill(new ImagePattern(proPic));
 
     }
 }

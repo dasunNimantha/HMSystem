@@ -9,10 +9,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.util.Callback;
+import sample.controllers.dashboardController.MODash.MOController;
 import sample.models.*;
 
 import java.io.File;
@@ -192,6 +195,8 @@ public class AddAppointController {
 
     public void initialize() throws IOException {
 
+
+
         // call date picker restriction function
         restrictDatePicker(appointDatePicker, LocalDate.now(), LocalDate.now().plusDays(31));
 
@@ -253,6 +258,16 @@ public class AddAppointController {
                         doctorDetailsBorder.setCenter(null);
                         doctorDetailsBorder.setCenter(timeAnchor);
                         timeAnchor.setDisable(false);
+
+                        try {
+                            ArrayList<User> userArraylist = UserTasks.viewUser(false,"Patient","Medical_Officer",selectedDoctorUsername);
+                            String imagePath = userArraylist.get(0).getProfilePath();
+                            Image proPic = new Image(imagePath);
+                            docProfile.setFill(new ImagePattern(proPic));
+
+                        } catch (IOException exception) {
+                            exception.printStackTrace();
+                        }
                         timeAnchor.setVisible(true);
 
 

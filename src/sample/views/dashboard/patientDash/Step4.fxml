@@ -16,7 +16,7 @@
          </font>
       </Label>
       <Rating fx:id="ratingStar" layoutX="667.0" layoutY="78.0" prefHeight="30.0" prefWidth="193.0" rating="0.0" stylesheets="@../../../assets/styles/DashboardStyles.css" />
-      <Circle fill="WHITE" layoutX="91.0" layoutY="69.0" radius="44.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="proCircle" fill="WHITE" layoutX="91.0" layoutY="69.0" radius="44.0" stroke="WHITE" strokeType="INSIDE" />
       <Label layoutX="158.0" layoutY="50.0" prefHeight="30.0" prefWidth="334.0" text="Dasun Nimantha">
          <font>
             <Font name="System Bold" size="26.0" />

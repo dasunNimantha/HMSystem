@@ -227,6 +227,7 @@ public class viewMODetails {
             passwordText.setVisible(false);
             passwdLbl.setVisible(false);
             editBtn.setVisible(false);
+            deleteUserBtn.setVisible(false);
         }
 
         if(viewerRole.equals("Patient")){

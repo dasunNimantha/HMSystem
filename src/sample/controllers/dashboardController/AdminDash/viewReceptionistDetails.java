@@ -218,6 +218,7 @@ public class viewReceptionistDetails {
             editBtn.setVisible(false);
             passwdLbl.setVisible(false);
             passwdLbl.setManaged(true);
+            deleteUserBtn.setVisible(false);
 
         }
         getUsrData();

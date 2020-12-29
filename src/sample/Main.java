@@ -48,7 +48,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-
+        System.out.println(Crypto.decrypt("pslNJmKssCTR0O6tmif+gMMBAKY6ZOMtoWzGm9nC+1lsDZ9ivjCVT/vjkwasdKnXanvIDV7HNRoQn9VGOcTv1S3KR3Vkw3y2aDOkan2g8qx5OmWAebZ9VAkMC95+Rh4EmIiRmnjYRLThN69weze4UMAi1sJsWz7K9iSAo3UZhZtjr2gWVlS71x4KFUySsLr4UyySyiaBJejhZsDIxOHijFCnkyTMxtj++fTUXsSf5MM="));
         launch(args);
     }
 

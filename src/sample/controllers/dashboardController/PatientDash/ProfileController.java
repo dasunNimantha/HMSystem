@@ -7,10 +7,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import java.io.FileNotFoundException;
+import javafx.stage.FileChooser;
+import sample.models.Patient;
+import sample.models.UserTasks;
+
+import java.io.*;
+import java.time.LocalDate;
 
 
 public class ProfileController  {
@@ -80,9 +86,46 @@ public class ProfileController  {
 
     }
 
+
+    @FXML
+    void proAdd(MouseEvent event) {
+        FileChooser fc = new FileChooser();
+
+        FileChooser.ExtensionFilter fileExtensions =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg");
+        fc.getExtensionFilters().add(fileExtensions);
+        File proPicFile = fc.showOpenDialog(null);
+        String imageDest = "src/sample/fileDatabase/profileImages/"+PatientController.patientData[3]+".jpg";
+        try {
+            //calling file copy function
+            copyFile(proPicFile,imageDest);
+            Patient patient = new Patient();
+            patient.setUserName(PatientController.patientData[0]);
+            patient.setPassword(PatientController.patientData[1]);
+            patient.setName(PatientController.patientData[2]);
+            patient.setIdNumber(Integer.parseInt(PatientController.patientData[3]));
+            patient.setDob(LocalDate.parse(PatientController.patientData[4]));
+            patient.setGender(PatientController.patientData[5]);
+            patient.setMaritalStatus(PatientController.patientData[6]);
+            patient.setAddress(PatientController.patientData[7]);
+            patient.setPhoneNumber(Integer.parseInt(PatientController.patientData[8]));
+            patient.setProfilePath(imageDest);
+            patient.setBloodGroup(PatientController.patientData[10]);
+            patient.setAllergies(PatientController.patientData[11]);
+
+            UserTasks.userEditFunction("Patient","Patient",patient,PatientController.patientData[0]);
+
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+    }
+
+
+
+
     @FXML
     void editProfile(ActionEvent event) {
-        editImage.setVisible(true);
         editImage1.setVisible(true);
 
         nameText.setEditable(true);
@@ -113,11 +156,22 @@ public class ProfileController  {
         addr2Text.setText(addr[1]);
         addr3Text.setText(addr[2]);
 
-        String imagePath = "sample/assets/images/dashboard/Maithripala-_Russia_(portrait).jpg";
+        String imagePath = PatientController.patientData[9];
         Image proPic = new Image(imagePath);
         profileCircle.setFill(new ImagePattern(proPic));
 
+    }
 
+    private static void copyFile(File source, String dest) throws IOException {
+        try (InputStream is = new FileInputStream(source); OutputStream os = new FileOutputStream(dest)) {
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = is.read(buffer)) > 0) {
+                os.write(buffer, 0, length);
+            }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 
 
