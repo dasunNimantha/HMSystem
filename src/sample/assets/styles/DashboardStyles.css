@@ -94,3 +94,15 @@
     -fx-font-weight: bold;
     -fx-font-size: 15;
 }
+
+/* Unselected star */
+.rating > .container > .button {
+    -fx-background-image: url("../images/unselectedStar.png");
+    -fx-padding: 15;
+}
+
+/* Selected star */
+.rating > .container > .button.strong {
+    -fx-background-image: url("../images/selectedStar.png");
+    -fx-padding: 15;
+}

@@ -42,7 +42,6 @@ public  class User extends RecursiveTreeObject<User> {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.profilePath = profilePath;
-        this.viewUserBtn = viewUserBtn;
     }
 
     @Override

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mailAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.PostalMail.PostalMainController">
+   <children>
+      <AnchorPane layoutX="518.0" layoutY="48.0" prefHeight="486.0" prefWidth="413.0" style="-fx-background-color: #EEEEEE; -fx-border-radius: 20; -fx-background-radius: 20;" AnchorPane.rightAnchor="52.0">
+         <children>
+            <Label alignment="CENTER" layoutX="81.0" layoutY="30.0" prefHeight="59.0" prefWidth="250.0" text="Dispatched Mails" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="82.20000000000002" AnchorPane.topAnchor="40.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="116.0" layoutY="112.0" onAction="#addDispMail" onMouseClicked="#changeToAdmin" prefHeight="140.0" prefWidth="182.0" style="-fx-background-color: white; -fx-background-radius: 22; -fx-border-radius: 22;" text="Add" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="120.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="116.0" layoutY="284.0" onAction="#viewDispMail" onMouseClicked="#changeToAdmin" prefHeight="140.0" prefWidth="182.0" style="-fx-background-color: white; -fx-background-radius: 22; -fx-border-radius: 22;" text="View" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="284.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="59.0" layoutY="48.0" prefHeight="486.0" prefWidth="413.0" style="-fx-background-color: #EEEEEE; -fx-border-radius: 20; -fx-background-radius: 20;" AnchorPane.leftAnchor="52.0">
+         <children>
+            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="116.0" layoutY="120.0" onAction="#addRecMail" onMouseClicked="#changeToAdmin" prefHeight="140.0" prefWidth="182.0" style="-fx-background-color: white; -fx-background-radius: 22; -fx-border-radius: 22;" text="Add" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="118.0" AnchorPane.topAnchor="120.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <Label alignment="CENTER" layoutX="81.0" layoutY="40.0" prefHeight="59.0" prefWidth="250.0" text="Received Mails" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="82.20000000000002" AnchorPane.topAnchor="40.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="117.0" layoutY="295.0" onAction="#viewRecMail" onMouseClicked="#changeToAdmin" prefHeight="140.0" prefWidth="182.0" style="-fx-background-color: white; -fx-background-radius: 22; -fx-border-radius: 22;" text="View" AnchorPane.bottomAnchor="51.39999999999998" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="295.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

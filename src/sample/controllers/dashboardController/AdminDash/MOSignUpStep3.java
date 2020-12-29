@@ -13,6 +13,7 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import sample.models.Reference;
 import sample.models.UserTasks;
 
 import java.io.IOException;
@@ -84,6 +85,7 @@ public class MOSignUpStep3 extends MOSignUpStep1{
         medicalOfficer.setSpeciality(specialityDropDown.getValue());
         medicalOfficer.setProfilePath("sample/assets/images/loginImages/416-4161690_empty-profile-picture-blank-avatar-image-circle.png");
         // pass object to write to the patientDB.txt file
+        System.out.println(medicalOfficer);
         UserTasks.createPatient("Admin","Medical_Officer",medicalOfficer);
 
 
@@ -96,7 +98,7 @@ public class MOSignUpStep3 extends MOSignUpStep1{
     }
 
     public void initialize() throws IOException {
-        ArrayList<String> speciality = UserTasks.returnReference("SpecialityRef");
+        ArrayList<String> speciality = Reference.returnReference("SpecialityRef");
 
         int count = speciality.size();
         for(int i=0;i<count;i++){

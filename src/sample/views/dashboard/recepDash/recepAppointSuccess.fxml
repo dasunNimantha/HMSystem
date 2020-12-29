@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="successAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.RecepAddAppointment">
+    <children>
+        <ImageView fitHeight="295.0" fitWidth="443.0" layoutX="49.0" layoutY="223.0">
+            <image>
+                <Image url="@../../../assets/images/dashboard/appointments_illustration.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="successDateLabel" alignment="CENTER" layoutX="197.0" layoutY="320.0" prefHeight="59.0" prefWidth="210.0" text="    23 Dec,2020   " textFill="#544f4f">
+            <font>
+                <Font name="System Bold" size="23.0" />
+            </font>
+        </Label>
+        <Label fx:id="successTimeLabel" alignment="CENTER" layoutX="237.0" layoutY="386.0" prefHeight="34.0" prefWidth="130.0" text="8.00 AM" textFill="#544f4f">
+            <font>
+                <Font name="System Bold" size="23.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="541.0" layoutY="95.0" prefHeight="326.0" prefWidth="404.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15;">
+            <children>
+                <Label layoutX="29.0" layoutY="14.0" prefHeight="70.0" prefWidth="358.0" text="Appointment booked&#10;successfully!">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Label alignment="TOP_LEFT" layoutX="29.0" layoutY="97.0" prefHeight="79.0" prefWidth="358.0" text="Lorem ipsum, or lipsumas it is sometimes &#10;known, is dummy text used in laying out &#10;print, graphic or web designs. The passage is attributed to an unknown typesetter &#10;" textFill="#615c5c">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <JFXButton layoutX="25.0" layoutY="187.0" onAction="#viewCreatedAppointment" prefHeight="42.0" prefWidth="186.0" style="-fx-background-color: #00E676;" text="View Appointment" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton layoutX="25.0" layoutY="248.0" onAction="#anotherAppointment" prefHeight="42.0" prefWidth="234.0" style="-fx-background-color: #BDBDBD;" text="Make another Appointment" textFill="#515050">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

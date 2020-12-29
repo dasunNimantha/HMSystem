@@ -19,8 +19,6 @@ public class MOSignUpStep1 extends MedicalOfficerDetails {
 
     static MedicalOfficer medicalOfficer = new MedicalOfficer();
 
-    @FXML
-    private AnchorPane signUp3Anchor;
 
     // Step 1 nodes
 

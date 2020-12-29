@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="addComplainAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.RecepAddVisitor">
+    <children>
+        <JFXButton layoutX="816.0" layoutY="530.0" onAction="#backToComplainListBack" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #448AFF;" text="Back" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <Label layoutX="43.0" layoutY="14.0" prefHeight="50.0" prefWidth="691.0" text="Visitor Record Form">
+            <font>
+                <Font name="System Bold" size="27.0" />
+            </font>
+        </Label>
+        <Label layoutX="52.0" layoutY="424.0" prefHeight="26.0" prefWidth="212.0" text="Date :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="43.0" layoutY="95.0" prefHeight="26.0" prefWidth="212.0" text="Name :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="421.0" layoutY="95.0" prefHeight="26.0" prefWidth="212.0" text="In Time :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="43.0" layoutY="200.0" prefHeight="26.0" prefWidth="212.0" text="ID Number :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="421.0" layoutY="200.0" prefHeight="26.0" prefWidth="212.0" text="Purpose :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <JFXTextArea fx:id="purposeField" focusColor="#405aa800" layoutX="421.0" layoutY="234.0" prefHeight="122.0" prefWidth="510.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #EEEEEE;" unFocusColor="#4d4d4d00" />
+        <Label layoutX="421.0" layoutY="464.0" prefHeight="34.0" prefWidth="176.0" text="Attach documents  (If any)">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="421.0" layoutY="398.0" prefHeight="34.0" prefWidth="64.0" text="Note :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="attachText" layoutX="613.0" layoutY="469.0" prefHeight="26.0" prefWidth="212.0" style="-fx-background-color: #EEEEEE;" />
+        <JFXButton fx:id="browseButton" layoutX="845.0" layoutY="469.0" prefHeight="26.0" prefWidth="87.0" style="-fx-border-color: #EEEEEE;" text="Browse" />
+        <JFXButton fx:id="addVisitorBtn" layoutX="573.0" layoutY="530.0" onAction="#addVisitor" prefHeight="34.0" prefWidth="206.0" style="-fx-background-color: #00E676;" text="Add Visitor" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <TextField fx:id="noteText" layoutX="508.0" layoutY="398.0" prefHeight="34.0" prefWidth="421.0" style="-fx-background-color: #EEEEEE;" />
+        <TextField fx:id="idNoText" layoutX="43.0" layoutY="246.0" prefHeight="34.0" prefWidth="238.0" style="-fx-background-color: #EEEEEE;" />
+        <TextField fx:id="nameText" layoutX="43.0" layoutY="139.0" prefHeight="34.0" prefWidth="238.0" style="-fx-background-color: #EEEEEE;" />
+      <Label layoutX="43.0" layoutY="317.0" prefHeight="26.0" prefWidth="212.0" text="Phone Number :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phoneNoText" layoutX="43.0" layoutY="363.0" prefHeight="34.0" prefWidth="238.0" style="-fx-background-color: #EEEEEE;" />
+      <JFXTimePicker fx:id="inTime" defaultColor="#0b7ccd" layoutX="421.0" layoutY="142.0" />
+      <Label layoutX="710.0" layoutY="100.0" prefHeight="26.0" prefWidth="212.0" text="Out Time :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXTimePicker fx:id="outTime" defaultColor="#0b7ccd" layoutX="710.0" layoutY="147.0" />
+      <JFXDatePicker fx:id="date" layoutX="43.0" layoutY="469.0" prefWidth="240.0" />
+    </children>
+</AnchorPane>

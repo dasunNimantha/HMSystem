@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="583.0" prefWidth="986.0" style="-fx-background-radius: 8; -fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.PatientController">
+<AnchorPane prefHeight="583.0" prefWidth="946.0" style="-fx-border-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="36.0" layoutY="37.0" prefHeight="203.0" prefWidth="584.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #FAFAFA;">
+      <AnchorPane layoutX="26.0" layoutY="27.0" prefHeight="203.0" prefWidth="584.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #FAFAFA;">
          <children>
-            <Label layoutX="24.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Good Morning,">
+            <Label fx:id="welcomeLabel" layoutX="24.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Good Morning,">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -25,19 +25,19 @@
                   <Image url="@../../../assets/images/dashboard/rsz_girl-work-on-laptop.png" />
                </image>
             </ImageView>
-            <Label fx:id="welcomeName2" layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
+            <Label fx:id="nameLabel" layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="55.0" layoutY="261.0" prefHeight="51.0" prefWidth="276.0" text="Weekly Reports">
+      <Label layoutX="45.0" layoutY="251.0" prefHeight="51.0" prefWidth="276.0" text="Weekly Reports">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="784.0" layoutY="336.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
+      <AnchorPane layoutX="774.0" layoutY="326.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
          <children>
             <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Lorem Ipsum">
                <font>
@@ -56,7 +56,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="540.0" layoutY="336.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
+      <AnchorPane layoutX="530.0" layoutY="326.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
          <children>
             <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Unread Mails">
                <font>
@@ -75,9 +75,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="290.0" layoutY="335.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
+      <AnchorPane layoutX="280.0" layoutY="325.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
          <children>
-            <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="New Appointments">
+            <Label alignment="CENTER" layoutX="2.0" layoutY="125.0" prefHeight="39.0" prefWidth="175.0" text="Upcoming Appointments">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -94,9 +94,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="41.0" layoutY="336.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
+      <AnchorPane layoutX="31.0" layoutY="326.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
          <children>
-            <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Total Patients">
+            <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Total Doctors">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -113,7 +113,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="640.0" layoutY="39.0" prefHeight="200.0" prefWidth="324.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #FAFAFA;">
+      <AnchorPane layoutX="630.0" layoutY="29.0" prefHeight="200.0" prefWidth="324.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #FAFAFA;">
          <children>
             <Label alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="32.0" prefWidth="286.0" text="Notifications">
                <font>

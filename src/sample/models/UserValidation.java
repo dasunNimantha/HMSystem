@@ -27,9 +27,11 @@ public class UserValidation {
                 String decryptedText = Crypto.decrypt(currentLine);
                 assert decryptedText != null;
                 String[] userData = decryptedText.split("~");
+
                 if ((userData[0].equals(username) && (userData[1]).equals(password))) {
                     returnData.add(0,"1");
                     returnData.add(1,decryptedText);
+                    break;
                 } else {
                     returnData.add(0,"0");
                 }

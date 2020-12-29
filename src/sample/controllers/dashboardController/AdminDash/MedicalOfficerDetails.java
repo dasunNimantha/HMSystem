@@ -102,15 +102,6 @@ public class MedicalOfficerDetails {
                 };
             };
 
-            userTable.setRowFactory(tableView -> {
-                final TableRow<User> row = new TableRow<>();
-                row.hoverProperty().addListener((observable) -> {
-                    final User user = row.getItem();
-                    viewButton.setVisible(row.isHover() && user != null);
-                });
-
-                return row;
-            });
 
             tableTasks.setCellFactory(cellFactory);
             userTable.setItems(obsUsers);

@@ -15,25 +15,23 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
-
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import sample.Main;
-import sample.controllers.dashboardController.AdminDash.AdminController;
 import sample.controllers.dashboardController.MODash.MOController;
 import sample.controllers.dashboardController.PatientDash.PatientController;
 import sample.controllers.dashboardController.ReceptionistDash.ReceptionistController;
+import sample.models.Crypto;
 import sample.models.UserValidation;
 
 
@@ -47,6 +45,10 @@ public class LoginController  extends Thread {
 
     @FXML
     private JFXPasswordField passwdField;
+
+    @FXML
+    private BorderPane borderPaneLogin;
+
 
     @FXML
     private Button backBtn;
@@ -101,6 +103,8 @@ public class LoginController  extends Thread {
         mainBorderPane.setCenter(root2);
         final Node source = (Node) event.getSource();
         userRole = source.getId();
+        borderPaneLogin.setRight(null);
+
 
     }
 
@@ -148,14 +152,22 @@ public class LoginController  extends Thread {
         } else {
             try {
                 ArrayList <String> returnData = UserValidation.authCheck(userRole, username, password);
-                if ((returnData.get(0)).equals("1")) {
+                if(returnData.size()==0){
+                    invalidLabel.setText("No users in the database");
+                    invalidLabel.setVisible(true);
+                }
+                else if ((returnData.get(0)).equals("1")) {
 
                     Stage stage = (Stage) loginBtn.getScene().getWindow();
                     stage.close();
                     SceneLoader sl = new SceneLoader();
-                    PatientController.loggedUserProfile=returnData.get(1);
-                    sl.DashboardLoader(userRole);
 
+                    PatientController.loggedUserProfile=returnData.get(1);
+                    MOController.loggedUserProfile = returnData.get(1);
+                    ReceptionistController.loggedUserProfile = returnData.get(1);
+
+                    sl.DashboardLoader(userRole);
+                    saveLogData(LocalDate.now(),LocalTime.now(),username,userRole);
 
                 } else {
                     System.out.println("Invalid Username or Password");
@@ -166,6 +178,31 @@ public class LoginController  extends Thread {
             }
 
         }
+    }
+
+
+    public void saveLogData(LocalDate loggedDate, LocalTime loggedTime,String username,String userRole) throws IOException {
+        File logData = new File("src/sample/fileDatabase/logFiles/loginData.txt");
+        if(!logData.exists()){
+            if(logData.createNewFile()){
+                System.out.println("New login log created");
+            }
+        }
+
+        FileWriter fw = new FileWriter(logData,true);
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mm:ss a");
+        String encText= Crypto.encrypt(loggedDate.toString()+","+loggedTime.format(dtf)+","+username+","+userRole);
+        if(logData.length()==0){
+            assert encText != null;
+            bw.write(encText);
+        } else{
+            bw.write("\n"+encText);
+        }
+
+        bw.close();
+        fw.close();
     }
 
 }

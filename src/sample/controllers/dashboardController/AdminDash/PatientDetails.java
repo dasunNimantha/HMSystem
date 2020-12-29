@@ -70,23 +70,6 @@ public class PatientDetails  {
 
      public void initialize(){
 
-         IntegerProperty hoveredID = new SimpleIntegerProperty(-1);
-
-         userTable.setRowFactory(tableView -> {
-             final TableRow<User> row = new TableRow<>();
-             row.hoverProperty().addListener((observable,wasHovered,isNowHovered) -> {
-                 final User user = row.getItem();
-                 if (isNowHovered && user != null) {
-                     hoveredID.set(row.getItem().getIdNumber());
-                     System.out.println(hoveredID);
-                 } else {
-                     viewButton.setVisible(false);
-                 }
-             });
-
-             return row;
-         });
-
         try {
             ArrayList<User> userArrayList = UserTasks.viewUser(true,"Admin","Patient",null);
             ObservableList<User> obsUsers = FXCollections.observableArrayList();
@@ -107,7 +90,7 @@ public class PatientDetails  {
                             setGraphic(null);
                         } else {
                             viewButton = new Button("View");
-                            viewButton.setVisible(false);
+
 
                             viewButton.setOnAction(event ->{
                                 viewPatientDetails.selectedUser= (Patient) getTableView().getItems().get(getIndex());

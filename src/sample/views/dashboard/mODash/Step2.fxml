@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="583.0" prefWidth="946.0" style="-fx-border-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.MODash.MOController">
+<AnchorPane fx:id="appointmentAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.MODash.moAppointmentList">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-radius: 8;" />
-      <JFXButton layoutX="85.0" layoutY="506.0" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #0097e1; -fx-background-radius: 5;" text="Back" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Arial Bold" size="13.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="746.0" layoutY="506.0" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #0097e1; -fx-background-radius: 5;" text="Cancel" textFill="WHITE">
-         <font>
-            <Font name="Arial Bold" size="13.0" />
-         </font>
-      </JFXButton>
+      <TableView fx:id="appointTable" layoutX="49.0" layoutY="30.0" prefHeight="479.0" prefWidth="887.0">
+         <columns>
+            <TableColumn fx:id="appointNumberCol" prefWidth="237.5999813079834" text="Appointment Number" />
+            <TableColumn fx:id="appointDateCol" prefWidth="212.79998779296875" text="Date" />
+            <TableColumn fx:id="appointTimeCol" minWidth="0.0" prefWidth="156.80001831054688" text="Time" />
+            <TableColumn fx:id="appointStatusCol" prefWidth="174.39984130859375" text="Status" />
+            <TableColumn fx:id="appointViewCol" prefWidth="103.2000732421875" text="View" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

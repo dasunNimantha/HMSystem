@@ -5,18 +5,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
-import sample.controllers.dashboardController.AdminDash.viewMODetails;
 import sample.models.Appointment;
-import sample.models.MedicalOfficer;
-import sample.models.User;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -60,9 +55,10 @@ public class AppointmentList {
 
     public void initialize(){
 
-        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment("Patient",PatientController.patientData[0]);
+        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Patient",null,null,null);
         ObservableList<Appointment> obsAppointments = FXCollections.observableArrayList();
         obsAppointments.addAll(appointmentArrayList);
+
 
         appointNumberCol.setCellValueFactory(new PropertyValueFactory<>("appointmentNo"));
         doctorNameCol.setCellValueFactory(new PropertyValueFactory<>("appointedMedicalOfficer"));

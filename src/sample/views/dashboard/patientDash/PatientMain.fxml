@@ -50,7 +50,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="patientBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text="Appoinments" textFill="#5b5858">
+                  <JFXButton fx:id="patientBtn2" alignment="BASELINE_LEFT" graphicTextGap="7.0" onAction="#step2" prefHeight="57.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text="Appoinments" textFill="#5b5858">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -58,9 +58,9 @@
                         <Font size="13.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/images/dashboard/icons8_date_to_64px_2.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_calendar_plus_80px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -78,7 +78,7 @@
                               <Rectangle2D />
                            </viewport>
                            <image>
-                              <Image url="@../../../assets/images/dashboard/icons8_stethoscope_48px_1.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_doctors_bag_40px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -108,7 +108,7 @@
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/images/dashboard/icons8_settings_32px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_settings_32px_1.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -140,13 +140,20 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="logOutBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#logOut" prefHeight="58.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text="Log Out" textFill="#5b5858">
+                  <JFXButton fx:id="logOutBtn" alignment="BASELINE_LEFT" graphicTextGap="5.0" onAction="#logOut" prefHeight="58.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text="Log Out" textFill="#300808">
                      <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <padding>
                         <Insets left="50.0" />
                      </padding>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_logout_rounded_left_26px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                </children>
             </VBox>
@@ -158,7 +165,7 @@
                <children>
                   <AnchorPane layoutX="26.0" layoutY="27.0" prefHeight="203.0" prefWidth="584.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #FAFAFA;">
                      <children>
-                        <Label layoutX="24.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Good Morning,">
+                        <Label fx:id="welcomeLabel" layoutX="24.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Good Morning,">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -173,7 +180,7 @@
                               <Image url="@../../../assets/images/dashboard/rsz_girl-work-on-laptop.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="welcomeName" layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
+                        <Label fx:id="nameLabel" layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>

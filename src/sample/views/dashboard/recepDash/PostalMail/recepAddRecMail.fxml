@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="recMailAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.PostalMail.RecepAddRecMail">
+    <children>
+        <Label layoutX="43.0" layoutY="14.0" prefHeight="50.0" prefWidth="691.0" text="Received Mail Record">
+            <font>
+                <Font name="System Bold" size="27.0" />
+            </font>
+        </Label>
+        <Label layoutX="714.0" layoutY="193.0" prefHeight="26.0" prefWidth="212.0" text="Reference Number :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="43.0" layoutY="95.0" prefHeight="26.0" prefWidth="212.0" text="From :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="460.0" layoutY="191.0" prefHeight="26.0" prefWidth="98.0" text="Date :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="37.0" layoutY="292.0" prefHeight="26.0" prefWidth="212.0" text="Note :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <JFXTextArea fx:id="purposeField" focusColor="#405aa800" layoutX="37.0" layoutY="318.0" prefHeight="178.0" prefWidth="650.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #EEEEEE;" unFocusColor="#4d4d4d00" />
+      
+        <TextField fx:id="idNoText" layoutX="460.0" layoutY="231.0" prefHeight="34.0" prefWidth="196.0" style="-fx-background-color: #EEEEEE;" />
+        <TextField fx:id="nameText" layoutX="37.0" layoutY="139.0" prefHeight="34.0" prefWidth="256.0" style="-fx-background-color: #EEEEEE;" />
+        <Label layoutX="43.0" layoutY="193.0" prefHeight="26.0" prefWidth="212.0" text="From Address :">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="phoneNoText" layoutX="37.0" layoutY="234.0" prefHeight="34.0" prefWidth="351.0" style="-fx-background-color: #EEEEEE;" />
+      <Label layoutX="460.0" layoutY="95.0" prefHeight="26.0" prefWidth="212.0" text="To :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameText1" layoutX="460.0" layoutY="139.0" prefHeight="34.0" prefWidth="320.0" style="-fx-background-color: #EEEEEE;" />
+      <TextField fx:id="phoneNoText1" layoutX="714.0" layoutY="234.0" prefHeight="34.0" prefWidth="240.0" style="-fx-background-color: #EEEEEE;" />
+      <JFXTextArea fx:id="purposeField1" focusColor="#405aa800" layoutX="722.0" layoutY="317.0" prefHeight="178.0" prefWidth="240.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #EEEEEE;" unFocusColor="#4d4d4d00" />
+      <ImageView fitHeight="62.0" fitWidth="65.0" layoutX="810.0" layoutY="356.0">
+         <image>
+            <Image url="@../../../../assets/images/dashboard/icons8_plus_math_96px.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="745.0" layoutY="433.0" prefHeight="26.0" prefWidth="212.0" text="Attach Documents">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <children>
+            <JFXButton fx:id="backBtn" layoutX="851.0" layoutY="530.0" onAction="#backToList" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #448AFF;" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="43.0" layoutY="14.0" prefHeight="50.0" prefWidth="691.0" text="Received Mail Record">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="714.0" layoutY="193.0" prefHeight="26.0" prefWidth="212.0" text="Reference Number :">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="43.0" layoutY="95.0" prefHeight="26.0" prefWidth="212.0" text="From :">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="460.0" layoutY="191.0" prefHeight="26.0" prefWidth="98.0" text="Date :">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="292.0" prefHeight="26.0" prefWidth="212.0" text="Note :">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <JFXTextArea fx:id="note" focusColor="#405aa800" layoutX="37.0" layoutY="318.0" prefHeight="178.0" prefWidth="650.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #EEEEEE;" unFocusColor="#4d4d4d00" />
+            <JFXButton fx:id="addMailBtn" layoutX="595.0" layoutY="530.0" onAction="#addMail" prefHeight="34.0" prefWidth="206.0" style="-fx-background-color: #00E676;" text="Add Mail" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <TextField fx:id="fromText" layoutX="37.0" layoutY="139.0" prefHeight="34.0" prefWidth="256.0" style="-fx-background-color: #EEEEEE;" />
+            <Label layoutX="43.0" layoutY="193.0" prefHeight="26.0" prefWidth="212.0" text="From Address :">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="fromAddr" layoutX="37.0" layoutY="234.0" prefHeight="34.0" prefWidth="351.0" style="-fx-background-color: #EEEEEE;" />
+            <Label layoutX="460.0" layoutY="95.0" prefHeight="26.0" prefWidth="212.0" text="To :">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="toText" layoutX="460.0" layoutY="139.0" prefHeight="34.0" prefWidth="320.0" style="-fx-background-color: #EEEEEE;" />
+            <TextField fx:id="refNo" layoutX="714.0" layoutY="234.0" prefHeight="34.0" prefWidth="240.0" style="-fx-background-color: #EEEEEE;" />
+            <JFXTextArea fx:id="purposeField11" focusColor="#405aa800" layoutX="722.0" layoutY="317.0" prefHeight="178.0" prefWidth="240.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #EEEEEE;" unFocusColor="#4d4d4d00" />
+            <ImageView fitHeight="62.0" fitWidth="65.0" layoutX="810.0" layoutY="356.0">
+               <image>
+                  <Image url="@../../../../assets/images/dashboard/icons8_plus_math_96px.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="745.0" layoutY="433.0" prefHeight="26.0" prefWidth="212.0" text="Attach Documents">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <JFXDatePicker fx:id="datePicker" layoutX="460.0" layoutY="237.0" prefHeight="28.0" prefWidth="210.0" />
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

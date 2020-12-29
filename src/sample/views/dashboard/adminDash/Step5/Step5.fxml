@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="484.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.AdminController" />
+<AnchorPane fx:id="complainViewAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.AdminDash.ComplainList">
+    <children>
+        <TableView fx:id="complainTable" layoutX="49.0" layoutY="32.0" prefHeight="479.0" prefWidth="887.0">
+            <columns>
+                <TableColumn fx:id="complainIdCol" editable="false" prefWidth="106.39999008178711" text="Complain Id" />
+                <TableColumn fx:id="complainedByCol" editable="false" prefWidth="166.40003967285156" text="Complained By" />
+                <TableColumn fx:id="complainedDateCol" editable="false" prefWidth="140.79998779296875" text="Complained Date" />
+                <TableColumn fx:id="complainTypeCol" editable="false" prefWidth="269.5999755859375" text="Complain Type" />
+                <TableColumn fx:id="actionTakenCol" editable="false" prefWidth="107.199951171875" text="Action Taken" />
+                <TableColumn fx:id="viewCol" editable="false" minWidth="0.0" prefWidth="97.60009765625" text="View" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

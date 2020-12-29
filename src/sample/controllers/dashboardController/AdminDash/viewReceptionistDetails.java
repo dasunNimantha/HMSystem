@@ -22,6 +22,7 @@ import sample.models.Receptionist;
 import sample.models.UserTasks;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class viewReceptionistDetails {
 
@@ -163,7 +164,9 @@ public class viewReceptionistDetails {
                 editedRecep.setMaritalStatus(maritalStatusCombo.getValue());
         }
 
-
+        editedRecep.setDateOfJoin(LocalDate.parse(dateOfJoinText.getText()));
+        editedRecep.setStaffId(Integer.parseInt(staffIdText.getText().trim()));
+        editedRecep.setEmail(staffEmailText.getText().trim());
         // call edit user function
         UserTasks.userEditFunction("Admin", "Receptionist", editedRecep, oldUsername);
         usernameLbl.setText("#" + usernameText.getText());
@@ -225,6 +228,8 @@ public class viewReceptionistDetails {
                 usernameText.setEditable(true);
                 passwordText.setEditable(true);
                 idNoText.setEditable(true);
+                staffEmailText.setEditable(true);
+                staffIdText.setEditable(true);
                 phoneNoText.setEditable(true);
                 addrLine1.setEditable(true);
                 addrLine2.setEditable(true);

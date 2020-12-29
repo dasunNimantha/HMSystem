@@ -12,12 +12,15 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
+import javafx.util.Callback;
 import sample.models.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,9 +28,10 @@ import java.util.Date;
 public class AddAppointController {
 
     static ArrayList <String> speciality;
-    static int appointmentPageVisitCount = 0;
+    public static int appointmentPageVisitCount = 0;
     static String localAppointTime;
     private static String selectedDoctorUsername;
+    private static Appointment appointment;
 
     @FXML
     private ComboBox<String> specialityCombo;
@@ -67,6 +71,9 @@ public class AddAppointController {
     private AnchorPane timeLabel;
 
     @FXML
+    private Label doctorProNameLbl;
+
+    @FXML
     private Circle docProfile;
 
     @FXML
@@ -75,11 +82,36 @@ public class AddAppointController {
     @FXML
     private AnchorPane timeAnchor;
 
+    //date picker restriction function
+    public static void restrictDatePicker(DatePicker datePicker, LocalDate minDate, LocalDate maxDate) {
+        final Callback<DatePicker, DateCell> dayCellFactory = new Callback<DatePicker, DateCell>() {
+            @Override
+            public DateCell call(final DatePicker datePicker) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item.isBefore(minDate)) {
+                            setDisable(true);
+                        }else if (item.isAfter(maxDate)) {
+                            setDisable(true);
+
+
+                        }
+                    }
+                };
+            }
+        };
+        //datePicker.setDayCellFactory(dayCellFactory);
+    }
+
+
+
 
     @FXML
     void changeToSuccess(ActionEvent event) throws IOException {
 
-        Appointment appointment = new Appointment();
+        appointment = new Appointment();
         appointment.setAppointmentStatus("Pending");
         appointment.setPatientName(PatientController.patientData[2]);
         appointment.setPatientUserName(PatientController.patientData[0]);
@@ -142,7 +174,9 @@ public class AddAppointController {
 
     @FXML
     void viewCreatedAppointment(ActionEvent event) throws IOException {
-        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step2_viewAppointment.fxml"));
+        ArrayList<Appointment> returnedArray= Appointment.viewAppointment(false,"Patient",PatientController.patientData[0],appointment.getAppointmentNo(),null);
+        ViewAppointController.selectedAppointment = returnedArray.get(0);
+        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/step2_ViewAppointment.fxml"));
         BorderPane subBorderPane = (BorderPane) successAnchor.getParent();
         subBorderPane.setCenter(step2);
         appointmentPageVisitCount=0;
@@ -158,12 +192,14 @@ public class AddAppointController {
 
     public void initialize() throws IOException {
 
+        // call date picker restriction function
+        restrictDatePicker(appointDatePicker, LocalDate.now(), LocalDate.now().plusDays(31));
 
         if (appointmentPageVisitCount == 0) {
 
             // call reference function
 
-            speciality = UserTasks.returnReference("SpecialityRef");
+            speciality = Reference.returnReference("SpecialityRef");
             specialityCombo.getItems().add("ALL");
             for (String s : speciality) {
                 specialityCombo.getItems().add(s);
@@ -209,7 +245,10 @@ public class AddAppointController {
             doctorSelectCombo.setItems(mos);  // add newly created MO objects to combo list
             doctorSelectCombo.getSelectionModel().selectedItemProperty().addListener((var, oldValue, newValue) -> {
                     if (newValue != null) {
+                        appointDatePicker.getEditor().setEditable(true);
                         selectedDoctorUsername= doctorSelectCombo.getSelectionModel().getSelectedItem().getUserName();
+                        String selectedDoctorName = doctorSelectCombo.getSelectionModel().getSelectedItem().getName();
+                        doctorProNameLbl.setText("Dr."+selectedDoctorName);
                         appointConBtn.setDisable(false);
                         doctorDetailsBorder.setCenter(null);
                         doctorDetailsBorder.setCenter(timeAnchor);
@@ -225,6 +264,8 @@ public class AddAppointController {
                         timeAnchor.setDisable(true);
                     }
                 });
+
+
 
                 // ~~~~~~~~~~~~~~~~~~~~ Toggle time button function ~~~~~~~~~~~~~~~~~~~~~~ //
 
