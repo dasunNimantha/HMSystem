@@ -70,9 +70,6 @@ public class ProfileController  {
     private TextField addr3Text;
 
     @FXML
-    private ImageView editImage;
-
-    @FXML
     private ImageView editImage1;
 
     @FXML
