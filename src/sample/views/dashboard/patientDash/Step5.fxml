@@ -64,7 +64,7 @@
                </font>
             </Label>
             <TextField fx:id="dobText" editable="false" layoutX="128.0" layoutY="245.0" prefHeight="27.0" prefWidth="138.0" style="-fx-border-color: transparent; -fx-background-color: white;" />
-            <ImageView fx:id="editImage" layoutX="459.0" layoutY="25.0">
+            <ImageView fx:id="editImage" layoutX="459.0" layoutY="25.0" visible="false">
                <image>
                   <Image url="@../../../assets/images/dashboard/icons8_registration_30px.png" />
                </image>
@@ -110,7 +110,7 @@
             <TextField fx:id="addr1Text" editable="false" layoutX="143.0" layoutY="76.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: transparent; -fx-background-color: white;" />
             <TextField fx:id="addr2Text" editable="false" layoutX="143.0" layoutY="121.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: transparent; -fx-background-color: white;" />
             <TextField fx:id="addr3Text" editable="false" layoutX="143.0" layoutY="166.0" prefHeight="27.0" prefWidth="113.0" style="-fx-border-color: transparent; -fx-background-color: white;" />
-            <ImageView fx:id="editImage1" layoutX="302.0" layoutY="31.0">
+            <ImageView fx:id="editImage1" layoutX="302.0" layoutY="31.0" visible="false">
                <image>
                   <Image url="@../../../assets/images/dashboard/icons8_registration_30px.png" />
                </image>
