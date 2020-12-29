@@ -40,9 +40,9 @@
                         <Font size="13.0" />
                      </font>
                      <graphic>
-                        <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleText="Project List" fitHeight="23.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/images/dashboard/icons8_calendar_plus_32px_3.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_home_40px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -57,6 +57,13 @@
                      <padding>
                         <Insets left="50.0" />
                      </padding>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_calendar_plus_80px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                   <JFXButton fx:id="recepBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Patients" textFill="#5b5858">
                      <VBox.margin>
@@ -66,9 +73,9 @@
                         <Font size="13.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/images/dashboard/icons8_wheelchair_16px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_assistive_technology_50px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -81,12 +88,12 @@
                         <Font size="13.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="28.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <viewport>
                               <Rectangle2D />
                            </viewport>
                            <image>
-                              <Image url="@../../../assets/images/dashboard/icons8_create_new_child_post_50px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_mail_50px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -99,9 +106,9 @@
                         <Font size="13.0" />
                      </font>
                      <graphic>
-                        <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleText="Project List" fitHeight="32.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/images/dashboard/icons8_person_at_home_32px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_user_30px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -114,9 +121,9 @@
                         <Font size="13.0" />
                      </font>
                      <graphic>
-                        <ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleText="Project List" fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/images/dashboard/icons8_complaint_24px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_complaint_30px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -129,15 +136,30 @@
                         <Font size="13.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/images/dashboard/icons8_settings_32px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_settings_32px_1.png" />
                            </image>
                         </ImageView>
                      </graphic>
                      <padding>
                         <Insets left="50.0" />
                      </padding>
+                  </JFXButton>
+                  <JFXButton fx:id="logOutBtn" alignment="BASELINE_LEFT" graphicTextGap="5.0" onAction="#logOut" prefHeight="58.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text="Log Out" textFill="#300808">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/images/dashboard/icons8_logout_rounded_left_26px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                </children>
             </VBox>
