@@ -19,6 +19,7 @@ import java.io.IOException;
 public class viewPatientDetails {
 
     static Patient selectedUser;
+    public static String viewerRole;
 
     @FXML
     private Label nameLabel;
@@ -89,6 +90,10 @@ public class viewPatientDetails {
 
     @FXML
     private TextField maritalText;
+
+
+    @FXML
+    private Label passwdLabel;
 
     @FXML
     private TextField bloodText;
@@ -207,6 +212,14 @@ public class viewPatientDetails {
     }
 
     public void initialize() {
+        if(viewerRole.equals("Receptionist")){
+            editBtn.setVisible(false);
+            passwordText.setVisible(false);
+            deleteUserBtn.setVisible(false);
+            passwdLabel.setVisible(false);
+            passwdLabel.setManaged(false);
+
+        }
             getUsrData();
 
             // edit button action

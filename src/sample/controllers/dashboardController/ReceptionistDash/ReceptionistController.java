@@ -5,10 +5,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.controllers.dashboardController.PatientDash.AddAppointController;
 import sample.models.UserTasks;
 
@@ -17,6 +21,9 @@ import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ReceptionistController {
 
@@ -28,6 +35,10 @@ public class ReceptionistController {
 
     @FXML
     private Label totPatient;
+
+
+    @FXML
+    private AnchorPane mainAnchor;
 
     public static String objEncString;
 
@@ -64,7 +75,7 @@ public class ReceptionistController {
 
 
     @FXML
-    void step1(ActionEvent event) throws IOException {
+    void home(ActionEvent event) throws IOException {
         Parent step1 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step1.fxml"));
         recepBorderPane.setCenter(step1);
     }
@@ -77,9 +88,10 @@ public class ReceptionistController {
     }
 
 
+
     @FXML
-    void step2(ActionEvent event) throws IOException {
-        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step2.fxml"));
+    void viewUsers(ActionEvent event) throws IOException {
+        Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Users.fxml"));
         recepBorderPane.setCenter(step2);
     }
 
@@ -98,19 +110,11 @@ public class ReceptionistController {
 
 
     @FXML
-    void step5(ActionEvent event) throws IOException {
-
-    }
-
-    @FXML
     void step6(ActionEvent event) throws IOException {
-
+        Parent step4 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/recepDash/Step5.fxml"));
+        recepBorderPane.setCenter(step4);
     }
 
-    @FXML
-    void step3(ActionEvent event) throws IOException {
-
-    }
 
     @FXML
     void step7(ActionEvent event) throws IOException {
@@ -119,8 +123,37 @@ public class ReceptionistController {
     }
 
     @FXML
-    void logOut(ActionEvent event) {
+    void logOut(ActionEvent event) throws IOException, InterruptedException {
+        Stage stage = (Stage) mainAnchor.getScene().getWindow(); // close dashboard
+        stage.close();
 
+        HashMap<String,Parent> loginMap = new HashMap<>();
+        AtomicReference<Double> xOffset = new AtomicReference<>((double) 0);
+        AtomicReference<Double> yOffset = new AtomicReference<>((double) 0);
+
+        // open login window
+        Parent root = FXMLLoader.load(getClass().getResource("../../../views/Login.fxml"));
+
+        Scene scene = new Scene(root,1049, 594);
+        Stage backToLogin = new Stage();
+        backToLogin.setScene(scene);
+        backToLogin.setTitle("Login");
+        backToLogin.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
+        root.setOnMousePressed((MouseEvent mevent) -> {
+            xOffset.set(mevent.getSceneX());
+            yOffset.set(mevent.getSceneY());
+        });
+
+        // Move around here
+        root.setOnMouseDragged((MouseEvent mevent) -> {
+            backToLogin.setX(mevent.getScreenX() - xOffset.get());
+            backToLogin.setY(mevent.getScreenY() - yOffset.get());
+        });
+
+        TimeUnit.MILLISECONDS.sleep(150);
+        backToLogin.show();
+        loginMap.put("roleSelect",root);
     }
 
     @FXML

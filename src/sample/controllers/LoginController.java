@@ -99,11 +99,10 @@ public class LoginController  extends Thread {
 
 
         AnchorPane root2 = FXMLLoader.load(this.getClass().getResource("../views/LoginCredEnter.fxml"));
-        BorderPane mainBorderPane = (BorderPane) hidenText.getParent().getParent();
+        BorderPane mainBorderPane = (BorderPane) btnEX.getParent().getParent();
         mainBorderPane.setCenter(root2);
         final Node source = (Node) event.getSource();
         userRole = source.getId();
-        borderPaneLogin.setRight(null);
 
 
     }

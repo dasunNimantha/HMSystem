@@ -11,11 +11,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="693.0" prefWidth="1281.0" style="-fx-background-color: #FAFAFA; -fx-border-radius: 25; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.ReceptionistController">
+<AnchorPane id="AnchorPane" fx:id="mainAnchor" nodeOrientation="LEFT_TO_RIGHT" prefHeight="693.0" prefWidth="1281.0" style="-fx-background-color: #FAFAFA; -fx-border-radius: 25; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.ReceptionistDash.ReceptionistController">
    <children>
       <Pane layoutX="33.0" layoutY="26.0" prefHeight="67.0" prefWidth="113.0" style="-fx-border-radius: 25;" stylesheets="@../../../assets/styles/DashboardStyles.css" AnchorPane.bottomAnchor="590.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="1125.0" AnchorPane.topAnchor="26.0">
          <children>
@@ -32,7 +33,7 @@
                         <Insets top="60.0" />
                      </VBox.margin>
                   </Label>
-                  <JFXButton fx:id="recepAppointBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#viewAppointment" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Home">
+                  <JFXButton fx:id="homeBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#home" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" stylesheets="@../../../assets/styles/DashboardStyles.css" text="Home">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -65,7 +66,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="recepBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#step2" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Patients" textFill="#5b5858">
+                  <JFXButton fx:id="recepBtn2" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#viewUsers" prefHeight="57.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" text="Users" textFill="#5b5858">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -146,7 +147,15 @@
                         <Insets left="50.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="logOutBtn" alignment="BASELINE_LEFT" graphicTextGap="5.0" onAction="#logOut" prefHeight="58.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text="Log Out" textFill="#300808">
+                  <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="58.0" prefWidth="241.0" ripplerFill="#bfadf8" styleClass="tab" textFill="#59575700">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton fx:id="logOutBtn" alignment="BASELINE_LEFT" graphicTextGap="5.0" onAction="#logOut" prefHeight="58.0" prefWidth="241.0" ripplerFill="WHITE" styleClass="tab" text=" Log Out" textFill="#300808">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -154,9 +163,9 @@
                         <Insets left="50.0" />
                      </padding>
                      <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="27.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/images/dashboard/icons8_logout_rounded_left_26px.png" />
+                              <Image url="@../../../assets/images/dashboard/icons8_export_52px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -171,11 +180,6 @@
                <children>
                   <AnchorPane layoutX="26.0" layoutY="27.0" prefHeight="203.0" prefWidth="584.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #FAFAFA;">
                      <children>
-                        <Label fx:id="welcomeLbl" layoutX="24.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Good Morning,">
-                           <font>
-                              <Font name="System Bold" size="25.0" />
-                           </font>
-                        </Label>
                         <Label layoutX="24.0" layoutY="92.0" prefHeight="34.0" prefWidth="202.0" text="Have a nice day at work" textFill="#716060">
                            <font>
                               <Font name="System Bold" size="15.0" />
@@ -186,11 +190,20 @@
                               <Image url="@../../../assets/images/dashboard/rsz_girl-work-on-laptop.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="nameLabel" layoutX="206.0" layoutY="54.0" prefHeight="50.0" prefWidth="182.0" text="Mr.Perera" textFill="#e29853">
-                           <font>
-                              <Font name="System Bold" size="25.0" />
-                           </font>
-                        </Label>
+                        <HBox layoutX="26.0" layoutY="42.0" prefHeight="51.0" prefWidth="367.0">
+                           <children>
+                              <Label fx:id="welcomeLbl" prefHeight="50.0" prefWidth="213.0" text="Good Afternoon,">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="nameLabel" prefHeight="50.0" prefWidth="177.0" text="Mr.Perera" textFill="#e29853">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </AnchorPane>
                   <Label layoutX="45.0" layoutY="251.0" prefHeight="51.0" prefWidth="276.0" text="Weekly Reports">

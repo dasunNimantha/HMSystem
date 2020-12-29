@@ -27,6 +27,7 @@ import java.time.LocalDate;
 public class viewReceptionistDetails {
 
     static Receptionist selectedUser;
+    public static String viewrRole;
 
     @FXML
     private TextField staffIdText;
@@ -100,6 +101,11 @@ public class viewReceptionistDetails {
 
     @FXML
     private TextField maritalText;
+
+
+    @FXML
+    private Label passwdLbl;
+
 
 
     public void backToRecepDetails(ActionEvent actionEvent) throws IOException {
@@ -207,6 +213,13 @@ public class viewReceptionistDetails {
 
 
     public void initialize() {
+        if(viewrRole.equals("Receptionist")){
+            passwordText.setVisible(false);
+            editBtn.setVisible(false);
+            passwdLbl.setVisible(false);
+            passwdLbl.setManaged(true);
+
+        }
         getUsrData();
 
         editBtn.setOnAction(new EventHandler<ActionEvent>() {

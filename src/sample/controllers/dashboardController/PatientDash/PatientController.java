@@ -7,11 +7,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.controllers.dashboardController.AdminDash.viewMODetails;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -40,6 +44,9 @@ public class PatientController {
     @FXML
     private JFXButton patientBtn6;
 
+
+    @FXML
+    private Circle smallProPic;
 
     @FXML
     private Label welcomeLabel;
@@ -71,8 +78,9 @@ public class PatientController {
 
     @FXML
     void step3(ActionEvent event) throws IOException {
-        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/Step3.fxml"));
+        Parent step3 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/adminDash/Step2/moDetails/Step2_Doctor.fxml"));
         subBorderPane.setCenter(step3);
+        viewMODetails.viewerRole="Patient";
     }
 
     @FXML
@@ -128,6 +136,7 @@ public class PatientController {
     public void initialize() throws IOException {
         patientData = loggedUserProfile.split("~");
 
+
         Date dt = new Date();
         Calendar c = Calendar.getInstance();
         c.setTime(dt);
@@ -151,6 +160,8 @@ public class PatientController {
                 nameLabel.setText("Ms."+splitName[0]);
             }
         }
+
+
 
     }
 }

@@ -23,6 +23,7 @@ import java.io.IOException;
 public class viewMODetails {
 
     static MedicalOfficer selectedUser;
+    public static String viewerRole;
 
     @FXML
     private TextField staffIdText;
@@ -94,12 +95,20 @@ public class viewMODetails {
     @FXML
     private TextField specialityText;
 
+    @FXML
+    private Label staffIdLbl;
+
+    @FXML
+    private Label staffMailLbl;
 
     @FXML
     private TextField genderText;
 
     @FXML
     private TextField maritalText;
+
+    @FXML
+    private Label passwdLbl;
 
 
     public void backToRecepDetails(ActionEvent actionEvent) throws IOException {
@@ -214,6 +223,18 @@ public class viewMODetails {
 
 
     public void initialize() {
+        if(viewerRole.equals("Receptionist")||(viewerRole.equals("Patient"))){
+            passwordText.setVisible(false);
+            passwdLbl.setVisible(false);
+            editBtn.setVisible(false);
+        }
+
+        if(viewerRole.equals("Patient")){
+            staffEmailText.setVisible(false);
+            staffIdText.setVisible(false);
+            staffIdLbl.setVisible(false);
+            staffMailLbl.setVisible(false);
+        }
         getUsrData();
 
         editBtn.setOnAction(new EventHandler<ActionEvent>() {

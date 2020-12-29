@@ -73,7 +73,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutY="100.0" prefHeight="34.0" prefWidth="92.0" text="Password">
+                  <Label fx:id="passwdLbl" layoutY="100.0" prefHeight="34.0" prefWidth="92.0" text="Password">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

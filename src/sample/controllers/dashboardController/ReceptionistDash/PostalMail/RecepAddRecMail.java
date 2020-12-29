@@ -5,10 +5,14 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import sample.models.PostalMail;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class RecepAddRecMail {
@@ -83,8 +87,10 @@ public class RecepAddRecMail {
 
 
     @FXML
-    void backToList(ActionEvent event) {
-
+    void backToList(ActionEvent event) throws IOException {
+        Parent add = FXMLLoader.load(getClass().getResource("../../../../views/dashboard/recepDash/PostalMail/PostalMail.fxml"));
+        BorderPane tempBorderPane = (BorderPane) recMailAnchor.getParent();
+        tempBorderPane.setCenter(add);
     }
 
     public void initialize(){
