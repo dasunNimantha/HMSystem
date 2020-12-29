@@ -160,7 +160,7 @@
          </children>
       </Pane>
       <BorderPane fx:id="subBorderPane" layoutX="256.0" layoutY="96.0" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: white; -fx-border-radius: 3;">
-         <bottom>
+         <center>
             <AnchorPane prefHeight="583.0" prefWidth="946.0" style="-fx-border-radius: 8;" BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane layoutX="26.0" layoutY="27.0" prefHeight="203.0" prefWidth="584.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #FAFAFA;">
@@ -284,7 +284,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-         </bottom>
+         </center>
       </BorderPane>
       <AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="79.0" prefWidth="1269.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 25 25 0 0; -fx-background-radius: 25 25 0 0;" styleClass="topBar" stylesheets="@../../../assets/styles/DashboardStyles.css">
          <children>
