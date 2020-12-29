@@ -201,57 +201,57 @@
                         </Label>
                         <AnchorPane layoutX="774.0" layoutY="326.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
                             <children>
-                                <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Lorem Ipsum">
+                                <Label fx:id="complains" alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Complains">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="31">
+                                <Label fx:id="totComplains" alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="31">
                                     <font>
                                         <Font name="System Bold" size="28.0" />
                                     </font>
                                 </Label>
-                                <ImageView layoutX="62.0" layoutY="49.0" scaleX="1.2" scaleY="1.2">
+                                <ImageView fitHeight="67.0" fitWidth="75.0" layoutX="54.0" layoutY="61.0" scaleX="1.2" scaleY="1.2">
                                     <image>
-                                        <Image url="@../../../assets/images/dashboard/icons8_stopwatch_64px_1.png" />
+                                        <Image url="@../../../assets/images/dashboard/icons8_warning_shield_64px_2.png" />
                                     </image>
                                 </ImageView>
                             </children>
                         </AnchorPane>
                         <AnchorPane layoutX="530.0" layoutY="326.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
                             <children>
-                                <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Unread Mails">
+                                <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Total Receptionists">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="12">
+                                <Label fx:id="totRecepts" alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="12">
                                     <font>
                                         <Font name="System Bold" size="28.0" />
                                     </font>
                                 </Label>
-                                <ImageView layoutX="58.0" layoutY="50.0">
+                                <ImageView fitHeight="93.0" fitWidth="102.0" layoutX="35.0" layoutY="38.0">
                                     <image>
-                                        <Image url="@../../../assets/images/dashboard/icons8_secured_letter_64px_1.png" />
+                                        <Image url="@../../../assets/images/dashboard/icons8_technical_support_96px.png" />
                                     </image>
                                 </ImageView>
                             </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="280.0" layoutY="325.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
+                        <AnchorPane layoutX="280.0" layoutY="326.0" prefHeight="227.0" prefWidth="180.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 22; -fx-border-radius: 22;">
                             <children>
-                                <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="New Appointments">
+                                <Label alignment="CENTER" layoutX="29.0" layoutY="125.0" prefHeight="39.0" prefWidth="122.0" text="Total Doctors">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="23">
+                                <Label fx:id="totDoctors" alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="23">
                                     <font>
                                         <Font name="System Bold" size="28.0" />
                                     </font>
                                 </Label>
-                                <ImageView layoutX="58.0" layoutY="50.0">
+                                <ImageView layoutX="42.0" layoutY="37.0">
                                     <image>
-                                        <Image url="@../../../assets/images/dashboard/icons8_date_to_64px_2.png" />
+                                        <Image url="@../../../assets/images/dashboard/icons8_doctor_male_96px_1.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -263,7 +263,7 @@
                                         <Font name="System Bold" size="13.0" />
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="350">
+                                <Label fx:id="totPatients" alignment="CENTER" layoutX="29.0" layoutY="168.0" prefHeight="39.0" prefWidth="122.0" text="350">
                                     <font>
                                         <Font name="System Bold" size="28.0" />
                                     </font>
@@ -277,11 +277,16 @@
                         </AnchorPane>
                         <AnchorPane layoutX="630.0" layoutY="29.0" prefHeight="200.0" prefWidth="324.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #FAFAFA;">
                             <children>
-                                <Label alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="32.0" prefWidth="286.0" text="Notifications">
+                                <Label fx:id="timeLabel" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="157.0" prefWidth="250.0" text="5 : 30">
                                     <font>
-                                        <Font name="System Bold" size="12.0" />
+                                        <Font name="System Bold" size="56.0" />
                                     </font>
                                 </Label>
+                        <Label fx:id="amLabel" layoutX="216.0" layoutY="50.0" text="AM">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
                             </children>
                         </AnchorPane>
                     </children>
