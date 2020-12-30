@@ -85,23 +85,23 @@ public class ProfileController {
     public void initialize(){
 
 
-        String imagePath = ReceptionistController.receptionistData[12];
+        String imagePath = ReceptionistController.typeCastedRecep.getProfilePath();
         Image proPic = new Image(imagePath);
         profileCircle.setFill(new ImagePattern(proPic));
 
-        nameLabel.setText(ReceptionistController.receptionistData[5]);
-        usernameLbl.setText("#"+ReceptionistController.receptionistData[0]);
-        nameText.setText(ReceptionistController.receptionistData[5]);
-        usernameText.setText(ReceptionistController.receptionistData[0]);
-        idNoText.setText(ReceptionistController.receptionistData[6]);
-        phoneNoText.setText(ReceptionistController.receptionistData[11]);
-        dobText.setText(ReceptionistController.receptionistData[7]);
-        genderText.setText(ReceptionistController.receptionistData[8]);
-        maritalText.setText(ReceptionistController.receptionistData[9]);
-        staffId.setText(ReceptionistController.receptionistData[2]);
-        staffEmail.setText(ReceptionistController.receptionistData[4]);
+        nameLabel.setText(ReceptionistController.typeCastedRecep.getName());
+        usernameLbl.setText("#"+ReceptionistController.typeCastedRecep.getUserName());
+        nameText.setText(ReceptionistController.typeCastedRecep.getName());
+        usernameText.setText(ReceptionistController.typeCastedRecep.getUserName());
+        idNoText.setText(String.valueOf(ReceptionistController.typeCastedRecep.getIdNumber()));
+        phoneNoText.setText(String.valueOf(ReceptionistController.typeCastedRecep.getPhoneNumber()));
+        dobText.setText(String.valueOf(ReceptionistController.typeCastedRecep.getDob()));
+        genderText.setText(ReceptionistController.typeCastedRecep.getGender());
+        maritalText.setText(ReceptionistController.typeCastedRecep.getMaritalStatus());
+        staffId.setText(String.valueOf(ReceptionistController.typeCastedRecep.getStaffId()));
+        staffEmail.setText(ReceptionistController.typeCastedRecep.getEmail());
 
-        String[] addr = ReceptionistController.receptionistData[10].split(",");
+        String[] addr = ReceptionistController.typeCastedRecep.getAddress().split(",");
         addr1Text.setText(addr[0]);
         addr2Text.setText(addr[1]);
         addr3Text.setText(addr[2]);

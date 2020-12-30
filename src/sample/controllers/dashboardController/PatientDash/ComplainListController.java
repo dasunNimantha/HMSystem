@@ -62,7 +62,7 @@ public class ComplainListController {
 
     public void initialize() throws IOException {
 
-        ArrayList<Complain> complainArrayList = Complain.viewComplain(false,"Patient",PatientController.patientData[0]);
+        ArrayList<Complain> complainArrayList = Complain.viewComplain(false,"Patient",PatientController.loggedUserProfile.getUserName());
         ObservableList<Complain> obsComplains = FXCollections.observableArrayList();
         obsComplains.addAll(complainArrayList);
 

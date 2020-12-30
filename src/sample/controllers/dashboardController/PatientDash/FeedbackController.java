@@ -43,7 +43,7 @@ public class FeedbackController {
 
     public void initialize(){
 
-        String imagePath = PatientController.patientData[9];
+        String imagePath = PatientController.typeCastedPatient.getProfilePath();
         Image proPic = new Image(imagePath);
         proCircle.setFill(new ImagePattern(proPic));
 

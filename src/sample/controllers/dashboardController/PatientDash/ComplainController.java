@@ -63,9 +63,9 @@ public class ComplainController {
     void confirmComplain(ActionEvent event) {
 
         Complain complain = new Complain();
-        complain.setComplaintUserName(PatientController.patientData[0]);
+        complain.setComplaintUserName(PatientController.typeCastedPatient.getUserName());
         complain.setComplainedDate(LocalDate.now());
-        complain.setComplaintBy(PatientController.patientData[2]);
+        complain.setComplaintBy(PatientController.typeCastedPatient.getName());
         complain.setPhoneNo(phoneNo.getText().trim());
         complain.setComplainType(complainCombo.getSelectionModel().getSelectedItem());
         complain.setDescription(descriptionField.getText().trim());
@@ -103,8 +103,8 @@ public class ComplainController {
 
 
         dateText.setText("  "+LocalDate.now().toString());
-        complaintBy.setText("  "+PatientController.patientData[2]);
-        phoneNo.setText("  "+PatientController.patientData[8]);
+        complaintBy.setText("  "+PatientController.typeCastedPatient.getName());
+        phoneNo.setText("  "+PatientController.typeCastedPatient.getPhoneNumber());
 
 
 

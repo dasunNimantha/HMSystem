@@ -12,11 +12,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
-import sample.models.Patient;
+import sample.controllers.dashboardController.ReceptionistDash.ReceptionistController;
 import sample.models.UserTasks;
-
 import java.io.*;
-import java.time.LocalDate;
+
 
 
 public class ProfileController  {
@@ -84,48 +83,41 @@ public class ProfileController  {
     }
 
 
+
     @FXML
     void proAdd(MouseEvent event) {
         FileChooser fc = new FileChooser();
-
         FileChooser.ExtensionFilter fileExtensions =
                 new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg");
         fc.getExtensionFilters().add(fileExtensions);
+
         File proPicFile = fc.showOpenDialog(null);
-        String imageDest = "src/sample/fileDatabase/profileImages/"+PatientController.patientData[3]+".jpg";
+        String imageDest = "src/sample/fileDatabase/profileImages/"+PatientController.typeCastedPatient.getIdNumber()+".jpg";
         try {
             //calling file copy function
             copyFile(proPicFile,imageDest);
-            Patient patient = new Patient();
-            patient.setUserName(PatientController.patientData[0]);
-            patient.setPassword(PatientController.patientData[1]);
-            patient.setName(PatientController.patientData[2]);
-            patient.setIdNumber(Integer.parseInt(PatientController.patientData[3]));
-            patient.setDob(LocalDate.parse(PatientController.patientData[4]));
-            patient.setGender(PatientController.patientData[5]);
-            patient.setMaritalStatus(PatientController.patientData[6]);
-            patient.setAddress(PatientController.patientData[7]);
-            patient.setPhoneNumber(Integer.parseInt(PatientController.patientData[8]));
-            patient.setProfilePath(imageDest);
-            patient.setBloodGroup(PatientController.patientData[10]);
-            patient.setAllergies(PatientController.patientData[11]);
+            PatientController.typeCastedPatient.setProfilePath("sample/fileDatabase/profileImages/"+PatientController.typeCastedPatient.getIdNumber()+".jpg");
 
-            UserTasks.userEditFunction("Patient","Patient",patient,PatientController.patientData[0]);
+            //call user edit function to store the image
+            UserTasks.userEditFunction("Patient","Patient",PatientController.typeCastedPatient,PatientController.typeCastedPatient.getUserName());
+            Thread.sleep(2000);
+            //update static patient object profile path
+            String imagePath = PatientController.typeCastedPatient.getProfilePath();
+            Image proPic = new Image(imagePath);
+            profileCircle.setFill(new ImagePattern(proPic));
 
-        } catch (IOException ioException) {
+        } catch (IOException | InterruptedException ioException) {
             ioException.printStackTrace();
         }
 
     }
-
-
-
 
     @FXML
     void editProfile(ActionEvent event) {
         editImage1.setVisible(true);
 
         nameText.setEditable(true);
+        changePassBtn.setVisible(false);
         usernameText.setEditable(true);
         idNoText.setEditable(true);
         phoneNoText.setEditable(true);
@@ -137,39 +129,51 @@ public class ProfileController  {
     }
 
     public void initialize() throws FileNotFoundException {
-        nameLabel.setText(PatientController.patientData[2]);
-        usernameLbl.setText("#"+PatientController.patientData[0]);
-        nameText.setText(PatientController.patientData[2]);
-        usernameText.setText(PatientController.patientData[2]);
-        idNoText.setText(PatientController.patientData[3]);
-        phoneNoText.setText(PatientController.patientData[8]);
-        dobText.setText(PatientController.patientData[4]);
-        genderText.setText(PatientController.patientData[5]);
-        maritalText.setText(PatientController.patientData[6]);
-        bloodGrpText.setText(PatientController.patientData[10]);
 
-        String[] addr = PatientController.patientData[7].split(",");
+
+        nameLabel.setText(PatientController.typeCastedPatient.getName());
+        usernameLbl.setText("#"+PatientController.typeCastedPatient.getUserName());
+        nameText.setText(PatientController.typeCastedPatient.getName());
+        usernameText.setText(PatientController.typeCastedPatient.getUserName());
+        idNoText.setText(String.valueOf(PatientController.typeCastedPatient.getIdNumber()));
+        phoneNoText.setText(String.valueOf(PatientController.typeCastedPatient.getPhoneNumber()));
+        dobText.setText(String.valueOf(PatientController.typeCastedPatient.getDob()));
+        genderText.setText(PatientController.typeCastedPatient.getGender());
+        maritalText.setText(PatientController.typeCastedPatient.getMaritalStatus());
+        bloodGrpText.setText(PatientController.typeCastedPatient.getBloodGroup());
+        allergiesText.setText(PatientController.typeCastedPatient.getAllergies());
+
+
+        String[] addr = PatientController.typeCastedPatient.getAddress().split(",");
         addr1Text.setText(addr[0]);
         addr2Text.setText(addr[1]);
         addr3Text.setText(addr[2]);
 
-        String imagePath = PatientController.patientData[9];
-        Image proPic = new Image(imagePath);
-        profileCircle.setFill(new ImagePattern(proPic));
+       String imagePath = PatientController.typeCastedPatient.getProfilePath();
+       Image proPic = new Image(imagePath);
+       profileCircle.setFill(new ImagePattern(proPic));
 
     }
 
     private static void copyFile(File source, String dest) throws IOException {
-        try (InputStream is = new FileInputStream(source); OutputStream os = new FileOutputStream(dest)) {
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = is.read(buffer)) > 0) {
-                os.write(buffer, 0, length);
+        if (source != null) {
+
+            File destPath = new File(dest);
+            if(destPath.exists()){
+                if(destPath.delete()){
+                    System.out.println("deleted prev image");
+                }
             }
-        } catch (IOException exception) {
-            exception.printStackTrace();
+            try (InputStream is = new FileInputStream(source); OutputStream os = new FileOutputStream(dest)) {
+
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = is.read(buffer)) > 0) {
+                    os.write(buffer, 0, length);
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
         }
     }
-
-
 }

@@ -14,100 +14,77 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="mainAnchor" prefHeight="594.0" prefWidth="800.0" style="-fx-accent: transparent; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.LoginController">
-   <children>
-      <BorderPane fx:id="borderPaneLogin" prefHeight="594.0" prefWidth="1049.0" style="-fx-background-color: #d2e4ff; -fx-background-radius: 1em; -fx-border-radius: 1em;">
-         <left>
-            <Pane prefHeight="585.0" prefWidth="533.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label fx:id="lblName" alignment="CENTER" layoutX="101.0" layoutY="372.0" prefHeight="108.0" prefWidth="332.0" text="Welcome to HMS&#10;Healthcare&#10;" textAlignment="CENTER" textFill="#050629">
-                     <font>
-                        <Font name="System Bold" size="33.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="247.0" fitWidth="375.0" layoutX="79.0" layoutY="101.0">
-                     <image>
-                        <Image url="@../assets/images/loginImages/login_illustration.png" />
-                     </image></ImageView>
-                  <JFXTextField disable="true" editable="false" layoutX="230.0" layoutY="497.0" visible="false" />
-               </children>
-            </Pane>
-         </left>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-         <center>
-            <AnchorPane fx:id="roleSelectAnchor" prefHeight="569.0" prefWidth="494.0" style="-fx-background-color: white; -fx-background-radius: 25; -fx-border-radius: 25;" BorderPane.alignment="CENTER">
-               <children>
-                  <Label fx:id="roleSelectText" alignment="CENTER" layoutX="91.0" layoutY="37.0" prefHeight="53.0" prefWidth="273.0" text="You're a" textFill="#0b0634d6" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="91.0">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <JFXButton fx:id="Patient" alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="75.0" layoutY="158.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Patient" textFill="#1c0b61">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </JFXButton>
-
-                  <JFXButton fx:id="Receptionist" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="275.0" layoutY="161.0" onAction="#roleSelect" prefHeight="137.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Receptionist" textFill="#1c0b61">
-                 <JFXButton fx:id="Receptionist" buttonType="RAISED" layoutX="275.0" layoutY="161.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Receptionist" textFill="#1c0b61">
-
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </JFXButton>
-                  <JFXButton fx:id="Medical_Officer" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="75.0" layoutY="376.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Medical Officer" textFill="#1c0b61">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </JFXButton>
-                  <JFXButton fx:id="Admin" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="275.0" layoutY="376.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Admin" textFill="#1c0b61">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </JFXButton>
-                  <Button fx:id="btnEX" alignment="CENTER" layoutX="462.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeWindow" onMouseEntered="#closBtnColour" onMouseExited="#resetExBtn" prefHeight="18.0" prefWidth="18.0" style="-fx-background-radius: 25; -fx-background-color: grey; -fx-border-radius: 25;" text="X" textFill="#cdcdcd">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font></Button>
-                  <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="110.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/images/dashboard/icons8_doctor_male_96px_1.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="310.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/images/dashboard/icons8_technical_support_96px.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="305.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/images/loginImages/icons8_businessman_100px.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="110.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/images/dashboard/icons8_fever_100px_3.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-            </AnchorPane>
-         </center>
-      </BorderPane>
-   </children>
+    <children>
+        <BorderPane fx:id="borderPaneLogin" prefHeight="594.0" prefWidth="1049.0" style="-fx-background-color: #d2e4ff; -fx-background-radius: 1em; -fx-border-radius: 1em;">
+            <left>
+                <Pane prefHeight="585.0" prefWidth="533.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label fx:id="lblName" alignment="CENTER" layoutX="101.0" layoutY="372.0" prefHeight="108.0" prefWidth="332.0" text="Welcome to HMS&#10;Healthcare&#10;" textAlignment="CENTER" textFill="#050629">
+                            <font>
+                                <Font name="System Bold" size="33.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="247.0" fitWidth="375.0" layoutX="79.0" layoutY="101.0">
+                            <image>
+                                <Image url="@../assets/images/loginImages/login_illustration.png" />
+                            </image></ImageView>
+                        <JFXTextField disable="true" editable="false" layoutX="230.0" layoutY="497.0" visible="false" />
+                    </children>
+                </Pane>
+            </left>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <center>
+                <AnchorPane fx:id="roleSelectAnchor" prefHeight="569.0" prefWidth="494.0" style="-fx-background-color: white; -fx-background-radius: 25; -fx-border-radius: 25;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label fx:id="roleSelectText" alignment="CENTER" layoutX="91.0" layoutY="37.0" prefHeight="53.0" prefWidth="273.0" text="You're a" textFill="#0b0634d6" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="91.0">
+                            <font>
+                                <Font name="System Bold" size="31.0" />
+                            </font>
+                        </Label>
+                        <JFXButton fx:id="Patient" buttonType="RAISED" contentDisplay="CENTER" layoutX="50.0" layoutY="155.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Patient" textFill="#1c0b61">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </JFXButton>
+                        <JFXButton fx:id="Receptionist" alignment="CENTER" buttonType="RAISED" layoutX="275.0" layoutY="155.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Receptionist" textFill="#1c0b61">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </JFXButton>
+                        <JFXButton fx:id="Medical_Officer" buttonType="RAISED" layoutX="50.0" layoutY="343.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Medical Officer" textFill="#1c0b61">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </JFXButton>
+                        <JFXButton fx:id="Admin" buttonType="RAISED" layoutX="275.0" layoutY="343.0" onAction="#roleSelect" prefHeight="144.0" prefWidth="160.0" ripplerFill="#b6b1f0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-border-radius: 25;" text="Admin" textFill="#1c0b61">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </JFXButton>
+                        <Button fx:id="btnEX" alignment="BOTTOM_CENTER" layoutX="462.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeWindow" onMouseEntered="#closBtnColour" onMouseExited="#resetExBtn" prefHeight="18.0" prefWidth="18.0" style="-fx-background-radius: 25; -fx-background-color: grey; -fx-border-radius: 25; -fx-background-radius: 25;" text="X" textFill="#cdcdcd">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font></Button>
+                    </children>
+                    <BorderPane.margin>
+                        <Insets />
+                    </BorderPane.margin>
+                </AnchorPane>
+            </center>
+        </BorderPane>
+    </children>
 </AnchorPane>

@@ -17,8 +17,8 @@ public class UserValidation {
     // *************************** User Authentication Function  ************************** //
 
 
-    public static ArrayList<String> authCheck(String role, String username, String password) throws IOException {
-        ArrayList <String> returnData = new ArrayList<>();
+    public static Boolean authCheck(String role, String username, String password) throws IOException {
+        Boolean authenticated = false;
         try {
             FileReader fr2 = new FileReader("src/sample/fileDatabase/" + role + "DB.txt");
             BufferedReader br2 = new BufferedReader(fr2);
@@ -27,25 +27,18 @@ public class UserValidation {
                 String decryptedText = Crypto.decrypt(currentLine);
                 assert decryptedText != null;
                 String[] userData = decryptedText.split("~");
-
                 if ((userData[0].equals(username) && (userData[1]).equals(password))) {
-                    returnData.add(0,"1");
-                    returnData.add(1,decryptedText);
+                    authenticated = true;
                     break;
-                } else {
-                    returnData.add(0,"0");
                 }
             }
-
             br2.close();
             fr2.close();
-
-
 
         } catch (Exception exception){
             exception.printStackTrace();
         }
-        return returnData;
+        return authenticated;
     }
     // *************************** User Registration Function ************************ //
 }

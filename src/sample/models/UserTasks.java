@@ -31,17 +31,11 @@ public class UserTasks {
                 bw1.write(userObj.toString());
                 System.out.println("New " + userType + " created Successfully");
             } else {
-                int count =1;
-                for(int i=0;i<300000;i++){
-                    userObj.setPhoneNumber(count);
                     bw1.write("\n" + userObj.toString());
-                    count++;
-                }
             }
 
             bw1.close();
             fw1.close();
-
 
         }
     }
@@ -185,10 +179,9 @@ public class UserTasks {
     // edit user function
 
     public static void userEditFunction(String editorRole, String userType, User userObj, String oldUsername) throws IOException {
-        if ((editorRole.equals("Admin") || (editorRole.equals("Receptionist")))) {
+        if ((editorRole.equals("Admin") || (editorRole.equals("Receptionist") ||(editorRole.equals("Patient"))))) {
             String currentLine;
             File oldFile = new File("src/sample/fileDatabase/" + userType + "DB.txt");
-            ;
             File tempFile = new File("src/sample/fileDatabase/" + userType + "tempFile.txt");
 
             FileWriter fw = new FileWriter(tempFile, true);
@@ -202,9 +195,9 @@ public class UserTasks {
                 String decryptedText = Crypto.decrypt(currentLine);
                 assert decryptedText != null;
                 String[] userData = decryptedText.split("~");
-
                 if ((userData[0].equals(oldUsername))) {
                     pw.println(userObj.toString());
+                    System.out.println("found");
                 } else {
                     pw.println(currentLine);
 

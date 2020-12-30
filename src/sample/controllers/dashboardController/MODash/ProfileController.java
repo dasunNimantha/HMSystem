@@ -79,23 +79,23 @@ public class ProfileController {
 
     public void initialize(){
 
-        String imagePath = MOController.moData[12];
+        String imagePath = MOController.typeCastedMO.getProfilePath();
         Image proPic = new Image(imagePath);
         profileCircle.setFill(new ImagePattern(proPic));
 
-        nameLabel.setText(MOController.moData[5]);
-        usernameLbl.setText("#"+MOController.moData[0]);
-        nameText.setText(MOController.moData[5]);
-        usernameText.setText(MOController.moData[0]);
-        idNoText.setText(MOController.moData[6]);
-        phoneNoText.setText(MOController.moData[11]);
-        dobText.setText(MOController.moData[7]);
-        genderText.setText(MOController.moData[8]);
-        maritalText.setText(MOController.moData[9]);
-        staffId.setText(MOController.moData[2]);
-        staffEmail.setText(MOController.moData[4]);
+        nameLabel.setText(MOController.typeCastedMO.getName());
+        usernameLbl.setText("#"+MOController.typeCastedMO.getUserName());
+        nameText.setText(MOController.typeCastedMO.getName());
+        usernameText.setText(MOController.typeCastedMO.getUserName());
+        idNoText.setText(String.valueOf(MOController.typeCastedMO.getIdNumber()));
+        phoneNoText.setText(String.valueOf(MOController.typeCastedMO.getPhoneNumber()));
+        dobText.setText(String.valueOf(MOController.typeCastedMO.getIdNumber()));
+        genderText.setText(MOController.typeCastedMO.getGender());
+        maritalText.setText(MOController.typeCastedMO.getMaritalStatus());
+        staffId.setText(String.valueOf(ReceptionistController.typeCastedRecep.getStaffId()));
+        staffEmail.setText(MOController.typeCastedMO.getEmail());
 
-        String[] addr = MOController.moData[10].split(",");
+        String[] addr = MOController.typeCastedMO.getAddress().split(",");
         addr1Text.setText(addr[0]);
         addr2Text.setText(addr[1]);
         addr3Text.setText(addr[2]);

@@ -12,6 +12,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.models.MedicalOfficer;
+import sample.models.Patient;
+import sample.models.User;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -22,8 +25,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class MOController {
 
-    public static String loggedUserProfile;
-    public static String [] moData;
+    public static User loggedUserProfile;
+    public static MedicalOfficer typeCastedMO;
 
     @FXML
     private JFXButton recepBtn1;
@@ -122,7 +125,7 @@ public class MOController {
 
     public void initialize(){
 
-        moData = loggedUserProfile.split("~");
+        typeCastedMO = (MedicalOfficer) loggedUserProfile;
 
         Date dt = new Date();
         Calendar c = Calendar.getInstance();
@@ -130,18 +133,18 @@ public class MOController {
         int hours = c.get(Calendar.HOUR_OF_DAY);
 
         if(hours>=1 && hours<=12){
-            welcomeLabel.setText("Good Morning");
+            welcomeLabel.setText("Good Morning,");
         }else if(hours>=12 && hours<=16){
-            welcomeLabel.setText("Good Afternoon");
+            welcomeLabel.setText("Good Afternoon,");
         }else if(hours>=16 && hours<=21) {
-            welcomeLabel.setText("Good Evening");
+            welcomeLabel.setText("Good Evening,");
         }
 
-        String[] splitName = moData[3].split("\\s+");
-        if(moData[5].equals("Male")){
+        String[] splitName = typeCastedMO.getName().split("\\s+");
+        if(typeCastedMO.getGender().equals("Male")){
             nameLabel.setText("Mr."+splitName[0]);
         } else {
-            if(moData[6].equals("Married")){
+            if(typeCastedMO.getMaritalStatus().equals("Married")){
                 nameLabel.setText("Mrs."+splitName[0]);
             } else {
                 nameLabel.setText("Ms."+splitName[0]);

@@ -23,7 +23,7 @@
             <Font size="14.0" />
          </font>
       </JFXPasswordField>
-      <JFXButton fx:id="loginBtn" layoutX="187.0" layoutY="433.0" onAction="#sendAuth" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: orange; -fx-background-radius: 20;" text="Login">
+      <JFXButton fx:id="loginBtn" layoutX="188.0" layoutY="455.0" onAction="#sendAuth" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: orange; -fx-background-radius: 20;" text="Login">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -33,7 +33,7 @@
             <Image url="@../assets/images/loginImages/imgbin_computer-icons-avatar-user-login-png_LGzVdNb1.png" />
          </image>
       </ImageView>
-      <Label fx:id="invalidLabel" layoutX="142.0" layoutY="382.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="211.0" text="Invalid Username or Password" textFill="#ff1744" visible="false">
+      <Label fx:id="invalidLabel" layoutX="143.0" layoutY="406.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="211.0" text="Invalid Username or Password" textFill="#ff1744" visible="false">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

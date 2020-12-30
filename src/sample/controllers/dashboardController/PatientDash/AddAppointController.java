@@ -116,8 +116,8 @@ public class AddAppointController {
 
         appointment = new Appointment();
         appointment.setAppointmentStatus("Pending");
-        appointment.setPatientName(PatientController.patientData[2]);
-        appointment.setPatientUserName(PatientController.patientData[0]);
+        appointment.setPatientName(PatientController.typeCastedPatient.getName());
+        appointment.setPatientUserName(PatientController.typeCastedPatient.getUserName());
         appointment.setAppointedMedicalOfficer("Dr."+doctorSelectCombo.getValue().getName());
         appointment.setSymptoms(symptomText1.getText());
         appointment.setAppointedMoUsername(selectedDoctorUsername);
@@ -177,7 +177,7 @@ public class AddAppointController {
 
     @FXML
     void viewCreatedAppointment(ActionEvent event) throws IOException {
-        ArrayList<Appointment> returnedArray= Appointment.viewAppointment(false,"Patient",PatientController.patientData[0],appointment.getAppointmentNo(),null);
+        ArrayList<Appointment> returnedArray= Appointment.viewAppointment(false,"Patient",PatientController.typeCastedPatient.getUserName(),appointment.getAppointmentNo(),null);
         ViewAppointController.selectedAppointment = returnedArray.get(0);
         Parent step2 = FXMLLoader.load(getClass().getResource("../../../views/dashboard/patientDash/step2_ViewAppointment.fxml"));
         BorderPane subBorderPane = (BorderPane) successAnchor.getParent();

@@ -14,6 +14,9 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.controllers.dashboardController.PatientDash.AddAppointController;
+import sample.models.Patient;
+import sample.models.Receptionist;
+import sample.models.User;
 import sample.models.UserTasks;
 
 import java.io.IOException;
@@ -27,8 +30,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class ReceptionistController {
 
-    public static String loggedUserProfile;
-    static String [] receptionistData;
+    public static User loggedUserProfile;
+    public static Receptionist typeCastedRecep;
 
     @FXML
     private Label newAppo;
@@ -164,7 +167,8 @@ public class ReceptionistController {
 
     public void initialize() throws IOException {
 
-        receptionistData = loggedUserProfile.split("~");
+        typeCastedRecep = (Receptionist) loggedUserProfile;
+
         int [] counter = UserTasks.dataCounter("Receptionist");
         totPatient.setText(String.valueOf(counter[0]));
         newAppo.setText(String.valueOf(counter[1]));
@@ -175,18 +179,18 @@ public class ReceptionistController {
         int hours = c.get(Calendar.HOUR_OF_DAY);
 
         if(hours>=1 && hours<=12){
-           welcomeLbl.setText("Good Morning");
+           welcomeLbl.setText("Good Morning,");
         }else if(hours>=12 && hours<=16){
-            welcomeLbl.setText("Good Afternoon");
+            welcomeLbl.setText("Good Afternoon,");
         }else if(hours>=16 && hours<=21) {
-            welcomeLbl.setText("Good Evening");
+            welcomeLbl.setText("Good Evening,");
         }
 
-        String[] splitName = receptionistData[5].split("\\s+");
-        if(receptionistData[8].equals("Male")){
+        String[] splitName = typeCastedRecep.getName().split("\\s+");
+        if(typeCastedRecep.getGender().equals("Male")){
             nameLabel.setText("Mr."+splitName[0]);
         } else {
-            if(receptionistData[9].equals("Married")){
+            if(typeCastedRecep.getMaritalStatus().equals("Married")){
                 nameLabel.setText("Mrs."+splitName[0]);
             } else {
                 nameLabel.setText("Ms."+splitName[0]);

@@ -53,7 +53,7 @@ public class moAppointmentList {
     private Button viewAppointment;
 
     public void initialize() throws IOException {
-        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Medical_Officer",null,null,MOController.moData[0]);
+        ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true,"Medical_Officer",null,null,MOController.typeCastedMO.getUserName());
         ObservableList<Appointment> obsAppointments = FXCollections.observableArrayList();
         obsAppointments.addAll(appointmentArrayList);
 

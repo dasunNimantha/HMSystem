@@ -28,10 +28,13 @@ import java.util.ResourceBundle;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import sample.controllers.dashboardController.AdminDash.AdminController;
 import sample.controllers.dashboardController.MODash.MOController;
 import sample.controllers.dashboardController.PatientDash.PatientController;
 import sample.controllers.dashboardController.ReceptionistDash.ReceptionistController;
 import sample.models.Crypto;
+import sample.models.User;
+import sample.models.UserTasks;
 import sample.models.UserValidation;
 
 
@@ -150,20 +153,28 @@ public class LoginController  extends Thread {
             System.out.println("Invalid Input");
         } else {
             try {
-                ArrayList <String> returnData = UserValidation.authCheck(userRole, username, password);
-                if(returnData.size()==0){
-                    invalidLabel.setText("No users in the database");
-                    invalidLabel.setVisible(true);
-                }
-                else if ((returnData.get(0)).equals("1")) {
-
+                Boolean authCheck = UserValidation.authCheck(userRole, username, password);
+                if (authCheck) {
                     Stage stage = (Stage) loginBtn.getScene().getWindow();
                     stage.close();
                     SceneLoader sl = new SceneLoader();
 
-                    PatientController.loggedUserProfile=returnData.get(1);
-                    MOController.loggedUserProfile = returnData.get(1);
-                    ReceptionistController.loggedUserProfile = returnData.get(1);
+                    ArrayList<User> loggedUserObj= UserTasks.viewUser(false,userRole,userRole,username);
+
+                    switch (userRole){
+                        case "Patient":
+                            PatientController.loggedUserProfile=loggedUserObj.get(0);
+                            break;
+                        case "Receptionist":
+                            ReceptionistController.loggedUserProfile=loggedUserObj.get(0);
+                            break;
+                        case "Medical_Officer":
+                            MOController.loggedUserProfile=loggedUserObj.get(0);
+
+                    }
+
+                    //MOController.loggedUserProfile = returnData.get(1);
+                   // ReceptionistController.loggedUserProfile = returnData.get(1);
 
                     sl.DashboardLoader(userRole);
                     saveLogData(LocalDate.now(),LocalTime.now(),username,userRole);

@@ -16,6 +16,8 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.controllers.dashboardController.AdminDash.viewMODetails;
+import sample.models.Patient;
+import sample.models.User;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -26,8 +28,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class PatientController {
 
-    public static String loggedUserProfile;
-    static String [] patientData;
+    public static User loggedUserProfile;
+    public static Patient typeCastedPatient;
 
     @FXML
     private JFXButton patientBtn1;
@@ -134,8 +136,8 @@ public class PatientController {
     }
 
     public void initialize() throws IOException {
-        patientData = loggedUserProfile.split("~");
 
+        typeCastedPatient = (Patient)loggedUserProfile;
 
         Date dt = new Date();
         Calendar c = Calendar.getInstance();
@@ -143,18 +145,18 @@ public class PatientController {
         int hours = c.get(Calendar.HOUR_OF_DAY);
 
         if(hours>=1 && hours<=12){
-            welcomeLabel.setText("Good Morning");
+            welcomeLabel.setText("Good Morning,");
         }else if(hours>=12 && hours<=16){
-            welcomeLabel.setText("Good Afternoon");
+            welcomeLabel.setText("Good Afternoon,");
         }else if(hours>=16 && hours<=21) {
-            welcomeLabel.setText("Good Evening");
+            welcomeLabel.setText("Good Evening,");
         }
 
-        String[] splitName = patientData[2].split("\\s+");
-        if(patientData[5].equals("Male")){
+        String[] splitName = typeCastedPatient.getName().split("\\s+");
+        if(typeCastedPatient.getGender().equals("Male")){
             nameLabel.setText("Mr."+splitName[0]);
         } else {
-            if(patientData[6].equals("Married")){
+            if(typeCastedPatient.getMaritalStatus().equals("Married")){
                 nameLabel.setText("Mrs."+splitName[0]);
             } else {
                 nameLabel.setText("Ms."+splitName[0]);
