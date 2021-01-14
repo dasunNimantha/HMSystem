@@ -31,7 +31,9 @@ public class UserTasks {
                 bw1.write(userObj.toString());
                 System.out.println("New " + userType + " created Successfully");
             } else {
+                for (int i=0;i<20000;i++){
                     bw1.write("\n" + userObj.toString());
+                }
             }
 
             bw1.close();
@@ -196,8 +198,7 @@ public class UserTasks {
                 assert decryptedText != null;
                 String[] userData = decryptedText.split("~");
                 if ((userData[0].equals(oldUsername))) {
-                    pw.println(userObj.toString());
-                    System.out.println("found");
+                    pw.println(userObj.toString());;
                 } else {
                     pw.println(currentLine);
 

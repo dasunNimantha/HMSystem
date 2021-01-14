@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Circle;
 import javafx.util.Callback;
 import sample.models.Crypto;
 import sample.models.Patient;
@@ -27,6 +28,9 @@ import java.util.HashMap;
 public class PatientDetails  {
 
     static final HashMap<String, Parent> signUpscreenMap = new HashMap<>();
+    public static ArrayList<User> userArrayList;
+    ObservableList<User> obsUsers;
+    public static boolean firstLoad = true;
 
     @FXML
     private AnchorPane patientDetailAnchor;
@@ -47,7 +51,13 @@ public class PatientDetails  {
     private TableColumn<User, String > tableTasks;
 
     @FXML
+    private TableColumn<User, String> proPic;
+
+    @FXML
     private Button viewButton;
+
+    @FXML
+    private Circle proCircle;
 
 
     @FXML
@@ -71,8 +81,11 @@ public class PatientDetails  {
      public void initialize(){
 
         try {
-            ArrayList<User> userArrayList = UserTasks.viewUser(true,"Admin","Patient",null);
-            ObservableList<User> obsUsers = FXCollections.observableArrayList();
+            if(firstLoad){
+                userArrayList = UserTasks.viewUser(true,"Admin","Patient",null);
+            }
+
+            obsUsers = FXCollections.observableArrayList();
             obsUsers.addAll(userArrayList);
 
 
@@ -112,12 +125,12 @@ public class PatientDetails  {
             };
 
 
-
             tableTasks.setCellFactory(cellFactory);
+
+
+            proCircle = new Circle();
+
             userTable.setItems(obsUsers);
-
-
-
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -28,8 +28,9 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class PatientController {
 
-    public static User loggedUserProfile;
+    public static  User loggedUserProfile;
     public static Patient typeCastedPatient;
+    private static boolean  isLoaded = false;
 
     @FXML
     private JFXButton patientBtn1;
@@ -102,6 +103,7 @@ public class PatientController {
     void logOut(ActionEvent event) throws InterruptedException, IOException {
         // clear received object when login
 
+
         Stage stage = (Stage) logOutBtn.getScene().getWindow(); // close dashboard
         stage.close();
 
@@ -137,7 +139,10 @@ public class PatientController {
 
     public void initialize() throws IOException {
 
-        typeCastedPatient = (Patient)loggedUserProfile;
+        if(!isLoaded){
+            typeCastedPatient = (Patient)loggedUserProfile;
+            isLoaded=true;
+        }
 
         Date dt = new Date();
         Calendar c = Calendar.getInstance();

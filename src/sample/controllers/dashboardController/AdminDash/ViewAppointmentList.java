@@ -59,8 +59,9 @@ public class ViewAppointmentList {
 
     }
 
-    public void initialize() {
 
+
+    public void initialize() {
 
             ArrayList<Appointment> appointmentArrayList = Appointment.viewAppointment(true, "Admin", null, null, null);
             ObservableList<Appointment> obsAppointments = FXCollections.observableArrayList();

@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="appointmentAnchor" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.AppointmentList">
+<AnchorPane fx:id="appointmentAnchor" prefHeight="613.0" prefWidth="986.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.AppointmentList">
     <children>
-        <TableView fx:id="appointTable" layoutX="31.0" layoutY="28.0" prefHeight="479.0" prefWidth="887.0">
+        <TableView fx:id="appointTable" layoutX="16.0" layoutY="27.0" prefHeight="486.0" prefWidth="954.0" stylesheets="@../../../assets/styles/TableView.css">
             <columns>
                 <TableColumn fx:id="appointNumberCol" editable="false" prefWidth="204.79995155334473" text="Appointment Number" />
                 <TableColumn fx:id="doctorNameCol" editable="false" prefWidth="223.20001220703125" text="Doctor Name" />
                 <TableColumn fx:id="appointDateCol" editable="false" prefWidth="144.80001831054688" text="Date" />
                 <TableColumn fx:id="appointTimeCol" editable="false" minWidth="0.0" prefWidth="112.79998779296875" text="Time" />
-                <TableColumn fx:id="appointStatusCol" editable="false" prefWidth="112.0001220703125" text="Status" />
-            <TableColumn fx:id="appointViewCol" editable="false" prefWidth="86.39995117187505" text="View" />
+                <TableColumn fx:id="appointStatusCol" editable="false" prefWidth="132.800048828125" text="Status" />
+            <TableColumn fx:id="appointViewCol" editable="false" prefWidth="165.5999755859375" styleClass="viewBtn" text="View" />
             </columns>
         </TableView>
-        <JFXButton fx:id="AppointmentBtn" layoutX="772.0" layoutY="529.0" onAction="#addAppointment" prefHeight="40.0" prefWidth="145.0" style="-fx-background-color: #448AFF; -fx-background-radius: 5;" text="Make an Appointment" textFill="WHITE">
+        <JFXButton fx:id="AppointmentBtn" layoutX="821.0" layoutY="529.0" onAction="#addAppointment" prefHeight="40.0" prefWidth="145.0" style="-fx-background-color: #448AFF; -fx-background-radius: 5;" text="Make an Appointment" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>

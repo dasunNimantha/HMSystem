@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="addComplaintAnchor" focusTraversable="true" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F8F8F8; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.ProfileController">
+<AnchorPane fx:id="profileAnchor" focusTraversable="true" prefHeight="583.0" prefWidth="986.0" style="-fx-background-color: #F8F8F8; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.dashboardController.PatientDash.ProfileController">
    <children>
       <Label fx:id="nameLabel" layoutX="226.0" layoutY="49.0" prefHeight="68.0" prefWidth="362.0" text="Dasun Nimantha ">
          <font>
@@ -51,7 +52,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="idNoText" editable="false" layoutX="128.0" layoutY="157.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: transparent; -fx-background-color: white;" />
+            <TextField fx:id="idNoText" editable="false" layoutX="128.0" layoutY="157.0" prefHeight="27.0" prefWidth="138.0" style="-fx-border-color: transparent; -fx-background-color: white;" />
             <Label layoutX="22.0" layoutY="202.0" prefHeight="26.0" prefWidth="80.0" text="Phone No :">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -69,6 +70,11 @@
                   <Image url="@../../../assets/images/dashboard/icons8_registration_30px.png" />
                </image>
             </ImageView>
+            <TextField fx:id="idNoText1" alignment="CENTER" disable="true" editable="false" layoutX="273.0" layoutY="157.0" prefHeight="27.0" prefWidth="30.0" style="-fx-border-color: transparent; -fx-background-color: white;" text="V">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="611.0" layoutY="57.0" prefHeight="440.0" prefWidth="347.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.rightAnchor="27.799999999999955">
@@ -110,7 +116,7 @@
             <TextField fx:id="addr1Text" editable="false" layoutX="143.0" layoutY="76.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: transparent; -fx-background-color: white;" />
             <TextField fx:id="addr2Text" editable="false" layoutX="143.0" layoutY="121.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: transparent; -fx-background-color: white;" />
             <TextField fx:id="addr3Text" editable="false" layoutX="143.0" layoutY="166.0" prefHeight="27.0" prefWidth="113.0" style="-fx-border-color: transparent; -fx-background-color: white;" />
-            <ImageView fx:id="editImage1" layoutX="302.0" layoutY="31.0" visible="false">
+            <ImageView fx:id="editImage1" layoutX="302.0" layoutY="23.0" visible="false">
                <image>
                   <Image url="@../../../assets/images/dashboard/icons8_registration_30px.png" />
                </image>
@@ -123,6 +129,17 @@
          </font>
       </JFXButton>
       <JFXButton fx:id="changePassBtn" layoutX="792.0" layoutY="519.0" onAction="#changePass" prefHeight="42.0" prefWidth="167.0" style="-fx-background-color: #448AFF;" text="Change Password" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXSpinner fx:id="waitSpinner" layoutX="88.0" layoutY="84.0" visible="false" />
+      <JFXButton fx:id="saveBtn" layoutX="620.0" layoutY="519.0" onAction="#saveProEdit" prefHeight="42.0" prefWidth="138.0" style="-fx-background-color: #00E676;" text="Save" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="cancelEditBtn" layoutX="792.0" layoutY="519.0" onAction="#cancelEdit" prefHeight="42.0" prefWidth="167.0" style="-fx-background-color: #448AFF;" text="Cancel Edit" textFill="WHITE" visible="false">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

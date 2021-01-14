@@ -250,7 +250,7 @@ public class Appointment {
             String currentLine;
 
             File oldFile = new File("src/sample/fileDatabase/Appointments.txt");
-            ;
+
             File tempFile = new File("src/sample/fileDatabase/AppointTempFile.txt");
 
             FileWriter fw = new FileWriter(tempFile, true);

@@ -66,7 +66,6 @@ public class PatientSignUpStep2 extends PatientSignUpStep1 {
         patient.setGender(genderDropDown.getSelectionModel().getSelectedItem());
         patient.setMaritalStatus(maritalDropDown.getSelectionModel().getSelectedItem());
 
-
         BorderPane tempBorderPane = (BorderPane) signUp2Anchor.getParent();
         tempBorderPane.setCenter(PatientDetails.signUpscreenMap.get("step3"));
     }

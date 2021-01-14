@@ -83,7 +83,7 @@ public class MOSignUpStep3 extends MOSignUpStep1{
         medicalOfficer.setDateOfJoin(dateOfJoin.getValue());
         medicalOfficer.setStaffPhoto("Not Submitted");
         medicalOfficer.setSpeciality(specialityDropDown.getValue());
-        medicalOfficer.setProfilePath("sample/assets/images/loginImages/416-4161690_empty-profile-picture-blank-avatar-image-circle.png");
+        medicalOfficer.setProfilePath("ProfileImages\\default.png");
         // pass object to write to the patientDB.txt file
         System.out.println(medicalOfficer);
         UserTasks.createPatient("Admin","Medical_Officer",medicalOfficer);

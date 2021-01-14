@@ -147,6 +147,7 @@ public class AdminController implements Initializable {
         Stage stage = (Stage) mainAnchor.getScene().getWindow(); // close dashboard
         stage.close();
 
+
         HashMap<String,Parent> loginMap = new HashMap<>();
         AtomicReference<Double> xOffset = new AtomicReference<>((double) 0);
         AtomicReference<Double> yOffset = new AtomicReference<>((double) 0);

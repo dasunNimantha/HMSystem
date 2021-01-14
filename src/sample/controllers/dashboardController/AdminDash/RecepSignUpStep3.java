@@ -81,7 +81,7 @@ public class RecepSignUpStep3 extends RecepSignUpStep1 {
         receptionist.setDateOfJoin(dateOfJoin.getValue());
         receptionist.setStaffPhoto("Not Submitted");
 
-        receptionist.setProfilePath("sample/assets/images/loginImages/416-4161690_empty-profile-picture-blank-avatar-image-circle.png");
+        receptionist.setProfilePath("ProfileImages\\default.png");
         // pass object to write to the patientDB.txt file
         UserTasks.createPatient("Admin","Receptionist",receptionist);
 

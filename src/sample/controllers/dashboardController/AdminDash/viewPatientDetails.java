@@ -69,7 +69,6 @@ public class viewPatientDetails {
     @FXML
     private TextArea allergiesField;
 
-
     @FXML
     private Circle profileCircle;
 
@@ -212,6 +211,7 @@ public class viewPatientDetails {
     }
 
     public void initialize() {
+
         if(viewerRole.equals("Receptionist")){
             editBtn.setVisible(false);
             passwordText.setVisible(false);

@@ -126,6 +126,12 @@ public class ReceptionistController {
     }
 
     @FXML
+    void google(ActionEvent event) throws IOException {
+        Parent google = FXMLLoader.load(getClass().getResource("../../../views/dashboard/WebView.fxml"));
+        recepBorderPane.setCenter(google);
+    }
+
+    @FXML
     void logOut(ActionEvent event) throws IOException, InterruptedException {
         Stage stage = (Stage) mainAnchor.getScene().getWindow(); // close dashboard
         stage.close();

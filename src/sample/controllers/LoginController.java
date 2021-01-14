@@ -161,20 +161,12 @@ public class LoginController  extends Thread {
 
                     ArrayList<User> loggedUserObj= UserTasks.viewUser(false,userRole,userRole,username);
 
-                    switch (userRole){
-                        case "Patient":
-                            PatientController.loggedUserProfile=loggedUserObj.get(0);
-                            break;
-                        case "Receptionist":
-                            ReceptionistController.loggedUserProfile=loggedUserObj.get(0);
-                            break;
-                        case "Medical_Officer":
-                            MOController.loggedUserProfile=loggedUserObj.get(0);
-
+                    switch (userRole) {
+                        case "Patient" -> PatientController.loggedUserProfile = loggedUserObj.get(0);
+                        case "Receptionist" -> ReceptionistController.loggedUserProfile = loggedUserObj.get(0);
+                        case "Medical_Officer" -> MOController.loggedUserProfile = loggedUserObj.get(0);
                     }
 
-                    //MOController.loggedUserProfile = returnData.get(1);
-                   // ReceptionistController.loggedUserProfile = returnData.get(1);
 
                     sl.DashboardLoader(userRole);
                     saveLogData(LocalDate.now(),LocalTime.now(),username,userRole);

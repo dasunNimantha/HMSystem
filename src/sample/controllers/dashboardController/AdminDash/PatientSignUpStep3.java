@@ -65,7 +65,7 @@ public class PatientSignUpStep3 extends PatientSignUpStep1 {
             patient.setAllergies("No Allergies");
         }
 
-        patient.setProfilePath("sample/assets/images/loginImages/416-4161690_empty-profile-picture-blank-avatar-image-circle.png");
+        patient.setProfilePath("sample/assets/images/default.png");
         // pass object to write to the patientDB.txt file
         UserTasks.createPatient("Admin","Patient",patient);
 

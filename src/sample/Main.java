@@ -8,8 +8,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.models.Admin;
 import sample.models.Crypto;
 
+import javax.swing.text.Document;
 import java.util.HashMap;
 
 
@@ -45,10 +47,7 @@ public class Main extends Application {
         loginMap.put("roleSelect",root);
     }
 
-
-
     public static void main(String[] args) {
-
         launch(args);
     }
 

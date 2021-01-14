@@ -18,7 +18,7 @@ public class UserValidation {
 
 
     public static Boolean authCheck(String role, String username, String password) throws IOException {
-        Boolean authenticated = false;
+        boolean authenticated = false;
         try {
             FileReader fr2 = new FileReader("src/sample/fileDatabase/" + role + "DB.txt");
             BufferedReader br2 = new BufferedReader(fr2);
